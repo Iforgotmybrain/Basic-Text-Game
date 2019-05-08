@@ -5,6 +5,11 @@ def rollintro ():
     time.sleep(2)
     print ("But soon that changed, and the program began to develop")
 
+def startingroom ():
+    print("You are in a dimly-lit room, you see a light switch to your north")
+    time.sleep(2)
+
+
 
 rollintro()
 
@@ -32,3 +37,5 @@ elif playerclass in ['Lion', 'lion']:
     print("You have choose to be a Lion")
 elif playerclass in ['Dragon', 'dragon']:
     print("You have choose to be a Dragon")
+time.sleep(2)
+print("With that out of the way, let's get started")
