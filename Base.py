@@ -27,13 +27,16 @@ def hallway ():
 
 
 def bathroom ():
-    while True :
+    while True:
         print("You enter a bathroom, you see a trunk on the floor and the doorway you entered to your west")
         bathroom = input("What do you do?")
-         if bathroom in ["trunk", "Trunk", "Chest", "chest"]:
-          print("You open the trunk and find a mysterious silicone sculpture")
-         elif bathroom in ["west", "w", "West"]:
-           print("test")
+        if bathroom in ["trunk", "Trunk", "Chest", "chest"]:
+            print("You open the trunk and find a mysterious silicone sculpture")
+            time.sleep(5)
+        elif bathroom in ["west", "w", "West"]:
+            print("stuff")
+
+
 
 rollintro()
 
