@@ -5,9 +5,15 @@ def rollintro ():
     time.sleep(2)
     print ("But soon that changed, and the program began to develop")
 
-def startingroom ():
-    print("You are in a dimly-lit room, you see a light switch to your north")
-    time.sleep(2)
+def startingroomlightswitch ():
+    lightswitch = ""
+    while lightswitch != "yes" and lightswitch != "no":
+        lightswitch = input("Do you turn the switch? (yes or no) ")
+        if lightswitch == "yes":
+            print("Good")
+        elif lightswitch =="no":\
+            print("Not good")
+    return lightswitch
 
 
 
@@ -39,3 +45,8 @@ elif playerclass in ['Dragon', 'dragon']:
     print("You have choose to be a Dragon")
 time.sleep(2)
 print("With that out of the way, let's get started")
+time.sleep (2)
+print("You are in a dimly-lit room, you see a light switch to your north")
+time.sleep(3)
+
+startingroomlightswitch()
