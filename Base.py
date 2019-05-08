@@ -1,4 +1,4 @@
-#Text game
+# Text game
 import time
 def rollintro ():
     print("In the beginning, there was nothing but this line of text")
@@ -24,3 +24,11 @@ time.sleep(3)
 print("Your options are a Wolf, Fox, Lion, or Dragon")
 time.sleep(2)
 playerclass = input("Which do you choose?")
+if playerclass in ['Wolf', 'wolf']:
+    print("You have choose to be a Wolf")
+elif playerclass in ['Fox', 'fox']:
+    print("You have choose to be a Fox")
+elif playerclass in ['Lion', 'lion']:
+    print("You have choose to be a Lion")
+elif playerclass in ['Dragon', 'dragon']:
+    print("You have choose to be a Dragon")
