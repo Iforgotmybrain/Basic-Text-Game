@@ -22,8 +22,20 @@ def startingroomlightswitch ():
 def hallway ():
     print("You enter a hallway with a doorway to your north and a staircase to your south")
     hallway = input("Which direction do you go?")
-    if hallway in ["south"]:
-     print("you head down the stairs and enter the entrance way")
+    if hallway in ["south", "South", "s", "S"]:
+        entranceway()
+    elif hallway == in["north", "North", "n", "N"]:
+        bedroom()
+
+def bedroom ():
+    print("You enter what seems to be a bedroom")
+
+def entranceway ():
+    print("You head down the stairs and enter the entrance way")
+    print("You see a kitchen to your west, a living area to your east, and a front door to your north")
+    entrancewaydirection = input("Which way do you go?").lower()
+    if entrancewaydirection == "north"
+        #leads to front door
 
 
 def bathroom ():
@@ -34,8 +46,8 @@ def bathroom ():
             print("You open the trunk and find a mysterious silicone sculpture")
             time.sleep(5)
         elif bathroom in ["west", "w", "West"]:
-            print("stuff")
-
+            print("You return to the dim room, you see a doorway to your north and the bathroom to your east")
+            return startingroomlightswitch()
 
 
 rollintro()
