@@ -1,9 +1,12 @@
 # Text game
 import time
+
+
 def rollintro ():
     print("In the beginning, there was nothing but this line of text")
     time.sleep(2)
     print ("But soon that changed, and the program began to develop")
+
 
 def startingroomlightswitch ():
     lightswitch = ""
@@ -15,17 +18,21 @@ def startingroomlightswitch ():
            bathroom()
     return lightswitch
 
+
 def hallway ():
     print("You enter a hallway with a doorway to your north and a staircase to your south")
     hallway = input("Which direction do you go?")
     if hallway in ["south"]:
-     print("you head dow")
+     print("you head down the stairs and enter the entrance way")
+
 
 def bathroom ():
     print("You enter a bathroom, you see a trunk on the floor and the doorway you entered to your west")
     bathroom = input("What do you do?")
     if bathroom in ["trunk", "Trunk", "Chest", "chest"]:
         print("You open the trunk and find a mysterious silicone sculpture")
+    elif bathroom in ["west", "w", "West"]:
+
 
 
 rollintro()
