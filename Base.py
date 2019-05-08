@@ -7,14 +7,25 @@ def rollintro ():
 
 def startingroomlightswitch ():
     lightswitch = ""
-    while lightswitch != "yes" and lightswitch != "no":
-        lightswitch = input("Do you turn the switch? (yes or no) ")
-        if lightswitch == "yes":
-            print("Good")
-        elif lightswitch =="no":\
-            print("Not good")
+    while lightswitch != "north" and lightswitch != "east":
+        lightswitch = input("Which way do you go?")
+        if lightswitch == "north":
+            hallway()
+        elif lightswitch == "east":
+           bathroom()
     return lightswitch
 
+def hallway ():
+    print("You enter a hallway with a doorway to your north and a staircase to your south")
+    hallway = input("Which direction do you go?")
+    if hallway in ["south"]:
+     print("you head dow")
+
+def bathroom ():
+    print("You enter a bathroom, you see a trunk on the floor and the doorway you entered to your west")
+    bathroom = input("What do you do?")
+    if bathroom in ["trunk", "Trunk", "Chest", "chest"]:
+        print("You open the trunk and find a mysterious silicone sculpture")
 
 
 rollintro()
@@ -46,7 +57,6 @@ elif playerclass in ['Dragon', 'dragon']:
 time.sleep(2)
 print("With that out of the way, let's get started")
 time.sleep (2)
-print("You are in a dimly-lit room, you see a light switch to your north")
+print("You are in a dimly-lit room, you see a doorway to your north and to your east")
 time.sleep(3)
-
 startingroomlightswitch()
