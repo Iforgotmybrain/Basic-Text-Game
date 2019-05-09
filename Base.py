@@ -1,6 +1,8 @@
 # Text game
 import time
 
+# Room functions. The bulk of the game
+
 
 def rollintro ():
     print("In the beginning, there was nothing but this line of text")
@@ -24,18 +26,26 @@ def hallway ():
     hallway = input("Which direction do you go?")
     if hallway in ["south", "South", "s", "S"]:
         entranceway()
-    elif hallway == in["north", "North", "n", "N"]:
+    elif hallway in ["north", "North", "n", "N"]:
         bedroom()
 
+
 def bedroom ():
-    print("You enter what seems to be a bedroom")
+    print("You enter what seems to be a bedroom, you see the typically items you'd expect to see in a bedroom")
+    time.sleep(4)
+    print("Too your west you see a German Shepard sitting at a desk, to your south you see the doorway to the hallway")
+    bedroomoption = input("What do you do?").lower()
+    if bedroomoption == "talk":
+        print("You approach the German Shepard and exchange greetings.")
+        print("")
+
 
 def entranceway ():
     print("You head down the stairs and enter the entrance way")
     print("You see a kitchen to your west, a living area to your east, and a front door to your north")
     entrancewaydirection = input("Which way do you go?").lower()
-    if entrancewaydirection == "north"
-        #leads to front door
+    if entrancewaydirection == "north":
+        print("Placeholder text")
 
 
 def bathroom ():
@@ -49,6 +59,7 @@ def bathroom ():
             print("You return to the dim room, you see a doorway to your north and the bathroom to your east")
             return startingroomlightswitch()
 
+# Starts the game and gets info such as name and class the player picks
 
 rollintro()
 
@@ -66,7 +77,7 @@ time.sleep(3)
 print("But first, you must create your character")
 time.sleep(3)
 print("Your options are a Wolf, Fox, Lion, or Dragon")
-time.sleep(2)
+time.sleep(3)
 playerclass = input("Which do you choose?")
 if playerclass in ['Wolf', 'wolf']:
     print("You have choose to be a Wolf")
@@ -78,7 +89,7 @@ elif playerclass in ['Dragon', 'dragon']:
     print("You have choose to be a Dragon")
 time.sleep(2)
 print("With that out of the way, let's get started")
-time.sleep (2)
+time.sleep (5)
 print("You are in a dimly-lit room, you see a doorway to your north and to your east")
-time.sleep(3)
+time.sleep(5)
 startingroomlightswitch()
