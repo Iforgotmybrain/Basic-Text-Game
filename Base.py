@@ -31,24 +31,35 @@ def hallway ():
     elif hallway in ["north", "North", "n", "N"]:
         bedroom()
 
+def bedroom():
+    while True:
+        print("You enter what seems to be a bedroom, you see the typically items you'd expect to see in a bedroom")
+        print("To your west you see a German Shepard sitting at a desk, to the south you see the doorway to the hallway")
+        bedroomoption = input("What do you do?").lower()
+        if bedroomoption == "talk":
+            sashabedroomdialouge()
+         elif bedroomoption == "south" or "s":
+            hallway()
 
-def bedroom ():
-    print("You enter what seems to be a bedroom, you see the typically items you'd expect to see in a bedroom")
-    time.sleep(4)
-    print("To your west you see a German Shepard sitting at a desk, to your south you see the doorway to the hallway")
-    bedroomoption = input("What do you do?").lower()
-    if bedroomoption == "talk":
-        print("You approach the German Shepard and exchange greetings.")
-        time.sleep(3)
-        print("The German Shepard is your roommate, Sasha. She's a trustworthy sort. But a bit absent-minded at times")
-        time.sleep(3)
-        print("You’re alive! You’d been locked up in your room for so long \
-        I thought you either died or got transported to another universe.")
-        time.sleep(3)
-        print("I’ve kept on top of all your chores, you’re gonna owe me for the weeks’ time you decided to disappear.\
-        I was thinking you could take of my work for 2 or so weeks.")
-        time.sleep(3)
 
+def sashabedroomdialog():
+    print("You approach the German Shepard and exchange greetings.")
+    time.sleep(5)
+    print("The German Shepard is your roommate, Sasha. She's a trustworthy sort. But a bit absent-minded at times")
+    time.sleep(10)
+    print("""You’re alive! You’d been locked up in your room for so long
+        I figured you either died or got transported to another universe.""")
+    time.sleep(10)
+    print("""I’ve kept on top of all your chores, you’re gonna owe me for the weeks’ time you decided to disappear.
+    I was thinking you could take of my work for 2 or so weeks.""")
+
+def sashabedroom():
+    print("You see Sasha, your roommate in the bedroom, and the doorway to the hallway to your south")
+    direction = input("What do you wish to do?").lower()
+    if direction == "south" or "s":
+        hallway()
+    elif direction == "talk" or "t":
+        sashabedroomdialog()
 
 def entranceway ():
     print("You head down the stairs and enter the entrance way")
