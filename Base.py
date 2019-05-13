@@ -22,6 +22,17 @@ def startingroomlightswitch ():
            bathroom()
     return lightswitch
 
+def bathroom ():
+    while True:
+        print("You enter a bathroom, you see a trunk on the floor and the doorway you entered to your west")
+        bathroom = input("What do you do?")
+        if bathroom in ["trunk", "Trunk", "Chest", "chest"]:
+            print("You open the trunk and find a mysterious silicone sculpture")
+            time.sleep(5)
+        elif bathroom in ["west", "w", "West"]:
+            print("You return to the dim room, you see a doorway to your north and the bathroom to your east")
+            return startingroomlightswitch()
+
 
 def hallway ():
     print("You enter a hallway with a doorway to your north and a staircase to your south")
@@ -49,25 +60,12 @@ def bedroom ():
         I was thinking you could take of my work for 2 or so weeks.")
         time.sleep(3)
 
-
 def entranceway ():
     print("You head down the stairs and enter the entrance way")
     print("You see a kitchen to your west, a living area to your east, and a front door to your north")
     entrancewaydirection = input("Which way do you go?").lower()
     if entrancewaydirection == "north":
         print("Placeholder text")
-
-
-def bathroom ():
-    while True:
-        print("You enter a bathroom, you see a trunk on the floor and the doorway you entered to your west")
-        bathroom = input("What do you do?")
-        if bathroom in ["trunk", "Trunk", "Chest", "chest"]:
-            print("You open the trunk and find a mysterious silicone sculpture")
-            time.sleep(5)
-        elif bathroom in ["west", "w", "West"]:
-            print("You return to the dim room, you see a doorway to your north and the bathroom to your east")
-            return startingroomlightswitch()
 
 # Starts the game and gets info such as name and class the player picks
 
