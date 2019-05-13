@@ -7,9 +7,8 @@ import time
 # Room functions. This is the bulk of the game. Not sure if this is the best way to program this type of game
 # But this seems to be the organized way, and the easiest way to edit things if needed.
 
-class Player
-    def __init__(self, race, name):
-
+#class Player:
+    #def __init__(self, race, name):
 
 
 def rollintro ():
@@ -43,14 +42,17 @@ def bathroom():
 
 def hallway():
     print("You enter a hallway with a doorway to your north and a staircase to your south")
-    hallway = input("Which direction do you go? ")
-    if hallway in ["south", "South", "s", "S"]:
+    hallway = input("Which direction do you go? ").lower()
+    if hallway in ["south", "s"]:
         entranceway()
-    elif hallway in ["north", "North", "n", "N"]:
+    elif hallway in ["north", "n"]:
         if sasha_encounter.sashatalked == False:
             sasha_encounter.bedroom()
         elif sasha_encounter.sashatalked == True:
             sasha_encounter.sashabedroom()
+        else:
+            print("Invalid input")
+            return hallway
 
 
 class SashaEncounter:
@@ -64,8 +66,11 @@ class SashaEncounter:
             bedroomoption = input("What do you do? ").lower()
             if bedroomoption == "talk":
                 self.sashabedroomdialog()
-            elif bedroomoption == "south" or "s":
+            elif bedroomoption in ["south", "s"]:
                 hallway()
+            else:
+                print("Invalid input")
+                return self.bedroom()
 
     def sashabedroomdialog(self):
         if self.sashatalked == False:
@@ -97,25 +102,47 @@ class SashaEncounter:
     def sashabedroom(self):
         print("You see Sasha, your roommate, and the doorway to the hallway to your south")
         direction = input("What do you wish to do? ")
-        if direction == "south":
+        if direction in ["south", "s"]:
             hallway()
         elif direction == "talk":
             self.sashabedroomdialog()
+        else:
+            print("Invalid input")
+            return self.sashabedroom
 
 
 def entranceway ():
-    print("You head down the stairs and enter the entrance way")
-    print("You see a kitchen to your west, a living area to your east, and a front door to your north")
-    entrancewaydirection = input("Which way do you go? ").lower()
-    if entrancewaydirection == "north":
-        print("Placeholder text")
-        hallway()
+    while True:
+        print("You head down the stairs and enter the entrance way")
+        time.sleep(2)
+        print("You see a kitchen to your west, a living area to your east, and the stairs to your north")
+        entrancewaydirection = input("Which way do you go? ").lower()
+        if entrancewaydirection in ["north", "n"]:
+            hallway()
+        elif entrancewaydirection in ["west", "w"]:
+            jacob_kitchen.startingkitchen()
+            break
+        elif entrancewaydirection in ["east", "e"]:
+            print("Area is a work in progress")
+        else:
+            print("Invalid input")
+
+
+class JacobKitchen:
+    def __init__(self):
+        Jacobtalked = False
+
+    def startingkitchen(selfs):
+        print("You enter a kitchen, there's a various kitchen appliances and a table and chairs over to the right. You see a Deer to the west. ")
+        kitchendirection = input("What do you do? ")
+
+
 
 # Starts the game and gets info such as name and class the player picks
 
-
 sasha_encounter = SashaEncounter()  # Global instance of class SashaEncounter,very useful.
 
+jacob_kitchen = JacobKitchen()  # Global instance of JacobKitchen
 
 rollintro()
 
