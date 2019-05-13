@@ -4,20 +4,24 @@
 
 import time
 
-# Room functions. This bulk of the game. Not sure if this is the best way to program this type of game
+# Room functions. This is the bulk of the game. Not sure if this is the best way to program this type of game
 # But this seems to be the organized way, and the easiest way to edit things if needed.
+
+class Player
+    def __init__(self, race, name):
+
 
 
 def rollintro ():
     print("In the beginning, there was nothing but this line of text")
     time.sleep(2)
-    print("But soon that changed, and the program began to develop")
+    print("But soon that changed, and this game began to develop")
 
 
 def startingroomlightswitch ():
     lightswitch = ""
     while lightswitch != "north" and lightswitch != "east":
-        lightswitch = input("Which way do you go?")
+        lightswitch = input("Which way do you go? ")
         if lightswitch == "north":
             hallway()
         elif lightswitch == "east":
@@ -28,8 +32,8 @@ def startingroomlightswitch ():
 def bathroom():
     while True:
         print("You enter a bathroom, you see a trunk on the floor and the doorway you entered to your west")
-        bathroom = input("What do you do?")  # Maybe change this vars name
-        if bathroom in ["trunk", "Trunk", "Chest", "chest"]:
+        bathroom = input("What do you do? ")  # Maybe change this vars name
+        if bathroom in ["trunk", "Trunk", "Chest", "chest"]: # Prevent user from opening this more than once
             print("You open the trunk and find a mysterious silicone sculpture")
             time.sleep(5)
         elif bathroom in ["west", "w", "West"]:
@@ -39,7 +43,7 @@ def bathroom():
 
 def hallway():
     print("You enter a hallway with a doorway to your north and a staircase to your south")
-    hallway = input("Which direction do you go?")
+    hallway = input("Which direction do you go? ")
     if hallway in ["south", "South", "s", "S"]:
         entranceway()
     elif hallway in ["north", "North", "n", "N"]:
@@ -55,9 +59,9 @@ class SashaEncounter:
 
     def bedroom(self):
         while True:
-            print("You enter what seems to be a bedroom, you see the typically items you'd expect to see in a bedroom")
+            print("You enter what seems to be a bedroom, you see the typically items you'd expect to see in a bedroom") # Change wording
             print("To your west you see a German Shepard sitting at a desk, to the south you see the doorway to the hallway")
-            bedroomoption = input("What do you do?").lower()
+            bedroomoption = input("What do you do? ").lower()
             if bedroomoption == "talk":
                 self.sashabedroomdialog()
             elif bedroomoption == "south" or "s":
@@ -69,30 +73,30 @@ class SashaEncounter:
             time.sleep(5)
             print("The German Shepard is your roommate, Sasha. She's a trustworthy sort. But a bit absent-minded at times")
             time.sleep(10)
-            print("""You’re alive! You’d been locked up in your room for so long I figured you either died or got transported to another universe.""")
+            print(""" "You’re alive! You’d been locked up in your room for so long I figured you either died or got transported to another universe." """)
             time.sleep(10)
-            print("""I’ve kept on top of all your chores, you’re gonna owe me for the weeks’ time you decided to disappear. I was thinking you could take of my work for 2 or so weeks.""")
+            print(""" "I’ve kept on top of all your chores, you’re gonna owe me for the weeks’ time you decided to disappear. I was thinking you could take of my work for 2 or so weeks" """)
             self.sashatalked = True
             self.sashabedroom()
         elif self.sashatalked == True:
-            print("""You know, I actually had a roommate in college once that didn't leave the room for 2 weeks""")
+            print(""" "You know, I actually had a roommate in college once that didn't leave our dorm for 2 weeks" """)
             time.sleep(10)
-            print("""She was in a pretty bad place mentally, and ended up dropping all her classes and leaving college.""")
+            print(""" "She was in a pretty bad place mentally, and ended up dropping all her classes and leaving college." """)
             time.sleep(10)
-            print("""It's unbelievably depressing watching someone you know fall apart from mental illness.""")
+            print(""" "It's unbelievably depressing watching someone you know fall apart from mental illness." """)
             time.sleep(5)
-            print("""Makes me think of how I simply dismissed your disappearance as nothing to worry about. Who knows what could have happened to you!""")
+            print(""" "Makes me think of how I simply dismissed your disappearance as nothing to worry about. Who knows what could have happened to you!" """)
             time.sleep(10)
-            print("""Anyway, your fine now and that's all that matters. You might want to check in with Jacob, he was gone for half the week so he wasn't entirely sure how long you locked yourself up for""")
+            print(""" "Anyway, your fine now and that's all that matters. You might want to check in with Jacob, he was gone for half the week so he wasn't entirely sure how long you locked yourself up for" """)
             time.sleep(10)
-            print("""He should be somewhere downstairs.""")
+            print(""" "He should be somewhere downstairs." """)
             time.sleep(5)
             print("You exit Sasha's room and enter the hallway")
             hallway()
 
     def sashabedroom(self):
         print("You see Sasha, your roommate, and the doorway to the hallway to your south")
-        direction = input("What do you wish to do?")
+        direction = input("What do you wish to do? ")
         if direction == "south":
             hallway()
         elif direction == "talk":
@@ -102,9 +106,10 @@ class SashaEncounter:
 def entranceway ():
     print("You head down the stairs and enter the entrance way")
     print("You see a kitchen to your west, a living area to your east, and a front door to your north")
-    entrancewaydirection = input("Which way do you go?").lower()
+    entrancewaydirection = input("Which way do you go? ").lower()
     if entrancewaydirection == "north":
         print("Placeholder text")
+        hallway()
 
 # Starts the game and gets info such as name and class the player picks
 
@@ -114,7 +119,7 @@ sasha_encounter = SashaEncounter()  # Global instance of class SashaEncounter,ve
 
 rollintro()
 
-playername = input("What is your name? >")
+playername = input("What is your name? > ")
 
 print("Hello {}" .format(playername))
 time.sleep(3)
@@ -129,7 +134,7 @@ print("But first, you must create your character")
 time.sleep(3)
 print("Your options are a Wolf, Fox, Lion, or Dragon")
 time.sleep(3)
-playerclass = input("Which do you choose?")
+playerclass = input("Which do you choose? ")
 if playerclass in ['Wolf', 'wolf']:
     print("You have choose to be a Wolf")
 elif playerclass in ['Fox', 'fox']:
