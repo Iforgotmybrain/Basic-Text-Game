@@ -4,8 +4,8 @@ Text game To-do list
 * Change bathroom input variable
 * Make it so users cannot open the bathroom trunk more than once
 * Make it so quotes work when pritning in console (Completed)
-* Implement the downstairs of starting area
-* Implement class system for player
-* Make it so user cannot type in garbage values
-* Improve input and variables throughout (E.g more options like single words "n")
+* Implement the downstairs of starting area (Currently being worked on)
+* Implement class system for player (Seems to be completed. This was a huge one)
+* Make it so user cannot type in garbage values (Still working on this for the player character inputs)
+* Improve input and variables throughout (E.g more options like single words "n") (I think I fixed this?)
 * Change direction to Sasha's bedroom from north as it seems confusing 
