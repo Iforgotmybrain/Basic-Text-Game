@@ -7,8 +7,12 @@ import time
 # Room functions. This is the bulk of the game. Not sure if this is the best way to program this type of game
 # But this seems to be the organized way, and the easiest way to edit things if needed.
 
-#class Player:
-    #def __init__(self, race, name):
+
+class Player:
+    def __init__(self):
+        self.race = playerrace
+        self.name = playername
+        self.sex = playersex
 
 
 def rollintro ():
@@ -32,7 +36,7 @@ def bathroom():
     while True:
         print("You enter a bathroom, you see a trunk on the floor and the doorway you entered to your west")
         bathroom = input("What do you do? ")  # Maybe change this vars name
-        if bathroom in ["trunk", "Trunk", "Chest", "chest"]: # Prevent user from opening this more than once
+        if bathroom in ["trunk", "Trunk", "Chest", "chest"]:  # Prevent user from opening this more than once
             print("You open the trunk and find a mysterious silicone sculpture")
             time.sleep(5)
         elif bathroom in ["west", "w", "West"]:
@@ -137,7 +141,6 @@ class JacobKitchen:
         kitchendirection = input("What do you do? ")
 
 
-
 # Starts the game and gets info such as name and class the player picks
 
 sasha_encounter = SashaEncounter()  # Global instance of class SashaEncounter,very useful.
@@ -157,19 +160,31 @@ time.sleep(3)
 print("I'm sure it will be a perfectly coded, well wrote, masterpiece")
 time.sleep(3)
 
-print("But first, you must create your character")
+
+print("But first, we'll create your character")
 time.sleep(3)
-print("Your options are a Wolf, Fox, Lion, or Dragon")
+playersex = input("Do you want to be male or female? ").lower()
+if playersex in ["male"]:
+    print("You have choose to be male.")
+elif playersex in ["female"]:
+    print("You have choose to be female.")
+else:
+    print("Please choose either male or female. ")
+
+print("Now, let's pick your race")
+time.sleep(2)
+print("Your race options are: Wolf, Fox, Lion, or Dragon")
 time.sleep(3)
-playerclass = input("Which do you choose? ")
-if playerclass in ['Wolf', 'wolf']:
+playerrace = input("Which do you choose? ")
+if playerrace in ['Wolf', 'wolf']:
     print("You have choose to be a Wolf")
-elif playerclass in ['Fox', 'fox']:
+elif playerrace in ['Fox', 'fox']:
     print("You have choose to be a Fox")
-elif playerclass in ['Lion', 'lion']:
+elif playerrace in ['Lion', 'lion']:
     print("You have choose to be a Lion")
-elif playerclass in ['Dragon', 'dragon']:
+elif playerrace in ['Dragon', 'dragon']:
     print("You have choose to be a Dragon")
+
 time.sleep(2)
 print("With that out of the way, let's get started")
 time.sleep (5)
