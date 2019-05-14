@@ -21,7 +21,6 @@ class PlayerCharacter(PlayerStats):
                           race=input("Which race do you want to play as? Wolf, Lion, Fox or Dragon? (This is simply for role playing)"))
 
 
-
 def startingroomlightswitch ():
     lightswitch = ""
     while lightswitch != "north" and lightswitch != "east":
@@ -148,7 +147,7 @@ class JacobKitchen:
         kitchendirection = input("What do you do? ")
         if kitchendirection in ["west", "w"]:  # Change this to talk
             print("The Deer is your roommate, Jacob. You give him a pat on the shoulder and strike up a conversation")
-            print("Hey", player_info.name, "hows it going?")
+            print('"Hey"', player_info.name,'"Where have you been these last few days? I haven’t seen you since I left for vacation last week. I got back about 3 days ago and just figured you were taking a short trip to somewhere."')
 
 
 # Starts the game and gets info such as name and class the player picks
