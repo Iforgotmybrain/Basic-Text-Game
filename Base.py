@@ -8,17 +8,18 @@ import time
 # But this seems to be the organized way, and the easiest way to edit things if needed.
 
 
-class Player:
+class PlayerStats:
+    def __init__(self, race, sex, name):
+        self.name = name
+        self.sex = sex
+        self.race = race
+
+
+class PlayerCharacter(PlayerStats):
     def __init__(self):
-        self.race = playerrace
-        self.name = playername
-        self.sex = playersex
+        super(). __init__(name=input("What is your name?"), sex=input("Do you wish to play as male or female?"),
+                          race=input("Which race do you want to play as? Wolf, Lion, Fox or Dragon? (This is simply for role playing)"))
 
-
-def rollintro ():
-    print("In the beginning, there was nothing but this line of text")
-    time.sleep(2)
-    print("But soon that changed, and this game began to develop")
 
 
 def startingroomlightswitch ():
@@ -30,6 +31,12 @@ def startingroomlightswitch ():
         elif lightswitch == "east":
             bathroom()
     return lightswitch
+
+
+def rollintro ():
+    print("In the beginning, there was nothing but this line of text")
+    time.sleep(2)
+    print("But soon that changed, and this game began to develop")
 
 
 def bathroom():
@@ -134,14 +141,14 @@ def entranceway ():
 
 class JacobKitchen:
     def __init__(self):
-        Jacobtalked = False
+        jacobtalked = False
 
     def startingkitchen(selfs):
         print("You enter a kitchen, there's a various kitchen appliances and a table and chairs over to the right. You see a Deer to the west. ")
         kitchendirection = input("What do you do? ")
-        if kitchendirection in ["west", "w"]:
+        if kitchendirection in ["west", "w"]:  # Change this to talk
             print("The Deer is your roommate, Jacob. You give him a pat on the shoulder and strike up a conversation")
- print("Hey {}" .format(player_info.playername), """ "Where have you been these last few days? I haven’t seen you since I left for vacation last week. I got back about 3 days ago and you’ve appeared missing since" """)
+            print("Hey", player_info.name, "hows it going?")
 
 
 # Starts the game and gets info such as name and class the player picks
@@ -150,49 +157,27 @@ sasha_encounter = SashaEncounter()  # Global instance of class SashaEncounter,ve
 
 jacob_kitchen = JacobKitchen()  # Global instance of JacobKitchen
 
-player_info = Player()
+player_info = PlayerCharacter()  # Provides info for the player character
 
-rollintro()
-
-playername = input("What is your name? > ")
-
-print("Hello {}" .format(playername))
+print("Hello", player_info.name)
 time.sleep(3)
 print("You are about to embark on a hastily made journey involving animal people")
 time.sleep(3)
 print("I'm not sure of the details quite yet, since I'm basically writing this as I go.")
 time.sleep(3)
 print("I'm sure it will be a perfectly coded, well wrote, masterpiece")
-time.sleep(3)
-
-
-print("But first, we'll create your character")
-time.sleep(3)
-playersex = input("Do you want to be male or female? ").lower()
-if playersex in ["male"]:
-    print("You have choose to be male.")
-elif playersex in ["female"]:
-    print("You have choose to be female.")
-else:
-    print("Please choose either male or female. ")
-
-print("Now, let's pick your race")
 time.sleep(2)
-print("Your race options are: Wolf, Fox, Lion, or Dragon")
-time.sleep(3)
-playerrace = input("Which do you choose? ")
-if playerrace in ['Wolf', 'wolf']:
-    print("You have choose to be a Wolf")
-elif playerrace in ['Fox', 'fox']:
-    print("You have choose to be a Fox")
-elif playerrace in ['Lion', 'lion']:
-    print("You have choose to be a Lion")
-elif playerrace in ['Dragon', 'dragon']:
-    print("You have choose to be a Dragon")
-
+print("First, let's go over your character choices you made.")
 time.sleep(2)
+print("Your name is", player_info.name, "you're a", player_info.sex, "and your race is a", player_info.race)
+time.sleep(2)
+print("If you are okay with those options, then we're good. If not you'll want to restart and select the options you want.")
+time.sleep(5)
+print("If you input garbage or invalid options at sex, or input a race that wasn't a lion, wolf, fox, or dragon, events in the story might end up not working. So keep that in mind.")
+time.sleep(4)
+input("If you understand this and are happy with your name, race, and sex, hit enter to continue")
 print("With that out of the way, let's get started")
-time.sleep (5)
+time.sleep(5)
 print("You are in a dimly-lit room, you see a doorway to your north and to your east")
 time.sleep(5)
 startingroomlightswitch()

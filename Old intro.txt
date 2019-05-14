@@ -1,0 +1,44 @@
+playername = input("What is your name? > ")
+
+print("Hello {}" .format(playername))
+time.sleep(3)
+print("You are about to embark on a hastily made journey involving animal people")
+time.sleep(3)
+print("I'm not sure of the details quite yet, since I'm basically writing this as I go.")
+time.sleep(3)
+print("I'm sure it will be a perfectly coded, well wrote, masterpiece")
+time.sleep(3)
+
+
+print("But first, we'll create your character")
+time.sleep(3)
+
+playersex = input("Do you want to be male or female? ").lower()
+if playersex in ["male"]:
+    print("You have choose to be male.")
+elif playersex in ["female"]:
+    print("You have choose to be female.")
+else:
+    print("Please choose either male or female. ")
+
+print("Now, let's pick your race")
+time.sleep(2)
+print("Your race options are: Wolf, Fox, Lion, or Dragon")
+time.sleep(3)
+
+playerrace = input("Which do you choose? ")
+if playerrace in ['Wolf', 'wolf']:
+    print("You have choose to be a Wolf")
+elif playerrace in ['Fox', 'fox']:
+    print("You have choose to be a Fox")
+elif playerrace in ['Lion', 'lion']:
+    print("You have choose to be a Lion")
+elif playerrace in ['Dragon', 'dragon']:
+    print("You have choose to be a Dragon")
+
+time.sleep(2)
+print("With that out of the way, let's get started")
+time.sleep (5)
+print("You are in a dimly-lit room, you see a doorway to your north and to your east")
+time.sleep(5)
+startingroomlightswitch()
