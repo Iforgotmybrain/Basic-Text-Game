@@ -139,6 +139,9 @@ class JacobKitchen:
     def startingkitchen(selfs):
         print("You enter a kitchen, there's a various kitchen appliances and a table and chairs over to the right. You see a Deer to the west. ")
         kitchendirection = input("What do you do? ")
+        if kitchendirection in ["west", "w"]:
+            print("The Deer is your roommate, Jacob. You give him a pat on the shoulder and strike up a conversation")
+ print("Hey {}" .format(player_info.playername), """ "Where have you been these last few days? I haven’t seen you since I left for vacation last week. I got back about 3 days ago and you’ve appeared missing since" """)
 
 
 # Starts the game and gets info such as name and class the player picks
@@ -146,6 +149,8 @@ class JacobKitchen:
 sasha_encounter = SashaEncounter()  # Global instance of class SashaEncounter,very useful.
 
 jacob_kitchen = JacobKitchen()  # Global instance of JacobKitchen
+
+player_info = Player()
 
 rollintro()
 
