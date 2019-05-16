@@ -21,7 +21,6 @@ class PlayerCharacter(PlayerStats):
                           race=input("Which race do you want to play as? Wolf, Lion, Fox or Dragon? (This is simply for role playing)"))
 
 
-
 def startingroomlightswitch ():
     lightswitch = ""
     while lightswitch != "north" and lightswitch != "east":
@@ -176,7 +175,6 @@ class JacobKitchen:
         else:
             print("Invalid input")
             return self.startingkitchen()
-
 
 # Starts the game and gets info such as name and class the player picks
 
