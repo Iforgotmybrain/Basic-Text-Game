@@ -17,7 +17,7 @@ class PlayerStats:
         self.race = race
 
 
-class PlayerCharacter(PlayerStats):
+class PlayerCharacter(PlayerStats):  # Grabs and stores info about player
     def __init__(self):
         super(). __init__(name=input("What is your name? "), sex=input("Do you wish to play as male or female? "),
                           race=input("Which race do you want to play as? Wolf, Lion, Fox or Dragon? (This is simply for role playing) "))
@@ -58,7 +58,7 @@ def hallway():
     if hallway in ["south", "s"]:
         entranceway()
     elif hallway in ["east", "e"]:
-        if sasha_encounter.sashatalked == False:
+        if sasha_encounter.sashatalked == False:  # Checks to see if player has talked to sasha before
             sasha_encounter.bedroom()
         elif sasha_encounter.sashatalked == True:
             sasha_encounter.sashabedroom()
@@ -93,7 +93,7 @@ class SashaEncounter:
             print(""" "Where have you been all this time! I haven't seen you in over a week! I figured you most have went on an unannounced vacation." """)
             time.sleep(10)
             print(""" "I’ve kept on top of all your chores, you’re gonna owe me for the weeks’ time you decided to disappear. I was thinking you could take of my work for 2 or so weeks." """)
-            self.sashatalked = True
+            self.sashatalked = True  # Indicates that the player has talked to Sasha allowing for more dialog
             self.sashabedroom()
         elif self.sashatalked == True:
             print(""" "You know, I actually had a friend in college once that disappeared for like 2 weeks" """)
@@ -131,6 +131,7 @@ def entranceway ():
         entrancewaydirection = input("Which way do you go? ").lower()
         if entrancewaydirection in ["north", "n"]:
             first_world.fronthousearea()
+            break
         elif entrancewaydirection in ["west", "w"]:
             jacob_kitchen.startingkitchen()
             break
@@ -153,7 +154,7 @@ class JacobKitchen:
         print("You enter the kitchen, there's various kitchen appliances and a table and chairs over to the right. You see a Deer to your left and the entrance way to the east. ")
         kitchendirection = input("What do you do? ")
         if kitchendirection in ["talk", "t"]:
-            if self.jacobtalked == False:
+            if self.jacobtalked == False  # Dialog if Jacob hasn't been talked to before.
                 print("The Deer is one of your roommates, Jacob. You give him a pat on the shoulder and strike up a conversation")
                 time.sleep(2)
                 print('"Hey"', player_info.name, '"Where have you been these last few days? I haven’t seen you since I left for vacation last week. I got back about 3 days ago and haven’t seen you since."')
@@ -161,9 +162,9 @@ class JacobKitchen:
                 print("Sasha told me she hadn’t seen you for a minute, but she wasn't exactly sure how long you'd been gone.")
                 time.sleep(3)
                 print('"Regardless, it’s good to see you. I dont know where you were for the past week or so but just know that I’m here if you need help or need someone to talk too."')
-                self.jacobtalked = True
+                self.jacobtalked = True  # Marks that the player has talked to Jacob.
                 self.startingkitchen()
-            elif self.jacobtalked == True:
+            elif self.jacobtalked == True: # Dialog for Jacob after initial conversation
                 print("Hey buddy. I've not nothing new to say.")
                 self.startingkitchen()
         elif kitchendirection in ['east', 'e']:
@@ -173,6 +174,9 @@ class JacobKitchen:
             return self.startingkitchen()
 
 class FirstWorld:
+    def __init__(self):
+        self.parkroommatepath = False
+        self.parkselfpath = False
 
     def fronthousearea(self):
         print("You exit out the front door. You think of 3 places to travel too. The local community pool, the nearest park, or your favorite lunch spot, the cafe.")
@@ -185,20 +189,41 @@ class FirstWorld:
             print("Invalid input")
 
     def lakepark(self):
-        print("You arrive at the park after a short walk down the street. You’ve never really been too this park (or any park really) despite being close to home.")
-        time.sleep(5)
-        print("You’ve never really felt like going to the park, you were always preoccupied by something else, just not up to going out, or sacred by the various flying insects that call this place home. ")
-        time.sleep(8)
-        print("You’re here now and ready to make the most it. As you enter the park you see two separate walking paths you could take. One to the west, the other to the east. Or you could just say forget this whole thing and head back home.")
-        parkdecision = input("After thinking about it, you decide to go... ")
         pathdialog = [self.parkpathrommates, self.parkpathself]  # In order to sort functions you can't call the function in this list.
+
+        if self.parkroommatepath is False or self.parkselfpath is False:
+            print("You arrive at the park after a short walk down the street. You’ve never really been too this park (or any park really) despite being close to home.")
+            time.sleep(5)
+            print("You’ve never really felt like going to the park, you were always preoccupied by something else, just not up to going out, or sacred by the various flying insects that call this place home. ")
+            time.sleep(8)
+            print("You’re here now and ready to make the most it. As you enter the park you see two separate walking paths you could take. One to the west, the other to the east. Or you could just say forget this whole thing and head back home.")
+        elif self.parkroommatepath is True or self.parkselfpath is True:
+            print("You arrive at the park entrance, you see the two walking paths to your east and to your west.")
+        parkdecision = input("After thinking about it, you decide to go... ")
         if parkdecision in ['home', 'away',]:
             print("You decide you still aren’t feeling up to a walk in the park and head home")
             self.fronthousearea()
+
         elif parkdecision in ['east', 'e']:
             print("You head down the path to your right.")
             time.sleep(4)
-            print(secrets.choice(pathdialog)())  # Instead you call the function from the randomization bit. Like this
+            if self.parkroommatepath is False and self.parkpathself() is False: # Randomly picks which path to go down
+                print(secrets.choice(pathdialog)()) # Instead you call the function from the randomization bit. Like this
+            elif self.parkroommatepath is True and self.parkpathself() is False: # If the player has not seen the self reflection path it will play that instead of a random selection or roommate path.
+                self.parkpathself()
+            elif self.parkroommatepath is False and self.parkpathself() is True: # If the player has not seen the roommate path has not been seen it will play that instead of the random selection or self path
+                self.parkpathrommates()
+
+        elif parkdecision in ['west', 'w']:
+            print("You head down the path to your left.")
+            time.sleep(3)
+            if self.parkpathself is False and self.parkroommatepath is False: # Randomly picks which path to go down first
+                print(secrets.choice(pathdialog)())
+            elif self.parkselfpath is True and self.parkroommatepath is False: # If the player has seen the self reflection path the roommate path is played instead
+                self.parkpathrommates()
+            elif self.parkpathself is False and self.parkroommatepath is True: # If the player has seen the roommate path then the self reflection path is played.
+                self.parkpathself()
+
 
     def parkpathrommates(self):
         print("This path is a slightly shorter path than the other one, as it doesn't go past the lake.")
@@ -211,8 +236,22 @@ class FirstWorld:
         time.sleep(15)
         print("You ended up starting a study group with him since you weren’t exactly having a great time in class. As it was taught by a not so fantastic instructor. It started off as a pretty standard study group, consisting of you, Jacob and a couple other students. Eventually you started hanging out with him outside of the group and found out that he’s a really cool guy. You liked the same kind of movies, both loved pasta, and even ended up owning the same kind of car")
         time.sleep(25)
-        print("The rest is history, you’ve been good friends with him ever since. Too the point that you decided to room up with him starting your 4th year at college.")
+        print("The rest is history, you’ve been good friends with him ever since. To the point that you decided to room up with him starting your 4th year at college.")
         time.sleep(10)
+        print("You ended up meeting Sasha in a similar way. You ran into her at one of the dining halls your very first year at college. You were sitting by yourself, and she came up and asked to sit with you. It seems a bit odd now but during your first year of college people will find practically any excuse to become friends with someone.")
+        time.sleep(20)
+        print("You started off with the usual small talk, ‘Hey, what’s your major?’ ‘What dorm do you live in?’ She ended up living in one of the nearby dorm complexes, which shared a dining hall with your building. This led to you and her getting lunch together on a regular basis")
+        time.sleep(20)
+        print("You talked quite a bit during lunch, and you eventually ended up hanging out with her outside of lunch quite a bit. You didn’t have as much in common with her as Jacob, but you still appreciated her company. As she did with you.")
+        time.sleep(20)
+        print("You always kept in touch with her throughout the semesters, often attending various on-campus event together, and helping each other with classes. The relationship never really advanced beyond being good friends. You’ve never had very strong feelings for her, and apparently neither has she. Although, you did have some feelings for her your 1st year but they faded soon after that.")
+        time.sleep(20)
+        print("She’s been a really great friend to you, though she can be a bit forgetful at times. You’re really glad you met her and Jacob during your time at college, who knows how different your current life would be if you didn’t!")
+        time.sleep(20)
+        print("Caught up in your thoughts you find yourself at the end of your walk before you know it. You are now back at the park entrance way.")
+        time.sleep(5)
+        self.parkroommatepath = True
+        self.lakepark()
 
 
     def parkpathself(self):
