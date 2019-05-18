@@ -53,11 +53,11 @@ def bathroom():
 
 
 def hallway():
-    print("You enter a hallway with a doorway to your north and a staircase to your south")
+    print("You enter a hallway with a doorway to your east and a staircase to your south")
     hallway = input("Which direction do you go? ").lower()
     if hallway in ["south", "s"]:
         entranceway()
-    elif hallway in ["north", "n"]:
+    elif hallway in ["east", "e"]:
         if sasha_encounter.sashatalked == False:
             sasha_encounter.bedroom()
         elif sasha_encounter.sashatalked == True:
@@ -73,10 +73,10 @@ class SashaEncounter:
 
     def bedroom(self):
         while True:
-            print("You enter what seems to be a bedroom, you see the typically items you'd expect to see in a bedroom") # Change wording
-            print("To your west you see a German Shepard sitting at a desk, to the south you see the doorway to the hallway")
+            print("You enter what looks to be a bedroom, you see the typical items you'd expect to see in a bedroom") # Change wording
+            print("To your left you see a German Shepard sitting at a desk, to the south you see the doorway to the hallway")
             bedroomoption = input("What do you do? ").lower()
-            if bedroomoption == "talk":
+            if bedroomoption in ["talk", "t"]:
                 self.sashabedroomdialog()
             elif bedroomoption in ["south", "s"]:
                 hallway()
@@ -88,23 +88,23 @@ class SashaEncounter:
         if self.sashatalked == False:
             print("You approach the German Shepard and exchange greetings.")
             time.sleep(5)
-            print("The German Shepard is your roommate, Sasha. She's a trustworthy sort. But a bit absent-minded at times")
+            print("The German Shepard is one of your roommates, Sasha. She's a trustworthy sort. But a bit absent-minded at times")
             time.sleep(10)
-            print(""" "You’re alive! You’d been locked up in your room for so long I figured you either died or got transported to another universe." """)
+            print(""" "Where have you been all this time! I haven't seen you in over a week! I figured you most have went on an unannounced vacation." """)
             time.sleep(10)
-            print(""" "I’ve kept on top of all your chores, you’re gonna owe me for the weeks’ time you decided to disappear. I was thinking you could take of my work for 2 or so weeks" """)
+            print(""" "I’ve kept on top of all your chores, you’re gonna owe me for the weeks’ time you decided to disappear. I was thinking you could take of my work for 2 or so weeks." """)
             self.sashatalked = True
             self.sashabedroom()
         elif self.sashatalked == True:
-            print(""" "You know, I actually had a roommate in college once that didn't leave our dorm for 2 weeks" """)
+            print(""" "You know, I actually had a friend in college once that disappeared for like 2 weeks" """)
             time.sleep(10)
-            print(""" "She was in a pretty bad place mentally, and ended up dropping all her classes and leaving college." """)
+            print(""" " Turns out she basically gave up and wasn't leaving her dorm. She was in a pretty bad place mentally, and ended up dropping all her classes and leaving college." """)
             time.sleep(10)
-            print(""" "It's unbelievably depressing watching someone you know fall apart from mental illness." """)
+            print(""" "It was depressing watching my friend essentially fall apart. And by the time I knew something was up it was too late to intervene." """)
             time.sleep(5)
-            print(""" "Makes me think of how I simply dismissed your disappearance as nothing to worry about. Who knows what could have happened to you!" """)
+            print(""" "Makes me think of how I simply dismissed your disappearance as nothing to worry about. Who knows where could have been or what you could have been up too!" """)
             time.sleep(10)
-            print(""" "Anyway, your fine now and that's all that matters. You might want to check in with Jacob, he was gone for half the week so he wasn't entirely sure how long you locked yourself up for" """)
+            print(""" "Anyway, your fine now and that's all that matters. You might want to check in with Jacob, he was gone for half the week so he wasn't entirely sure how long you were gone for" """)
             time.sleep(10)
             print(""" "He should be somewhere downstairs." """)
             time.sleep(5)
@@ -125,7 +125,7 @@ class SashaEncounter:
 
 def entranceway ():
     while True:
-        print("You head down the stairs and enter the entrance way")
+        print("You have entered the entrance way")
         time.sleep(2)
         print("You see a kitchen to your west, a living area to your east, the stairs to your south, and the front door to your north.")
         entrancewaydirection = input("Which way do you go? ").lower()
@@ -135,24 +135,42 @@ def entranceway ():
             jacob_kitchen.startingkitchen()
             break
         elif entrancewaydirection in ["east", "e"]:
-            print("Area is a work in progress")
+            print("You enter the living area and see nothing of note. You return to the entrance way.")
+            time.sleep(3)
+            return entranceway()
         elif entrancewaydirection in ["south", "s"]:
             hallway()
         else:
             print("Invalid input")
+            return entranceway()
 
 
 class JacobKitchen:
     def __init__(self):
-        jacobtalked = False
+        self.jacobtalked = False
 
-    def startingkitchen(selfs):
-        print("You enter a kitchen, there's a various kitchen appliances and a table and chairs over to the right. You see a Deer to the west. ")
+    def startingkitchen(self):
+        print("You enter the kitchen, there's various kitchen appliances and a table and chairs over to the right. You see a Deer to your left and the entrance way to the east. ")
         kitchendirection = input("What do you do? ")
-        if kitchendirection in ["west", "w"]:  # Change this to talk
-            print("The Deer is your roommate, Jacob. You give him a pat on the shoulder and strike up a conversation")
-            print('"Hey"', player_info.name,'"Where have you been these last few days? I haven’t seen you since I left for vacation last week. I got back about 3 days ago and just figured you were taking a short trip to somewhere."')
-
+        if kitchendirection in ["talk", "t"]:
+            if self.jacobtalked == False:
+                print("The Deer is one of your roommates, Jacob. You give him a pat on the shoulder and strike up a conversation")
+                time.sleep(2)
+                print('"Hey"', player_info.name, '"Where have you been these last few days? I haven’t seen you since I left for vacation last week. I got back about 3 days ago and haven’t seen you since."')
+                time.sleep(5)
+                print("Sasha told me she hadn’t seen you for a minute, but she wasn't exactly sure how long you'd been gone.")
+                time.sleep(3)
+                print('"Regardless, it’s good to see you. I dont know where you were for the past week or so but just know that I’m here if you need help or need someone to talk too."')
+                self.jacobtalked = True
+                self.startingkitchen()
+            elif self.jacobtalked == True:
+                print("Hey buddy. I've not nothing new to say.")
+                self.startingkitchen()
+        elif kitchendirection in ['east', 'e']:
+            entranceway()
+        else:
+            print("Invalid input")
+            return self.startingkitchen()
 
 class FirstWorld:
 
@@ -180,7 +198,7 @@ class FirstWorld:
         elif parkdecision in ['east', 'e']:
             print("You head down the path to your right.")
             time.sleep(4)
-            print(secrets.choice(pathdialog)())  # Instead you cal the function from the randomization bit. Like this
+            print(secrets.choice(pathdialog)())  # Instead you call the function from the randomization bit. Like this
 
     def parkpathrommates(self):
         print("This path is a slightly shorter path than the other one, as it doesn't go past the lake.")
