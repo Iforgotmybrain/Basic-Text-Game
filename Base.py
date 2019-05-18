@@ -3,6 +3,8 @@
 # -*- coding: utf-8 -*-
 
 import time
+import random
+import secrets
 
 # Room functions. This is the bulk of the game. Not sure if this is the best way to program this type of game
 # But this seems to be the organized way, and the easiest way to edit things if needed.
@@ -17,8 +19,8 @@ class PlayerStats:
 
 class PlayerCharacter(PlayerStats):
     def __init__(self):
-        super(). __init__(name=input("What is your name?"), sex=input("Do you wish to play as male or female?"),
-                          race=input("Which race do you want to play as? Wolf, Lion, Fox or Dragon? (This is simply for role playing)"))
+        super(). __init__(name=input("What is your name? "), sex=input("Do you wish to play as male or female? "),
+                          race=input("Which race do you want to play as? Wolf, Lion, Fox or Dragon? (This is simply for role playing) "))
 
 
 def startingroomlightswitch ():
@@ -125,15 +127,17 @@ def entranceway ():
     while True:
         print("You head down the stairs and enter the entrance way")
         time.sleep(2)
-        print("You see a kitchen to your west, a living area to your east, and the stairs to your north")
+        print("You see a kitchen to your west, a living area to your east, the stairs to your south, and the front door to your north.")
         entrancewaydirection = input("Which way do you go? ").lower()
         if entrancewaydirection in ["north", "n"]:
-            hallway()
+            first_world.fronthousearea()
         elif entrancewaydirection in ["west", "w"]:
             jacob_kitchen.startingkitchen()
             break
         elif entrancewaydirection in ["east", "e"]:
             print("Area is a work in progress")
+        elif entrancewaydirection in ["south", "s"]:
+            hallway()
         else:
             print("Invalid input")
 
@@ -150,6 +154,56 @@ class JacobKitchen:
             print('"Hey"', player_info.name,'"Where have you been these last few days? I haven’t seen you since I left for vacation last week. I got back about 3 days ago and just figured you were taking a short trip to somewhere."')
 
 
+class FirstWorld:
+
+    def fronthousearea(self):
+        print("You exit out the front door. You think of 3 places to travel too. The local community pool, the nearest park, or your favorite lunch spot, the cafe.")
+        fronthouseareadirection = input("Where will you go first? ")
+        if fronthouseareadirection in ["cafe", "lunch"]:
+            cafetories.cafe()
+        elif fronthouseareadirection in ['park','p']:
+            self.lakepark()
+        else:
+            print("Invalid input")
+
+    def lakepark(self):
+        print("You arrive at the park after a short walk down the street. You’ve never really been too this park (or any park really) despite being close to home.")
+        time.sleep(5)
+        print("You’ve never really felt like going to the park, you were always preoccupied by something else, just not up to going out, or sacred by the various flying insects that call this place home. ")
+        time.sleep(8)
+        print("You’re here now and ready to make the most it. As you enter the park you see two separate walking paths you could take. One to the west, the other to the east. Or you could just say forget this whole thing and head back home.")
+        parkdecision = input("After thinking about it, you decide to go... ")
+        pathdialog = [self.parkpathrommates, self.parkpathself]  # In order to sort functions you can't call the function in this list.
+        if parkdecision in ['home', 'away',]:
+            print("You decide you still aren’t feeling up to a walk in the park and head home")
+            self.fronthousearea()
+        elif parkdecision in ['east', 'e']:
+            print("You head down the path to your right.")
+            time.sleep(4)
+            print(secrets.choice(pathdialog)())  # Instead you cal the function from the randomization bit. Like this
+
+    def parkpathrommates(self):
+        print("This path is a slightly shorter path than the other one, as it doesn't go past the lake.")
+        time.sleep(3)
+        print("About 25 minutes into your hour or so walk you come across a group of 20-somethings hanging out on a set of benches. They remind you of your more recent years spent around Sasha and Jacob.")
+        time.sleep(7)
+        print("You remember how you met both of them your 3rd year of college. At different times of course.")
+        time.sleep(5)
+        print("You met Jacob in one of your upper-division elective courses, the one about environmental ethics or something of the sort. Very fitting considering Jacob has been a very outdoorsy, tree hugging type of guy ever since you’ve known him")
+        time.sleep(15)
+        print("You ended up starting a study group with him since you weren’t exactly having a great time in class. As it was taught by a not so fantastic instructor. It started off as a pretty standard study group, consisting of you, Jacob and a couple other students. Eventually you started hanging out with him outside of the group and found out that he’s a really cool guy. You liked the same kind of movies, both loved pasta, and even ended up owning the same kind of car")
+        time.sleep(25)
+        print("The rest is history, you’ve been good friends with him ever since. Too the point that you decided to room up with him starting your 4th year at college.")
+        time.sleep(10)
+
+
+    def parkpathself(self):
+        print("Does this work?")
+
+
+
+
+
 # Starts the game and gets info such as name and class the player picks
 
 sasha_encounter = SashaEncounter()  # Global instance of class SashaEncounter,very useful.
@@ -157,6 +211,8 @@ sasha_encounter = SashaEncounter()  # Global instance of class SashaEncounter,ve
 jacob_kitchen = JacobKitchen()  # Global instance of JacobKitchen
 
 player_info = PlayerCharacter()  # Provides info for the player character
+
+first_world = FirstWorld()
 
 print("Hello", player_info.name)
 time.sleep(3)
