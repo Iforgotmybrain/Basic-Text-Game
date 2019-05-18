@@ -3,7 +3,6 @@
 # -*- coding: utf-8 -*-
 
 import time
-import random
 import secrets
 
 # Room functions. This is the bulk of the game. Not sure if this is the best way to program this type of game
@@ -154,7 +153,7 @@ class JacobKitchen:
         print("You enter the kitchen, there's various kitchen appliances and a table and chairs over to the right. You see a Deer to your left and the entrance way to the east. ")
         kitchendirection = input("What do you do? ")
         if kitchendirection in ["talk", "t"]:
-            if self.jacobtalked == False  # Dialog if Jacob hasn't been talked to before.
+            if self.jacobtalked == False:  # Dialog if Jacob hasn't been talked to before
                 print("The Deer is one of your roommates, Jacob. You give him a pat on the shoulder and strike up a conversation")
                 time.sleep(2)
                 print('"Hey"', player_info.name, '"Where have you been these last few days? I haven’t seen you since I left for vacation last week. I got back about 3 days ago and haven’t seen you since."')
@@ -162,7 +161,7 @@ class JacobKitchen:
                 print("Sasha told me she hadn’t seen you for a minute, but she wasn't exactly sure how long you'd been gone.")
                 time.sleep(3)
                 print('"Regardless, it’s good to see you. I dont know where you were for the past week or so but just know that I’m here if you need help or need someone to talk too."')
-                self.jacobtalked = True  # Marks that the player has talked to Jacob.
+                self.jacobtalked = True  # Marks that the player has talked to Jacob
                 self.startingkitchen()
             elif self.jacobtalked == True: # Dialog for Jacob after initial conversation
                 print("Hey buddy. I've not nothing new to say.")
@@ -174,54 +173,61 @@ class JacobKitchen:
             return self.startingkitchen()
 
 class FirstWorld:
+    def fronthousearea(self):
+        if self.parkroommatepath is False or self.parklakepath is False:
+            print("You are standing on the front porch of your home. You can think of 3 places to travel too. The local community pool, the nearest park, or your favorite lunch spot, the cafe. You could also enter your house to the south.")
+        elif self.parkroommatepath is True or self.parklakepath is True:
+            print("You return home. You can enter the front dooor to your south, travel to the park again, go to the pool, or visit the cafe for lunch.")
+        fronthouseareadirection = input("Where will you go? ")
+        if fronthouseareadirection in ["cafe", "lunch"]:
+            print("Placeholder text")
+        elif fronthouseareadirection in ['park','p']:
+            sycamore_park.lakepark()
+        if fronthouseareadirection in ['south', 's']:
+            entranceway()
+        else:
+            print("Invalid input or area in progress")
+
+
+class SycamorePark:
     def __init__(self):
         self.parkroommatepath = False
-        self.parkselfpath = False
-
-    def fronthousearea(self):
-        print("You exit out the front door. You think of 3 places to travel too. The local community pool, the nearest park, or your favorite lunch spot, the cafe.")
-        fronthouseareadirection = input("Where will you go first? ")
-        if fronthouseareadirection in ["cafe", "lunch"]:
-            cafetories.cafe()
-        elif fronthouseareadirection in ['park','p']:
-            self.lakepark()
-        else:
-            print("Invalid input")
+        self.parklakepath = False
 
     def lakepark(self):
-        pathdialog = [self.parkpathrommates, self.parkpathself]  # In order to sort functions you can't call the function in this list.
-
-        if self.parkroommatepath is False or self.parkselfpath is False:
-            print("You arrive at the park after a short walk down the street. You’ve never really been too this park (or any park really) despite being close to home.")
+        if self.parkroommatepath is False or self.parklakepath is False:
+            print("You arrive at Sycamore Lakeview Park after a short walk down the street. You’ve never really been too this park (or any park really) despite being close to home.")
             time.sleep(5)
             print("You’ve never really felt like going to the park, you were always preoccupied by something else, just not up to going out, or sacred by the various flying insects that call this place home. ")
             time.sleep(8)
             print("You’re here now and ready to make the most it. As you enter the park you see two separate walking paths you could take. One to the west, the other to the east. Or you could just say forget this whole thing and head back home.")
-        elif self.parkroommatepath is True or self.parkselfpath is True:
-            print("You arrive at the park entrance, you see the two walking paths to your east and to your west.")
+        else:
+            print("You arrive at the park entrance, you see the two walking paths to your east and to your west. You could also head home.")
+        pathdialog = [self.parkpathrommates, self.parkpathself]  # In order to sort functions you can't call the function in this list.
+
         parkdecision = input("After thinking about it, you decide to go... ")
         if parkdecision in ['home', 'away',]:
             print("You decide you still aren’t feeling up to a walk in the park and head home")
-            self.fronthousearea()
+            first_world.fronthousearea()
 
         elif parkdecision in ['east', 'e']:
             print("You head down the path to your right.")
             time.sleep(4)
-            if self.parkroommatepath is False and self.parkpathself() is False: # Randomly picks which path to go down
+            if self.parkroommatepath is False and self.parklakepath is False: # Randomly picks which path to go down
                 print(secrets.choice(pathdialog)()) # Instead you call the function from the randomization bit. Like this
-            elif self.parkroommatepath is True and self.parkpathself() is False: # If the player has not seen the self reflection path it will play that instead of a random selection or roommate path.
+            elif self.parkroommatepath is True and self.parklakepath is False: # If the player has not seen the self reflection path it will play that instead of a random selection or roommate path.
                 self.parkpathself()
-            elif self.parkroommatepath is False and self.parkpathself() is True: # If the player has not seen the roommate path has not been seen it will play that instead of the random selection or self path
+            elif self.parkroommatepath is False and self.parklakepath is True: # If the player has not seen the roommate path has not been seen it will play that instead of the random selection or self path
                 self.parkpathrommates()
 
         elif parkdecision in ['west', 'w']:
             print("You head down the path to your left.")
             time.sleep(3)
-            if self.parkpathself is False and self.parkroommatepath is False: # Randomly picks which path to go down first
+            if self.parklakepath is False and self.parkroommatepath is False: # Randomly picks which path to go down first
                 print(secrets.choice(pathdialog)())
-            elif self.parkselfpath is True and self.parkroommatepath is False: # If the player has seen the self reflection path the roommate path is played instead
+            elif self.parklakepath is True and self.parkroommatepath is False: # If the player has seen the self reflection path the roommate path is played instead
                 self.parkpathrommates()
-            elif self.parkpathself is False and self.parkroommatepath is True: # If the player has seen the roommate path then the self reflection path is played.
+            elif self.parklakepath is False and self.parkroommatepath is True: # If the player has seen the roommate path then the self reflection path is played
                 self.parkpathself()
 
 
@@ -255,7 +261,38 @@ class FirstWorld:
 
 
     def parkpathself(self):
-        print("Does this work?")
+        print("15 minutes into the walk you come across a familiar sight, the Sycamore Lake. Hence the park’s name.")
+        time.sleep(5)
+        print("You’ve seen this lake at least a thousand times throughout your life. In both good and bad times. You normally never give a second thought when looking out upon its seemingly never-ending horizon, but this time was different.")
+        time.sleep(20)
+        print("The scenery reminds you of a past story, of past friendships. Memories from 15 years ago rush into your mind. It was a happier time, sometimes you think it might have even been the happiest you’ve ever been.")
+        time.sleep(20)
+        print("Back then, you had the best friend-circle. You had no worries. Every summer you and your family would go a lake house on the weekends. Which was where most of your real friends were.")
+        time.sleep(20)
+        print("The lake house wasn’t much, in fact it wasn’t a house at all. But rather a trailer that your parents were paying the equivalent of a car payment to own.")
+        time.sleep(10)
+        print("You had your core group of friends, and then from there you’d have a best friend or two that you’d always hang out with. For you, those friends were Jane and Abbey.")
+        time.sleep(15)
+        print("They were sisters, in-fact. Whenever your other friends left, either for home or for another one of their friends, you knew that one of them would be there for you.")
+        time.sleep(10)
+        print("It’s not an exaggeration to say that those two were some of the biggest non-family influences on your life. For both good and bad reasons")
+        time.sleep(10)
+        print("The good parts have already been mentioned for the most part. They were always there for you. They supported you and you supported them. You can recall countless memories from your childhood revolving around them.")
+        time.sleep(20)
+        print("Like that time their family took you to the water park. It was fantastic. You’d never been too such a wounderful place. Water rides and pools as far as your small eyes could see.")
+        time.sleep(10)
+        print("It wasn’t all perfect, as they brought along another one of their friends that you weren’t really fond of. But still, it was that kind of stuff that really solidified your friendship. None of your other friends that did that kind of stuff for you. They still don’t")
+        time.sleep(20)
+        print("As you look back at those memories it feels bittersweet. It’s like the saying ‘Don’t be sad that it’s over, be glad that it happened’ expect you just can’t get over the sadness of it being all over.")
+        print("The memories are nice but still having those people in your life would be better.")
+        time.sleep(25)
+        print("Unfortunately, people drift apart, they change. You grow up, your interests change, you move away from those people… Sometimes you can get over it, but when someone has that much of an impact on your life, it’s tough. Even 7 years after its happened.")
+        time.sleep(25)
+        print("As you reminisce on your memories you realize that over an hour has passed, you snap out of it and finish your walk prematurely before heading back to the park entrance way.")
+        self.parklakepath = True
+        self.lakepark()
+
+
 
 
 
@@ -270,6 +307,8 @@ jacob_kitchen = JacobKitchen()  # Global instance of JacobKitchen
 player_info = PlayerCharacter()  # Provides info for the player character
 
 first_world = FirstWorld()
+
+sycamore_park = SycamorePark()
 
 print("Hello", player_info.name)
 time.sleep(3)
