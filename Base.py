@@ -172,21 +172,37 @@ class JacobKitchen:
             print("Invalid input")
             return self.startingkitchen()
 
+
 class FirstWorld:
     def fronthousearea(self):
-        if self.parkroommatepath is False or self.parklakepath is False:
+        if sycamore_park.parkroommatepath is False or sycamore_park.parklakepath is False:
             print("You are standing on the front porch of your home. You can think of 3 places to travel too. The local community pool, the nearest park, or your favorite lunch spot, the cafe. You could also enter your house to the south.")
-        elif self.parkroommatepath is True or self.parklakepath is True:
+        elif sycamore_park.parkroommatepath is True or sycamore_park.parklakepath is True:
             print("You return home. You can enter the front dooor to your south, travel to the park again, go to the pool, or visit the cafe for lunch.")
-        fronthouseareadirection = input("Where will you go? ")
+        fronthouseareadirection = input("Where will you go? ").lower()
         if fronthouseareadirection in ["cafe", "lunch"]:
-            print("Placeholder text")
+            tories_cafe.thecafe()
         elif fronthouseareadirection in ['park','p']:
             sycamore_park.lakepark()
         if fronthouseareadirection in ['south', 's']:
             entranceway()
         else:
             print("Invalid input or area in progress")
+
+
+class ToriesCafe:
+    def thecafe(self):
+        print("You catch a ride on the bus and end up at Tories Place, your all-time favorite place to grab lunch")
+        time.sleep(5)
+        print("It’s a popular place amongst the younger crowd. The place has a modern aesthetic with colorful furniture and ample natural lighting giving the place a cheery vibe.")
+        time.sleep(5)
+        print("They’re famous for their fantastic wraps, and also have some pretty soups.")
+        time.sleep(3)
+        print("Looking around you see the line to order, it’s a bit after lunch so there isn’t much of a wait. You also see a familiar face sitting down at one of the tables")
+        time.sleep(5)
+        cafedecision = input("Will you order first or go and say hi to the familiar face? ").lower()
+        if cafedecision in ['order', 'eat', ]:
+            print("Placeholder text")
 
 
 class SycamorePark:
@@ -205,7 +221,7 @@ class SycamorePark:
             print("You arrive at the park entrance, you see the two walking paths to your east and to your west. You could also head home.")
         pathdialog = [self.parkpathrommates, self.parkpathself]  # In order to sort functions you can't call the function in this list.
 
-        parkdecision = input("After thinking about it, you decide to go... ")
+        parkdecision = input("After thinking about it, you decide to go... ").lower()
         if parkdecision in ['home', 'away',]:
             print("You decide you still aren’t feeling up to a walk in the park and head home")
             first_world.fronthousearea()
@@ -309,6 +325,8 @@ player_info = PlayerCharacter()  # Provides info for the player character
 first_world = FirstWorld()
 
 sycamore_park = SycamorePark()
+
+tories_cafe = ToriesCafe()
 
 print("Hello", player_info.name)
 time.sleep(3)
