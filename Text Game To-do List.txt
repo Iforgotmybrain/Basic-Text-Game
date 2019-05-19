@@ -1,11 +1,22 @@
 Text game To-do list
-
-* Change wording of bedroom entering line
+Phase 1
+* Change wording of bedroom entering line (Completed)
 * Change bathroom input variable
 * Make it so users cannot open the bathroom trunk more than once
 * Make it so quotes work when pritning in console (Completed)
-* Implement the downstairs of starting area (Currently being worked on)
-* Implement class system for player (Seems to be completed. This was a huge one)
-* Make it so user cannot type in garbage values (Still working on this for the player character inputs)
-* Improve input and variables throughout (E.g more options like single words "n") (I think I fixed this?)
-* Change direction to Sasha's bedroom from north as it seems confusing 
+* Implement the downstairs of starting area (Completed)
+* Implement class system for player (Completed. This was a huge one)
+* Make it so user cannot type in garbage values (Mostly completed)
+* Improve input and variables throughout (E.g more options like single words "n") (Completed)
+* Change direction to Sasha's bedroom from north as it seems confusing (Completed
+* Change time.sleep commands to input commands (Conmpleted)
+* Implement areas outside of the starting house (Completed)
+
+Phase 2
+* Figure out a name for this game
+* Continue progressing the story through new characters and areas aswell as backstory
+* Tweak existing areas and code for better user experience
+* Implement pygame GUI to make this a proper, usable game.
+* Look into porting game over to Android
+* Figure out how I want to handle certain elements of the game
+* Figure out how I want to handle the pool area
