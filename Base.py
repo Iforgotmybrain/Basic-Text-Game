@@ -135,7 +135,7 @@ def entranceway ():
             jacob_kitchen.startingkitchen()
             break
         elif entrancewaydirection in ["east", "e"]:
-            print("You enter the living area and see nothing of note. You return to the entrance way.")
+            print("You enter the living area and see nothing of note. Perhaps you should return here after visiting a couple places.")
             input()
             return entranceway()
         elif entrancewaydirection in ["south", "s"]:
