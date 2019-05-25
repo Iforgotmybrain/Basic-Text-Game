@@ -145,6 +145,61 @@ def entranceway ():
             return entranceway()
 
 
+class LivingRoom:
+
+
+    def sashadialogue(self):
+        print("You return to the living room once again, Sasha is sitting on the couch watching something on the television. You can talk to her or return to the entrance way to your south.")
+        livingroomdirection = input("What will you do? ").lower()
+        if livingroomdirection in ['south', 's']:
+            entranceway()
+        elif livingroomdirection in ['talk', 't', 'sasha', 'couch']:
+            self.sashaconversastion()
+
+
+    def sashaconversastion(self):
+        print("You walk up to Sasha and sit in the chair beside the couch. The TV is playing a superhero movie involving some sort of pink titan.")
+        input()
+        print('"Like the movie? It’s called Revengers: Titan Attack. One of the last movies in the Merkel universe. There’s one more that comes after this, but it isn’t out on disc yet"')
+        input()
+        print('"Do you like superhero movies? I won’t say anym ore about it just In-case you want to watch it at some point."')
+        input()
+        print("You state your preference for superhero movies, saying that you haven’t really kept up with the Revengers movies since the first one")
+        input()
+        print('"Oh boy, you are in for a treat if you ever decide to catch up on them. Definitely let me know before you do, I’d love to re-watch all of them with you."')
+        print('"Anyway, you want anything or just here to chat?"')
+        input()
+        print("You tell Sasha that you wanted to talk to her about past friends. Your recent walk in the park weighing on your mind, you’re hoping that one of your best friends can give you some advice.")  # Maybe implement a choice later? Don't really have the story options to make this optional yet.
+        input()
+        print('"Well… I’m gonna be honest, that’s a pretty loaded question."')
+        print('"First of all, what happened to these friends? Did they move away? Lose interest in the relationship?"')
+        input()
+        print("You start to provide some background information to Sasha, explaining the friends’ role in your life, how they affected you, and then eventually how it all broke down ")
+        print("You can remember exactly how it started, it was mid-September during your teen years. Your parents told you that they couldn’t afford to stay at the lake anymore and that they would be packing up and leaving by the end of the month.")
+        input()
+        print("This was a huge change. By the end of the month, you’d be moving away from the place of your childhood, the place where you spent almost all your summer days. The place where you met your best-friends.")
+        input()
+        print("You were gone a week after that. You didn’t have time to mention it to most of your friends since they weren’t even there at the time. In an age without smartphones and social media, those friendships essentially ended that day")
+        input()
+        print("As you tell Sasha about the move, you remember another ordeal before the move. It involved some of your best-friends Abbey and Jane. The move ended your friendships completely, yes, but you remember that you were on surprisingly shaking terms with both of them months before moving.")
+        input()
+        print("You started to drift apart. Your interests were changing, and as you got older you found less and less common ground. To the point where Jane said that she ‘barely knew you’. It was actually a similar case with you, you didn’t know what they were really interested in anymore. It’s hard to stay friends with someone when you have no idea what to do with them. Regardless, hearing that took you down a notch. We’re you ignoring them and not even realizing it? Did they just not feel like you were friends anymore?")
+        input()
+        print("You never got to ask them why they felt that way, so you can only assume. You feel it was a combination of both parties changing their ideas and interests, as well as Jane and Abbey hanging out with a different friend group. Both parties just slowly lost interest in each other.")
+        print("Looking back at it, you feel that the break down of the friendship was inevitable. Even if you hadn’t moved away, it's likely the friendship would have deteriorated further and further. The move simply accelerated things")
+        input()
+        print("You connected with Abbey and Jane on social media 3 years after moving away, but of course it wasn’t the same. There just wasn’t anything to talk about. Both groups were almost completely different people from the ones 3-4 years ago. Any connections you might have had were gone.")
+        input()
+        print("You should have let go at that point, but 8 years in the future and you still cling to the past.")
+        print("You look to Sasha after rambling on, she seems surprised to hear this from you, considering you’d never mentioned anything about it before.")
+        input()
+
+
+
+
+
+
+
 class JacobKitchen:
     def __init__(self):
         self.jacobtalked = False
