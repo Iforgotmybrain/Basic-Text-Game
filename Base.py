@@ -4,16 +4,25 @@
 
 import time
 import secrets
-import pygame
+import sys
+from PyQt5 import QtWidgets
+from PyQt5 import QtGui
 
-from pygame.locals import  *
 # Room functions. This is the bulk of the game. Not sure if this is the best way to program this type of game
 # But this seems to be the organized way, and the easiest way to edit things if needed.
-pygame.init()
 
-screen = pygame.display.set_mode((800, 600))
 
-running = True
+class Window(QtWidgets.QMainWindow):
+
+    def __init__(self):
+        super(Window, self).__init__()
+        self.setWindowTitle("Text Game")
+        self.setGeometry(50, 50, 500, 300)
+        self.show()
+
+
+app = QtWidgets.QApplication(sys.argv)
+GUI = Window()
 
 
 class PlayerStats:
@@ -193,11 +202,51 @@ class LivingRoom:
         print("You should have let go at that point, but 8 years in the future and you still cling to the past.")
         print("You look to Sasha after rambling on, she seems surprised to hear this from you, considering you’d never mentioned anything about it before.")
         input()
-
-
-
-
-
+        print('"“That’s quite the story. Can’t say I would have expected something like this from you. You always seemed like the kind of person to live in the present."')
+        print('"Then again perhaps I just suck at reading people."')
+        input()
+        print('"I think most people have experienced something similar to you. A friendship breaking down for whatever reason"')
+        input()
+        print('"I think the reason you still look back at that time with such regret is because of the way your relationship broke down. You watched your relationship with Abbey and Jane slowly drift away. With it being the fault of no one. You didn’t have anyone to deflect the blame to for this failing. And apparently, you didn’t even really get to discuss it with them, that lack of closure has no doubt helped lead to your current feelings"')
+        input()
+        print('"People change, and in the case of Abbey and Jane, there just wasn’t much you can do about it."')
+        input()
+        print('"I’ve dealt with a somewhat similar situation before. I’m sure you remember me talking about one of my roommates in college dropping out because of depression, well that wasn’t the first time something like that happened."')
+        input()
+        print('"One of my friends in high school was dealing with some serious shit. Depression, anxiety, and he never told anyone about it. He’d hid it from everyone else, there was no way to know what was going with him. He always cracked jokes, would hang out with you and do whatever, he seemed like one of the most carefree, happy guys I knew."')
+        print('"You probably know where this is going by now. He was dealing with serious clinical depression, didn’t want anyone to know because he didn’t want to burden them. He didn’t want people to feel sorry for him."')
+        input()
+        print('"He ended up committing suicide by overdosing on Tylenol his junior year of high school. The last guy you would have expected to have that kind of stuff going on "')
+        print('"It was extremely difficult dealing with that for the first few months, hell, the first year even."')
+        input()
+        print('"It took me a long time to come to terms with it. And then after that, I still dealt with a mix of guilt and sadness. I felt like I should have picked up on him being depressed. I should have been able to help him in some way. I tried numerous things to try and get past it, stuff as simple as trying new hobbies or traveling, as well as going to therapy."')
+        input()
+        print('"Ultimately, what helped me the most was focusing on the friends that were still there, and on forming new friendships. It helps keep your mind off the past, and it helps fill the void that was left. Instead of worrying about what happened in the past, you just try and focus on the now, and how you can make the most of it."')
+        input()
+        print('"Of course, that’s not always easy to do. Stuff like this never is. And even if you succeed, it doesn’t completely erase the past. You’ll still have moments of weakness, you’ll still think about what could have been"')
+        input()
+        print('"All you can do is try, and if that fails, ya know, you’ve gotta reach out to people. Family, friends, Somebody. Just letting your thoughts simmer isn’t going to help, it just puts you further down the hole."')
+        input()
+        print('"One of my favorite bands actually has a quite a few songs dealing with this kind of topic. Off the top of my head, I think of their songs has a verse that goes kind like:"')
+        time.sleep(2)
+        print('"There\'s no magic bullet, no cure for pain"')
+        print('"What\'s done is done, \'til you do it again"')
+        input()
+        print('"Basically he’s saying there’s no easy way out of these kinds of situations, and odds are, it\'s not going to be the first time you’re going to deal with it"')
+        input()
+        print('You find yourself resonating with Sasha’s advice and past experiences, though you feel like you’re left with more questions for yourself then before having this conversation. You’re sure if that’s a good thing or a bad thing.')
+        input()
+        print('You ask Sasha if she still thinks about those memories very often.')
+        input()
+        print('"Yes, I still look back at those memories on occasion. Though I’ve found myself looking at the positives of those times rather the negatives. I’m at a point in my life where I feel I’ve moved on from that. I’m happy with how everything has worked out at this point, and that’s in no small part to my friends\' group and support group."')
+        input()
+        print('You thank Sasha for entertaining your thoughts and helping you out, it helped clear your mind a bit.')
+        input()
+        print('"Of course! That’s what friends are for. I’ll see you around; oh, and make sure you tell me if you want to catch up on the Revenger’s movies! I’ll be pissed if you don’t!"')
+        input()
+        print('You say goodbye to Sasha and head up to the room for the night, your mind full of thoughts to process')
+        input()
+        hallway()
 
 
 class JacobKitchen:
