@@ -16,6 +16,7 @@ class PlayerStats:
         self.sex = sex
         self.race = race
 
+
 class PlayerCharacter(PlayerStats):  # Grabs and stores info about player
     def __init__(self):
         super(). __init__(name=input("What is your name? "), sex=input("Do you wish to play as male or female? "),
