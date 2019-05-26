@@ -5,7 +5,7 @@
 import time
 import secrets
 import sys
-from PyQt5 import QtCore, QtGui, QtWidgets
+from PySide2 import QtCore, QtGui, QtWidgets
 from maintestwindow import Ui_MainWindow
 
 # Room functions. This is the bulk of the game. Not sure if this is the best way to program this type of game
@@ -23,6 +23,7 @@ class Window (QtWidgets.QMainWindow):
 app = QtWidgets.QApplication(sys.argv)
 GUI = Window()
 GUI.show()
+print("Hello there")
 sys.exit(app.exec_())
 
 
