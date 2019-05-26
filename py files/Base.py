@@ -5,9 +5,26 @@
 import time
 import secrets
 import sys
+from PyQt5 import QtCore, QtGui, QtWidgets
+from maintestwindow import Ui_MainWindow
 
 # Room functions. This is the bulk of the game. Not sure if this is the best way to program this type of game
 # But this seems to be the organized way, and the easiest way to edit things if needed.
+
+
+class Window (QtWidgets.QMainWindow):
+    def __init__(self):
+        super().__init__()
+        self.ui = Ui_MainWindow()
+        self.ui.setupUi(self)
+        self.show()
+
+
+app = QtWidgets.QApplication(sys.argv)
+GUI = Window()
+GUI.show()
+sys.exit(app.exec_())
+
 
 
 class PlayerStats:
