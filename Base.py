@@ -5,24 +5,28 @@
 import time
 import secrets
 import sys
-from PyQt5 import QtWidgets
-from PyQt5 import QtGui
+from PyQt5 import QtCore, QtGui, QtWidgets
+from textdialog import Ui_MainWindow
 
 # Room functions. This is the bulk of the game. Not sure if this is the best way to program this type of game
 # But this seems to be the organized way, and the easiest way to edit things if needed.
 
 
-class Window(QtWidgets.QMainWindow):
-
+class Window (QtWidgets.QMainWindow):
     def __init__(self):
-        super(Window, self).__init__()
-        self.setWindowTitle("Text Game")
-        self.setGeometry(50, 50, 500, 300)
+        super().__init__()
+        self.ui = Ui.MainWindow()
+        self.ui.setupUi(self)
         self.show()
 
 
 app = QtWidgets.QApplication(sys.argv)
 GUI = Window()
+GUI.show()
+
+
+#app = QtWidgets.QApplication(sys.argv)
+#GUI = Window()
 
 
 class PlayerStats:
