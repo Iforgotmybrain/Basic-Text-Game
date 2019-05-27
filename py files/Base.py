@@ -6,11 +6,13 @@ import time
 import secrets
 import sys
 
+
 class PlayerStats:
     def __init__(self, race, sex, name):
         self.name = name
         self.sex = sex
         self.race = race
+
 
 class PlayerCharacter(PlayerStats):  # Grabs and stores info about player
     def __init__(self):
@@ -49,9 +51,9 @@ def hallway():
     if hallway in ["south", "s"]:
         entranceway()
     elif hallway in ["east", "e"]:
-        if sasha_encounter.sashatalked == False:  # Checks to see if player has talked to sasha before
+        if sasha_encounter.sashatalked is False:  # Checks to see if player has talked to sasha before
             sasha_encounter.bedroom()
-        elif sasha_encounter.sashatalked == True:
+        elif sasha_encounter.sashatalked is True:
             sasha_encounter.sashabedroom()
         else:
             print("Invalid input")
