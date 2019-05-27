@@ -23,3 +23,4 @@ Phase 2
 * Implement Sasha Living Room dialogue.
 * Implement new dialogue with Jacob
 * Introduce characters that aren't related to education e.g work buddies, online friends, ect.
+* Release first version using PyInstaller
