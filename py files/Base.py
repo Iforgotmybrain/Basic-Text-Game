@@ -7,6 +7,13 @@ import secrets
 import sys
 
 
+class Tips:
+    def inputtips(self):
+        while True:
+            if "'" or '"' in print and input == ():
+                print("enter to continue")
+
+
 class PlayerStats:
     def __init__(self, race, sex, name):
         self.name = name
@@ -44,20 +51,24 @@ def bathroom():
 
 
 def hallway():
-    if tories_cafe.cafefinished is True:
-        print("After returning from the cafe you do work on one of your current contracts before going to bed")
-    print("You enter a hallway with a doorway to your east and a staircase to your south")
-    hallway = input("Which direction do you go? ").lower()
-    if hallway in ["south", "s"]:
-        entranceway()
-    elif hallway in ["east", "e"]:
-        if sasha_encounter.sashatalked is False:  # Checks to see if player has talked to sasha before
-            sasha_encounter.bedroom()
-        elif sasha_encounter.sashatalked is True:
-            sasha_encounter.sashabedroom()
+    while True:
+        if tories_cafe.cafefinished is True:
+            print("After returning from the cafe you do work on one of your current contracts before going to bed")
+        print("You enter a hallway with a doorway to your east and a staircase to your south")
+        hallwaydirection = input("Which direction do you go? ").lower()
+        if hallwaydirection in ["south", "s"]:
+            entranceway()
+            break
+        elif hallwaydirection in ["east", "e"]:
+            if sasha_encounter.sashatalked is False:  # Checks to see if player has talked to sasha before
+                sasha_encounter.bedroom()
+                break
+            elif sasha_encounter.sashatalked is True:
+                sasha_encounter.sashabedroom()
+                break
         else:
             print("Invalid input")
-            return hallway
+            return hallway()
 
 
 class SashaEncounter:
@@ -66,7 +77,7 @@ class SashaEncounter:
 
     def bedroom(self):
         while True:
-            print("You enter your roommates bedroom, it's your typically bedroom, nothing out of the ordinary expect for the Shepard sitting at the desk")
+            print("You enter your roommates bedroom, it's your typical bedroom with nothing out of the ordinary expect for the Shepard sitting at the desk")
             print("To your left you see a German Shepard sitting at a desk, to the south you see the doorway to the hallway")
             bedroomoption = input("What do you do? ").lower()
             if bedroomoption in ["talk", "t"]:
@@ -101,17 +112,22 @@ class SashaEncounter:
             input()
             print("You exit Sasha's room and enter the hallway")
             hallway()
+        elif self.sashatalked is True and sasha_living.sashalivingroomdialogue is True:
+            print('"Hey, {}. Can\'t think of anything new going on"'.format(player_info.name))
 
     def sashabedroom(self):
-        print("You see Sasha, your roommate, and the doorway to the hallway to your south")
-        direction = input("What do you wish to do? ")
-        if direction in ["south", "s"]:
-            hallway()
-        elif direction == "talk":
-            self.sashabedroomdialog()
-        else:
-            print("Invalid input")
-            return self.sashabedroom
+        while True:
+            print("You see Sasha, your roommate, and the doorway to the hallway to your south")
+            direction = input("What do you wish to do? ")
+            if direction in ["south", "s"]:
+                hallway()
+                break
+            elif direction == "talk":
+                self.sashabedroomdialog()
+                break
+            else:
+                print("Invalid input")
+                return self.sashabedroom
 
 
 def entranceway ():
@@ -137,6 +153,8 @@ def entranceway ():
 
 
 class LivingRoom:
+    def __init__(self):
+        self.sashalivingroomdialogue = False
 
 
     def sashadialogue(self):
@@ -146,6 +164,9 @@ class LivingRoom:
             entranceway()
         elif livingroomdirection in ['talk', 't', 'sasha', 'couch']:
             self.sashaconversastion()
+        else:
+            print("Invalid input")
+            return self.sashadialogue()
 
 
     def sashaconversastion(self):
@@ -228,6 +249,7 @@ class LivingRoom:
         input()
         print('You say goodbye to Sasha and head up to the room for the night, your mind full of thoughts to process')
         input()
+        self.sashalivingroomdialogue = True
         hallway()
 
 
@@ -250,7 +272,7 @@ class JacobKitchen:
                 self.jacobtalked = True  # Marks that the player has talked to Jacob
                 self.startingkitchen()
             elif self.jacobtalked == True: # Dialog for Jacob after initial conversation
-                print("Hey buddy. I've not nothing new to say.")
+                print("'Hey buddy. I've not nothing new to say.'")
                 input()
                 self.startingkitchen()
         elif kitchendirection in ['east', 'e']:
@@ -262,23 +284,32 @@ class JacobKitchen:
 
 class FirstWorld:
     def fronthousearea(self):
-        if sycamore_park.parkroommatepath is False or sycamore_park.parklakepath is False:
-            print("You are standing on the front porch of your home. You can think of 3 places to travel too. The local community pool, the nearest park, or your favorite lunch spot, the cafe. You could also enter your house to the south.")
-        elif sycamore_park.parkroommatepath is True or sycamore_park.parklakepath is True:
-            print("You return home. You can enter the front door to your south, travel to the park again, go to the pool, or visit the cafe for lunch.")
-        elif tories_cafe.cafefinished is True and sycamore_park.parkroommatepath or sycamore_park.parklakepath is True:
-            print("You stand on the front porch of your home, you could revisit the cafe or park, or you could go visit the local pool")
-        elif tories_cafe.cafefinished is True and sycamore_park.parkroommatepath or sycamore_park.parklakepath is False:
-            print("You stand on the front porch of your home, you could revisit the cafe or check out the park. You could also visit the local pool.")
-        fronthouseareadirection = input("Where will you go? ").lower()
-        if fronthouseareadirection in ["cafe", "lunch"]:
-            tories_cafe.thecafe()
-        elif fronthouseareadirection in ['park','p']:
-            sycamore_park.lakepark()
-        if fronthouseareadirection in ['south', 's']:
-            entranceway()
-        else:
-            print("Invalid input or area in progress")
+        while True:
+            if sycamore_park.parkroommatepath is False or sycamore_park.parklakepath is False:
+                print(
+                    "You are standing on the front porch of your home. You can think of 3 places to travel too. The local community pool, the nearest park, or your favorite lunch spot, the cafe. You could also enter your house to the south.")
+            elif sycamore_park.parkroommatepath is True or sycamore_park.parklakepath is True:
+                print(
+                    "You return home. You can enter the front door to your south, travel to the park again, go to the pool, or visit the cafe for lunch.")
+            elif tories_cafe.cafefinished is True and sycamore_park.parkroommatepath or sycamore_park.parklakepath is True:
+                print(
+                    "You stand on the front porch of your home, you could revisit the cafe or park, or you could go visit the local pool")
+            elif tories_cafe.cafefinished is True and sycamore_park.parkroommatepath or sycamore_park.parklakepath is False:
+                print(
+                    "You stand on the front porch of your home, you could revisit the cafe or check out the park. You could also visit the local pool.")
+            fronthouseareadirection = input("Where will you go? ").lower()
+            if fronthouseareadirection in ["cafe", "lunch"]:
+                tories_cafe.thecafe()
+                break
+            elif fronthouseareadirection in ['park', 'p']:
+                sycamore_park.lakepark()
+                break
+            if fronthouseareadirection in ['south', 's']:
+                entranceway()
+                break
+            else:
+                print("Invalid input or area in progress")
+                return self.fronthousearea()
 
 
 class ToriesCafe:
@@ -477,6 +508,9 @@ sycamore_park = SycamorePark()
 
 tories_cafe = ToriesCafe()
 
+sasha_living = LivingRoom
+
+classtips = Tips
 # Starts the game
 
 print("Hello", player_info.name)
@@ -500,4 +534,5 @@ print("With that out of the way, let's get started")
 time.sleep(5)
 print("You are in a dimly-lit room, you see a doorway to your north and to your east")
 time.sleep(3)
+classtips.inputtips
 startingroomlightswitch()
