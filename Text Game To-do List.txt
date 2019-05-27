@@ -1,8 +1,8 @@
 Text game To-do list
-Phase 1
+Phase 1 (All Complete)
 * Change wording of bedroom entering line (Completed)
-* Change bathroom input variable
-* Make it so users cannot open the bathroom trunk more than once
+* Change bathroom input variable (Completed)
+* Make it so users cannot open the bathroom trunk more than once (Completed)
 * Make it so quotes work when pritning in console (Completed)
 * Implement the downstairs of starting area (Completed)
 * Implement class system for player (Completed. This was a huge one)
@@ -16,7 +16,10 @@ Phase 2
 * Figure out a name for this game
 * Continue progressing the story through new characters and areas aswell as backstory
 * Tweak existing areas and code for better user experience
-* Implement pygame GUI to make this a proper, usable game.
-* Look into porting game over to Android
+* Implement pygame GUI to make this a proper, usable game. (Not possible)
+* Look into porting game over to Android (Might be possible)
 * Figure out how I want to handle certain elements of the game
 * Figure out how I want to handle the pool area
+* Implement Sasha Living Room dialogue.
+* Implement new dialogue with Jacob
+* Introduce characters that aren't related to education e.g work buddies, online friends, ect.
