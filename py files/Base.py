@@ -153,16 +153,23 @@ def entranceway():
         if entrancewaydirection in ["north", "n"]:
             first_world.fronthousearea()
             break
+
         elif entrancewaydirection in ["west", "w"]:
             jacob_kitchen.startingkitchen()
             break
+
         elif entrancewaydirection in ["east", "e"]:
-            print(
-                "You enter the living area and see nothing of note. Perhaps you should return here after visiting a couple places.")
-            input()
+            if jacob_kitchen.jacobtalked is True and tories_cafe.cafefinished is True and sycamore_park.parklakepath is True and sasha_encounter.sashatalked is True:
+                sasha_living.sashadialogue()
+            else:
+                print(
+                    "You enter the living area and see nothing of note. Perhaps you should return here after visiting a couple places.")
+                input()
             return entranceway()
+
         elif entrancewaydirection in ["south", "s"]:
             hallway()
+
         else:
             print("Invalid input")
             return entranceway()
@@ -173,8 +180,10 @@ class LivingRoom:
         self.sashalivingroomdialogue = False
 
     def sashadialogue(self):
-        print(
-            "You return to the living room once again, Sasha is sitting on the couch watching something on the television. You can talk to her or return to the entrance way to your south.")
+        if self.sashalivingroomdialogue is False:
+            print("You return to the living room once again, Sasha is sitting on the couch watching something on the television. You can talk to her or return to the entrance way to your south.")
+        elif self.sashalivingroomdialogue is True:
+            print("You see Sasha still, she has nothing new to say.")
         livingroomdirection = input("What will you do? ").lower()
         if livingroomdirection in ['south', 's']:
             entranceway()
@@ -305,32 +314,36 @@ class JacobKitchen:
         self.jacobtalked = False
 
     def startingkitchen(self):
-        print(
-            "You enter the kitchen, there's various kitchen appliances and a table and chairs over to the right. You see a Deer to your left and the entrance way to the east. ")
-        kitchendirection = input("What do you do? ")
-        if kitchendirection in ["talk", "t"]:
-            if self.jacobtalked == False:  # Dialog if Jacob hasn't been talked to before
-                print(
-                    "The Deer is one of your roommates, Jacob. You give him a pat on the shoulder and strike up a conversation")
-                print('"Hey {}! Where have you been these last few days? I haven’t seen you since I left for vacation last week. I got back about 3 days ago and haven’t seen you since."').format(player_info.name)
-                input()
-                print(
-                    "Sasha told me she hadn’t seen you for a minute, but she wasn't exactly sure how long you'd been gone.")
-                input()
-                print(
-                    '"Regardless, it’s good to see you. If you ever wanna talk about where you went off too, you know where to find me."')  # Feels kind of unnatural?
-                input()
-                self.jacobtalked = True  # Marks that the player has talked to Jacob
-                self.startingkitchen()
-            elif self.jacobtalked == True:  # Dialog for Jacob after initial conversation
-                print("'Hey buddy. I've not nothing new to say.'")
-                input()
-                self.startingkitchen()
-        elif kitchendirection in ['east', 'e']:
-            entranceway()
-        else:
-            print("Invalid input")
-            return self.startingkitchen()
+        while True:
+            print(
+                "You enter the kitchen, there's various kitchen appliances and a table and chairs over to the right. You see a Deer to your left and the entrance way to the east. ")
+            kitchendirection = input("What do you do? ").lower()
+            if kitchendirection in ["talk", "t"]:
+                if self.jacobtalked is False:  # Dialogue if Jacob hasn't been talked to before
+                    print(
+                        "The Deer is one of your roommates, Jacob. You give him a pat on the shoulder and strike up a conversation")
+                    print(
+                        '"Hey {}! Where have you been these last few days? I haven’t seen you since I left for vacation last week. I got back about 3 days ago and haven’t seen you since."'.format(
+                        player_info.name))
+                    input()
+                    print(
+                        "Sasha told me she hadn’t seen you for a minute, but she wasn't exactly sure how long you'd been gone.")
+                    input()
+                    print(
+                        '"Regardless, it’s good to see you. If you ever wanna talk about where you went off too, you know where to find me."')  # Feels kind of unnatural?
+                    input()
+                    self.jacobtalked = True  # Marks that the player has talked to Jacob
+                    return self.startingkitchen()
+                elif self.jacobtalked is True:  # Dialogue for Jacob after initial conversation
+                    print("'Hey buddy. I've not nothing new to say.'")
+                    input()
+                    return self.startingkitchen()
+            elif kitchendirection in ['east', 'e']:
+                entranceway()
+                break
+            else:
+                print("Invalid input")
+                return self.startingkitchen()
 
 
 class FirstWorld:
