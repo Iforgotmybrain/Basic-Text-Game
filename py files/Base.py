@@ -5,6 +5,7 @@
 import time
 import secrets
 import sys
+from Travel_locations import Traveling
 
 class PlayerStats:
     def __init__(self, race, sex, name):
@@ -349,24 +350,10 @@ class JacobKitchen:
 class FirstWorld:
     def fronthousearea(self):
         while True:
-            if sycamore_park.parkroommatepath is False or sycamore_park.parklakepath is False:
-                print(
-                    "You are standing on the front porch of your home. You can think of 3 places you might travel too. The local community pool, the nearest park, or your favorite lunch spot, Torie's Cafe. You could also reenter your house to the south.")
-            elif sycamore_park.parkroommatepath is True or sycamore_park.parklakepath is True:
-                print(
-                    "You return home. You can enter the front door to your south, travel to the park again, go to the pool, or visit the cafe for lunch.")
-            elif tories_cafe.cafefinished is True and sycamore_park.parkroommatepath or sycamore_park.parklakepath is True:
-                print(
-                    "You stand on the front porch of your home, you could revisit the cafe or park, or you could go visit the local pool")
-            elif tories_cafe.cafefinished is True and sycamore_park.parkroommatepath or sycamore_park.parklakepath is False:
-                print(
-                    "You stand on the front porch of your home, you could revisit the cafe or check out the park. You could also visit the local pool.")
-            fronthouseareadirection = input("Where will you go? ").lower()
-            if fronthouseareadirection in ["cafe", "lunch"]:
-                tories_cafe.thecafe()
-                break
-            elif fronthouseareadirection in ['park', 'p']:
-                sycamore_park.lakepark()
+            print("You stand on your front porch ready for adventure! You could also return home by entering the door to your south.")
+            fronthouseareadirection = input("Will you travel or return home?").lower()
+            if fronthouseareadirection in ['travel']:
+                travel_system.traveltofront()
                 break
             if fronthouseareadirection in ['south', 's']:
                 entranceway()
@@ -652,6 +639,7 @@ sasha_living = LivingRoom()
 
 player_bathroom = PCBathroom()  # Make sure to include the () when adding classes)
 
+travel_system = Traveling
 # Starts the game
 
 print("Hello", player_info.name)
