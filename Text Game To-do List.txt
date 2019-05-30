@@ -20,7 +20,10 @@ Phase 2
 * Look into porting game over to Android (Might be possible)
 * Figure out how I want to handle certain elements of the game
 * Figure out how I want to handle the pool area
-* Implement Sasha Living Room dialogue.
+* Implement Sasha Living Room dialogue. (Completed)
 * Implement new dialogue with Jacob
 * Introduce characters that aren't related to education e.g work buddies, online friends, ect.
 * Release first version using PyInstaller
+* Work on making levels more open (think other text games hint hint FS)
+* Think about making current levels more open
+* Implement a new travel system (Completed, allows for more open game design now)
