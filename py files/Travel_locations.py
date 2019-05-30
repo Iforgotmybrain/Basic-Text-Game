@@ -1,7 +1,4 @@
-from Base import ToriesCafe, SycamorePark
-
-#
-# This is a separate file which is where all the traveling will be handled. It make the main file neater and allows for easier traveling for the player.
+from py_files.Base import ToriesCafe, SycamorePark
 
 
 class Traveling:

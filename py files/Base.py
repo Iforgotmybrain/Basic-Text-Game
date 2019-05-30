@@ -5,7 +5,9 @@
 import time
 import secrets
 import sys
+import os
 from Travel_locations import Traveling
+
 
 class PlayerStats:
     def __init__(self, race, sex, name):
@@ -21,7 +23,23 @@ class PlayerCharacter(PlayerStats):  # Grabs and stores info about player
                              "Which race do you want to play as? Wolf, Lion, Fox or Dragon? (This is simply for role playing) "))
 
 
+def intro():
+    os.system('cls')
+    print("As you finish the 5th and final season of Barking Bad you feel a sense of satisfaction, but also a feeling of sadness.")
+    input()
+    print("While you’re satisfied with the ending of the show, you can’t help but feel disappointed that won’t be any more episodes to look forward too")
+    print("Alas, that’s been a familiar feeling as of recent, as you’ve binge watched 3 different shows this past week while staying at (blank). Giving yourself a break from your obligations, and from your housemates.")
+    input()
+    print("Unfortunately, this is your last day here, as your reservation is up tomorrow. Your long awaited vacation is over just like that.")
+    input()
+    print("You spent the rest of the day packing and cleaning the room. The next day you're off and headed home.")
+    input()
+    print("You eventually arrive at home in the evening, with none of your housemates to be seen. You bring your stuff inside and unpack it before getting something to eat. Afterwards you watch a short movie in your room and go to bed, another day in paradise.")
+    input()
+    startingroomlightswitch()
 def startingroomlightswitch():
+    print("You wake up in your bedroom, it's dimly lit, the only source of light being the sun sneaking through the blinds.")
+    print("You see the door to the bathroom to your east, and the doorway to the hallway directly ahead to the north.")
     lightswitch = ""
     while lightswitch != "north" and lightswitch != "east":
         lightswitch = input("Which way do you go? ")
@@ -665,8 +683,5 @@ print(
     "In order to advance most dialogue in the game, you will have to press a key first. The console will print out a statement and then to get to the the next piece of dialogue you'll have to hit, say, enter.")
 input("Like this. expect you won't have any text telling you too press a key to continue. Press a key to continue.")
 print("With that out of the way, let's get started", flush=True)
-time.sleep(5)
-print("You are in a dimly-lit room, you see a doorway to your north and to your east")
 time.sleep(3)
-startingroomlightswitch()
-
+intro()
