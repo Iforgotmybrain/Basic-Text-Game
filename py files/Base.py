@@ -6,7 +6,7 @@ import time
 import secrets
 import sys
 import os
-from Travel_locations import Traveling
+import TravelSystem
 
 
 class PlayerStats:
@@ -37,6 +37,8 @@ def intro():
     print("You eventually arrive at home in the evening, with none of your housemates to be seen. You bring your stuff inside and unpack it before getting something to eat. Afterwards you watch a short movie in your room and go to bed, another day in paradise.")
     input()
     startingroomlightswitch()
+
+
 def startingroomlightswitch():
     print("You wake up in your bedroom, it's dimly lit, the only source of light being the sun sneaking through the blinds.")
     print("You see the door to the bathroom to your east, and the doorway to the hallway directly ahead to the north.")
@@ -657,7 +659,7 @@ sasha_living = LivingRoom()
 
 player_bathroom = PCBathroom()  # Make sure to include the () when adding classes)
 
-travel_system = Traveling
+travel_system = TravelSystem.Traveling()
 # Starts the game
 
 print("Hello", player_info.name)

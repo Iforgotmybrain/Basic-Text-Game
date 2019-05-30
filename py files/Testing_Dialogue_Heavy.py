@@ -1,4 +1,4 @@
-from Base import player_info, hallway
+import Base
 
 
 class ToriesCafe:
@@ -28,7 +28,7 @@ class ToriesCafe:
                 "You exchange greetings with Holly and start conversing. There’s a lot of catching up to do, you follow each other on social media but of course that's no replacement for a proper conversation.")
             print(
                 '"Hey {}, Its been a while hasn\'t it? Last time I saw you was a few years ago when we to King\'s Point with a bunch of other high school friends. And the last I saw you regularly was back before you went off to college in 2014!"'.format(
-                    player_info.name))  # Yes, I really did just combine the names of Cedar Point and King's Island to make King's Point
+                    Base.player_info.name))  # Yes, I really did just combine the names of Cedar Point and King's Island to make King's Point
             input()
             print(
                 "You fill in some details about what you’ve been up too since that trip. Detailing your current living situation with Sasha and Jacob and what you've been up too.")
@@ -71,11 +71,11 @@ class ToriesCafe:
             input()
             print(
                 '"Well {}, it’s been fantastic talking but I’ve got a yoga class coming up in a half hour so I’ve gotta run. Hopefully I’ll see you around."'.format(
-                    player_info.name))
+                    Base.player_info.name))
             print("You say goodbye to Holly and decide to head home for the day")
             input()
             self.cafefinished = True
-            hallway()
+            Base.hallway()
         elif cafedecision in ['talk', 't', 'face' 'hi']:
             print("You decide to first go over and say hi to Holly.")
             print(
@@ -85,7 +85,7 @@ class ToriesCafe:
                 "You exchange greetings with Holly and start conversing. There’s a lot of catching up to do, you follow each other on social media but of course that isn’t a replacement for proper conversation.")
             print(
                 '"Hey {}! Last time I saw you was when we went to the amusement park your sophomore year of college with a bunch of other high school friends. And the last I saw you regularly was back before you went off to college in 2014!"'.format(
-                    player_info.name))
+                    Base.player_info.name))
             input()
             print(
                 "You fill in some details about what you’ve been up too since that amusement park trip. Detailing your current living situation with Sasha and Jacob, as well as talking about your various college antics")
@@ -127,11 +127,11 @@ class ToriesCafe:
             input()
             print(
                 '"Well {}, it’s been fantastic talking but I’ve got a yoga class coming up in a half hour so I’ve gotta run. Hopefully I’ll see you around."'.format(
-                    player_info.name))
+                    Base.player_info.name))
             print("You say goodbye to Holly and decide to head home for the day")
             input()
             self.cafefinished = True
-            hallway()
+            Base.hallway()
         else:
             print("Invalid input")
             return self.thecafe()

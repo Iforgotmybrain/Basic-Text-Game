@@ -1,4 +1,4 @@
-from py_files.Base import ToriesCafe, SycamorePark
+import Base
 
 
 class Traveling:
@@ -14,6 +14,9 @@ class Traveling:
         elif travelarea in ['park', 'the park']:
             park.lakepark()
 
+class FuckPyCharm:
+    def fuckpycharmtwo(self):
+        print("Fuck PyCharm")
 
-cafe = ToriesCafe()
-park = SycamorePark()
+cafe = Base.ToriesCafe()
+park = Base.SycamorePark()
