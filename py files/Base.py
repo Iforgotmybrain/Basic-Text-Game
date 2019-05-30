@@ -25,31 +25,36 @@ class PlayerCharacter(PlayerStats):  # Grabs and stores info about player
 
 def intro():
     os.system('cls')
-    print("As you finish the 5th and final season of Barking Bad you feel a sense of satisfaction, but also a feeling of sadness.")
+    print("As you finish the 5th and final season of Barking Bad you feel a sense of satisfaction, but also a feeling of sadness. The culmination of 5 years work is over in the span of an hour.")
     input()
-    print("While you’re satisfied with the ending of the show, you can’t help but feel disappointed that won’t be any more episodes to look forward too")
-    print("Alas, that’s been a familiar feeling as of recent, as you’ve binge watched 3 different shows this past week while staying at (blank). Giving yourself a break from your obligations, and from your housemates.")
+    print("While you’re satisfied with the ending of the show, you can’t help but feel disappointed that there won’t be any more episodes to look forward too. You find that it’s a common feeling when it comes to finishing excellent media.")
+    print("It’s been a familiar feeling as of recent, as you’ve binge watched 3 different shows this past week while staying at Teuton Resorts. The vacation giving yourself a break from your obligations, and from your housemates.")
     input()
-    print("Unfortunately, this is your last day here, as your reservation is up tomorrow. Your long awaited vacation is over just like that.")
+    print("Unfortunately, this is your last day here, as your reservation is up tomorrow. Your long-awaited vacation is over almost as soon as it began, you think.")
     input()
-    print("You spent the rest of the day packing and cleaning the room. The next day you're off and headed home.")
+    print("You spent the rest of the day packing and cleaning the room. The next day you grab breakfast and head off for home.")
     input()
     print("You eventually arrive at home in the evening, with none of your housemates to be seen. You bring your stuff inside and unpack it before getting something to eat. Afterwards you watch a short movie in your room and go to bed, another day in paradise.")
     input()
-    startingroomlightswitch()
+    pcbedroom()
 
 
-def startingroomlightswitch():
-    print("You wake up in your bedroom, it's dimly lit, the only source of light being the sun sneaking through the blinds.")
+def pcbedroom():
+    if player_bathroom.bathroombaddragon is False:
+        print(
+            "You wake up the next morning, your bedroom is dimly lit with the only source of light being the sun as it sneaks through the blinds.")
+    if tories_cafe.cafefinished is True:
+        print("After returning from the cafe you do work on one of your current contracts before going to bed")
     print("You see the door to the bathroom to your east, and the doorway to the hallway directly ahead to the north.")
-    lightswitch = ""
-    while lightswitch != "north" and lightswitch != "east":
-        lightswitch = input("Which way do you go? ")
-        if lightswitch == "north":
-            hallway()
-        elif lightswitch == "east":
-            player_bathroom.bathroompc()
-    return lightswitch
+    pcbedroomdirection = input('Which way do you go? ').lower()
+    if pcbedroomdirection in ['east', 'e']:
+        player_bathroom.bathroompc()
+
+    elif pcbedroomdirection in ['north', 'n']:
+        hallway()
+
+    else:
+        print("Invalid input")
 
 class PCBathroom:
     def __init__(self):
@@ -59,26 +64,29 @@ class PCBathroom:
         while True:
             if self.bathroombaddragon is True:
                 print("You see the opened trunk on the floor and the doorway you entered to your west")
+
             elif self.bathroombaddragon is False:
                 print("You enter a bathroom, you see a trunk on the floor and the doorway you entered to your west")
+
             bathroomoption = input("What do you do? ").lower()
+
             if bathroomoption in ["trunk", "chest"] and self.bathroombaddragon is False:  # Prevents user from opening trunk more than once
                 print("You open the trunk and find a mysterious silicone sculpture")
                 self.bathroombaddragon = True
                 input()
                 return self.bathroompc()
+
             elif bathroomoption in ['trunk', 'chest'] and self.bathroombaddragon is True:
                 print("There's nothing more in the trunk.")
                 input()
+
             elif bathroomoption in ["west", "w", "West"]:
-                print("You return to the dim room, you see a doorway to your north and the bathroom to your east")
-                return startingroomlightswitch()
+                print("You return to your bedroom.")
+                return pcbedroom()
 
 
 def hallway():
     while True:
-        if tories_cafe.cafefinished is True:
-            print("After returning from the cafe you do work on one of your current contracts before going to bed")
         print("You enter a hallway with a doorway to your east and a staircase to your west")
         hallwaydirection = input("Which direction do you go? ").lower()
         if hallwaydirection in ["west", "w"]:
@@ -122,28 +130,35 @@ class SashaEncounter:
                 "The German Shepard is one of your roommates, Sasha. She's a trustworthy sort. But a bit absent-minded at times")
             input()
             print(
-                """ "{}! Where have you been all this time! I haven't seen you in over a week! I figured you most have went on an unannounced vacation." """.format(
+                """ "{}! Where have you been all this time! I haven't seen you in over a week! You weren't in your room so I figured you most have went on an unannounced vacation." """.format(
                     player_info.name))
             input()
+            print('You explain to Sasha that you went on a week-long vacation up north, about 5 hours away.')
+            input()
+            print('I was right after all then.')
             print(
-                """ "I’ve kept on top of all your chores, you’re gonna owe me for the weeks’ time you decided to disappear. I was thinking you could take of my work for 2 or so weeks." """)
+                """ "Hey, I’ve kept on top of all your chores, you’re gonna owe me for the weeks’ time you decided to disappear. I was thinking you could take of my work for 2 or so weeks." """)
+            input()
+            print("You nod in agreement with Sasha, it only seems fair considering you didn’t give either of your roommates a heads up before leaving.")
+            input()
+            print("You say goodbye to Sasha and head back to the hallway/")
             input()
             self.sashatalked = True  # Indicates that the player has talked to Sasha allowing for more dialog
-            self.sashabedroom()
+            hallway()
         elif self.sashatalked == True:
-            print(""" "You know, I actually had a friend in college once that disappeared for like 2 weeks" """)
+            print(""" "You know, I actually had a friend once that basically disappeared for 2 weeks." """)
             print(
-                """ "Turns out she basically gave up and wasn't leaving her dorm. She was in a pretty bad place mentally, and ended up dropping all her classes and leaving college." """)
+                """ "Turns out she had basically isolated herself in her apartment. Didn’t leave it for 2 weeks and only answered text messages to tell people she was ‘ok’" """)
             input()
             print(
-                """ "It was depressing watching my friend essentially fall apart. And by the time I knew something was up with her it was too late to intervene." """)
+                """ "It was quite sad hearing about that for the first time, my friend was basically tearing herself apart, and by the time I knew something was up it was too late to intervene." """)
+            print("'She did end up getting help thankful, and last time I heard from her she was doing pretty good.'")
             input()
             print(
-                """ "Makes me think of how I simply dismissed your disappearance as nothing to worry about. Who knows where you could have been or what you could have been up too!" """)
+                """ "It makes me think of how I simply dismissed your sudden disappearance as nothing to worry about. Who knows where you could have been or what you could have been up too!" """)
             input()
             print(
-                """ "Anyway, you're fine now and that's all that matters. You might want to check in with Jacob, he was gone for half the week so he wasn't entirely sure how long you missing." """)
-            print(""" "He should be somewhere downstairs." """)
+                """ "Anyway, you're fine now and that's all that matters. You might want to check in with Jacob, he was gone for half the week so he wasn't entirely sure how long you were gone for" """)
             input()
             print("You exit Sasha's room and enter the hallway")
             hallway()
@@ -222,7 +237,7 @@ class LivingRoom:
             '"Like the movie? It’s called Revengers: Titan Attack. One of the last movies in the Merkel universe. There’s one more that comes after this, but it isn’t out on disc yet"')
         input()
         print(
-            '"Do you like superhero movies? I won’t say anym ore about it just In-case you want to watch it at some point."')
+            '"Do you like superhero movies? I won’t say anymore about it just In-case you want to watch it at some point."')
         input()
         print(
             "You state your preference for superhero movies, saying that you haven’t really kept up with the Revengers movies since the first one")
@@ -235,12 +250,12 @@ class LivingRoom:
             "You tell Sasha that you wanted to talk to her about past friends. Your recent walk in the park weighing on your mind, you’re hoping that one of your best friends can give you some advice.")  # Maybe implement a choice later? Don't really have the story options to make this optional yet.
         input()
         print('"Well… I’m gonna be honest, that’s a pretty loaded question."')
-        print('"First of all, what happened to these friends? Did they move away? Lose interest in the relationship?"')
+        print('"First of all, what happened to these friends? Did they move away? Lose interest in the relationship? Give me some more info."')
         input()
         print(
             "You start to provide some background information to Sasha, explaining the friends’ role in your life, how they affected you, and then eventually how it all broke down ")
         print(
-            "You can remember exactly how it started, it was mid-September during your teen years. Your parents told you that they couldn’t afford to stay at the lake anymore and that they would be packing up and leaving by the end of the month.")
+            "You can remember exactly how it started, it was mid-September during your teen years. Your parents had just told you that they couldn’t afford to stay at the lake anymore and that they would be packing up and leaving by the end of the month.")
         input()
         print(
             "This was a huge change. By the end of the month, you’d be moving away from the place of your childhood, the place where you spent almost all your summer days. The place where you met your best-friends.")
@@ -252,7 +267,7 @@ class LivingRoom:
             "As you tell Sasha about the move, you remember another ordeal before the move. It involved some of your best-friends Abbey and Jane. The move ended your friendships completely, yes, but you remember that you were on surprisingly shaking terms with both of them months before moving.")
         input()
         print(
-            "You started to drift apart. Your interests were changing, and as you got older you found less and less common ground. To the point where Jane said that she ‘barely knew you’. It was actually a similar case with you, you didn’t know what they were really interested in anymore. It’s hard to stay friends with someone when you have no idea what to do with them. Regardless, hearing that took you down a notch. We’re you ignoring them and not even realizing it? Did they just not feel like you were friends anymore?")
+            "You started to drift apart. Your interests were changing, and as you got older you found less and less common ground. To the point where Jane said that she ‘barely knew you’. It was actually a similar case with you, you didn’t know what they were interested in anymore. It’s hard to stay friends with someone when you have no idea what to do with them. Regardless, hearing that took you down a notch. Were you ignoring them and not even realizing it? Did they just not feel like you were friends anymore?")
         input()
         print(
             "You never got to ask them why they felt that way, so you can only assume. You feel it was a combination of both parties changing their ideas and interests, as well as Jane and Abbey hanging out with a different friend group. Both parties just slowly lost interest in each other.")
@@ -271,12 +286,12 @@ class LivingRoom:
         print('"Then again perhaps I just suck at reading people."')
         input()
         print(
-            '"I think most people have experienced something similar to you. A friendship breaking down for whatever reason"')
+            '"I think most of us have experienced something similar to you. A friendship breaking down for whatever reason"')
         input()
         print(
             '"I think the reason you still look back at that time with such regret is because of the way your relationship broke down. You watched your relationship with Abbey and Jane slowly drift away. With it being the fault of no one. You didn’t have anyone to deflect the blame to for this failing. And apparently, you didn’t even really get to discuss it with them, that lack of closure has no doubt helped lead to your current feelings"')
         input()
-        print('"People change, and in the case of Abbey and Jane, there just wasn’t much you can do about it."')
+        print('"People change, and in the case of Abbey and Jane, there just isn\'t much you can do about it."')
         input()
         print(
             '"I’ve dealt with a somewhat similar situation before. I’m sure you remember me talking about one of my roommates in college dropping out because of depression, well that wasn’t the first time something like that happened."')
@@ -287,14 +302,14 @@ class LivingRoom:
             '"You probably know where this is going by now. He was dealing with serious clinical depression, didn’t want anyone to know because he didn’t want to burden them. He didn’t want people to feel sorry for him."')
         input()
         print(
-            '"He ended up committing suicide by overdosing on Tylenol his junior year of high school. The last guy you would have expected to have that kind of stuff going on "')
-        print('"It was extremely difficult dealing with that for the first few months, hell, the first year even."')
+            '"He ended up committing suicide by overdosing during his junior year of high school. The last guy you would have expected to have that kind of stuff going on "')
+        print('"It was extremely difficult dealing with that for the first few months, hell, the first year even. Everybody at the school had trouble dealing with it."')
         input()
         print(
-            '"It took me a long time to come to terms with it. And then after that, I still dealt with a mix of guilt and sadness. I felt like I should have picked up on him being depressed. I should have been able to help him in some way. I tried numerous things to try and get past it, stuff as simple as trying new hobbies or traveling, as well as going to therapy."')
+            '"It took me a long time to come to terms with it. And then after that, I still dealt with a mix of guilt and sadness. I felt like I should have picked up on him being depressed. I should have been able to help him in some way. I tried numerous things to try and get past it, stuff as simple as trying new hobbies or traveling, and even went to therapy."')
         input()
         print(
-            '"Ultimately, what helped me the most was focusing on the friends that were still there, and on forming new friendships. It helps keep your mind off the past, and it helps fill the void that was left. Instead of worrying about what happened in the past, you just try and focus on the now, and how you can make the most of it."')
+            '"Ultimately, what helped me the most was focusing on the friends that were still there, and on forming new friendships. It helps keep your mind off the past, and helps fill the void that was left. Instead of worrying about what happened in the past, you just try and focus on the now, and how you can make the most of it."')
         input()
         print(
             '"Of course, that’s not always easy to do. Stuff like this never is. And even if you succeed, it doesn’t completely erase the past. You’ll still have moments of weakness, you’ll still think about what could have been"')
@@ -302,17 +317,10 @@ class LivingRoom:
         print(
             '"All you can do is try, and if that fails, ya know, you’ve gotta reach out to people. Family, friends, Somebody. Just letting your thoughts simmer isn’t going to help, it just puts you further down the hole."')
         input()
-        print(
-            '"One of my favorite bands actually has a quite a few songs dealing with this kind of topic. Off the top of my head, I think of their songs has a verse that goes kind like:"')
-        time.sleep(2)
-        print('"There\'s no magic bullet, no cure for pain"')
-        print('"What\'s done is done, \'til you do it again"')
+        print('"There’s no easy way out of these kinds of situations, and odds are, it\'s not going to be the first time you’re going to deal with it"')
         input()
         print(
-            '"Basically he’s saying there’s no easy way out of these kinds of situations, and odds are, it\'s not going to be the first time you’re going to deal with it"')
-        input()
-        print(
-            'You find yourself resonating with Sasha’s advice and past experiences, though you feel like you’re left with more questions for yourself then before having this conversation. You’re sure if that’s a good thing or a bad thing.')
+            'You find yourself resonating with Sasha’s advice and past experiences, though you feel like you’re left with more questions for yourself then before having this conversation. You’re not sure if that’s a good thing or a bad thing.')
         input()
         print('You ask Sasha if she still thinks about those memories very often.')
         input()
@@ -327,7 +335,7 @@ class LivingRoom:
         print('You say goodbye to Sasha and head up to the room for the night, your mind full of thoughts to process')
         input()
         self.sashalivingroomdialogue = True
-        hallway()
+        pcbedroom()
 
 
 class JacobKitchen:
@@ -344,14 +352,17 @@ class JacobKitchen:
                     print(
                         "The Deer is one of your roommates, Jacob. You give him a pat on the shoulder and strike up a conversation")
                     print(
-                        '"Hey {}! Where have you been these last few days? I haven’t seen you since I left for vacation last week. I got back about 3 days ago and haven’t seen you since."'.format(
-                        player_info.name))
+                        '"Hey {}! What’s up? Where have you been these last few days? I haven’t seen you since I went to visit my parents last week. I got back about 3 days ago and haven’t seen you since."'.format(player_info.name))
                     input()
                     print(
                         "Sasha told me she hadn’t seen you for a minute, but she wasn't exactly sure how long you'd been gone.")
                     input()
+                    print("You tell Jacob that you went on a week-long vacation a bit up north.")
+                    input()
+                    print("That sounds pretty nice. It did seem like a bit of sudden vacation though, you didn’t give anyone any notice or anything.")
+                    input()
                     print(
-                        '"Regardless, it’s good to see you. If you ever wanna talk about where you went off too, you know where to find me."')  # Feels kind of unnatural?
+                        '"Regardless, it’s good to see you. If you ever wanna talk about that vacation a bit more in-depth just let me know, I’d been thinking of possibly going up there myself."')  # Feels kind of unnatural?
                     input()
                     self.jacobtalked = True  # Marks that the player has talked to Jacob
                     return self.startingkitchen()
@@ -392,10 +403,11 @@ class ToriesCafe:
         print(
             "It’s a popular place amongst the younger crowd. The place has a modern aesthetic with colorful furniture and ample natural lighting giving the place a cheery vibe.")
         input()
-        print("They’re famous for their fantastic wraps, and also have some pretty good soups.")
+        print("They’re known for their fantastic wraps, and also have some pretty good soups.")
         print(
-            "Looking around you see the line to order, it’s a bit after lunch so there isn’t much of a wait. You also see a familiar face sitting down at one of the tables")
+            "Looking around you see the line to order, it’s a bit after lunch so there isn’t much of a wait. You can also see a familiar face sitting down at one of the tables")
         cafedecision = input("Will you order first or go and say hi to the familiar face? ").lower()
+
         if cafedecision in ['order', 'eat', ]:
             print("You decide to order some food before going to say hi.")
             print("The line moves quick and before you know it’s your turn to order.")
@@ -403,121 +415,74 @@ class ToriesCafe:
             print(
                 "You decide to order your usual combo; a tuna wrap with a bag of chips and a drink. Not a bad deal for $4!")
             print("Having ordered your food, you head over to the table of Holly, a friend of yours from high school.")
-            print(
-                "Holly is a vixen, no, not like that. In the literal sense. You’ve known her since high school and while you haven’t really been in contact much since then, you still consider her to be a friend, albeit a distant one.")
-            input()
-            print(
-                "You exchange greetings with Holly and start conversing. There’s a lot of catching up to do, you follow each other on social media but of course that's no replacement for a proper conversation.")
-            print(
-                '"Hey {}, Its been a while hasn\'t it? Last time I saw you was a few years ago when we to King\'s Point with a bunch of other high school friends. And the last I saw you regularly was back before you went off to college in 2014!"'.format(
-                    player_info.name))  # Yes, I really did just combine the names of Cedar Point and King's Island to make King's Point
-            input()
-            print(
-                "You fill in some details about what you’ve been up too since that trip. Detailing your current living situation with Sasha and Jacob and what you've been up too.")
-            print(
-                "You ask what Holly’s been up too since then, a faint look of discomfort fills her face as she describes her falling out from college")
-            input()
-            print(
-                '"Yeah, I dropped out of college at the end of 2016. Believe it or not it wasn’t because I sucked at it, I just wasn’t enjoying it. I know that’s a pretty shit reason to drop out, but I just couldn’t see myself doing another 2 years there. Nor could I see myself being a marketer for the rest of my life"')
-            print(
-                '"Like I said, my grades weren’t bad enough too have them kick me out, but they weren’t great either. I was holding about a 2.5 (out of 4) GPA"')
-            input()
-            print(
-                "You nod in agreement, remembering how many times you second guessed your major choice throughout college")
-            input()
-            print(
-                '"And as far as being a marketer goes, I knew I would have hated it and the corporate culture that surrounds it. Having to stick up to execs, deliver presentations on ideas that would ultimately be ignored by the project managers and higher-ups. Dealing with the petty workplace drama… That just wasn’t for me."')
-            input()
-            print(
-                "You can definitely see yourself agreeing with Holly’s decision, thinking back to all the workplace drama and rejected proposals you’ve dealt with…")
-            print(
-                "You ask Holly what she’s doing for work since she dropped out of college, she offers a surprising answer.")
-            input()
-            print(
-                '"I draw art for a living now! I’ve always been interested in drawing; I’m sure you remember some of my art from back in high school. I never really thought of it as a legitimate career path but I’ve managed to find a niche that pays a decent amount of money through commissions."')
-            print(
-                '"I love it. The customer tells me what they want, I draw it, and we go on our way. There’s (typically) no bullshit, and no one else telling me what to do."')
-            input()
-            print(
-                '"So, what have you been doing since graduating college? I know you finished college with a couple internships under your belt and a great GPA, so that’s had to have gotten you somewhere right?"')
-            input()
-            print(
-                "You explain that you used to work for a local big business, but eventually quit for various reasons, including reasons that Holly has already stated, like project managers ignoring ideas.")
-            print(
-                "You state that you had luckily saved up enough money to live comfortably for around 2 years before you quit. You talk about how you now do freelance work off and on, not unlike what Holly does. It helps keep a steady flow of money coming into your bank account. And with living expenses being split between three people, you really don’t need much money to support your lifestyle.")
-            input()
-            print(
-                "'Man, that’s fantastic. Hearing stuff like that almost makes me wish I would have stayed in college. I couldn’t imagine having a savings large enough to live off of for 2 years. Let alone being able to amass that much money by only working for a year and half!'")
-            print(
-                "'Still, like I said, I enjoy my work and I wouldn’t want it any other way. Within reason of course.'")
-            input()
-            print(
-                '"Well {}, it’s been fantastic talking but I’ve got a yoga class coming up in a half hour so I’ve gotta run. Hopefully I’ll see you around."'.format(
-                    player_info.name))
-            print("You say goodbye to Holly and decide to head home for the day")
-            input()
-            self.cafefinished = True
-            hallway()
+            self.hollydialoguecafe()
+
         elif cafedecision in ['talk', 't', 'face' 'hi']:
             print("You decide to first go over and say hi to Holly.")
-            print(
-                "Holly is a vixen, no, not like that. In the literal sense. You’ve known her since high school and while you haven’t really been in contact much since college, you still consider her to be a friend, albeit a distant one.")
             input()
-            print(
-                "You exchange greetings with Holly and start conversing. There’s a lot of catching up to do, you follow each other on social media but of course that isn’t a replacement for proper conversation.")
-            print(
-                '"Hey {}! Last time I saw you was when we went to the amusement park your sophomore year of college with a bunch of other high school friends. And the last I saw you regularly was back before you went off to college in 2014!"'.format(
-                    player_info.name))
-            input()
-            print(
-                "You fill in some details about what you’ve been up too since that amusement park trip. Detailing your current living situation with Sasha and Jacob, as well as talking about your various college antics")
-            print(
-                "You ask what Holly’s been up too since then, a faint look of worry and disappointment fills her face as she describes her falling out from college")
-            input()
-            print(
-                '"Yeah, I dropped out of college at the end of 2016. Believe it or not it wasn’t because of my grades, I just wasn’t enjoying college. I know that’s a pretty shit reason to drop out, but I just couldn’t see myself doing another 2 years there. Nor could I see myself being a marketer for the rest of my life"')
-            print(
-                '"Like I said, my grades weren’t bad enough too have them kick me out, but they weren’t great either. I was holding about a 2.5 (out of 4) GPA"')
-            input()
-            print(
-                "You nod in agreement, remembering how many times you second guessed your major choice throughout college")
-            input()
-            print(
-                '"And as far as being a marketer goes, I knew I would have hated it and the corporate culture that surrounds it. Having to stick up to execs, deliver presentations on ideas that would ultimately be ignored by the project managers and higher-ups. Dealing with the petty workplace drama… That just wasn’t for me."')
-            input()
-            print(
-                "You can definitely see yourself understanding Holly’s decision, thinking back at all the workplace drama and rejected proposals you’ve dealt with…")
-            print(
-                "You ask Holly what she’s doing for work since she dropped out of college, she offers a surprising answer")
-            input()
-            print(
-                '"I draw art for a living now! I’ve always been interested in drawing before, I’m sure you remember some of my drawings from back in high school. I never really thought of it as a legitimate career path, but I’ve managed to find a niche that pays a decent amount of money through commissions."')
-            print(
-                '"I love it. The customer tells me what they want, I draw it, and we go on our way. There’s (typically) no bullshit, and no one else telling me what to do."')
-            input()
-            print(
-                '"So, what have been doing since graduating college? I know you finished with couple internships and a great GPA, so that’s had to have gotten you somewhere right?"')
-            input()
-            print(
-                "You explain that you used to work for a local big business, but eventually quit for various reasons, including reasons she stated, like project managers ignoring ideas.")
-            print(
-                "You state that you had luckily saved up enough money to live comfortably for around 2 years before quitting. You talk about how you now do freelance work off and on, not unlike what Holly does. It helps keep a steady flow of money coming into your bank account. And with living expenses being split between three people, you really don’t need much money to support your lifestyle.")
-            input()
-            print(
-                '"Man, that’s fantastic. Hearing stuff like that almost makes me wish I would have stayed in college. I couldn’t imagine being able to have a savings large enough to live on for 2 years. Let alone being able to amass that much money by only working for a year and half!"')
-            print('"Still, like I said, I enjoy my work and I wouldn’t want it any other way."')
-            input()
-            print(
-                '"Well {}, it’s been fantastic talking but I’ve got a yoga class coming up in a half hour so I’ve gotta run. Hopefully I’ll see you around."'.format(
-                    player_info.name))
-            print("You say goodbye to Holly and decide to head home for the day")
-            input()
-            self.cafefinished = True
-            hallway()
+            self.hollydialoguecafe()
+
         else:
             print("Invalid input")
             return self.thecafe()
 
+
+    def hollydialoguecafe(self):
+        print(
+            "Holly is a vixen. No, no, not like that, in the literal sense. You’ve known her since high school and while you haven’t really been in contact much since college, you still consider her to be a friend, albeit a distant one.")
+        input()
+        print(
+            "You exchange greetings with Holly and start conversing. There’s a lot of catching up to do, you follow each other on social media but of course that isn’t a replacement for proper conversation.")
+        print(
+            '"Hey {}! It\'s been awhile. I think the last time I saw you was when we went to the amusement park your sophomore year of college with a bunch of other high school friends. And the last I saw you regularly was back before you went off to college in 2014!"'.format(
+                player_info.name))
+        input()
+        print(
+            "You fill in some details about what you’ve been up too since that amusement park trip. Detailing your current living situation with Sasha and Jacob, as well as talking about your various college antics")
+        print(
+            "You ask what Holly’s been up too since then, a faint look of discomfort fills her face as she describes her falling out from college")
+        input()
+        print(
+            '"Yeah, I dropped out of college at the end of 2016. Believe it or not it wasn’t because of my grades, I just wasn’t enjoying college. I know that’s a pretty shit reason to drop out, but I just couldn’t see myself doing another 2 years there. Nor could I see myself being a marketer for the rest of my life"')
+        input()
+        print(
+            "You nod in agreement, remembering how many times you second guessed your choice to attend college.")
+        input()
+        print(
+            '"And as far as being a marketer goes, I knew I would have hated it and the corporate culture that surrounds it. Having to stick up to execs, deliver presentations on ideas that would ultimately be ignored by the project managers and higher-ups. Dealing with the petty workplace drama… That just wasn’t for me."')
+        input()
+        print(
+            '"That’s just me though. You know I’ve never been one to suck up and deal with other people’s bullshit"')
+        input()
+        print(
+            "You can definitely see yourself understanding Holly’s decision, thinking back at all the workplace drama and rejected proposals you’ve dealt with…")
+        print(
+            "You ask Holly what she’s doing for work since she dropped out of college, she offers a surprising answer.")
+        input()
+        print(
+            '"I draw art for a living now! I’ve always been interested in drawing before, I’m sure you remember some of my drawings from back in high school. I never really thought of it as a legitimate career path, but I’ve managed to find a niche that pays a decent amount of money through commissions."')
+        print(
+            '"And you know, I really enjoy it. The customer tells me what they want, I draw it, and we go on our way. There’s (typically) no bullshit, and no one else telling me what to do."')
+        input()
+        print(
+            '"So, what have been doing since graduating college? I know you finished with couple internships and a great GPA, so that’s had to have gotten you somewhere right?"')
+        input()
+        print(
+            "You explain that you used to work for a local big business, but eventually quit for various reasons, including reasons she stated, like project managers ignoring ideas.")
+        print(
+            "You state that you had luckily saved up enough money to live comfortably for around 2 years before quitting. You talk about how you now do freelance work off and on, not unlike what Holly does. It helps keep a steady flow of money coming into your bank account. And with living expenses being split between three people, you really don’t need much money to support your lifestyle.")
+        input()
+        print(
+            '"Wow, that’s fantastic. Hearing stuff like that almost makes me wish I would have stayed in college. I couldn’t imagine being able to have a savings large enough to live on for 2 years. Let alone being able to amass that much money by only working for a year and half!"')
+        print('"Still, like I said, I enjoy my work and I wouldn’t want it any other way."')
+        input()
+        print(
+            '"Well {}, it’s been fantastic talking but I’ve got a yoga class coming up in a half hour so I’ve gotta run. Hopefully I’ll see you around."'.format(
+                player_info.name))
+        print("You say goodbye to Holly and decide to head home for the day")
+        input()
+        self.cafefinished = True
+        hallway()
 
 class SycamorePark:
     def __init__(self):
@@ -541,7 +506,7 @@ class SycamorePark:
 
         parkdecision = input("After thinking about it, you decide to go... ").lower()
         if parkdecision in ['home', 'away', ]:
-            print("You decide you still aren’t feeling up to a walk in the park and head home")
+            print("You decide too head home")
             first_world.fronthousearea()
 
         elif parkdecision in ['east', 'e']:
@@ -603,9 +568,10 @@ class SycamorePark:
         self.lakepark()
 
     def parkpathself(self):
+        self.parklakepath = True
         print("15 minutes into the walk you come across a familiar sight, the great Sycamore Lake. Hence the park’s name.")
         print(
-            "You’ve seen this lake at least a thousand times throughout your life. In both good and bad times. You normally never give a second thought when looking out upon its seemingly never-ending horizon, but this time was different.")
+            "You’ve seen this lake at least a thousand times throughout your life. In both good and bad times. You normally never give a second thought when looking out upon its seemingly never-ending horizon, but this time is different.")
         input()
         print(
             "The scenery reminded you of a past story. Memories from 15 years ago rush into your mind. It was a happier time, or at least it seems that way. Sometimes you think it might have even been the happiest you’ve ever been.")
@@ -629,7 +595,7 @@ class SycamorePark:
             "It wasn’t all perfect, as they brought along another one of their friends that you weren’t really fond of. But still, it was trips like that really solidified your friendship. None of your other friends that did that kind of stuff with you. They still don’t")
         input()
         print(
-            "As you look back at those memories it feels bittersweet. It’s like the saying ‘Don’t be sad that it’s over, be glad that it happened’ Though that can be hard to live with some days.")
+            "As you look back at those memories it feels bittersweet. It’s like the saying ‘Don’t be sad that it’s over, be glad that it happened’ Though that can be hard to deal with some days.")
         print("The memories are nice but still having those people in your life would be better.")
         print(
             "Unfortunately, people drift apart, they change. You grow up, your interests change, you move away from those people… Sometimes you can get over it, but when someone has that much of an impact on your life, it’s tough. Even 7 years after its happened.")
