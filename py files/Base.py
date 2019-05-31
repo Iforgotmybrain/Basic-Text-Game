@@ -29,28 +29,28 @@ class GameState:
 
     def saving(self):
         pickle_out = open('gamestate.pickle', 'wb')
-        pickle.dump([game_state.state, player_info.name, player_info.sex,
-                    player_info.race, player_bathroom.bathroombaddragon, sasha_encounter.sashatalked,
-                    sasha_living.sashalivingroomdialogue,jacob_kitchen.jacobtalked, tories_cafe.cafefinished,
-                     sycamore_park.parklakepath, sycamore_park.parkroommatepath], pickle_out)
+        pickle.dump (datapickle, pickle_out)
         pickle_out.close()
         print("Game Saved!")
         return
 
     def loading(self):
         obj = []
-        with open('gamestate.pickle', 'rb') as fileOpencer:
+        with open('gamestate.pickle', 'rb') as fileOpener:
             while True:
                 try:
-                    obj.append(pickle.load(fileOpencer))
+                    obj.append(pickle.load(fileOpener))
                 except EOFError:
                     break
 
         if game_state.state == 'Park Walk':
+            print("Game loaded park")
             sycamore_park.lakepark()
         elif game_state.state == 'PC Bedroom' or 'Sasha Living Room':
+            print("Game loaded bedroom")
             pcbedroom()
         elif game_state.state == 'Sasha First Dialogue' or 'Sasha Second Dialogue' or 'Holly Cafe':
+            print("Game loaded hallway")
             hallway()
 
 
@@ -698,6 +698,12 @@ travel_system = TravelSystem
 game_state = GameState(state=GameState)
 
 game_save = SaveFunction()
+
+
+datapickle = [game_state.state, player_info.name, player_info.sex,
+                    player_info.race, player_bathroom.bathroombaddragon, sasha_encounter.sashatalked,
+                    sasha_living.sashalivingroomdialogue,jacob_kitchen.jacobtalked, tories_cafe.cafefinished,
+                     sycamore_park.parklakepath, sycamore_park.parkroommatepath]
 
 # Starts the game
 loadoption = input("Do you wish to load a game? ")
