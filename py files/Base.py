@@ -6,6 +6,7 @@ import time
 import secrets
 import sys
 import os
+import pickle
 import TravelSystem
 
 
@@ -22,6 +23,13 @@ class PlayerCharacter(PlayerStats):  # Grabs and stores info about player
                          race=input(
                              "Which race do you want to play as? Wolf, Lion, Fox or Dragon? (This is simply for role playing) "))
 
+class GameState:
+    def __init__(self, state):
+        self.state = state
+
+    def loading(self):
+        if state == 'Park Walk':
+            sycamore_park.lakepark()
 
 def intro():
     os.system('cls')
@@ -52,6 +60,8 @@ def pcbedroom():
 
     elif pcbedroomdirection in ['north', 'n']:
         hallway()
+    elif pcbedroomdirection in ['save']:
+        game_save.saving()
 
     else:
         print("Invalid input")
@@ -144,6 +154,7 @@ class SashaEncounter:
             print("You say goodbye to Sasha and head back to the hallway/")
             input()
             self.sashatalked = True  # Indicates that the player has talked to Sasha allowing for more dialog
+            game_state.state = 'Sasha First Dialogue'
             hallway()
         elif self.sashatalked == True:
             print(""" "You know, I actually had a friend once that basically disappeared for 2 weeks." """)
@@ -161,6 +172,7 @@ class SashaEncounter:
                 """ "Anyway, you're fine now and that's all that matters. You might want to check in with Jacob, he was gone for half the week so he wasn't entirely sure how long you were gone for" """)
             input()
             print("You exit Sasha's room and enter the hallway")
+            game_state.state = 'Sasha Second Dialogue'
             hallway()
         elif self.sashatalked is True and sasha_living.sashalivingroomdialogue is True:
             print('"Hey, {}. Can\'t think of anything new going on"'.format(player_info.name))
@@ -334,6 +346,7 @@ class LivingRoom:
         input()
         print('You say goodbye to Sasha and head up to the room for the night, your mind full of thoughts to process')
         input()
+        game_state.state = 'Sasha Living Room'
         self.sashalivingroomdialogue = True
         pcbedroom()
 
@@ -365,6 +378,7 @@ class JacobKitchen:
                         '"Regardless, it’s good to see you. If you ever wanna talk about that vacation a bit more in-depth just let me know, I’d been thinking of possibly going up there myself."')  # Feels kind of unnatural?
                     input()
                     self.jacobtalked = True  # Marks that the player has talked to Jacob
+                    game_state.state = 'Jacob Kitchen Dialogue'
                     return self.startingkitchen()
                 elif self.jacobtalked is True:  # Dialogue for Jacob after initial conversation
                     print("'Hey buddy. I've not nothing new to say.'")
@@ -481,6 +495,7 @@ class ToriesCafe:
                 player_info.name))
         print("You say goodbye to Holly and decide to head home for the day")
         input()
+        game_state.state = 'Holly Cafe'
         self.cafefinished = True
         hallway()
 
@@ -564,6 +579,7 @@ class SycamorePark:
         print(
             "Caught up in your thoughts you find yourself at the end of your walk before you know it. You are now back at the park entrance way.")
         input()
+        game_state.state = 'Park Walk'
         self.parkroommatepath = True
         self.lakepark()
 
@@ -603,10 +619,20 @@ class SycamorePark:
         print(
             "As you reminisce on your memories you realize that over an hour has passed, you snap out of it and finish your walk prematurely before heading back to the park entrance way.")
         input()
+        game_state.state = 'Park Walk'
         self.parklakepath = True
         self.lakepark()
 
 
+
+class SaveFunction:
+    def saving(self):
+        pickle_out = open('gamestate.dat', 'wb')
+        pickle.dump(game_state.state, pickle_out)
+        print("Game Saved!")
+    def loading(self):
+        state = pickle.load(open('gamestate.dat', 'rb'))
+        print("Game Loaded!")
 # Global Classes
 
 sasha_encounter = SashaEncounter()  # Global instance of class SashaEncounter,very useful.
@@ -626,8 +652,13 @@ sasha_living = LivingRoom()
 player_bathroom = PCBathroom()  # Make sure to include the () when adding classes)
 
 travel_system = TravelSystem.Traveling()
-# Starts the game
 
+game_state = GameState(state=GameState)
+
+game_save = SaveFunction()
+# Starts the game
+pickle.dump(game_state.state('gamestate.dat', 'wb'))
+state = pickle.load(open('gamestate.dat', 'rb'))
 print("Hello", player_info.name)
 time.sleep(3)
 print("You are about to embark on a hastily made journey involving animal people")
