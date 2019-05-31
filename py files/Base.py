@@ -27,9 +27,32 @@ class GameState:
     def __init__(self, state):
         self.state = state
 
+    def saving(self):
+        pickle_out = open('gamestate.pickle', 'wb')
+        pickle.dump([game_state.state, player_info.name, player_info.sex,
+                    player_info.race, player_bathroom.bathroombaddragon, sasha_encounter.sashatalked,
+                    sasha_living.sashalivingroomdialogue,jacob_kitchen.jacobtalked, tories_cafe.cafefinished,
+                     sycamore_park.parklakepath, sycamore_park.parkroommatepath], pickle_out)
+        pickle_out.close()
+        print("Game Saved!")
+        return
+
     def loading(self):
-        if state == 'Park Walk':
+        obj = []
+        with open('gamestate.pickle', 'rb') as fileOpencer:
+            while True:
+                try:
+                    obj.append(pickle.load(fileOpencer))
+                except EOFError:
+                    break
+
+        if game_state.state == 'Park Walk':
             sycamore_park.lakepark()
+        elif game_state.state == 'PC Bedroom' or 'Sasha Living Room':
+            pcbedroom()
+        elif game_state.state == 'Sasha First Dialogue' or 'Sasha Second Dialogue' or 'Holly Cafe':
+            hallway()
+
 
 def intro():
     os.system('cls')
@@ -54,17 +77,20 @@ def pcbedroom():
     if tories_cafe.cafefinished is True:
         print("After returning from the cafe you do work on one of your current contracts before going to bed")
     print("You see the door to the bathroom to your east, and the doorway to the hallway directly ahead to the north.")
+    game_state.state = 'PC Bedroom'
     pcbedroomdirection = input('Which way do you go? ').lower()
     if pcbedroomdirection in ['east', 'e']:
         player_bathroom.bathroompc()
 
     elif pcbedroomdirection in ['north', 'n']:
         hallway()
+
     elif pcbedroomdirection in ['save']:
-        game_save.saving()
+        game_state.saving()
 
     else:
         print("Invalid input")
+        return pcbedroom()
 
 class PCBathroom:
     def __init__(self):
@@ -109,6 +135,15 @@ def hallway():
             elif sasha_encounter.sashatalked is True:
                 sasha_encounter.sashabedroom()
                 break
+        elif hallwaydirection in ['save']:
+            game_state.saving()
+        elif hallwaydirection in ['name']:
+            print('Testing. You should not see this. Your name is {}'.format(player_info.name))
+        elif hallwaydirection in ['sex']:
+            print('Testing. Your sex is {}'.format(player_info.sex))
+        elif hallwaydirection in ['race']:
+            print('Testing. Your race is {}'.format(player_info.race))
+
         else:
             print("Invalid input")
             return hallway()
@@ -217,6 +252,9 @@ def entranceway():
 
         elif entrancewaydirection in ["south", "s"]:
             hallway()
+
+        elif entrancewaydirection in ['save']:
+            game_state.saving()
 
         else:
             print("Invalid input")
@@ -400,7 +438,7 @@ class FirstWorld:
             if fronthouseareadirection in ['travel']:
                 travel_system.traveltofront()
                 break
-            if fronthouseareadirection in ['south', 's']:
+            elif fronthouseareadirection in ['south', 's']:
                 entranceway()
                 break
             else:
@@ -544,9 +582,12 @@ class SycamorePark:
                 self.parkpathrommates()
             elif self.parklakepath is False and self.parkroommatepath is True:  # If the player has seen the roommate path then the self reflection path is played
                 self.parkpathself()
+        elif parkdecision in ['save']:
+            game_state.saving()
         else:
             print("Invalid input")
             return self.lakepark()
+
     def parkpathrommates(self):
         print("This path is a slightly shorter path than the other one, as it doesn't go past the lake.")
         time.sleep(3)
@@ -635,6 +676,7 @@ class SaveFunction:
         print("Game Loaded!")
 # Global Classes
 
+
 sasha_encounter = SashaEncounter()  # Global instance of class SashaEncounter,very useful.
 
 jacob_kitchen = JacobKitchen()  # Global instance of JacobKitchen
@@ -651,14 +693,18 @@ sasha_living = LivingRoom()
 
 player_bathroom = PCBathroom()  # Make sure to include the () when adding classes)
 
-travel_system = TravelSystem.Traveling()
+travel_system = TravelSystem
 
 game_state = GameState(state=GameState)
 
 game_save = SaveFunction()
+
 # Starts the game
-pickle.dump(game_state.state('gamestate.dat', 'wb'))
-state = pickle.load(open('gamestate.dat', 'rb'))
+loadoption = input("Do you wish to load a game? ")
+if loadoption in ['yes']:
+    game_state.loading()
+elif loadoption in ['no']:
+    pass
 print("Hello", player_info.name)
 time.sleep(3)
 print("You are about to embark on a hastily made journey involving animal people")

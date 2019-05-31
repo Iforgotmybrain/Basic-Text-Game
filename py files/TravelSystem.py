@@ -14,9 +14,6 @@ class Traveling:
         elif travelarea in ['park', 'the park']:
             park.lakepark()
 
-class FuckPyCharm:
-    def fuckpycharmtwo(self):
-        print("Fuck PyCharm")
 
 cafe = Base.ToriesCafe()
 park = Base.SycamorePark()
