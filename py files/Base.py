@@ -52,7 +52,7 @@ class GameState:
             hallway()
         elif player_info.player_location == ('Jacob Kitchen Dialogue'):
             entranceway()
-        elif player_info.player_location == ('Park Walk'):
+        elif player_info.player_location == ('Park Walkk'):
             sycamore_park.lakepark()
 
 
