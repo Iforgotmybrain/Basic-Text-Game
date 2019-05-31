@@ -7,10 +7,13 @@ import secrets
 import sys
 import os
 import pickle
+import SaveSystem
 import TravelSystem
 
 
 class PlayerStats:
+    """This class takes and store info about the player character. This includes their user-defined name, their sex, and
+    their race. As of recent it also keeps track of their location. This was needed to implement the save system"""
     def __init__(self, race, sex, name):
         self.name = name
         self.sex = sex
@@ -18,46 +21,15 @@ class PlayerStats:
         self.player_location = ""
 
 
-class PlayerCharacter(PlayerStats):  # Grabs and stores info about player
+class PlayerCharacter(PlayerStats):
+    """This is where the user defines their character."""
     def __init__(self):
         super().__init__(name=input("What is your name? "), sex=input("Do you wish to play as male or female? "),
                          race=input(
                              "Which race do you want to play as? Wolf, Lion, Fox or Dragon? (This is simply for role playing) "))
 
 
-class GameState:
-    def saving(self):
-        pickle_out = open('gamestate.pickle', 'wb')
-        pickle.dump([player_info.player_location, player_info.name, player_info.sex,
-              player_info.race, player_bathroom.bathroombaddragon, sasha_encounter.sashatalked,
-              sasha_living.sashalivingroomdialogue,jacob_kitchen.jacobtalked, tories_cafe.cafefinished,
-              sycamore_park.parklakepath, sycamore_park.parkroommatepath], pickle_out)
-        pickle_out.close()
-        print("Game Saved!")
-        return
-
-    def loading(self):
-        pickle_in = open('gamestate.pickle', 'rb')
-        [player_info.player_location, player_info.name, player_info.sex,
-         player_info.race, player_bathroom.bathroombaddragon, sasha_encounter.sashatalked,
-         sasha_living.sashalivingroomdialogue, jacob_kitchen.jacobtalked, tories_cafe.cafefinished,
-         sycamore_park.parklakepath, sycamore_park.parkroommatepath] = pickle.load(pickle_in)
-        pickle_in.close()
-        self.playerlocation()
-
-    def playerlocation(self):
-        if player_info.player_location == ('PC Bedroom') or ('Sasha Living Room'):
-            pcbedroom()
-        elif player_info.player_location == ("Sasha First Dialogue") or ('Sasha Second Dialogue') or ('Holly Cafe'):
-            hallway()
-        elif player_info.player_location == ('Jacob Kitchen Dialogue'):
-            entranceway()
-        elif player_info.player_location == ('Park Walkk'):
-            sycamore_park.lakepark()
-
-
 def intro():
-    os.system('cls')
     print("As you finish the 5th and final season of Barking Bad you feel a sense of satisfaction, but also a feeling of sadness. The culmination of 5 years work is over in the span of an hour.")
     input()
     print("While you’re satisfied with the ending of the show, you can’t help but feel disappointed that there won’t be any more episodes to look forward too. You find that it’s a common feeling when it comes to finishing excellent media.")
@@ -88,7 +60,7 @@ def pcbedroom():
         hallway()
 
     elif pcbedroomdirection in ['save']:
-        game_state.saving()
+        save_file.save_load.saving()
 
     else:
         print("Invalid input")
@@ -138,7 +110,7 @@ def hallway():
                 sasha_encounter.sashabedroom()
                 break
         elif hallwaydirection in ['save']:
-            game_state.saving()
+            save_file.save_load.saving()
         elif hallwaydirection in ['name']:
             print('Testing. You should not see this. Your name is {}'.format(player_info.name))
         elif hallwaydirection in ['sex']:
@@ -172,7 +144,6 @@ class SashaEncounter:
 
     def sashabedroomdialog(self):
         if self.sashatalked == False:
-            player_info.player_location = 'Sasha First Dialogue'
             print("You approach the German Shepard and exchange greetings.")
             print(
                 "The German Shepard is one of your roommates, Sasha. She's a trustworthy sort. But a bit absent-minded at times")
@@ -183,6 +154,7 @@ class SashaEncounter:
             input()
             print('You explain to Sasha that you went on a week-long vacation up north, about 5 hours away.')
             input()
+            player_info.player_location = 'Sasha First Dialogue'
             print('I was right after all then.')
             print(
                 """ "Hey, I’ve kept on top of all your chores, you’re gonna owe me for the weeks’ time you decided to disappear. I was thinking you could take of my work for 2 or so weeks." """)
@@ -190,12 +162,11 @@ class SashaEncounter:
             print("You nod in agreement with Sasha, it only seems fair considering you didn’t give either of your roommates a heads up before leaving.")
             input()
             print("You say goodbye to Sasha and head back to the hallway/")
-            player_info.player_location = 'Sasha First Dialogue'
             input()
+            player_info.player_location = 'Sasha First Dialogue'
             self.sashatalked = True  # Indicates that the player has talked to Sasha allowing for more dialog
             hallway()
         elif self.sashatalked == True:
-            player_info.player_location = 'Sasha Second Dialogue'
             print(""" "You know, I actually had a friend once that basically disappeared for 2 weeks." """)
             print(
                 """ "Turns out she had basically isolated herself in her apartment. Didn’t leave it for 2 weeks and only answered text messages to tell people she was ‘ok’" """)
@@ -258,7 +229,7 @@ def entranceway():
             hallway()
 
         elif entrancewaydirection in ['save']:
-            game_state.saving()
+            save_file.save_load.saving()
 
         else:
             print("Invalid input")
@@ -388,9 +359,9 @@ class LivingRoom:
             '"Of course! That’s what friends are for. I’ll see you around; oh, and make sure you tell me if you want to catch up on the Revenger’s movies! I’ll be pissed if you don’t!"')
         input()
         print('You say goodbye to Sasha and head up to the room for the night, your mind full of thoughts to process')
+        input()
         player_info.player_location = 'Sasha Living Room'
         self.sashalivingroomdialogue = True
-        input()
         pcbedroom()
 
 
@@ -405,7 +376,6 @@ class JacobKitchen:
             kitchendirection = input("What do you do? ").lower()
             if kitchendirection in ["talk", "t"]:
                 if self.jacobtalked is False:  # Dialogue if Jacob hasn't been talked to before
-                    player_info.player_location = 'Jacob Kitchen Dialogue'
                     print(
                         "The Deer is one of your roommates, Jacob. You give him a pat on the shoulder and strike up a conversation")
                     print(
@@ -420,9 +390,9 @@ class JacobKitchen:
                     input()
                     print(
                         '"Regardless, it’s good to see you. If you ever wanna talk about that vacation a bit more in-depth just let me know, I’d been thinking of possibly going up there myself."')  # Feels kind of unnatural?
+                    input()
                     self.jacobtalked = True  # Marks that the player has talked to Jacob
                     player_info.player_location = 'Jacob Kitchen Dialogue'
-                    input()
                     return self.startingkitchen()
                 elif self.jacobtalked is True:  # Dialogue for Jacob after initial conversation
                     print("'Hey buddy. I've not nothing new to say.'")
@@ -442,7 +412,7 @@ class FirstWorld:
             print("You stand on your front porch ready for adventure! You could also return home by entering the door to your south.")
             fronthouseareadirection = input("Will you travel or return home?").lower()
             if fronthouseareadirection in ['travel']:
-                travel_system.traveltofront()
+                TravelSystem.travel_function.traveltofront()
                 break
             elif fronthouseareadirection in ['south', 's']:
                 entranceway()
@@ -538,9 +508,9 @@ class ToriesCafe:
             '"Well {}, it’s been fantastic talking but I’ve got a yoga class coming up in a half hour so I’ve gotta run. Hopefully I’ll see you around."'.format(
                 player_info.name))
         print("You say goodbye to Holly and decide to head home for the day")
+        input()
         player_info.player_location = 'Holly Cafe'
         self.cafefinished = True
-        input()
         hallway()
 
 class SycamorePark:
@@ -589,7 +559,7 @@ class SycamorePark:
             elif self.parklakepath is False and self.parkroommatepath is True:  # If the player has seen the roommate path then the self reflection path is played
                 self.parkpathself()
         elif parkdecision in ['save']:
-            game_state.saving()
+            save_file.save_load.saving()
         else:
             print("Invalid input")
             return self.lakepark()
@@ -691,12 +661,12 @@ player_bathroom = PCBathroom()  # Make sure to include the () when adding classe
 
 travel_system = TravelSystem
 
-game_state = GameState()
+save_file = SaveSystem
 
 # Starts the game
 loadoption = input("Do you wish to load a game? ")
 if loadoption in ['yes']:
-    game_state.loading()
+    SaveSystem.save_load.loading()
 elif loadoption in ['no']:
     pass
 print("Hello", player_info.name)

@@ -9,11 +9,10 @@ class Traveling:
         travelarea = input("Where do you want to go?")
 
         if travelarea in ['tories', 'the cafe', 'eat']:
-            cafe.thecafe()
+            Base.tories_cafe.thecafe()
 
         elif travelarea in ['park', 'the park']:
-            park.lakepark()
+            Base.sycamore_park.lakepark()
 
 
-cafe = Base.ToriesCafe()
-park = Base.SycamorePark()
+travel_function = Traveling()
