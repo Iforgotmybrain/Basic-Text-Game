@@ -1,5 +1,4 @@
 # Text game
-# !/usr/bin/env python
 # -*- coding: utf-8 -*-
 
 import time
@@ -14,7 +13,7 @@ import TravelSystem
 class PlayerStats:
     """This class takes and store info about the player character. This includes their user-defined name, their sex, and
     their race. As of recent it also keeps track of their location. This was needed to implement the save system"""
-    def __init__(self, race, sex, name):
+    def __init__(self, race, sex, name):  # Make it so user cannot enter garbage values for these.
         self.name = name
         self.sex = sex
         self.race = race
@@ -24,9 +23,9 @@ class PlayerStats:
 class PlayerCharacter(PlayerStats):
     """This is where the user defines their character."""
     def __init__(self):
-        super().__init__(name=input("What is your name? "), sex=input("Do you wish to play as male or female? "),
+        super().__init__(name=input("What is your name? "), sex=input("Do you wish to play as male or female? "),  # I barely remember how the fuck I built this. Seems really complex for my knowledge level of python at the time.
                          race=input(
-                             "Which race do you want to play as? Wolf, Lion, Fox or Dragon? (This is simply for role playing) "))
+                             "Which race do you want to play as? Wolf, Lion, Fox or Dragon? (This is will not have a large effect on the game) ").title())
 
 
 def intro():
@@ -149,13 +148,13 @@ class SashaEncounter:
                 "The German Shepard is one of your roommates, Sasha. She's a trustworthy sort. But a bit absent-minded at times")
             input()
             print(
-                """ "{}! Where have you been all this time! I haven't seen you in over a week! You weren't in your room so I figured you most have went on an unannounced vacation." """.format(
+                """ "{}! Where have you been all this time! I haven't seen you in over a week! You weren't in your room so I was thinking you most have went on an unannounced vacation." """.format(
                     player_info.name))
             input()
-            print('You explain to Sasha that you went on a week-long vacation up north, about 5 hours away.')
+            print('You explain to Sasha that you did indeed go on a week-long vacation up north, about 5 hours away.')
             input()
             player_info.player_location = 'Sasha First Dialogue'
-            print('I was right after all then.')
+            print('"I was right after all then."')
             print(
                 """ "Hey, I’ve kept on top of all your chores, you’re gonna owe me for the weeks’ time you decided to disappear. I was thinking you could take of my work for 2 or so weeks." """)
             input()
@@ -168,8 +167,9 @@ class SashaEncounter:
             hallway()
         elif self.sashatalked == True:
             print(""" "You know, I actually had a friend once that basically disappeared for 2 weeks." """)
+            input()
             print(
-                """ "Turns out she had basically isolated herself in her apartment. Didn’t leave it for 2 weeks and only answered text messages to tell people she was ‘ok’" """)
+                """ "Turns out she was hiding out in her apartment. She didn't leave it for 2 weeks and only answered text messages to tell people she was ‘ok’" """)
             input()
             print(
                 """ "It was quite sad hearing about that for the first time, my friend was basically tearing herself apart, and by the time I knew something was up it was too late to intervene." """)
@@ -382,14 +382,15 @@ class JacobKitchen:
                         '"Hey {}! What’s up? Where have you been these last few days? I haven’t seen you since I went to visit my parents last week. I got back about 3 days ago and haven’t seen you since."'.format(player_info.name))
                     input()
                     print(
-                        "Sasha told me she hadn’t seen you for a minute, but she wasn't exactly sure how long you'd been gone.")
+                        '"Sasha told me she hadn’t seen you for a minute, but she wasn\'t exactly sure how long you\'d been gone."')
                     input()
                     print("You tell Jacob that you went on a week-long vacation a bit up north.")
                     input()
-                    print("That sounds pretty nice. It did seem like a bit of sudden vacation though, you didn’t give anyone any notice or anything.")
+                    print('"That sounds pretty nice. Seems like it was bit of a rushed vacaton though you didn’t give anyone any notice or anything."')
+                    print('"Then again, maybe you just wanted to escape from everybody for a little bit. That\'s understandable."')
                     input()
                     print(
-                        '"Regardless, it’s good to see you. If you ever wanna talk about that vacation a bit more in-depth just let me know, I’d been thinking of possibly going up there myself."')  # Feels kind of unnatural?
+                        '"Regardless, it’s good to see you. If you ever wanna talk about that vacation a bit more in-depth just let me know, I’d been thinking of possibly going up there myself."')
                     input()
                     self.jacobtalked = True  # Marks that the player has talked to Jacob
                     player_info.player_location = 'Jacob Kitchen Dialogue'
@@ -408,15 +409,12 @@ class JacobKitchen:
 
 class FirstWorld:
     def fronthousearea(self):
-        while True:
             print("You stand on your front porch ready for adventure! You could also return home by entering the door to your south.")
             fronthouseareadirection = input("Will you travel or return home?").lower()
-            if fronthouseareadirection in ['travel']:
-                TravelSystem.travel_function.traveltofront()
-                break
-            elif fronthouseareadirection in ['south', 's']:
+            if fronthouseareadirection in ['travel', 't', 'go' 'adventure']:
+                travel_system.travel_function.traveltofront()
+            elif fronthouseareadirection in ['south', 's' 'home' 'door']:
                 entranceway()
-                break
             else:
                 print("Invalid input or area in progress")
                 return self.fronthousearea()
@@ -663,11 +661,14 @@ travel_system = TravelSystem
 
 save_file = SaveSystem
 
+clear = lambda: os.system('cls')
+
 # Starts the game
-loadoption = input("Do you wish to load a game? ")
-if loadoption in ['yes']:
+
+loadingoption = input("Do you wish to load a game? ").lower()  # Make it so this is the first question asked.
+if loadingoption in ['yes', 'y', 'load', 'l']:
     SaveSystem.save_load.loading()
-elif loadoption in ['no']:
+elif loadingoption in ['no', 'n']:
     pass
 print("Hello", player_info.name)
 time.sleep(3)
@@ -691,6 +692,7 @@ print("Excellent. This game follows typical interactive fiction rules, e.g you t
 print(
     "In order to advance most dialogue in the game, you will have to press a key first. The console will print out a statement and then to get to the the next piece of dialogue you'll have to hit, say, enter.")
 input("Like this. expect you won't have any text telling you too press a key to continue. Press a key to continue.")
-print("With that out of the way, let's get started", flush=True)
+print("With that out of the way, let's get started")
+clear()
 time.sleep(3)
 intro()

@@ -27,3 +27,6 @@ Phase 2
 * Work on making levels more open (think other text games hint hint FS)
 * Think about making current levels more open
 * Implement a new travel system (Completed, allows for more open game design now)
+* Implement save system (Completed, didn't think this would be so easy.)
+* Make it so the load option appears before the name and race inputs.
+* Make it so the user cannot input garbage values for race, name or sex.
