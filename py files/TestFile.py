@@ -1,35 +1,7 @@
-import pickle
-
-
-class GameState:
-
-    #def saving(self):
-     #   pickle_out = open('testing.pickle', 'wb')
-      #  pickle.dump(testing_test.mysalsa, pickle_out)
-    #    pickle_out.close()
-      #  print("File Saved!")
-
-    def loading(self):
-        pickle_in = open('testing.pickle', 'rb')
-        testing_test.mysalsa = pickle.load(pickle_in)
-        print(testing_test.mysalsa)
-
-class testing:
-   def __init__(self):
-       self.uknow = False
-
-testing_test = testing()
-game_test = GameState()
-
-#gameyes = input("Enter save")
-#if gameyes == "yes":
-  #  game_test.saving()
-
-gameno = input("Enter Load")
-if gameno == "yes":
-    game_test.loading()
-
-
-
-
-
+print("The third is set in a fantasy setting, showing a group of 5 furless beings traveling through the woods while being chased by wraiths with swords. The one being seems to be holding some sort of ring.")
+input()
+painting_purchased = input("After thinking about it you decide to purchase the painting with the… \
+(1): Husky \
+(2): Lake \
+(3): Wraiths \
+(4) None".lower())

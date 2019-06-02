@@ -34,6 +34,10 @@ class GameState:
             Base.entranceway()
         elif Base.player_info.player_location in ['Park Walk']:
             Base.sycamore_park.lakepark()
+        elif Base.player_info.player_location in ['Festival Start']:
+            import Festival
+            Festival.festival_area.festival_entrance()
+
 
 
 save_load = GameState()
