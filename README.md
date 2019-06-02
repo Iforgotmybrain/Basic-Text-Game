@@ -1,19 +1,5 @@
 # Basic-Text-Game
 
-# Current Ideas
-Road trip across the country with Sasha and Jacob?
-Road trip with just the PC?
-PC moves way from Sasha and Jacob?
-Don’t do anything related too violence, feels like a cop out.
-Do something with Sasha, Jacob, or Holly romantically?
-Continue to build on Holly’s character.
-Could involve 2 main characters with road trip option, would be interesting dynamic.
-Maybe develop the characters some more and set up a reason for the road trip?
-Maybe have the PC coming across somebody traveling, which inspires them to go on their own road trip?
-Maybe implement a money system? ( I really like this idea)
-Implementing the money system should allow for higher stakes if I go the road trip route. The player will have to manage their money in-order to make it too the end. Its very 80 Days like. Which is fitting since I love that game.
-
-
 # 5/31/19 Update:
 With my last commit I’m almost completely finished with I'd consider phase 1 of this project. The core foundation has been set with the save system and travel system being finished. The only thing left bugging me is the fact that the load option comes after the name, race, and sex inputs. That’s not a major issue though.
 
