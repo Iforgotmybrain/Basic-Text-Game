@@ -13,19 +13,26 @@ import TravelSystem
 class PlayerStats:
     """This class takes and store info about the player character. This includes their user-defined name, their sex, and
     their race. As of recent it also keeps track of their location. This was needed to implement the save system"""
-    def __init__(self, race, sex, name):  # Make it so user cannot enter garbage values for these.
+    def __init__(self, race, sex, name, money):  # Make it so user cannot enter garbage values for these.
         self.name = name
         self.sex = sex
         self.race = race
         self.player_location = ""
+        self.money = money
 
 
 class PlayerCharacter(PlayerStats):
-    """This is where the user defines their character."""
+    """This is where the user defines their character. This probably one of the things I'm most proud of in this project.
+    This class allows for me to easily add features as I need. Such as the money system. It literally took me two lines of
+    code to add that. I could easily add a health system if needed."""
     def __init__(self):
         super().__init__(name=input("What is your name? "), sex=input("Do you wish to play as male or female? "),  # I barely remember how the fuck I built this. Seems really complex for my knowledge level of python at the time.
                          race=input(
-                             "Which race do you want to play as? Wolf, Lion, Fox or Dragon? (This is will not have a large effect on the game) ").title())
+                             "Which race do you want to play as? Wolf, Lion, Fox or Dragon? (This is will not have a large effect on the game) ").title(), money=1200)
+
+    def bank_money(self):
+        print("You fire up your smartphone and check your bank balance")
+        print("Your current balance is ${}".format(player_info.money))
 
 
 def intro():
@@ -50,6 +57,7 @@ def pcbedroom():
     if tories_cafe.cafefinished is True:
         print("After returning from the cafe you do work on one of your current contracts before going to bed")
     print("You see the door to the bathroom to your east, and the doorway to the hallway directly ahead to the north.")
+    print("You could also check your bank balance.")
     player_info.player_location = 'PC Bedroom'
     pcbedroomdirection = input('Which way do you go? ').lower()
     if pcbedroomdirection in ['east', 'e']:
@@ -60,6 +68,9 @@ def pcbedroom():
 
     elif pcbedroomdirection in ['save']:
         save_file.save_load.saving()
+
+    elif pcbedroomdirection in ['bank', 'money', 'balance']:
+        player_info.bank_money()
 
     else:
         print("Invalid input")
@@ -440,6 +451,8 @@ class ToriesCafe:
             input()
             print(
                 "You decide to order your usual combo; a tuna wrap with a bag of chips and a drink. Not a bad deal for $4!")
+            player_info.money -= 4
+            print("Your bank balance is now ${}".format(player_info.money))
             print("Having ordered your food, you head over to the table of Holly, a friend of yours from high school.")
             self.hollydialoguecafe()
 

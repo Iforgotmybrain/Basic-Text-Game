@@ -6,7 +6,7 @@ class Traveling:
         print(tp[0], tp[1], tp[2])
         travelarea = input("Where do you want to go?").lower()
 
-        if travelarea in ['tories', 'the cafe', 'eat', 'tories cafe']:
+        if travelarea in ['tories', 'the cafe', 'eat', 'tories cafe', 'cafe']:
             Base.tories_cafe.thecafe()
 
         elif travelarea in ['park', 'the park' 'sycamore lakeview park']:
