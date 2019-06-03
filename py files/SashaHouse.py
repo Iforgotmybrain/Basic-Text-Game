@@ -3,13 +3,14 @@ class LivingRoom:
         self.sashalivingroomdialogue = False
 
     def sashadialogue(self):
+        import Base
         if self.sashalivingroomdialogue is False:
             print("You return to the living room once again, Sasha is sitting on the couch watching something on the television. You can talk to her or return to the entrance way to your south.")
         elif self.sashalivingroomdialogue is True:
             print("You see Sasha still, she has nothing new to say.")
         livingroomdirection = input("What will you do? ").lower()
         if livingroomdirection in ['south', 's']:
-            entranceway()
+            Base.entranceway()
         elif livingroomdirection in ['talk', 't', 'sasha', 'couch']:
             self.sashaconversastion()
         else:
@@ -17,7 +18,8 @@ class LivingRoom:
             return self.sashadialogue()
 
     def sashaconversastion(self):
-        player_info.player_location = 'Sasha Living Room'
+        import Base
+        Base.player_info.player_location = 'Sasha Living Room'
         print(
             "You walk up to Sasha and sit in the chair beside the couch. The TV is playing a superhero movie involving some sort of pink titan.")
         input()
@@ -122,6 +124,93 @@ class LivingRoom:
         input()
         print('You say goodbye to Sasha and head up to the room for the night, your mind full of thoughts to process')
         input()
-        player_info.player_location = 'Sasha Living Room'
+        Base.player_info.player_location = 'Sasha Living Room'
         self.sashalivingroomdialogue = True
-        pcbedroom()
+        Base.pcbedroom()
+
+
+class SashaEncounter:
+    def __init__(self):
+        self.sashatalked = False
+
+    def bedroom(self):
+        import Base
+        while True:
+            print(
+                "You enter your roommates bedroom, it's your typical bedroom with nothing out of the ordinary expect for the Shepard sitting at the desk")
+            print(
+                "To your left you see a German Shepard sitting at a desk, to the south you see the doorway to the hallway")
+            bedroomoption = input("What do you do? ").lower()
+            if bedroomoption in ["talk", "t"]:
+                self.sashabedroomdialog()
+            elif bedroomoption in ["south", "s"]:
+                Base.hallway()
+            else:
+                print("Invalid input")
+                return self.bedroom()
+
+    def sashabedroomdialog(self):
+        import Base
+        if self.sashatalked == False:
+            print("You approach the German Shepard and exchange greetings.")
+            print(
+                "The German Shepard is one of your roommates, Sasha. She's a trustworthy sort. But a bit absent-minded at times")
+            input()
+            print(
+                """ "{}! Where have you been all this time! I haven't seen you in over a week! You weren't in your room so I was thinking you most have went on an unannounced vacation." """.format(
+                    Base.player_info.name))
+            input()
+            print('You explain to Sasha that you did indeed go on a week-long vacation up north, about 5 hours away.')
+            input()
+            Base.player_info.player_location = 'Sasha First Dialogue'
+            print('"I was right after all then."')
+            print(
+                """ "Hey, I’ve kept on top of all your chores, you’re gonna owe me for the weeks’ time you decided to disappear. I was thinking you could take of my work for 2 or so weeks." """)
+            input()
+            print("You nod in agreement with Sasha, it only seems fair considering you didn’t give either of your roommates a heads up before leaving.")
+            input()
+            print("You say goodbye to Sasha and head back to the hallway/")
+            input()
+            Base.player_info.player_location = 'Sasha First Dialogue'
+            self.sashatalked = True  # Indicates that the player has talked to Sasha allowing for more dialog
+            Base.hallway()
+        elif self.sashatalked == True:
+            print(""" "You know, I actually had a friend once that basically disappeared for 2 weeks." """)
+            input()
+            print(
+                """ "Turns out she was hiding out in her apartment. She didn't leave it for 2 weeks and only answered text messages to tell people she was ‘ok’" """)
+            input()
+            print(
+                """ "It was quite sad hearing about that for the first time, my friend was basically tearing herself apart, and by the time I knew something was up it was too late to intervene." """)
+            print("'She did end up getting help thankful, and last time I heard from her she was doing pretty good.'")
+            input()
+            print(
+                """ "It makes me think of how I simply dismissed your sudden disappearance as nothing to worry about. Who knows where you could have been or what you could have been up too!" """)
+            input()
+            print(
+                """ "Anyway, you're fine now and that's all that matters. You might want to check in with Jacob, he was gone for half the week so he wasn't entirely sure how long you were gone for" """)
+            input()
+            print("You exit Sasha's room and enter the hallway")
+            Base.player_info.player_location = 'Sasha Second Dialogue'
+            Base.hallway()
+        elif self.sashatalked is True and sasha_living.sashalivingroomdialogue is True:
+            print('"Hey, {}. Can\'t think of anything new going on"'.format(Base.player_info.name))
+
+    def sashabedroom(self):
+        while True:
+            import Base
+            print("You see Sasha, your roommate, and the doorway to the hallway to your south")
+            direction = input("What do you wish to do? ")
+            if direction in ["south", "s"]:
+                Base.hallway()
+                break
+            elif direction == "talk":
+                self.sashabedroomdialog()
+                break
+            else:
+                print("Invalid input")
+                return self.sashabedroom
+
+
+sasha_living = LivingRoom()
+sasha_encounter = SashaEncounter()

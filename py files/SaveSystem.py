@@ -1,9 +1,10 @@
 import pickle
 
 
-class GameState:
+class GameState:  # Might have to put this in base bcause the import is causing all kinds of issues.
     def saving(self):
         import Base
+        print("Saving game")
         pickle_out = open('gamestate.pickle', 'wb')
         pickle.dump([Base.player_info.player_location, Base.player_info.name, Base.player_info.sex,
                      Base.player_info.race, Base.player_bathroom.bathroombaddragon, Base.sasha_encounter.sashatalked,
@@ -14,6 +15,7 @@ class GameState:
         return
 
     def loading(self):
+        print("Loading game")
         import Base
         pickle_in = open('gamestate.pickle', 'rb')
         [Base.player_info.player_location, Base.player_info.name, Base.player_info.sex,

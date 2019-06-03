@@ -1,7 +1,9 @@
 class Traveling:
     def traveltofront(self):
         import Base
-        tp = ('Tories Cafe', 'Sycamore Lakeview Park', 'Lake Fest')  # tp is short for travel places, places to travel too.
+        tp = ['Tories Cafe', 'Sycamore Lakeview Park']  # tp is short for travel places, places to travel too.
+        if Base.jacob_kitchen.jacobbedroom is True:
+            tp.append('Lake Fest')
         print('You can think of the following places to travel to:')
         print(tp[0], tp[1], tp[2])
         travelarea = input("Where do you want to go?").lower()
