@@ -6,74 +6,54 @@ import secrets
 import sys
 import os
 import pickle
+import CharInfo
 import TravelSystem
-import SashaHouse
+import Festival
+
+def bank_money():
+    print("You fire up your smartphone and check your bank balance")
+    print("Your current balance is ${}".format(CharInfo.player_info.money))
+    return pcbedroom()
 
 
-class PlayerStats:
-    """This class takes and store info about the player character. This includes their user-defined name, their sex, and
-    their race. As of recent it also keeps track of their location. This was needed to implement the save system"""
-    def __init__(self, race, sex, name, money):  # Make it so user cannot enter garbage values for these.
-        self.name = name
-        self.sex = sex
-        self.race = race
-        self.player_location = ""
-        self.money = money
-
-
-class PlayerCharacter(PlayerStats):
-    """This is where the user defines their character. This probably one of the things I'm most proud of in this project.
-    This class allows for me to easily add features as I need. Such as the money system. It literally took me two lines of
-    code to add that. I could easily add a health system if needed."""
-    def __init__(self):
-        super().__init__(name=input("What is your name? "), sex=input("Do you wish to play as male or female? "),  # I barely remember how the fuck I built this. Seems really complex for my knowledge level of python at the time.
-                         race=input(
-                             "Which race do you want to play as? Wolf, Lion, Fox or Dragon? (This is will not have a large effect on the game) ").title(), money=1200)
-
-    def bank_money(self):
-        print("You fire up your smartphone and check your bank balance")
-        print("Your current balance is ${}".format(player_info.money))
-
-
-class GameState:  # Might have to put this in base because the import is causing all kinds of issues.
-    def saving(self):
-        import SashaHouse
-        print("Saving game")
-        pickle_out = open('gamestate.pickle', 'wb')
-        pickle.dump([player_info.player_location, player_info.name, player_info.sex,
-                     player_info.race, player_bathroom.bathroombaddragon, SashaHouse.sasha_encounter.sashatalked,
-                     SashaHouse.sasha_living.sashalivingroomdialogue, jacob_kitchen.jacobtalked, tories_cafe.cafefinished,
-                     sycamore_park.parklakepath, sycamore_park.parkroommatepath], pickle_out)
-        pickle_out.close()
-        print("Game Saved!")
-        return
-
-    def loading(self):
-        #import SashaHouse
-        print("Loading game")
-        pickle_in = open('gamestate.pickle', 'rb')
-        [player_info.player_location, player_info.name, player_info.sex,
-         player_info.race, player_bathroom.bathroombaddragon, SashaHouse.sasha_encounter.sashatalked,
-         SashaHouse.sasha_living.sashalivingroomdialogue, jacob_kitchen.jacobtalked, tories_cafe.cafefinished,
-         sycamore_park.parklakepath, sycamore_park.parkroommatepath] = pickle.load(pickle_in)
-        pickle_in.close()
-        print("Game Loaded!")
-        self.playerlocation()
-
-    def playerlocation(self):
-        if player_info.player_location in ['PC Bedroom', 'Sasha Living Room']:
-            pcbedroom()
-        elif player_info.player_location in ["Sasha First Dialogue", 'Sasha Second Dialogue', 'Holly Cafe']:
-            hallway()
-        elif player_info.player_location in ['Jacob Kitchen Dialogue']:
-            entranceway()
-        elif player_info.player_location in ['Park Walk']:
-            sycamore_park.lakepark()
-        elif player_info.player_location in ['Festival Start']:
-            import Festival
-            Festival.festival_area.festival_entrance()
-
-
+# class GameState:  # Might have to put this in base because the import is causing all kinds of issues.
+#     def saving(self):
+#         print("Saving game")
+#         pickle_out = open('gamestate.pickle', 'wb')
+#         pickle.dump([CharInfo.player_info.player_location, CharInfo.player_info.name, CharInfo.player_info.sex,
+#                      CharInfo.player_info.race, player_bathroom.bathroombaddragon, sasha_encounter.sashatalked,
+#                      sasha_living.sashalivingroomdialogue, jacob_kitchen.jacobtalked, tories_cafe.cafefinished,
+#                      sycamore_park.parklakepath, sycamore_park.parkroommatepath], pickle_out)
+#         pickle_out.close()
+#         print("Game Saved!")
+#         return
+#
+#     def loading(self):
+#         print("Loading game")
+#         pickle_in = open('gamestate.pickle', 'rb')
+#         [CharInfo.player_info.player_location, CharInfo.player_info.name, CharInfo.player_info.sex,
+#          CharInfo.player_info.race, player_bathroom.bathroombaddragon, sasha_encounter.sashatalked,
+#          sasha_living.sashalivingroomdialogue, jacob_kitchen.jacobtalked, tories_cafe.cafefinished,
+#          sycamore_park.parklakepath, sycamore_park.parkroommatepath] = pickle.load(pickle_in)
+#         pickle_in.close()
+#         print("Game Loaded!")
+#         self.playerlocation()
+#
+#     def playerlocation(self):
+#         if CharInfo.player_info.player_location in ['PC Bedroom', 'Sasha Living Room']:
+#             pcbedroom()
+#
+#         elif CharInfo.player_info.player_location in ["Sasha First Dialogue", 'Sasha Second Dialogue', 'Holly Cafe']: \
+#                 hallway()
+#
+#         elif CharInfo.player_info.player_location in ['Jacob Kitchen Dialogue']:
+#             entranceway()
+#
+#         elif CharInfo.player_info.player_location in ['Park Walk']:
+#             sycamore_park.lakepark()
+#
+#         elif CharInfo.player_info.player_location in ['Festival Start']:
+#             Festival.festival_area.festival_entrance()
 
 def intro():
     print("As you finish the 5th and final season of Barking Bad you feel a sense of satisfaction, but also a feeling of sadness. The culmination of 5 years work is over in the span of an hour.")
@@ -91,19 +71,18 @@ def intro():
 
 
 def pcbedroom():
-    #import SashaHouse
     if player_bathroom.bathroombaddragon is False:
         print(
             "You wake up the next morning, your bedroom is dimly lit with the only source of light being the sun as it sneaks through the blinds.")
-    if tories_cafe.cafefinished is True and SashaHouse.sasha_living.sashalivingroomdialogue is False:
+    if tories_cafe.cafefinished is True and sasha_living.sashalivingroomdialogue is False:
         print("After returning from the cafe you do work on one of your current contracts before going to bed")
-    if SashaHouse.sasha_living.sashalivingroomdialogue is True and jacob_kitchen.jacobbedroom is False:
+    if sasha_living.sashalivingroomdialogue is True and jacob_kitchen.jacobbedroom is False:
         print("You wake up the next day feeling better. Your conversation with Sasha helped ease your mind, and made you realize just how great of friends you have now.")
         print("You think about possibly asking Jacob about some of his past trips. He should be in his bedroom.")
         input()
     print("You are standing in your bedroom. You see the door to the bathroom to your east, and the doorway to the hallway directly ahead to the north.")
     print("You could also check your bank balance.")
-    player_info.player_location = 'PC Bedroom'
+    CharInfo.player_info.player_location = 'PC Bedroom'
     pcbedroomdirection = input('Which way do you go? ').lower()
     if pcbedroomdirection in ['east', 'e']:
         player_bathroom.bathroompc()
@@ -112,10 +91,10 @@ def pcbedroom():
         hallway()
 
     elif pcbedroomdirection in ['save']:
-        save_load.saving()
+        save_sys.saving()
 
     elif pcbedroomdirection in ['bank', 'money', 'balance']:
-        player_info.bank_money()
+        CharInfo.player_info.bank_money()
 
     else:
         print("Invalid input")
@@ -151,31 +130,109 @@ class PCBathroom:
 
 
 def hallway():
-    #import SashaHouse
     while True:
-        print("You enter a hallway. There a doorway to your east, a staircase to your west, and another doorway to the north.")
+        print("You enter a hallway. There's a doorway to your east, a staircase to your west, and another doorway to the north.")
         hallwaydirection = input("Which direction do you go? ").lower()
         if hallwaydirection in ["west", "w"]:
             entranceway()
             break
         elif hallwaydirection in ["east", "e"]:
-            if SashaHouse.sasha_encounter.sashatalked is False:  # Checks to see if player has talked to sasha before
-                SashaHouse.sasha_encounter.bedroom()
+            if sasha_encounter.sashatalked is False:  # Checks to see if player has talked to sasha before
+                sasha_encounter.bedroom()
                 break
-            elif SashaHouse.sasha_encounter.sashatalked is True:
-                SashaHouse.sasha_encounter.sashabedroom()
+            elif sasha_encounter.sashatalked is True:
+                sasha_encounter.sashabedroom()
                 break
         elif hallwaydirection in ['save']:
-            save_load.saving()
+            save_sys.saving()
         elif hallwaydirection in ['north', 'n']:
-            if SashaHouse.sasha_living.sashalivingroomdialogue is False:
+            if sasha_living.sashalivingroomdialogue is False:
                 print("The door is locked. Maybe you should come back later.")
                 return hallway()
-            elif SashaHouse.sasha_living.sashalivingroomdialogue is True:
+            elif sasha_living.sashalivingroomdialogue is True:
                 jacob_kitchen.bedroomdialogue()
         else:
             print("Invalid input")
             return hallway()
+
+class SashaEncounter:
+    def __init__(self):
+        self.sashatalked = False
+
+    def bedroom(self):
+        while True:
+            print(
+                "You enter your roommates bedroom, it's your typical bedroom with nothing out of the ordinary expect for the Shepard sitting at the desk")
+            print(
+                "To your left you see a German Shepard sitting at a desk, to the south you see the doorway to the hallway")
+            bedroomoption = input("What do you do? ").lower()
+            if bedroomoption in ["talk", "t"]:
+                self.sashabedroomdialog()
+            elif bedroomoption in ["south", "s"]:
+                hallway()
+            else:
+                print("Invalid input")
+                return self.bedroom()
+
+    def sashabedroomdialog(self):
+        if self.sashatalked is False:
+            self.sashatalked = True
+            print("You approach the German Shepard and exchange greetings.")
+            print(
+                "The German Shepard is one of your roommates, Sasha. She's a trustworthy sort. But a bit absent-minded at times")
+            input()
+            print(
+                """ "{}! Where have you been all this time! I haven't seen you in over a week! You weren't in your room so I was thinking you most have went on an unannounced vacation." """.format(
+                    CharInfo.player_info.name))
+            input()
+            print('You explain to Sasha that you did indeed go on a week-long vacation up north, about 5 hours away.')
+            input()
+            CharInfo.player_info.player_location = 'Sasha First Dialogue'
+            print('"I was right after all then."')
+            print(
+                """ "Hey, I’ve kept on top of all your chores, you’re gonna owe me for the weeks’ time you decided to disappear. I was thinking you could take of my work for 2 or so weeks." """)
+            input()
+            print("You nod in agreement with Sasha, it only seems fair considering you didn’t give either of your roommates a heads up before leaving.")
+            input()
+            print("You say goodbye to Sasha and head back to the hallway/")
+            input()
+            CharInfo.player_info.player_location = 'Sasha First Dialogue'  # Indicates that the player has talked to Sasha allowing for more dialog
+            hallway()
+        elif self.sashatalked == True:
+            print(""" "You know, I actually had a friend once that basically disappeared for 2 weeks." """)
+            input()
+            print(
+                """ "Turns out she was hiding out in her apartment. She didn't leave it for 2 weeks and only answered text messages to tell people she was ‘ok’" """)
+            input()
+            print(
+                """ "It was quite sad hearing about that for the first time, my friend was basically tearing herself apart, and by the time I knew something was up it was too late to intervene." """)
+            print("'She did end up getting help thankful, and last time I heard from her she was doing pretty good.'")
+            input()
+            print(
+                """ "It makes me think of how I simply dismissed your sudden disappearance as nothing to worry about. Who knows where you could have been or what you could have been up too!" """)
+            input()
+            print(
+                """ "Anyway, you're fine now and that's all that matters. You might want to check in with Jacob, he was gone for half the week so he wasn't entirely sure how long you were gone for" """)
+            input()
+            print("You exit Sasha's room and enter the hallway")
+            CharInfo.player_info.player_location = 'Sasha Second Dialogue'
+            hallway()
+        elif self.sashatalked is True and sasha_living.sashalivingroomdialogue is True:
+            print('"Hey, {}. Can\'t think of anything new going on"'.format(CharInfo.player_info.name))
+
+    def sashabedroom(self):
+        while True:
+            print("You see Sasha, your roommate, and the doorway to the hallway to your south")
+            direction = input("What do you wish to do? ")
+            if direction in ["south", "s"]:
+                hallway()
+                break
+            elif direction == "talk":
+                self.sashabedroomdialog()
+                break
+            else:
+                print("Invalid input")
+                return self.sashabedroom
 
 
 def entranceway():
@@ -193,9 +250,8 @@ def entranceway():
             break
 
         elif entrancewaydirection in ["east", "e"]:
-            if jacob_kitchen.jacobtalked is True and tories_cafe.cafefinished is True and sycamore_park.parklakepath is True and SashaHouse.sasha_encounter.sashatalked is True:
-                #import SashaHouse
-                SashaHouse.sasha_living.sashadialogue()
+            if jacob_kitchen.jacobtalked is True and tories_cafe.cafefinished is True and sycamore_park.parklakepath is True and sasha_encounter.sashatalked is True:
+                sasha_living.sashadialogue()
             else:
                 print(
                     "You enter the living area and see nothing of note. Perhaps you should return here after visiting a couple places.")
@@ -206,11 +262,139 @@ def entranceway():
             hallway()
 
         elif entrancewaydirection in ['save']:
-            save_load.saving()
+            save_sys.saving()
 
         else:
             print("Invalid input")
             return entranceway()
+class LivingRoom:
+    def __init__(self):
+        self.sashalivingroomdialogue = False
+
+    def sashadialogue(self):
+        if self.sashalivingroomdialogue is False:
+            print("You return to the living room once again, Sasha is sitting on the couch watching something on the television. You can talk to her or return to the entrance way to your south.")
+        elif self.sashalivingroomdialogue is True:
+            print("You see Sasha still, she has nothing new to say.")
+        livingroomdirection = input("What will you do? ").lower()
+        if livingroomdirection in ['south', 's']:
+            entranceway()
+        elif livingroomdirection in ['talk', 't', 'sasha', 'couch']:
+            self.sashaconversastion()
+        else:
+            print("Invalid input")
+            return self.sashadialogue()
+
+    def sashaconversastion(self):
+        CharInfo.player_info.player_location = 'Sasha Living Room'
+        print(
+            "You walk up to Sasha and sit in the chair beside the couch. The TV is playing a superhero movie involving some sort of pink titan.")
+        input()
+        print(
+            '"Like the movie? It’s called Revengers: Titan Attack. One of the last movies in the Merkel universe. There’s one more that comes after this, but it isn’t out on disc yet"')
+        input()
+        print(
+            '"Do you like superhero movies? I won’t say anymore about it just In-case you want to watch it at some point."')
+        input()
+        print(
+            "You state your preference for superhero movies, saying that you haven’t really kept up with the Revengers movies since the first one")
+        input()
+        print(
+            '"Oh boy, you are in for a treat if you ever decide to catch up on them. Definitely let me know before you do, I’d love to re-watch all of them with you."')
+        print('"Anyway, you want anything or just here to chat?"')
+        input()
+        print(
+            "You tell Sasha that you wanted to talk to her about past friends. Your recent walk in the park weighing on your mind, you’re hoping that one of your best friends can give you some advice.")  # Maybe implement a choice later? Don't really have the story options to make this optional yet.
+        input()
+        print('"Well… I’m gonna be honest, that’s a pretty loaded question."')
+        print('"First of all, what happened to these friends? Did they move away? Lose interest in the relationship? Give me some more info."')
+        input()
+        print(
+            "You start to provide some background information to Sasha, explaining the friends’ role in your life, how they affected you, and then eventually how it all broke down ")
+        print(
+            "You can remember exactly how it started, it was mid-September during your teen years. Your parents had just told you that they couldn’t afford to stay at the lake anymore and that they would be packing up and leaving by the end of the month.")
+        input()
+        print(
+            "This was a huge change. By the end of the month, you’d be moving away from the place of your childhood, the place where you spent almost all your summer days. The place where you met your best-friends.")
+        input()
+        print(
+            "You were gone a week after that. You didn’t have time to mention it to most of your friends since they weren’t even there at the time. In an age without smartphones and social media, those friendships essentially ended that day")
+        input()
+        print(
+            "As you tell Sasha about the move, you remember another ordeal before the move. It involved some of your best-friends Abbey and Jane. The move ended your friendships completely, yes, but you remember that you were on surprisingly shaking terms with both of them months before moving.")
+        input()
+        print(
+            "You started to drift apart. Your interests were changing, and as you got older you found less and less common ground. To the point where Jane said that she ‘barely knew you’. It was actually a similar case with you, you didn’t know what they were interested in anymore. It’s hard to stay friends with someone when you have no idea what to do with them. Regardless, hearing that took you down a notch. Were you ignoring them and not even realizing it? Did they just not feel like you were friends anymore?")
+        input()
+        print(
+            "You never got to ask them why they felt that way, so you can only assume. You feel it was a combination of both parties changing their ideas and interests, as well as Jane and Abbey hanging out with a different friend group. Both parties just slowly lost interest in each other.")
+        print(
+            "Looking back at it, you feel that the break down of the friendship was inevitable. Even if you hadn’t moved away, it's likely the friendship would have deteriorated further and further. The move simply accelerated things")
+        input()
+        print(
+            "You connected with Abbey and Jane on social media 3 years after moving away, but of course it wasn’t the same. There just wasn’t anything to talk about. Both groups were almost completely different people from the ones 3-4 years ago. Any connections you might have had were gone.")
+        input()
+        print("You should have let go at that point, but 8 years in the future and you still cling to the past.")
+        print(
+            "You look to Sasha after rambling on, she seems surprised to hear this from you, considering you’d never mentioned anything about it before.")
+        input()
+        print(
+            '"“That’s quite the story. Can’t say I would have expected something like this from you. You always seemed like the kind of person to live in the present."')
+        print('"Then again perhaps I just suck at reading people."')
+        input()
+        print(
+            '"I think most of us have experienced something similar to you. A friendship breaking down for whatever reason"')
+        input()
+        print(
+            '"I think the reason you still look back at that time with such regret is because of the way your relationship broke down. You watched your relationship with Abbey and Jane slowly drift away. With it being the fault of no one. You didn’t have anyone to deflect the blame to for this failing. And apparently, you didn’t even really get to discuss it with them, that lack of closure has no doubt helped lead to your current feelings"')
+        input()
+        print('"People change, and in the case of Abbey and Jane, there just isn\'t much you can do about it."')
+        input()
+        print(
+            '"I’ve dealt with a somewhat similar situation before. I’m sure you remember me talking about one of my roommates in college dropping out because of depression, well that wasn’t the first time something like that happened."')
+        input()
+        print(
+            '"One of my friends in high school was dealing with some serious shit. Depression, anxiety, and he never told anyone about it. He’d hid it from everyone else, there was no way to know what was going with him. He always cracked jokes, would hang out with you and do whatever, he seemed like one of the most carefree, happy guys I knew."')
+        print(
+            '"You probably know where this is going by now. He was dealing with serious clinical depression, didn’t want anyone to know because he didn’t want to burden them. He didn’t want people to feel sorry for him."')
+        input()
+        print(
+            '"He ended up committing suicide by overdosing during his junior year of high school. The last guy you would have expected to have that kind of stuff going on "')
+        print('"It was extremely difficult dealing with that for the first few months, hell, the first year even. Everybody at the school had trouble dealing with it."')
+        input()
+        print(
+            '"It took me a long time to come to terms with it. And then after that, I still dealt with a mix of guilt and sadness. I felt like I should have picked up on him being depressed. I should have been able to help him in some way. I tried numerous things to try and get past it, stuff as simple as trying new hobbies or traveling, and even went to therapy."')
+        input()
+        print(
+            '"Ultimately, what helped me the most was focusing on the friends that were still there, and on forming new friendships. It helps keep your mind off the past, and helps fill the void that was left. Instead of worrying about what happened in the past, you just try and focus on the now, and how you can make the most of it."')
+        input()
+        print(
+            '"Of course, that’s not always easy to do. Stuff like this never is. And even if you succeed, it doesn’t completely erase the past. You’ll still have moments of weakness, you’ll still think about what could have been"')
+        input()
+        print(
+            '"All you can do is try, and if that fails, ya know, you’ve gotta reach out to people. Family, friends, Somebody. Just letting your thoughts simmer isn’t going to help, it just puts you further down the hole."')
+        input()
+        print('"There’s no easy way out of these kinds of situations, and odds are, it\'s not going to be the first time you’re going to deal with it"')
+        input()
+        print(
+            'You find yourself resonating with Sasha’s advice and past experiences, though you feel like you’re left with more questions for yourself then before having this conversation. You’re not sure if that’s a good thing or a bad thing.')
+        input()
+        print('You ask Sasha if she still thinks about those memories very often.')
+        input()
+        print(
+            '"Yes, I still look back at those memories on occasion. Though I’ve found myself looking at the positives of those times rather the negatives. I’m at a point in my life where I feel I’ve moved on from that. I’m happy with how everything has worked out at this point, and that’s in no small part to my friends\' group and support group."')
+        input()
+        print('You thank Sasha for entertaining your thoughts and helping you out, it helped clear your mind a bit.')
+        input()
+        print(
+            '"Of course! That’s what friends are for. I’ll see you around; oh, and make sure you tell me if you want to catch up on the Revenger’s movies! I’ll be pissed if you don’t!"')
+        input()
+        print('You say goodbye to Sasha and head up to the room for the night, your mind full of thoughts to process')
+        input()
+        CharInfo.player_info.player_location = 'Sasha Living Room'
+        self.sashalivingroomdialogue = True
+        pcbedroom()
+
 
 class JacobDialogue:
     def __init__(self):
@@ -227,7 +411,7 @@ class JacobDialogue:
                     print(
                         "The Deer is one of your roommates, Jacob. You give him a pat on the shoulder and strike up a conversation")
                     print(
-                        '"Hey {}! What’s up? Where have you been these last few days? I haven’t seen you since I went to visit my parents last week. I got back about 3 days ago and haven’t seen you since."'.format(player_info.name))
+                        '"Hey {}! What’s up? Where have you been these last few days? I haven’t seen you since I went to visit my parents last week. I got back about 3 days ago and haven’t seen you since."'.format(CharInfo.player_info.name))
                     input()
                     print(
                         '"Sasha told me she hadn’t seen you for a minute, but she wasn\'t exactly sure how long you\'d been gone."')
@@ -241,7 +425,7 @@ class JacobDialogue:
                         '"Regardless, it’s good to see you. If you ever wanna talk about that vacation a bit more in-depth just let me know, I’d been thinking of possibly going up there myself."')
                     input()
                     self.jacobtalked = True  # Marks that the player has talked to Jacob
-                    player_info.player_location = 'Jacob Kitchen Dialogue'
+                    CharInfo.player_info.player_location = 'Jacob Kitchen Dialogue'
                     return self.startingkitchen()
                 elif self.jacobtalked is True:  # Dialogue for Jacob after initial conversation
                     print("'Hey buddy. I've not nothing new to say.'")
@@ -280,11 +464,12 @@ class JacobDialogue:
         print("After talking with Jacob, you take some time and finish the current contract you’re working on. The deadline was still 1 week away but of course its best to get it done early.")
         print("You are awarded $800 for the contract, you put 200 in your checking account, and the rest goes into an investment account.")
         input()
-        player_info.money += 200
-        print("Your bank balance is now {}".format(player_info.money))
+        CharInfo.player_info.money += 200
+        print("Your bank balance is now {}".format(CharInfo.player_info.money))
         input()
         print("New travel area unlocked.")
         self.jacobbedroom = True
+        travel_system.travel_function.tp.append('Lake Fest')
         input()
         pcbedroom()
 
@@ -323,8 +508,8 @@ class ToriesCafe:
             input()
             print(
                 "You decide to order your usual combo; a tuna wrap with a bag of chips and a drink. Not a bad deal for $4!")
-            player_info.money -= 4
-            print("Your bank balance is now ${}".format(player_info.money))
+            CharInfo.player_info.money -= 4
+            print("Your bank balance is now ${}".format(CharInfo.player_info.money))
             print("Having ordered your food, you head over to the table of Holly, a friend of yours from high school.")
             self.hollydialoguecafe()
 
@@ -346,7 +531,7 @@ class ToriesCafe:
             "You exchange greetings with Holly and start conversing. There’s a lot of catching up to do, you follow each other on social media but of course that isn’t a replacement for proper conversation.")
         print(
             '"Hey {}! It\'s been awhile. I think the last time I saw you was when we went to the amusement park your sophomore year of college with a bunch of other high school friends. And the last I saw you regularly was back before you went off to college in 2014!"'.format(
-                player_info.name))
+                CharInfo.player_info.name))
         input()
         print(
             "You fill in some details about what you’ve been up too since that amusement park trip. Detailing your current living situation with Sasha and Jacob, as well as talking about your various college antics")
@@ -389,10 +574,10 @@ class ToriesCafe:
         input()
         print(
             '"Well {}, it’s been fantastic talking but I’ve got a yoga class coming up in a half hour so I’ve gotta run. Hopefully I’ll see you around."'.format(
-                player_info.name))
+                CharInfo.player_info.name))
         print("You say goodbye to Holly and decide to head home for the day")
         input()
-        player_info.player_location = 'Holly Cafe'
+        CharInfo.player_info.player_location = 'Holly Cafe'
         self.cafefinished = True
         hallway()
 
@@ -442,7 +627,7 @@ class SycamorePark:
             elif self.parklakepath is False and self.parkroommatepath is True:  # If the player has seen the roommate path then the self reflection path is played
                 self.parkpathself()
         elif parkdecision in ['save']:
-            save_load.saving()
+            save_sys.saving()
         else:
             print("Invalid input")
             return self.lakepark()
@@ -478,7 +663,7 @@ class SycamorePark:
         input()
         print(
             "Caught up in your thoughts you find yourself at the end of your walk before you know it. You are now back at the park entrance way.")
-        player_info.player_location = 'Park Walk'
+        CharInfo.player_info.player_location = 'Park Walk'
         self.parkroommatepath = True
         input()
         self.lakepark()
@@ -518,7 +703,7 @@ class SycamorePark:
         input()
         print(
             "As you reminisce on your memories you realize that over an hour has passed, you snap out of it and finish your walk prematurely before heading back to the park entrance way.")
-        player_info.player_location = 'Park Walk'
+        CharInfo.player_info.player_location = 'Park Walk'
         self.parklakepath = True
         input()
         self.lakepark()
@@ -526,9 +711,7 @@ class SycamorePark:
 # Global Classes
 
 
-jacob_kitchen = JacobDialogue()  # Global instance of JacobKitchen
-
-player_info = PlayerCharacter()  # Provides info for the player character
+jacob_kitchen = JacobDialogue()  # Global instance of JacobKitchen  # Provides info for the player character
 
 first_world = FirstWorld()
 
@@ -538,17 +721,22 @@ tories_cafe = ToriesCafe()
 
 player_bathroom = PCBathroom()  # Make sure to include the () when adding classes)
 
+save_sys = Festival
+
+sasha_living = LivingRoom()
+
+sasha_encounter = SashaEncounter()
+
 travel_system = TravelSystem
 
-save_load = GameState()
 
 # Starts the game
 loadingoption = input("Do you wish to load a game? ").lower()  # Make it so this is the first question asked.
 if loadingoption in ['yes', 'y', 'load', 'l']:
-    save_load.loading()
+    save_sys.save_load.loading()
 elif loadingoption in ['no', 'n']:
     pass
-print("Hello", player_info.name)
+print("Hello", CharInfo.player_info.name)
 time.sleep(3)
 print("You are about to embark on a hastily made journey involving animal people")
 time.sleep(3)
@@ -558,7 +746,7 @@ print("I'm sure it will be a perfectly coded, well wrote, masterpiece")
 time.sleep(2)
 print("First, let's go over the character choices you've made.")
 time.sleep(2)
-print("Your name is", player_info.name, "you're a", player_info.sex, "and your race is a", player_info.race)
+print("Your name is", CharInfo.player_info.name, "you're a", CharInfo.player_info.sex, "and your race is a", CharInfo.player_info.race)
 time.sleep(2)
 print(
     "If you are okay with those options, then we're good. If not you'll want to restart and select the options you want.")

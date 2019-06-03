@@ -1,20 +1,24 @@
+import Festival
+
+
 class Traveling:
+    def __init__(self):
+        self.tp = ['Tories Cafe', 'Sycamore Lakeview Park']  # tp is short for travel places, places to travel too.
+
     def traveltofront(self):
-        import Base
-        tp = ['Tories Cafe', 'Sycamore Lakeview Park']  # tp is short for travel places, places to travel too.
-        if Base.jacob_kitchen.jacobbedroom is True:
-            tp.append('Lake Fest')
         print('You can think of the following places to travel to:')
-        print(tp[0], tp[1], tp[2])
+        print(self.tp)
         travelarea = input("Where do you want to go?").lower()
 
         if travelarea in ['tories', 'the cafe', 'eat', 'tories cafe', 'cafe']:
+            import Base
             Base.tories_cafe.thecafe()
 
         elif travelarea in ['park', 'the park' 'sycamore lakeview park']:
+            import Base
             Base.sycamore_park.lakepark()
+
         elif travelarea in ['festival', 'fest', 'lake', 'lake fest' 'lake festival', 'lf']:
-            import Festival
             if Festival.festival_area.bus_ride_completed is False:
                 Festival.festival_area.bus_ride()
             elif Festival.festival_area.bus_ride_completed is True:

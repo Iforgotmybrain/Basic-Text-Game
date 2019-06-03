@@ -1,16 +1,19 @@
+import Base
+
 class LivingRoom:
     def __init__(self):
         self.sashalivingroomdialogue = False
 
     def sashadialogue(self):
-        import Base
+
         if self.sashalivingroomdialogue is False:
             print("You return to the living room once again, Sasha is sitting on the couch watching something on the television. You can talk to her or return to the entrance way to your south.")
         elif self.sashalivingroomdialogue is True:
             print("You see Sasha still, she has nothing new to say.")
         livingroomdirection = input("What will you do? ").lower()
         if livingroomdirection in ['south', 's']:
-            Base.entranceway()
+            #import Base
+            entranceway()
         elif livingroomdirection in ['talk', 't', 'sasha', 'couch']:
             self.sashaconversastion()
         else:
@@ -18,8 +21,8 @@ class LivingRoom:
             return self.sashadialogue()
 
     def sashaconversastion(self):
-        import Base
-        Base.player_info.player_location = 'Sasha Living Room'
+        self.sashalivingroomdialogue = True
+        player_info.player_location = 'Sasha Living Room'
         print(
             "You walk up to Sasha and sit in the chair beside the couch. The TV is playing a superhero movie involving some sort of pink titan.")
         input()
@@ -124,9 +127,8 @@ class LivingRoom:
         input()
         print('You say goodbye to Sasha and head up to the room for the night, your mind full of thoughts to process')
         input()
-        Base.player_info.player_location = 'Sasha Living Room'
-        self.sashalivingroomdialogue = True
-        Base.pcbedroom()
+        player_info.player_location = 'Sasha Living Room'
+        pcbedroom()
 
 
 class SashaEncounter:
@@ -134,7 +136,6 @@ class SashaEncounter:
         self.sashatalked = False
 
     def bedroom(self):
-        import Base
         while True:
             print(
                 "You enter your roommates bedroom, it's your typical bedroom with nothing out of the ordinary expect for the Shepard sitting at the desk")
@@ -144,25 +145,25 @@ class SashaEncounter:
             if bedroomoption in ["talk", "t"]:
                 self.sashabedroomdialog()
             elif bedroomoption in ["south", "s"]:
-                Base.hallway()
+                hallway()
             else:
                 print("Invalid input")
                 return self.bedroom()
 
     def sashabedroomdialog(self):
-        import Base
         if self.sashatalked == False:
+            self.sashatalked = True
             print("You approach the German Shepard and exchange greetings.")
             print(
                 "The German Shepard is one of your roommates, Sasha. She's a trustworthy sort. But a bit absent-minded at times")
             input()
             print(
                 """ "{}! Where have you been all this time! I haven't seen you in over a week! You weren't in your room so I was thinking you most have went on an unannounced vacation." """.format(
-                    Base.player_info.name))
+                    player_info.name))
             input()
             print('You explain to Sasha that you did indeed go on a week-long vacation up north, about 5 hours away.')
             input()
-            Base.player_info.player_location = 'Sasha First Dialogue'
+            player_info.player_location = 'Sasha First Dialogue'
             print('"I was right after all then."')
             print(
                 """ "Hey, I’ve kept on top of all your chores, you’re gonna owe me for the weeks’ time you decided to disappear. I was thinking you could take of my work for 2 or so weeks." """)
@@ -171,9 +172,8 @@ class SashaEncounter:
             input()
             print("You say goodbye to Sasha and head back to the hallway/")
             input()
-            Base.player_info.player_location = 'Sasha First Dialogue'
-            self.sashatalked = True  # Indicates that the player has talked to Sasha allowing for more dialog
-            Base.hallway()
+            player_info.player_location = 'Sasha First Dialogue'  # Indicates that the player has talked to Sasha allowing for more dialog
+            hallway()
         elif self.sashatalked == True:
             print(""" "You know, I actually had a friend once that basically disappeared for 2 weeks." """)
             input()
@@ -191,18 +191,17 @@ class SashaEncounter:
                 """ "Anyway, you're fine now and that's all that matters. You might want to check in with Jacob, he was gone for half the week so he wasn't entirely sure how long you were gone for" """)
             input()
             print("You exit Sasha's room and enter the hallway")
-            Base.player_info.player_location = 'Sasha Second Dialogue'
-            Base.hallway()
+            player_info.player_location = 'Sasha Second Dialogue'
+            hallway()
         elif self.sashatalked is True and sasha_living.sashalivingroomdialogue is True:
-            print('"Hey, {}. Can\'t think of anything new going on"'.format(Base.player_info.name))
+            print('"Hey, {}. Can\'t think of anything new going on"'.format(player_info.name))
 
     def sashabedroom(self):
         while True:
-            import Base
             print("You see Sasha, your roommate, and the doorway to the hallway to your south")
             direction = input("What do you wish to do? ")
             if direction in ["south", "s"]:
-                Base.hallway()
+                hallway()
                 break
             elif direction == "talk":
                 self.sashabedroomdialog()
@@ -214,3 +213,26 @@ class SashaEncounter:
 
 sasha_living = LivingRoom()
 sasha_encounter = SashaEncounter()
+
+
+
+  if travelarea in ['tories', 'the cafe', 'eat', 'tories cafe', 'cafe']:
+            import Base
+            Base.tories_cafe.thecafe()
+
+        elif travelarea in ['park', 'the park' 'sycamore lakeview park']:
+            import Base
+            Base.sycamore_park.lakepark()
+        elif travelarea in ['festival', 'fest', 'lake', 'lake fest' 'lake festival', 'lf']:
+            import Festival
+            if Festival.festival_area.bus_ride_completed is False:
+                Festival.festival_area.bus_ride()
+            elif Festival.festival_area.bus_ride_completed is True:
+                Festival.festival_area.festival_entrance()
+
+        else:
+            print("Invalid input")
+            #return self.traveltofront()
+
+
+travel_function = Traveling()

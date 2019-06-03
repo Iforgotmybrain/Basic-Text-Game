@@ -1,5 +1,52 @@
 # Festival area
 import time
+import CharInfo
+import pickle
+
+class GameState:
+    def saving(self):
+        print("Saving game")
+        import Base
+
+        pickle_out = open('gamestate.pickle', 'wb')
+        pickle.dump([CharInfo.player_info.player_location, CharInfo.player_info.name, CharInfo.player_info.sex,
+                    CharInfo.player_info.race, Base.player_bathroom.bathroombaddragon, Base.sasha_encounter.sashatalked,
+                    Base.sasha_living.sashalivingroomdialogue, Base.jacob_kitchen.jacobtalked, Base.tories_cafe.cafefinished,
+                    Base.sycamore_park.parklakepath, Base.sycamore_park.parkroommatepath], pickle_out)
+        pickle_out.close()
+        print("Game Saved!")
+        return
+
+    def loading(self):
+        import Base
+
+        print("Loading game")
+        pickle_in = open('gamestate.pickle', 'rb')
+        [CharInfo.player_info.player_location, CharInfo.player_info.name, CharInfo.player_info.sex,
+         CharInfo.player_info.race, Base.player_bathroom.bathroombaddragon, Base.sasha_encounter.sashatalked,
+         Base.sasha_living.sashalivingroomdialogue, Base.jacob_kitchen.jacobtalked, Base.tories_cafe.cafefinished,
+         Base.sycamore_park.parklakepath, Base.sycamore_park.parkroommatepath] = pickle.load(pickle_in)
+        pickle_in.close()
+        print("Game Loaded!")
+        self.playerlocation()
+
+    def playerlocation(self):
+        import Base
+
+        if CharInfo.player_info.player_location in ['PC Bedroom', 'Sasha Living Room']:
+            Base.pcbedroom()
+
+        elif CharInfo.player_info.player_location in ["Sasha First Dialogue", 'Sasha Second Dialogue', 'Holly Cafe']: \
+            Base.hallway()
+
+        elif CharInfo.player_info.player_location in ['Jacob Kitchen Dialogue']:
+            Base.entranceway()
+
+        elif CharInfo.player_info.player_location in ['Park Walk']:
+            Base.sycamore_park.lakepark()
+
+        elif CharInfo.player_info.player_location in ['Festival Start']:
+            festival_area.festival_entrance()
 
 
 class FestivalStart:
@@ -15,9 +62,8 @@ class FestivalStart:
         input()
         print("'So you’re a local” the Tiger says. “I’m Chris.” The Tiger reaches out to shake your hand'")
         input()
-        import Base
-        print("You shake the Tiger’s hand and introduce yourself as {}.".format(Base.player_info.name))
-        print("'Nice to meet you {}. I’m coming through here pretty much solely for Lake Fest. Though I wouldn’t be opposed to checking out some other places if you’ve got any recommendations. My hotel for here is booked for the day so I’ve got time.'".format(Base.player_info.name))
+        print("You shake the Tiger’s hand and introduce yourself as {}.".format(CharInfo.player_info.name))
+        print("'Nice to meet you {}. I’m coming through here pretty much solely for Lake Fest. Though I wouldn’t be opposed to checking out some other places if you’ve got any recommendations. My hotel for here is booked for the day so I’ve got time.'".format(CharInfo.player_info.name))
         input()
         print("You can’t really think of anything else remarkable here. The town is actually quite boring. You offer a few eating recommendations, including Tories Café, stating that there really isn’t much to do here except check out the local restaurants.")
         input()
@@ -54,10 +100,10 @@ class FestivalStart:
         input()
         print("You have arrived at the festival")
         self.bus_ride_completed = True
+        self.festival_entrance()
 
     def festival_entrance(self):
-        import Base
-        Base.player_info.player_location = 'Festival Start'
+        CharInfo.player_info.player_location = 'Festival Start'
         print("You arrive at the festival and see crowds of people on the streets. Vendors as far as the eye can see.")
 
         print("The day is perfect for a festival, a light overcast keeps temperatures in the sun bearable, and a slight breeze keeps you cool.")
@@ -71,8 +117,7 @@ class FestivalStart:
             print("You brave the crowd and head towards the main festival area.")
             self.festival_main()
         elif festivaldirection in ['save', 'save game']:
-            import SaveSystem
-            SaveSystem.save_load.saving()
+            save_load.saving()
 
 
 
@@ -140,9 +185,8 @@ class FestivalStart:
             print('"Excellent! I’ll get it wrapped up and ready to go. You’ll be looking at bill of about $225."')
             input()
             print("You pay the painter and collect the painting.")
-            import Base
-            Base.player_info.money -= 225
-            print("Your bank balance is now {}".format(Base.player_info.money))
+            CharInfo.player_info.money -= 225
+            print("Your bank balance is now {}".format(CharInfo.player_info.money))
 
 
 
@@ -155,6 +199,8 @@ class FestivalStart:
 
 
 festival_area = FestivalStart()
+save_load = GameState()
+
 
 
 

@@ -19,8 +19,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/py files/Base.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="7633">
-              <caret line="527" selection-start-line="527" selection-end-line="527" />
+            <state relative-caret-position="12580">
+              <caret line="740" column="48" lean-forward="true" selection-start-line="740" selection-start-column="48" selection-end-line="740" selection-end-column="48" />
               <folding>
                 <element signature="e#37#48#0" expanded="true" />
               </folding>
@@ -31,26 +31,32 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/py files/TravelSystem.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="170">
-              <caret line="10" column="35" selection-start-line="10" selection-start-column="35" selection-end-line="10" selection-end-column="35" />
+            <state relative-caret-position="357">
+              <caret line="21" column="66" lean-forward="true" selection-start-line="21" selection-start-column="66" selection-end-line="21" selection-end-column="66" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/py files/TestFile.py">
+        <entry file="file://$PROJECT_DIR$/py files/Festival.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2159">
-              <caret line="127" selection-start-line="127" selection-end-line="127" />
+            <state relative-caret-position="578">
+              <caret line="34" selection-start-line="34" selection-end-line="34" />
+              <folding>
+                <element signature="e#16#27#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/py files/SashaHouse.py">
+        <entry file="file://$PROJECT_DIR$/py files/SaveSystem.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="3485">
-              <caret line="205" column="21" lean-forward="true" selection-start-line="205" selection-start-column="21" selection-end-line="205" selection-end-column="21" />
+            <state relative-caret-position="51">
+              <caret line="3" lean-forward="true" selection-start-line="3" selection-end-line="3" />
+              <folding>
+                <element signature="e#0#13#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -66,7 +72,11 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
+      <find>sashahouse</find>
+      <find>sashahouse.</find>
+      <find>travel</find>
       <find>save</find>
+      <find>festival</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -78,24 +88,24 @@
         <option value="$PROJECT_DIR$/Sources/Travel_locations.py" />
         <option value="$PROJECT_DIR$/Sources/Base.py" />
         <option value="$PROJECT_DIR$/py files/Travel_locations.py" />
-        <option value="$PROJECT_DIR$/py files/Testing_Dialogue_Heavy.py" />
         <option value="$USER_HOME$/Desktop/TextGame/py files/Base.py" />
         <option value="$PROJECT_DIR$/py files/Save_system.py" />
-        <option value="$PROJECT_DIR$/py files/Festival.py" />
-        <option value="$PROJECT_DIR$/py files/TravelSystem.py" />
-        <option value="$PROJECT_DIR$/py files/SaveSystem.py" />
-        <option value="$PROJECT_DIR$/py files/TestFile.py" />
         <option value="$PROJECT_DIR$/py files/LivingRoom.py" />
         <option value="$PROJECT_DIR$/py files/SashaHouse.py" />
+        <option value="$PROJECT_DIR$/py files/TestFile.py" />
+        <option value="$PROJECT_DIR$/py files/Testing_Dialogue_Heavy.py" />
+        <option value="$PROJECT_DIR$/py files/SaveSystem.py" />
+        <option value="$PROJECT_DIR$/py files/TravelSystem.py" />
         <option value="$PROJECT_DIR$/py files/Base.py" />
+        <option value="$PROJECT_DIR$/py files/Festival.py" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="418" />
-    <option name="y" value="-24" />
+    <option name="x" value="371" />
+    <option name="y" value="-11" />
     <option name="width" value="974" />
-    <option name="height" value="1047" />
+    <option name="height" value="991" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -124,7 +134,7 @@
   </component>
   <component name="PropertiesComponent">
     <property name="last_opened_file_path" value="$PROJECT_DIR$/py files/Base.py" />
-    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PythonContentEntriesConfigurable" />
+    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -193,7 +203,7 @@
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/py files/TestFile.py" />
+      <option name="SCRIPT_NAME" value="C:\Users\wyatt\Documents\GitHub\TextGame\py files\CharInfo.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -291,7 +301,7 @@
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.35211268" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.23076923" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.3997833" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -333,61 +343,75 @@
     <entry file="file://$PROJECT_DIR$/Sources/Travel_locations.py" />
     <entry file="file://$PROJECT_DIR$/Sources/Base.py" />
     <entry file="file://$PROJECT_DIR$/py files/Travel_locations.py" />
-    <entry file="file://$PROJECT_DIR$/py files/Testing_Dialogue_Heavy.py">
+    <entry file="file://$USER_HOME$/Desktop/TextGame/py files/Base.py" />
+    <entry file="file://$PROJECT_DIR$/py files/Save_system.py" />
+    <entry file="file://$PROJECT_DIR$/py files/LivingRoom.py" />
+    <entry file="file://$PROJECT_DIR$/py files/SashaHouse.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="5" column="33" selection-start-line="5" selection-start-column="33" selection-end-line="5" selection-end-column="33" />
+        <state relative-caret-position="649">
+          <caret line="237" selection-start-line="237" selection-end-line="237" selection-end-column="29" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$USER_HOME$/Desktop/TextGame/py files/Base.py" />
-    <entry file="file://$PROJECT_DIR$/py files/Save_system.py" />
+    <entry file="file://$PROJECT_DIR$/py files/CharInfo.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="340">
+          <caret line="20" column="31" selection-start-line="20" selection-start-column="31" selection-end-line="20" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/Desktop/Basic-Text-Game-6c066f55a019eb2a317b32c057f7d1318a01b934/py files/Base.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="110">
+          <caret line="659" selection-start-line="659" selection-end-line="659" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/Desktop/Basic-Text-Game-6c066f55a019eb2a317b32c057f7d1318a01b934/py files/TravelSystem.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="306">
+          <caret line="18" column="11" lean-forward="true" selection-start-line="18" selection-end-line="18" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/py files/Testing_Dialogue_Heavy.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="17" lean-forward="true" selection-start-column="17" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/py files/SaveSystem.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="51">
-          <caret line="3" selection-start-line="3" selection-end-line="45" />
+          <caret line="3" lean-forward="true" selection-start-line="3" selection-end-line="3" />
+          <folding>
+            <element signature="e#0#13#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/py files/Festival.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1791">
-          <caret line="15" column="107" selection-start-line="15" selection-start-column="107" selection-end-line="15" selection-end-column="107" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/py files/LivingRoom.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3536">
-          <caret line="208" column="40" selection-start-line="208" selection-start-column="40" selection-end-line="208" selection-end-column="40" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/py files/TestFile.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2159">
-          <caret line="127" selection-start-line="127" selection-end-line="127" />
+        <state relative-caret-position="578">
+          <caret line="34" selection-start-line="34" selection-end-line="34" />
+          <folding>
+            <element signature="e#16#27#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/py files/TravelSystem.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="10" column="35" selection-start-line="10" selection-start-column="35" selection-end-line="10" selection-end-column="35" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/py files/SashaHouse.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3485">
-          <caret line="205" column="21" lean-forward="true" selection-start-line="205" selection-start-column="21" selection-end-line="205" selection-end-column="21" />
+        <state relative-caret-position="357">
+          <caret line="21" column="66" lean-forward="true" selection-start-line="21" selection-start-column="66" selection-end-line="21" selection-end-column="66" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/py files/Base.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="7633">
-          <caret line="527" selection-start-line="527" selection-end-line="527" />
+        <state relative-caret-position="12580">
+          <caret line="740" column="48" lean-forward="true" selection-start-line="740" selection-start-column="48" selection-end-line="740" selection-end-column="48" />
           <folding>
             <element signature="e#37#48#0" expanded="true" />
           </folding>
