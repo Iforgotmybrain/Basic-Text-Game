@@ -18,4 +18,30 @@ class PlayerCharacter(PlayerStats):
                          race=input(
                              "Which race do you want to play as? Wolf, Lion, Fox or Dragon? (This is will not have a large effect on the game) ").title(), money=1200)
 
+
+class GlobalCheckSasha:
+    def __init__(self, sasha_talk, sasha_living):
+        self.sasha_talk = sasha_talk
+        self.sasha_living = sasha_living
+
+class GlobalCheckJacob:
+    def __init__(self, jacob_kitchen, jacob_bedroom):
+        self.jacob_kitcehn = jacob_kitchen
+        self.jacob_bedroom = jacob_bedroom
+
+class GlobalCheckMisc:
+    def __init__(self, cafe_finished, bathroom_bd):
+        self.cafe_finished = cafe_finished
+        self.bathroom_bd = bathroom_bd
+
+class GlobalCheckLakePark:
+    def __init__(self, park_lake_path, park_roommate_path):
+        self.park_lake_path = park_lake_path
+        self.park_roommate_path = park_roommate_path
+
+
 player_info = PlayerCharacter()
+sasha_checks = GlobalCheckSasha(sasha_talk=GlobalCheckSasha, sasha_living=GlobalCheckSasha)
+jacob_checks = GlobalCheckJacob(jacob_kitchen=GlobalCheckJacob, jacob_bedroom=GlobalCheckJacob)
+misc_checks = GlobalCheckMisc(cafe_finished=GlobalCheckMisc, bathroom_bd=GlobalCheckMisc)
+park_checks = GlobalCheckLakePark(park_lake_path=GlobalCheckLakePark, park_roommate_path=GlobalCheckLakePark)
