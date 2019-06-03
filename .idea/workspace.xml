@@ -16,11 +16,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/py files/Base.py">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/py_files/Base.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="12580">
-              <caret line="740" column="48" lean-forward="true" selection-start-line="740" selection-start-column="48" selection-end-line="740" selection-end-column="48" />
+            <state relative-caret-position="-7871">
+              <caret line="9" column="19" lean-forward="true" selection-start-line="9" selection-start-column="19" selection-end-line="9" selection-end-column="19" />
               <folding>
                 <element signature="e#37#48#0" expanded="true" />
               </folding>
@@ -29,19 +29,28 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/py files/TravelSystem.py">
+        <entry file="file://$PROJECT_DIR$/py_files/TravelSystem.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="357">
-              <caret line="21" column="66" lean-forward="true" selection-start-line="21" selection-start-column="66" selection-end-line="21" selection-end-column="66" />
+            <state relative-caret-position="306">
+              <caret line="18" column="29" selection-start-line="18" selection-start-column="29" selection-end-line="18" selection-end-column="29" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/py files/Festival.py">
+        <entry file="file://$PROJECT_DIR$/py_files/teststoring.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="578">
-              <caret line="34" selection-start-line="34" selection-end-line="34" />
+            <state>
+              <caret column="1" selection-start-column="1" selection-end-column="1" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/py_files/Festival.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="3077">
+              <caret line="181" column="1" selection-start-line="181" selection-start-column="1" selection-end-line="181" selection-end-column="1" />
               <folding>
                 <element signature="e#16#27#0" expanded="true" />
               </folding>
@@ -50,15 +59,8 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/py files/SaveSystem.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="51">
-              <caret line="3" lean-forward="true" selection-start-line="3" selection-end-line="3" />
-              <folding>
-                <element signature="e#0#13#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
+        <entry file="file://$PROJECT_DIR$/py_files/CharInfo.py">
+          <provider selected="true" editor-type-id="text-editor" />
         </entry>
       </file>
     </leaf>
@@ -74,9 +76,11 @@
     <findStrings>
       <find>sashahouse</find>
       <find>sashahouse.</find>
-      <find>travel</find>
       <find>save</find>
       <find>festival</find>
+      <find>import</find>
+      <find>base</find>
+      <find>travel</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -94,18 +98,26 @@
         <option value="$PROJECT_DIR$/py files/SashaHouse.py" />
         <option value="$PROJECT_DIR$/py files/TestFile.py" />
         <option value="$PROJECT_DIR$/py files/Testing_Dialogue_Heavy.py" />
-        <option value="$PROJECT_DIR$/py files/SaveSystem.py" />
         <option value="$PROJECT_DIR$/py files/TravelSystem.py" />
-        <option value="$PROJECT_DIR$/py files/Base.py" />
         <option value="$PROJECT_DIR$/py files/Festival.py" />
+        <option value="$PROJECT_DIR$/py files/SaveSystem.py" />
+        <option value="$PROJECT_DIR$/pyfiles/Base.py" />
+        <option value="$PROJECT_DIR$/py files/__main__.py" />
+        <option value="$PROJECT_DIR$/py files/__init__.py" />
+        <option value="$PROJECT_DIR$/py files/Base.py" />
+        <option value="$PROJECT_DIR$/py_files/SaveSystem.py" />
+        <option value="$PROJECT_DIR$/py_files/Base.py" />
+        <option value="$PROJECT_DIR$/py_files/TravelSystem.py" />
+        <option value="$PROJECT_DIR$/py_files/Festival.py" />
+        <option value="$PROJECT_DIR$/py_files/teststoring.py" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="371" />
-    <option name="y" value="-11" />
+    <option name="x" value="922" />
+    <option name="y" value="-20" />
     <option name="width" value="974" />
-    <option name="height" value="991" />
+    <option name="height" value="1047" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -113,7 +125,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -124,17 +135,18 @@
             <path>
               <item name="TextGame" type="b2602c69:ProjectViewProjectNode" />
               <item name="TextGame" type="462c0819:PsiDirectoryNode" />
-              <item name="py files" type="462c0819:PsiDirectoryNode" />
+              <item name="py_files" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="last_opened_file_path" value="$PROJECT_DIR$/py files/Base.py" />
-    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
+    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PythonContentEntriesConfigurable" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -148,8 +160,8 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.Base">
-    <configuration name="Base (1)" type="PythonConfigurationType" factoryName="Python" temporary="true">
+  <component name="RunManager">
+    <configuration name="Base" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="TextGame" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -157,11 +169,11 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$USER_HOME$/Desktop/TextGame/py files" />
-      <option name="IS_MODULE_SDK" value="false" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/py_files" />
+      <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$USER_HOME$/Desktop/TextGame/py files/Base.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/py_files/Base.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -191,83 +203,10 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="TestFile" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <module name="TextGame" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/py files" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="C:\Users\wyatt\Documents\GitHub\TextGame\py files\CharInfo.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
-    <configuration name="TravelSystem" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <module name="TextGame" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/py files" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/py files/TravelSystem.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
-    <configuration name="Travel_locations" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <module name="TextGame" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/py files" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/py files/Travel_locations.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
-    <list>
-      <item itemvalue="Python.Base (1)" />
-      <item itemvalue="Python.Base" />
-      <item itemvalue="Python.TestFile" />
-      <item itemvalue="Python.TravelSystem" />
-      <item itemvalue="Python.Travel_locations" />
-    </list>
     <recent_temporary>
       <list>
         <item itemvalue="Python.Base" />
-        <item itemvalue="Python.TestFile" />
-        <item itemvalue="Python.TravelSystem" />
-        <item itemvalue="Python.Base (1)" />
-        <item itemvalue="Python.Travel_locations" />
+        <item itemvalue="Python.Base" />
       </list>
     </recent_temporary>
   </component>
@@ -305,10 +244,10 @@
       <window_info anchor="bottom" id="Debug" order="3" weight="0.3997833" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="bottom" id="TODO" order="6" weight="0.32936078" />
+      <window_info anchor="bottom" id="TODO" order="6" sideWeight="0.49947312" weight="0.32936078" />
       <window_info anchor="bottom" id="Version Control" order="7" />
       <window_info anchor="bottom" id="Terminal" order="8" weight="0.32936078" />
-      <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" />
+      <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.50052685" side_tool="true" weight="0.32936078" />
       <window_info anchor="bottom" id="Python Console" order="10" weight="0.32936078" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -339,6 +278,16 @@
       <path value="$PROJECT_DIR$" />
     </ignored-roots>
   </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/py_files/SaveSystem.py</url>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/Sources/Travel_locations.py" />
     <entry file="file://$PROJECT_DIR$/Sources/Base.py" />
@@ -346,74 +295,54 @@
     <entry file="file://$USER_HOME$/Desktop/TextGame/py files/Base.py" />
     <entry file="file://$PROJECT_DIR$/py files/Save_system.py" />
     <entry file="file://$PROJECT_DIR$/py files/LivingRoom.py" />
-    <entry file="file://$PROJECT_DIR$/py files/SashaHouse.py">
+    <entry file="file://$PROJECT_DIR$/py_files/SashaHouse.py" />
+    <entry file="file://$USER_HOME$/Desktop/Basic-Text-Game-6c066f55a019eb2a317b32c057f7d1318a01b934/py files/Base.py" />
+    <entry file="file://$USER_HOME$/Desktop/Basic-Text-Game-6c066f55a019eb2a317b32c057f7d1318a01b934/py files/TravelSystem.py" />
+    <entry file="file://$PROJECT_DIR$/py_files/Testing_Dialogue_Heavy.py" />
+    <entry file="file://$PROJECT_DIR$/pyfiles/SaveSystem.py" />
+    <entry file="file://$PROJECT_DIR$/pyfiles/Base.py" />
+    <entry file="file://$PROJECT_DIR$/py files/__main__.py" />
+    <entry file="file://$PROJECT_DIR$/py files/__init__.py" />
+    <entry file="file://$PROJECT_DIR$/py_files/SaveSystem.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="649">
-          <caret line="237" selection-start-line="237" selection-end-line="237" selection-end-column="29" />
+        <state relative-caret-position="17">
+          <caret line="1" column="11" selection-start-line="1" selection-start-column="11" selection-end-line="1" selection-end-column="11" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/py files/CharInfo.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="340">
-          <caret line="20" column="31" selection-start-line="20" selection-start-column="31" selection-end-line="20" selection-end-column="31" />
-        </state>
-      </provider>
+    <entry file="file://$PROJECT_DIR$/py_files/CharInfo.py">
+      <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$USER_HOME$/Desktop/Basic-Text-Game-6c066f55a019eb2a317b32c057f7d1318a01b934/py files/Base.py">
+    <entry file="file://$PROJECT_DIR$/py_files/Base.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="110">
-          <caret line="659" selection-start-line="659" selection-end-line="659" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/Desktop/Basic-Text-Game-6c066f55a019eb2a317b32c057f7d1318a01b934/py files/TravelSystem.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="18" column="11" lean-forward="true" selection-start-line="18" selection-end-line="18" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/py files/Testing_Dialogue_Heavy.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="17" lean-forward="true" selection-start-column="17" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/py files/SaveSystem.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
-          <caret line="3" lean-forward="true" selection-start-line="3" selection-end-line="3" />
-          <folding>
-            <element signature="e#0#13#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/py files/Festival.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="578">
-          <caret line="34" selection-start-line="34" selection-end-line="34" />
-          <folding>
-            <element signature="e#16#27#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/py files/TravelSystem.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="357">
-          <caret line="21" column="66" lean-forward="true" selection-start-line="21" selection-start-column="66" selection-end-line="21" selection-end-column="66" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/py files/Base.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="12580">
-          <caret line="740" column="48" lean-forward="true" selection-start-line="740" selection-start-column="48" selection-end-line="740" selection-end-column="48" />
+        <state relative-caret-position="-7871">
+          <caret line="9" column="19" lean-forward="true" selection-start-line="9" selection-start-column="19" selection-end-line="9" selection-end-column="19" />
           <folding>
             <element signature="e#37#48#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/py_files/teststoring.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="1" selection-start-column="1" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/py_files/TravelSystem.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="306">
+          <caret line="18" column="29" selection-start-line="18" selection-start-column="29" selection-end-line="18" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/py_files/Festival.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3077">
+          <caret line="181" column="1" selection-start-line="181" selection-start-column="1" selection-end-line="181" selection-end-column="1" />
+          <folding>
+            <element signature="e#16#27#0" expanded="true" />
           </folding>
         </state>
       </provider>

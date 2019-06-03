@@ -2,52 +2,30 @@
 import time
 import CharInfo
 import pickle
+import teststoring
+#  What if each file had it's own save system.
 
-class GameState:
+
+class GameState:  # Might have to put this in base because the import is causing all kinds of issues.
     def saving(self):
         print("Saving game")
-        import Base
-
         pickle_out = open('gamestate.pickle', 'wb')
-        pickle.dump([CharInfo.player_info.player_location, CharInfo.player_info.name, CharInfo.player_info.sex,
-                    CharInfo.player_info.race, Base.player_bathroom.bathroombaddragon, Base.sasha_encounter.sashatalked,
-                    Base.sasha_living.sashalivingroomdialogue, Base.jacob_kitchen.jacobtalked, Base.tories_cafe.cafefinished,
-                    Base.sycamore_park.parklakepath, Base.sycamore_park.parkroommatepath], pickle_out)
+        pickle.dump([teststoring.vinf], pickle_out)
         pickle_out.close()
         print("Game Saved!")
-        return
+        self.playerlocation()
 
     def loading(self):
-        import Base
-
         print("Loading game")
         pickle_in = open('gamestate.pickle', 'rb')
-        [CharInfo.player_info.player_location, CharInfo.player_info.name, CharInfo.player_info.sex,
-         CharInfo.player_info.race, Base.player_bathroom.bathroombaddragon, Base.sasha_encounter.sashatalked,
-         Base.sasha_living.sashalivingroomdialogue, Base.jacob_kitchen.jacobtalked, Base.tories_cafe.cafefinished,
-         Base.sycamore_park.parklakepath, Base.sycamore_park.parkroommatepath] = pickle.load(pickle_in)
+        [teststoring.vinf] = pickle.load(pickle_in)
         pickle_in.close()
         print("Game Loaded!")
         self.playerlocation()
 
     def playerlocation(self):
-        import Base
-
-        if CharInfo.player_info.player_location in ['PC Bedroom', 'Sasha Living Room']:
-            Base.pcbedroom()
-
-        elif CharInfo.player_info.player_location in ["Sasha First Dialogue", 'Sasha Second Dialogue', 'Holly Cafe']: \
-            Base.hallway()
-
-        elif CharInfo.player_info.player_location in ['Jacob Kitchen Dialogue']:
-            Base.entranceway()
-
-        elif CharInfo.player_info.player_location in ['Park Walk']:
-            Base.sycamore_park.lakepark()
-
-        elif CharInfo.player_info.player_location in ['Festival Start']:
+        if CharInfo.player_info.player_location in ['Festival Start']:
             festival_area.festival_entrance()
-
 
 class FestivalStart:
     def __init__(self):
@@ -111,13 +89,14 @@ class FestivalStart:
         print("You see rows of vendors directly ahead to your north, and the bus stop to travel home.")
         festivaldirection = input("What will you do? ")
         if festivaldirection in ['travel', 'home', 'bus', 'stop', 'bus stop']:
-            import TravelSystem
-            TravelSystem.travel_function.traveltofront()
+            #import TravelSystem
+            #TravelSystem.travel_function.traveltofront()
         elif festivaldirection in ['north', 'vendors', 'festival', 'n']:
             print("You brave the crowd and head towards the main festival area.")
             self.festival_main()
         elif festivaldirection in ['save', 'save game']:
-            save_load.saving()
+            save_sys.saving()
+
 
 
 
@@ -199,12 +178,8 @@ class FestivalStart:
 
 
 festival_area = FestivalStart()
-save_load = GameState()
 
-
-
-
-
+save_sys = GameState()
 
 
 

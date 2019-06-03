@@ -8,7 +8,6 @@ import os
 import pickle
 import CharInfo
 import TravelSystem
-import Festival
 
 def bank_money():
     print("You fire up your smartphone and check your bank balance")
@@ -16,44 +15,45 @@ def bank_money():
     return pcbedroom()
 
 
-# class GameState:  # Might have to put this in base because the import is causing all kinds of issues.
-#     def saving(self):
-#         print("Saving game")
-#         pickle_out = open('gamestate.pickle', 'wb')
-#         pickle.dump([CharInfo.player_info.player_location, CharInfo.player_info.name, CharInfo.player_info.sex,
-#                      CharInfo.player_info.race, player_bathroom.bathroombaddragon, sasha_encounter.sashatalked,
-#                      sasha_living.sashalivingroomdialogue, jacob_kitchen.jacobtalked, tories_cafe.cafefinished,
-#                      sycamore_park.parklakepath, sycamore_park.parkroommatepath], pickle_out)
-#         pickle_out.close()
-#         print("Game Saved!")
-#         return
-#
-#     def loading(self):
-#         print("Loading game")
-#         pickle_in = open('gamestate.pickle', 'rb')
-#         [CharInfo.player_info.player_location, CharInfo.player_info.name, CharInfo.player_info.sex,
-#          CharInfo.player_info.race, player_bathroom.bathroombaddragon, sasha_encounter.sashatalked,
-#          sasha_living.sashalivingroomdialogue, jacob_kitchen.jacobtalked, tories_cafe.cafefinished,
-#          sycamore_park.parklakepath, sycamore_park.parkroommatepath] = pickle.load(pickle_in)
-#         pickle_in.close()
-#         print("Game Loaded!")
-#         self.playerlocation()
-#
-#     def playerlocation(self):
-#         if CharInfo.player_info.player_location in ['PC Bedroom', 'Sasha Living Room']:
-#             pcbedroom()
-#
-#         elif CharInfo.player_info.player_location in ["Sasha First Dialogue", 'Sasha Second Dialogue', 'Holly Cafe']: \
-#                 hallway()
-#
-#         elif CharInfo.player_info.player_location in ['Jacob Kitchen Dialogue']:
-#             entranceway()
-#
-#         elif CharInfo.player_info.player_location in ['Park Walk']:
-#             sycamore_park.lakepark()
-#
-#         elif CharInfo.player_info.player_location in ['Festival Start']:
-#             Festival.festival_area.festival_entrance()
+class GameState:  # Might have to put this in base because the import is causing all kinds of issues.
+    def saving(self):
+        print("Saving game")
+        pickle_out = open('gamestate.pickle', 'wb')
+        pickle.dump([CharInfo.player_info.player_location, CharInfo.player_info.name, CharInfo.player_info.sex,
+                     CharInfo.player_info.race, player_bathroom.bathroombaddragon, sasha_encounter.sashatalked,
+                     sasha_living.sashalivingroomdialogue, jacob_kitchen.jacobtalked, tories_cafe.cafefinished,
+                     sycamore_park.parklakepath, sycamore_park.parkroommatepath], pickle_out)
+        pickle_out.close()
+        print("Game Saved!")
+        return
+
+    def loading(self):
+        print("Loading game")
+        pickle_in = open('gamestate.pickle', 'rb')
+        [CharInfo.player_info.player_location, CharInfo.player_info.name, CharInfo.player_info.sex,
+         CharInfo.player_info.race, player_bathroom.bathroombaddragon, sasha_encounter.sashatalked,
+         sasha_living.sashalivingroomdialogue, jacob_kitchen.jacobtalked, tories_cafe.cafefinished,
+         sycamore_park.parklakepath, sycamore_park.parkroommatepath] = pickle.load(pickle_in)
+        pickle_in.close()
+        print("Game Loaded!")
+        self.playerlocation()
+
+    def playerlocation(self):
+        if CharInfo.player_info.player_location in ['PC Bedroom', 'Sasha Living Room']:
+            pcbedroom()
+
+        elif CharInfo.player_info.player_location in ["Sasha First Dialogue", 'Sasha Second Dialogue', 'Holly Cafe']: \
+                hallway()
+
+        elif CharInfo.player_info.player_location in ['Jacob Kitchen Dialogue']:
+            entranceway()
+
+        elif CharInfo.player_info.player_location in ['Park Walk']:
+            sycamore_park.lakepark()
+
+        elif CharInfo.player_info.player_location in ['Festival Start']:
+            import Festival
+            Festival.festival_area.festival_entrance()
 
 def intro():
     print("As you finish the 5th and final season of Barking Bad you feel a sense of satisfaction, but also a feeling of sadness. The culmination of 5 years work is over in the span of an hour.")
@@ -721,7 +721,7 @@ tories_cafe = ToriesCafe()
 
 player_bathroom = PCBathroom()  # Make sure to include the () when adding classes)
 
-save_sys = Festival
+save_sys = GameState()
 
 sasha_living = LivingRoom()
 
@@ -733,7 +733,7 @@ travel_system = TravelSystem
 # Starts the game
 loadingoption = input("Do you wish to load a game? ").lower()  # Make it so this is the first question asked.
 if loadingoption in ['yes', 'y', 'load', 'l']:
-    save_sys.save_load.loading()
+    save_sys.loading()
 elif loadingoption in ['no', 'n']:
     pass
 print("Hello", CharInfo.player_info.name)

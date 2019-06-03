@@ -1,11 +1,11 @@
 import pickle
+import Base
 import Festival
 import CharInfo
 
 
 class GameState:  # Might have to put this in base because the import is causing all kinds of issues.
     def saving(self):
-        import Base
         print("Saving game")
         pickle_out = open('gamestate.pickle', 'wb')
         pickle.dump([CharInfo.player_info.player_location, CharInfo.player_info.name, CharInfo.player_info.sex,
@@ -17,8 +17,7 @@ class GameState:  # Might have to put this in base because the import is causing
         return
 
     def loading(self):
-        print("Loading game")
-        import Base
+        print("Loading gamme")
         pickle_in = open('gamestate.pickle', 'rb')
         [CharInfo.player_info.player_location, CharInfo.player_info.name, CharInfo.player_info.sex,
          CharInfo.player_info.race, Base.player_bathroom.bathroombaddragon, Base.sasha_encounter.sashatalked,
@@ -28,8 +27,7 @@ class GameState:  # Might have to put this in base because the import is causing
         print("Game Loaded!")
         self.playerlocation()
 
-    def playerlocation(self):
-        import Base
+    def playerlocation(sel):
         if CharInfo.player_info.player_location in ['PC Bedroom', 'Sasha Living Room']:
             Base.pcbedroom()
 
