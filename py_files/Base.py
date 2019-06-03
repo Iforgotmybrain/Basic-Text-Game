@@ -7,22 +7,33 @@ import sys
 import os
 import pickle
 import CharInfo
-import TravelSystem
 
-def bank_money():
-    print("You fire up your smartphone and check your bank balance")
-    print("Your current balance is ${}".format(CharInfo.player_info.money))
-    return pcbedroom()
 
+class Traveling:
+    def traveltofront(self):
+        tp = ('Tories Cafe', 'Sycamore Lakeview Park', 'Pool')  # tp is short for travel places, places to travel too.
+        print('You can think of the following places to travel to:')
+        print(tp[0], tp[1], tp[2])
+        travelarea = input("Where do you want to go?").lower()
+
+        if travelarea in ['tories', 'the cafe', 'eat', 'tories cafe']:
+            tories_cafe.thecafe()
+
+        elif travelarea in ['park', 'the park' 'sycamore lakeview park']:
+            sycamore_park.lakepark()
+        else:
+            print("Invalid input")
+            return self.traveltofront()
 
 class GameState:  # Might have to put this in base because the import is causing all kinds of issues.
+
     def saving(self):
         print("Saving game")
         pickle_out = open('gamestate.pickle', 'wb')
         pickle.dump([CharInfo.player_info.player_location, CharInfo.player_info.name, CharInfo.player_info.sex,
-                     CharInfo.player_info.race, player_bathroom.bathroombaddragon, sasha_encounter.sashatalked,
-                     sasha_living.sashalivingroomdialogue, jacob_kitchen.jacobtalked, tories_cafe.cafefinished,
-                     sycamore_park.parklakepath, sycamore_park.parkroommatepath], pickle_out)
+                    CharInfo.player_info.race, player_bathroom.bathroombaddragon, sasha_encounter.sashatalked,
+                    sasha_living.sashalivingroomdialogue, jacob_kitchen.jacobtalked, tories_cafe.cafefinished,
+                    sycamore_park.parklakepath, sycamore_park.parkroommatepath], pickle_out)
         pickle_out.close()
         print("Game Saved!")
         return
@@ -43,7 +54,7 @@ class GameState:  # Might have to put this in base because the import is causing
             pcbedroom()
 
         elif CharInfo.player_info.player_location in ["Sasha First Dialogue", 'Sasha Second Dialogue', 'Holly Cafe']: \
-                hallway()
+            hallway()
 
         elif CharInfo.player_info.player_location in ['Jacob Kitchen Dialogue']:
             entranceway()
@@ -54,6 +65,13 @@ class GameState:  # Might have to put this in base because the import is causing
         elif CharInfo.player_info.player_location in ['Festival Start']:
             import Festival
             Festival.festival_area.festival_entrance()
+
+
+def bank_money():
+    print("You fire up your smartphone and check your bank balance")
+    print("Your current balance is ${}".format(CharInfo.player_info.money))
+    return pcbedroom()
+
 
 def intro():
     print("As you finish the 5th and final season of Barking Bad you feel a sense of satisfaction, but also a feeling of sadness. The culmination of 5 years work is over in the span of an hour.")
@@ -101,26 +119,27 @@ def pcbedroom():
         return pcbedroom()
 
 class PCBathroom:
-    def __init__(self):
-        self.bathroombaddragon = False
+    def __init__(self, bathroomBD):
+        self.bathroomBD = bathroomBD
 
     def bathroompc(self):
+        self.bathroomBD = False
         while True:
-            if self.bathroombaddragon is True:
+            if self.bathroomBDn is True:
                 print("You see the opened trunk on the floor and the doorway you entered to your west")
 
-            elif self.bathroombaddragon is False:
+            elif self.bathroomBD is False:
                 print("You enter a bathroom, you see a trunk on the floor and the doorway you entered to your west")
 
             bathroomoption = input("What do you do? ").lower()
 
-            if bathroomoption in ["trunk", "chest"] and self.bathroombaddragon is False:  # Prevents user from opening trunk more than once
+            if bathroomoption in ["trunk", "chest"] and self.bathroomBD is False:  # Prevents user from opening trunk more than once
                 print("You open the trunk and find a mysterious silicone sculpture")
-                self.bathroombaddragon = True
+                self.bathroomBD = True
                 input()
                 return self.bathroompc()
 
-            elif bathroomoption in ['trunk', 'chest'] and self.bathroombaddragon is True:
+            elif bathroomoption in ['trunk', 'chest'] and self.bathroomBD is True:
                 print("There's nothing more in the trunk.")
                 input()
 
@@ -469,7 +488,7 @@ class JacobDialogue:
         input()
         print("New travel area unlocked.")
         self.jacobbedroom = True
-        travel_system.travel_function.tp.append('Lake Fest')
+        #travel_system.travel_function.tp.append('Lake Fest')
         input()
         pcbedroom()
 
@@ -480,7 +499,7 @@ class FirstWorld:
             print("You stand on your front porch ready for adventure! You could also return home by entering the door to your south.")
             fronthouseareadirection = input("Will you travel or return home?").lower()
             if fronthouseareadirection in ['travel', 't', 'go' 'adventure']:
-                travel_system.travel_function.traveltofront()
+                travel_function.traveltofront()
             elif fronthouseareadirection in ['south', 's' 'home' 'door']:
                 entranceway()
             else:
@@ -710,7 +729,6 @@ class SycamorePark:
 
 # Global Classes
 
-
 jacob_kitchen = JacobDialogue()  # Global instance of JacobKitchen  # Provides info for the player character
 
 first_world = FirstWorld()
@@ -719,7 +737,7 @@ sycamore_park = SycamorePark()
 
 tories_cafe = ToriesCafe()
 
-player_bathroom = PCBathroom()  # Make sure to include the () when adding classes)
+player_bathroom = PCBathroom(bathroomBD=PCBathroom)  # Make sure to include the () when adding classes)
 
 save_sys = GameState()
 
@@ -727,8 +745,7 @@ sasha_living = LivingRoom()
 
 sasha_encounter = SashaEncounter()
 
-travel_system = TravelSystem
-
+travel_function = Traveling()
 
 # Starts the game
 loadingoption = input("Do you wish to load a game? ").lower()  # Make it so this is the first question asked.

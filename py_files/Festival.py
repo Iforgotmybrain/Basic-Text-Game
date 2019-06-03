@@ -2,7 +2,6 @@
 import time
 import CharInfo
 import pickle
-import teststoring
 #  What if each file had it's own save system.
 
 
@@ -10,7 +9,7 @@ class GameState:  # Might have to put this in base because the import is causing
     def saving(self):
         print("Saving game")
         pickle_out = open('gamestate.pickle', 'wb')
-        pickle.dump([teststoring.vinf], pickle_out)
+        pickle.dump([], pickle_out)
         pickle_out.close()
         print("Game Saved!")
         self.playerlocation()
@@ -18,7 +17,7 @@ class GameState:  # Might have to put this in base because the import is causing
     def loading(self):
         print("Loading game")
         pickle_in = open('gamestate.pickle', 'rb')
-        [teststoring.vinf] = pickle.load(pickle_in)
+        [] = pickle.load(pickle_in)
         pickle_in.close()
         print("Game Loaded!")
         self.playerlocation()
@@ -89,16 +88,13 @@ class FestivalStart:
         print("You see rows of vendors directly ahead to your north, and the bus stop to travel home.")
         festivaldirection = input("What will you do? ")
         if festivaldirection in ['travel', 'home', 'bus', 'stop', 'bus stop']:
-            #import TravelSystem
-            #TravelSystem.travel_function.traveltofront()
+            import TravelSystem
+            TravelSystem.travel_function.traveltofront()
         elif festivaldirection in ['north', 'vendors', 'festival', 'n']:
             print("You brave the crowd and head towards the main festival area.")
             self.festival_main()
         elif festivaldirection in ['save', 'save game']:
             save_sys.saving()
-
-
-
 
     def festival_main(self):
         time.sleep(1)

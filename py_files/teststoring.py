@@ -1,5 +1,4 @@
-#import Base
-import CharInfo
+
 
 vinf = [CharInfo.player_info.player_location, CharInfo.player_info.name, CharInfo.player_info.sex,
          CharInfo.player_info.race, Base.player_bathroom.bathroombaddragon, Base.sasha_encounter.sashatalked,
