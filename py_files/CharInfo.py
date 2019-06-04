@@ -26,7 +26,7 @@ class GlobalCheckSasha:
 
 class GlobalCheckJacob:
     def __init__(self, jacob_kitchen, jacob_bedroom):
-        self.jacob_kitcehn = jacob_kitchen
+        self.jacob_kitchen = jacob_kitchen
         self.jacob_bedroom = jacob_bedroom
 
 class GlobalCheckMisc:

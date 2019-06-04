@@ -1,33 +1,33 @@
 import pickle
-import Base
-import Festival
 import CharInfo
+import CharLocator
 
 
-class GameState:  # Might have to put this in base because the import is causing all kinds of issues.
+class GameState:
     def saving(self):
         print("Saving game")
         pickle_out = open('gamestate.pickle', 'wb')
         pickle.dump([CharInfo.player_info.player_location, CharInfo.player_info.name, CharInfo.player_info.sex,
-                    CharInfo.player_info.race, Base.player_bathroom.bathroombaddragon, Base.sasha_encounter.sashatalked,
-                    Base.sasha_living.sashalivingroomdialogue, Base.jacob_kitchen.jacobtalked, Base.tories_cafe.cafefinished,
-                    Base.sycamore_park.parklakepath, Base.sycamore_park.parkroommatepath], pickle_out)
+                    CharInfo.player_info.race, CharInfo.misc_checks.bathroom_bd, CharInfo.sasha_checks.sasha_talk,
+                    CharInfo.sasha_checks.sasha_living, CharInfo.jacob_checks.jacob_kitchen, CharInfo.misc_checks.cafe_finished,
+                    CharInfo.park_checks.park_lake_path, CharInfo.park_checks.park_roommate_path], pickle_out)
         pickle_out.close()
         print("Game Saved!")
         return
 
     def loading(self):
-        print("Loading gamme")
+        print("Loading game")
         pickle_in = open('gamestate.pickle', 'rb')
         [CharInfo.player_info.player_location, CharInfo.player_info.name, CharInfo.player_info.sex,
-         CharInfo.player_info.race, Base.player_bathroom.bathroombaddragon, Base.sasha_encounter.sashatalked,
-         Base.sasha_living.sashalivingroomdialogue, Base.jacob_kitchen.jacobtalked, Base.tories_cafe.cafefinished,
-         Base.sycamore_park.parklakepath, Base.sycamore_park.parkroommatepath] = pickle.load(pickle_in)
+         CharInfo.player_info.race, CharInfo.misc_checks.bathroom_bd, CharInfo.sasha_checks.sasha_talk,
+         CharInfo.sasha_checks.sasha_living, CharInfo.jacob_checks.jacob_kitchen, CharInfo.misc_checks.cafe_finished,
+         CharInfo.park_checks.park_lake_path, CharInfo.park_checks.park_roommate_path] = pickle.load(pickle_in)
         pickle_in.close()
         print("Game Loaded!")
-        self.playerlocation()
+        CharLocator.playerlocation()
 
-    def playerlocation(sel):
+    def playerlocation(self):
+        import Base
         if CharInfo.player_info.player_location in ['PC Bedroom', 'Sasha Living Room']:
             Base.pcbedroom()
 
@@ -41,7 +41,7 @@ class GameState:  # Might have to put this in base because the import is causing
             Base.sycamore_park.lakepark()
 
         elif CharInfo.player_info.player_location in ['Festival Start']:
+            import Festival
             Festival.festival_area.festival_entrance()
 
-
-save_load = GameState()
+save_sys = GameState()

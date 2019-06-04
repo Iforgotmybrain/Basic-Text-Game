@@ -6,6 +6,7 @@ import secrets
 import sys
 import os
 import pickle
+import SaveSystem
 import CharInfo
 
 
@@ -26,46 +27,46 @@ class Traveling:
             return self.traveltofront()
 
 
-class GameState:  # Might have to put this in base because the import is causing all kinds of issues.
-
-    def saving(self):
-        print("Saving game")
-        pickle_out = open('gamestate.pickle', 'wb')
-        pickle.dump([CharInfo.player_info.player_location, CharInfo.player_info.name, CharInfo.player_info.sex,
-                    CharInfo.player_info.race, player_bathroom.bathroomBD, CharInfo.sasha_checks.sasha_talk,
-                    CharInfo.sasha_checks.sasha_living, CharInfo.jacob_checks.jacob_kitchen, CharInfo.misc_checks.cafe_finished,
-                    CharInfo.park_checks.park_lake_path, CharInfo.park_checks.park_roommate_path], pickle_out)
-        pickle_out.close()
-        print("Game Saved!")
-        return
-
-    def loading(self):
-        print("Loading game")
-        pickle_in = open('gamestate.pickle', 'rb')
-        [CharInfo.player_info.player_location, CharInfo.player_info.name, CharInfo.player_info.sex,
-         CharInfo.player_info.race, player_bathroom.bathroomBD, CharInfo.sasha_checks.sasha_talk,
-         CharInfo.sasha_checks.sasha_living, CharInfo.jacob_checks.jacob_kitchen, CharInfo.misc_checks.cafe_finished,
-         CharInfo.park_checks.park_lake_path, CharInfo.park_checks.park_roommate_path] = pickle.load(pickle_in)
-        pickle_in.close()
-        print("Game Loaded!")
-        self.playerlocation()
-
-    def playerlocation(self):
-        if CharInfo.player_info.player_location in ['PC Bedroom', 'Sasha Living Room']:
-            pcbedroom()
-
-        elif CharInfo.player_info.player_location in ["Sasha First Dialogue", 'Sasha Second Dialogue', 'Holly Cafe']: \
-            hallway()
-
-        elif CharInfo.player_info.player_location in ['Jacob Kitchen Dialogue']:
-            entranceway()
-
-        elif CharInfo.player_info.player_location in ['Park Walk']:
-            sycamore_park.lakepark()
-
-        elif CharInfo.player_info.player_location in ['Festival Start']:
-            import Festival
-            Festival.festival_area.festival_entrance()
+# class GameState:  # Might have to put this in base because the import is causing all kinds of issues.
+#
+#     def saving(self):
+#         print("Saving game")
+#         pickle_out = open('gamestate.pickle', 'wb')
+#         pickle.dump([CharInfo.player_info.player_location, CharInfo.player_info.name, CharInfo.player_info.sex,
+#                     CharInfo.player_info.race, CharInfo.misc_checks.bathroom_bd, CharInfo.sasha_checks.sasha_talk,
+#                     CharInfo.sasha_checks.sasha_living, CharInfo.jacob_checks.jacob_kitchen, CharInfo.misc_checks.cafe_finished,
+#                     CharInfo.park_checks.park_lake_path, CharInfo.park_checks.park_roommate_path], pickle_out)
+#         pickle_out.close()
+#         print("Game Saved!")
+#         return
+#
+#     def loading(self):
+#         print("Loading game")
+#         pickle_in = open('gamestate.pickle', 'rb')
+#         [CharInfo.player_info.player_location, CharInfo.player_info.name, CharInfo.player_info.sex,
+#          CharInfo.player_info.race, CharInfo.misc_checks.bathroom_bd, CharInfo.sasha_checks.sasha_talk,
+#          CharInfo.sasha_checks.sasha_living, CharInfo.jacob_checks.jacob_kitchen, CharInfo.misc_checks.cafe_finished,
+#          CharInfo.park_checks.park_lake_path, CharInfo.park_checks.park_roommate_path] = pickle.load(pickle_in)
+#         pickle_in.close()
+#         print("Game Loaded!")
+#         self.playerlocation()
+#
+#     def playerlocation(self):
+#         if CharInfo.player_info.player_location in ['PC Bedroom', 'Sasha Living Room']:
+#             pcbedroom()
+#
+#         elif CharInfo.player_info.player_location in ["Sasha First Dialogue", 'Sasha Second Dialogue', 'Holly Cafe']: \
+#             hallway()
+#
+#         elif CharInfo.player_info.player_location in ['Jacob Kitchen Dialogue']:
+#             entranceway()
+#
+#         elif CharInfo.player_info.player_location in ['Park Walk']:
+#             sycamore_park.lakepark()
+#
+#         elif CharInfo.player_info.player_location in ['Festival Start']:
+#             import Festival
+#             Festival.festival_area.festival_entrance()
 
 
 def bank_money():
@@ -90,7 +91,7 @@ def intro():
 
 
 def pcbedroom():
-    if player_bathroom.bathroomBD is False:
+    if CharInfo.misc_checks.bathroom_bd is False:
         print(
             "You wake up the next morning, your bedroom is dimly lit with the only source of light being the sun as it sneaks through the blinds.")
     if CharInfo.misc_checks.cafe_finished is True and CharInfo.sasha_checks.sasha_living is False:
@@ -119,28 +120,25 @@ def pcbedroom():
         print("Invalid input")
         return pcbedroom()
 
-class PCBathroom:
-    def __init__(self, bathroomBD):
-        self.bathroomBD = bathroomBD
 
+class PCBathroom:
     def bathroompc(self):
-        self.bathroomBD = False
         while True:
-            if self.bathroomBD is True:
+            if CharInfo.misc_checks.bathroom_bd is True:
                 print("You see the opened trunk on the floor and the doorway you entered to your west")
 
-            elif self.bathroomBD is False:
+            elif CharInfo.misc_checks.bathroom_bd is not True:
                 print("You enter a bathroom, you see a trunk on the floor and the doorway you entered to your west")
 
             bathroomoption = input("What do you do? ").lower()
 
-            if bathroomoption in ["trunk", "chest"] and self.bathroomBD is False:  # Prevents user from opening trunk more than once
+            if bathroomoption in ["trunk", "chest"] and CharInfo.misc_checks.bathroom_bd is not True:  # Prevents user from opening trunk more than once
                 print("You open the trunk and find a mysterious silicone sculpture")
-                self.bathroomBD = True
+                CharInfo.misc_checks.bathroom_bd = True
                 input()
                 return self.bathroompc()
 
-            elif bathroomoption in ['trunk', 'chest'] and self.bathroomBD is True:
+            elif bathroomoption in ['trunk', 'chest'] and CharInfo.misc_checks.bathroom_bd is True:
                 print("There's nothing more in the trunk.")
                 input()
 
@@ -164,7 +162,7 @@ def hallway():
                 sasha_encounter.sashabedroom()
                 break
         elif hallwaydirection in ['save']:
-            save_sys.saving()
+            SaveSystem.save_sys.saving()
         elif hallwaydirection in ['north', 'n']:
             if CharInfo.sasha_checks.sasha_living is False:
                 print("The door is locked. Maybe you should come back later.")
@@ -725,9 +723,9 @@ sycamore_park = SycamorePark()
 
 tories_cafe = ToriesCafe()
 
-player_bathroom = PCBathroom(bathroomBD=PCBathroom)  # Make sure to include the () when adding classes)
+player_bathroom = PCBathroom() # Make sure to include the () when adding classes)
 
-save_sys = GameState()
+#save_sys = GameState
 
 sasha_living = LivingRoom()
 
@@ -738,7 +736,7 @@ travel_function = Traveling()
 # Starts the game
 loadingoption = input("Do you wish to load a game? ").lower()  # Make it so this is the first question asked.
 if loadingoption in ['yes', 'y', 'load', 'l']:
-    save_sys.loading()
+    SaveSystem.save_sys.loading()
 elif loadingoption in ['no', 'n']:
     pass
 print("Hello", CharInfo.player_info.name)
