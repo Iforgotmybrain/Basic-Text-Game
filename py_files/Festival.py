@@ -167,8 +167,109 @@ class FestivalStart:
             print('"Excellent! I’ll get it wrapped up and ready to go. You’ll be looking at bill of about $225."')
             input()
             print("You pay the painter and collect the painting.")
+            CharInfo.GlobalCheckFestival.festival_item_purchased = True
             CharInfo.player_info.money -= 225
             print("Your bank balance is now {}".format(CharInfo.player_info.money))
+
+    def wooden_vendor(self):
+        print("You decide to check out the wood sculptor’s booth.")
+        print("Looking at their wares, you see numerous objects made out of wood. There’s a wooden boat, dozens of boxes all in different shapes and sizes, and even a small, ‘model’ tree trunk made out of… wood.")
+        input()
+        print("You can see a few things you wouldn’t mind taking home, including one of the smaller boxes, and a wooden plane model depicting an SR-71.")
+        print("You decide to ask the seller how much the items are.")
+        input()
+        print('"The box would be $45, and the plane is about $300"')
+        input()
+        wooden_choice = input("After thinking about it, you decide to… (1): Purchase the box (2): Purchase the plane \
+              (3): Purchase nothing")
+        if wooden_choice in ['1']:
+            CharInfo.GlobalCheckFestival.festival_item_purchased = True
+            CharInfo.GlobalCheckFestival.wooden_sculpture = 'box'
+            print('"Excellent choice, I’ll get that ready to go for you."')
+            print("You pay the vendor $45 and receive the wooden box")
+            CharInfo.player_info.money -= 45
+            print("Your bank balance is now {}".format(CharInfo.player_info.money))
+            #return
+        elif wooden_choice in ['2']:
+            CharInfo.GlobalCheckFestival.festival_item_purchased = True
+            CharInfo.GlobalCheckFestival.wooden_sculpture = 'plane'
+            print("A fantastic choice, that’s one of my favorite items I have for sale!")
+            input()
+            print("The vendor bags the item and you pay him $300.")
+            print("You receive the model plane.")
+            input()
+            CharInfo.player_info.money -= 300
+            print("Your bank balance is now {}".format(CharInfo.player_info.money))
+            #return
+        elif wooden_choice in ['3']:
+            print("Okay, that's fine. If you change your mind I'll be here.")
+            input()
+            #return
+
+    def trashy_vendor(self):
+        print("You decide to visit the t-shirt vendor.")
+        print("This booth sells graphic tees, and the finest of bootleg snap-back hats. The shirts are $15 and the hats are $20")
+        input()
+        print("The T-shirts mostly have some form of meme or pop culture reference on them. You can see a T-shirt with Heath Ledger’s joker on it, with the caption ‘why so serious?’. You also see a T-shirt with the oh-so popular game Fortnite on it, the shirt has picture of the game’s iconic llama with the caption ‘eat, sleep, Fortnite, repeat’.")
+        input()
+        print("The hats mostly have popular sports teams on them, with the Yankees easily being the most common one. They also have a hat with weed leaf on the front, and the number 420 on the bill.")
+        input()
+        print("You’re not really interested in any of this vendor’s merchandize, since most of it is either trashy, of dubious quality, or will end up being outdated in a months’ time.")
+        input()
+        print("But, if you had to choose ''something'', you think you would pick…")
+        trashy_vendor = input("(1): The shirt with Snoop Dogg and weed references on it, no way in hell are you going to wear it, but it might make a good gag gift someday. \
+            (2): The bootleg NY Yankees hat. You don’t really like the Yankees, or snap-back hats, but odds are you know someone who does. It might come in handy as a gift someday.\
+            (3): An absurdly outdated meme shirt that has the troll face on it. Much like the Snoop Dogg shirt, you probably aren’t going to wear, but you might wear it in jest, or give it away as a gag gift.\
+            (4) Nothing")
+        if trashy_vendor == '1':
+            print("You take the Snoop Dogg shirt and bring it to the vendor.")
+            input()
+            print("The vendor is a 30-something alligator. He seems to be chewing tabaco, and his shirt is stained from standing outside in the heat all day.")
+            input()
+            print('"Let’s see, a t-shirt? That’ll be $15."')
+            print('"Hah, the Snoop Dogg one is probably of my favorites. It’s surprisingly popular as well."')
+            input()
+            print("You hand the alligator $15 and receive the shirt.")
+            CharInfo.GlobalCheckFestival.festival_item_purchased = True
+            CharInfo.GlobalCheckFestival.trash_vendor = 'snoop'
+            CharInfo.player_info.money -= 15
+            print("Your bank balance is now {}".format(CharInfo.player_info.money))
+            #return
+
+        elif trashy_vendor == '2':
+            print("You grab the bootleg hat and take it to the vendor.")
+            input()
+            print("The vendor is a 30-something alligator. He seems to be chewing tabaco, and his shirt is stained from standing outside in the heat all day.")
+            input()
+            print('"Hmm, let’s see… A hat? That’ll be $20."')
+            input()
+            print("You hand the alligator $20 and receive the hat.")
+            CharInfo.GlobalCheckFestival.festival_item_purchased = True
+            CharInfo.GlobalCheckFestival.trash_vendor = 'hat'
+            CharInfo.player_info.money -= 20
+            print("Your bank balance is now {}".format(CharInfo.player_info.money))
+
+        elif trashy_vendor == '3':
+            print("You grab the troll face shirt and take it to the vendor.")
+            input()
+            print(
+                "The vendor is a 30-something alligator. He seems to be chewing tabaco, and his shirt is stained from standing outside in the heat all day.")
+            input()
+            print('"Okay, a t-shirt? That’ll be $15."')
+            print('"Actually, you know what, I hardly sell any of these so I’ll give to you for $8."')
+            input()
+            print("You hand the alligator $8 and receive the shirt.")
+            CharInfo.GlobalCheckFestival.festival_item_purchased = True
+            CharInfo.GlobalCheckFestival.trash_vendor = 'troll'
+            CharInfo.player_info.money -= 8
+            print("Your bank balance is now {}".format(CharInfo.player_info.money))
+
+        elif trashy_vendor == '4':
+            print("You just cannot imagine buying anything here.")
+            input()
+            print("You leave the booth.")
+            input()
+            #return
 
 
 festival_area = FestivalStart()

@@ -40,14 +40,18 @@ class GlobalCheckLakePark:
         self.park_roommate_path = park_roommate_path
 
 class GlobalCheckFestival:
-    def __init__(self, bus_ride_complete, painting_purchase):
+    def __init__(self, bus_ride_complete, painting_purchase, wooden_sculpture, trash_vendor, festival_item_purchased):
         self.bus_ride_complete = bus_ride_complete
         self.painting_purchase = painting_purchase
-
+        self.wooden_sculpture = wooden_sculpture
+        self.festival_item_purchased = festival_item_purchased
+        self.trash_vendor = trash_vendor
 
 player_info = PlayerCharacter()
 sasha_checks = GlobalCheckSasha(sasha_talk=GlobalCheckSasha, sasha_living=GlobalCheckSasha)
 jacob_checks = GlobalCheckJacob(jacob_kitchen=GlobalCheckJacob, jacob_bedroom=GlobalCheckJacob)
 misc_checks = GlobalCheckMisc(cafe_finished=GlobalCheckMisc, bathroom_bd=GlobalCheckMisc)
 park_checks = GlobalCheckLakePark(park_lake_path=GlobalCheckLakePark, park_roommate_path=GlobalCheckLakePark)
-festival_checks = GlobalCheckFestival(bus_ride_complete=GlobalCheckFestival, painting_purchase=GlobalCheckFestival)
+festival_checks = GlobalCheckFestival(bus_ride_complete=GlobalCheckFestival, painting_purchase=GlobalCheckFestival,
+                                      wooden_sculpture=GlobalCheckFestival, festival_item_purchased=GlobalCheckFestival,
+                                      trash_vendor=GlobalCheckFestival)
