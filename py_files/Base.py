@@ -11,21 +11,6 @@ import CharInfo
 import TravelSystem
 import Festival
 
-# class Traveling:
-#     def traveltofront(self):
-#         tp = ('Tories Cafe', 'Sycamore Lakeview Park', 'Pool')  # tp is short for travel places, places to travel too.
-#         print('You can think of the following places to travel to:')
-#         print(tp[0], tp[1], tp[2])
-#         travelarea = input("Where do you want to go?").lower()
-#
-#         if travelarea in ['tories', 'the cafe', 'eat', 'tories cafe']:
-#             tories_cafe.thecafe()
-#
-#         elif travelarea in ['park', 'the park' 'sycamore lakeview park']:
-#             sycamore_park.lakepark()
-#         else:
-#             print("Invalid input")
-#             return self.traveltofront()
 
 def bank_money():
     print("You fire up your smartphone and check your bank balance")
@@ -60,8 +45,8 @@ def pcbedroom():
         input()
     print("You are standing in your bedroom. You see the door to the bathroom to your east, and the doorway to the hallway directly ahead to the north.")
     print("You could also check your bank balance.")
-    CharInfo.player_info.player_location = pcbedroom
     pcbedroomdirection = input('Which way do you go? ').lower()
+    CharInfo.player_info.player_location = pcbedroom
     if pcbedroomdirection in ['east', 'e']:
         player_bathroom.bathroompc()
 
@@ -107,26 +92,29 @@ class PCBathroom:
 
 def hallway():
     while True:
-        print("You enter a hallway. There's a doorway to your east, a staircase to your west, and another doorway to the north.")
+        print("You enter a hallway. You can enter your bedroom to the. There's also a doorway to your west, a staircase to your east, and another doorway to the north.")
         hallwaydirection = input("Which direction do you go? ").lower()
         if hallwaydirection in ["west", "w"]:
-            entranceway()
-            break
-        elif hallwaydirection in ["east", "e"]:
             if CharInfo.sasha_checks.sasha_talk is not True:  # Checks to see if player has talked to sasha before
                 sasha_encounter.bedroom()
                 break
             elif CharInfo.sasha_checks.sasha_talk is True:
                 sasha_encounter.sashabedroom()
                 break
+        elif hallwaydirection in ["east", "e"]:
+            entranceway()
+            break
         elif hallwaydirection in ['save']:
             SaveSystem.save_sys.saving()
         elif hallwaydirection in ['north', 'n']:
             if CharInfo.sasha_checks.sasha_living is not True:
                 print("The door is locked. Maybe you should come back later.")
+                time.sleep(2)
                 return hallway()
             elif CharInfo.sasha_checks.sasha_living is True:
                 jacob_kitchen.bedroomdialogue()
+        elif hallwaydirection in ['south', 's']:
+            pcbedroom()
         else:
             print("Invalid input")
             return hallway()
@@ -196,19 +184,20 @@ class SashaEncounter:
     def sashabedroom(self):
         while True:
             print("You see Sasha, your roommate, and the doorway to the hallway to your south")
-            direction = input("What do you wish to do? ")
+            direction = input("What do you wish to do? ").lower()
             if direction in ["south", "s"]:
                 hallway()
                 break
-            elif direction == "talk":
+            elif direction in ["talk", 't']:
                 self.sashabedroomdialog()
                 break
             else:
                 print("Invalid input")
-                return
+                return self.sashabedroom()
 
 
 def entranceway():
+    CharInfo.player_info.player_location = entranceway
     while True:
         print("You have entered the entrance way")
         print(
@@ -240,6 +229,8 @@ def entranceway():
         else:
             print("Invalid input")
             return entranceway()
+
+
 class LivingRoom:
     def sashadialogue(self):
         CharInfo.sasha_checks.sasha_living = False
@@ -255,6 +246,7 @@ class LivingRoom:
         else:
             print("Invalid input")
             return self.sashadialogue()
+
 
     def sashaconversastion(self):
         print(
@@ -445,9 +437,9 @@ class FirstWorld:
     def fronthousearea(self):
             print("You stand on your front porch ready for adventure! You could also return home by entering the door to your south.")
             fronthouseareadirection = input("Will you travel or return home?").lower()
-            if fronthouseareadirection in ['travel', 't', 'go' 'adventure']:
+            if fronthouseareadirection in ['travel', 't', 'go', 'adventure']:
                 TravelSystem.travel_function.traveltofront()
-            elif fronthouseareadirection in ['south', 's' 'home' 'door']:
+            elif fronthouseareadirection in ['south', 's', 'home', 'door']:
                 entranceway()
             else:
                 print("Invalid input or area in progress")
@@ -549,7 +541,7 @@ class ToriesCafe:
 
 class SycamorePark:
     def lakepark(self):
-        if CharInfo.park_checks.park_roommate_path is not True or CharInfo.park_checks.park_lake_path is not True:
+        if CharInfo.park_checks.park_roommate_path is not True and CharInfo.park_checks.park_lake_path is not True:
             print(
                 "You arrive at Sycamore Lakeview Park after a short walk down the street. You’ve never really been too this park (or any park really) despite being close to home.")
             print(
@@ -571,7 +563,7 @@ class SycamorePark:
         elif parkdecision in ['east', 'e']:
             print("You head down the path to your right.")
             time.sleep(3)
-            if CharInfo.park_checks.park_roommate_path is not True and CharInfo.park_checks.park_lake_path != True:  # Randomly picks which path to go down
+            if CharInfo.park_checks.park_roommate_path is not True and CharInfo.park_checks.park_lake_path is not True:  # Randomly picks which path to go down
                 print(
                     secrets.choice(pathdialog)())  # Instead you call the function from the randomization bit. Like this
             elif CharInfo.park_checks.park_roommate_path is True and CharInfo.park_checks.park_lake_path is not True:  # If the player has not seen the self reflection path it will play that instead of a random selection or roommate path.

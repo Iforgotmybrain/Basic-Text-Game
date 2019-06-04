@@ -8,10 +8,11 @@ class GameState:
         pickle.dump([CharInfo.player_info.player_location, CharInfo.player_info.name, CharInfo.player_info.sex,
                     CharInfo.player_info.race, CharInfo.misc_checks.bathroom_bd, CharInfo.sasha_checks.sasha_talk,
                     CharInfo.sasha_checks.sasha_living, CharInfo.jacob_checks.jacob_kitchen, CharInfo.misc_checks.cafe_finished,
-                    CharInfo.park_checks.park_lake_path, CharInfo.park_checks.park_roommate_path], pickle_out)
+                    CharInfo.park_checks.park_lake_path, CharInfo.park_checks.park_roommate_path,
+                     CharInfo.jacob_checks.jacob_bedroom], pickle_out)
         pickle_out.close()
         print("Game Saved!")
-        return
+        CharInfo.player_info.player_location()
 
     def loading(self):
         print("Loading game")
@@ -19,9 +20,10 @@ class GameState:
         [CharInfo.player_info.player_location, CharInfo.player_info.name, CharInfo.player_info.sex,
          CharInfo.player_info.race, CharInfo.misc_checks.bathroom_bd, CharInfo.sasha_checks.sasha_talk,
          CharInfo.sasha_checks.sasha_living, CharInfo.jacob_checks.jacob_kitchen, CharInfo.misc_checks.cafe_finished,
-         CharInfo.park_checks.park_lake_path, CharInfo.park_checks.park_roommate_path] = pickle.load(pickle_in)
+         CharInfo.park_checks.park_lake_path, CharInfo.park_checks.park_roommate_path,
+         CharInfo.jacob_checks.jacob_bedroom] = pickle.load(pickle_in)
         pickle_in.close()
         print("Game Loaded!")
-        CharInfo.player_info.player_location()  # This might work.
+        CharInfo.player_info.player_location()
 
 save_sys = GameState()

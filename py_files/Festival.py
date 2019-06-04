@@ -2,6 +2,7 @@
 import time
 import CharInfo
 import TravelSystem
+import SaveSystem
 
 
 class FestivalStart:
@@ -10,55 +11,81 @@ class FestivalStart:
         self.painting_purchase = ''
 
     def bus_ride(self):
-        print("You hop on a bus headed to downtown. There’s a a special event today called Lake Fest, which hosts several vendors and activities.")
-        input()
-        print("While on the bus you sit next to a man with an ‘I heart NY shirt’ on. He’s carrying a sizable backpack and based on the apparel he’s wearing seems to be well-traveled.")
-        print("The man looks to you and asks if you’re going to Lake Fest. You say yes, and that you’ve gone to it almost every year you’ve lived here.")
-        input()
-        print("'So you’re a local” the Tiger says. “I’m Chris.” The Tiger reaches out to shake your hand'")
-        input()
-        print("You shake the Tiger’s hand and introduce yourself as {}.".format(CharInfo.player_info.name))
-        print("'Nice to meet you {}. I’m coming through here pretty much solely for Lake Fest. Though I wouldn’t be opposed to checking out some other places if you’ve got any recommendations. My hotel for here is booked for the day so I’ve got time.'".format(CharInfo.player_info.name))
-        input()
-        print("You can’t really think of anything else remarkable here. The town is actually quite boring. You offer a few eating recommendations, including Tories Café, stating that there really isn’t much to do here except check out the local restaurants.")
-        input()
-        print("'Yeah, I kind of figured. This is my second time going to this event and I’ve never really seen anything else to do.” The Tiger says with friendly tone.'")
+        if CharInfo.festival_checks.bus_ride_complete is not True:
+            print(
+                "You hop on a bus headed to downtown. There’s a a special event today called Lake Fest, which hosts several vendors and activities.")
+            input()
+            print(
+                "While on the bus you sit next to a man with an ‘I heart NY shirt’ on. He’s carrying a sizable backpack and based on the apparel he’s wearing seems to be well-traveled.")
+            print(
+                "The man looks to you and asks if you’re going to Lake Fest. You say yes, and that you’ve gone to it almost every year you’ve lived here.")
+            input()
+            print("'So you’re a local” the Tiger says. “I’m Chris.” The Tiger reaches out to shake your hand'")
+            input()
+            print("You shake the Tiger’s hand and introduce yourself as {}.".format(CharInfo.player_info.name))
+            print(
+                "'Nice to meet you {}. I’m coming through here pretty much solely for Lake Fest. Though I wouldn’t be opposed to checking out some other places if you’ve got any recommendations. My hotel for here is booked for the day so I’ve got time.'".format(
+                    CharInfo.player_info.name))
+            input()
+            print(
+                "You can’t really think of anything else remarkable here. The town is actually quite boring. You offer a few eating recommendations, including Tories Café, stating that there really isn’t much to do here except check out the local restaurants.")
+            input()
+            print(
+                "'Yeah, I kind of figured. This is my second time going to this event and I’ve never really seen anything else to do.” The Tiger says with friendly tone.'")
 
-        print("'Anyway, I bet you’re probably wondering why someone would come here just for one event.'")
-        input()
-        print("You can’t say you were really burning your brain trying to figure that out, but you’ll humor him.")
+            print("'Anyway, I bet you’re probably wondering why someone would come here just for one event.'")
+            input()
+            print("You can’t say you were really burning your brain trying to figure that out, but you’ll humor him.")
 
-        print("'Well, I’m actually road tripping across the country! I do it every year, in some shape or form. Last year I went by train but this time I’m doing it by car.” He says with an enthusiastic tone. Clearly he’s quite interested in traveling the country.'")
-        input()
-        print("You ask Chris for some more details, you’ve always been fascinated by the idea of traveling the country, but you’ve just never had the time or money to do so.")
-        input()
-        print("'Well, I start off my trip on the east coast, in New York city as you might’ve guessed by my shirt.” He says while pointing to his 'I heart NY' shirt.'")
+            print(
+                "'Well, I’m actually road tripping across the country! I do it every year, in some shape or form. Last year I went by train but this time I’m doing it by car.” He says with an enthusiastic tone. Clearly he’s quite interested in traveling the country.'")
+            input()
+            print(
+                "You ask Chris for some more details, you’ve always been fascinated by the idea of traveling the country, but you’ve just never had the time or money to do so.")
+            input()
+            print(
+                "'Well, I start off my trip on the east coast, in New York city as you might’ve guessed by my shirt.” He says while pointing to his 'I heart NY' shirt.'")
 
-        print("'I spend a varying amount of time in each place I stop. Just depends on what that city has to offer, ya know?'")
+            print(
+                "'I spend a varying amount of time in each place I stop. Just depends on what that city has to offer, ya know?'")
 
-        print("'The end destination changes every year. Last year I stopped at San Francisco, and this time around I’ll probably be heading to Seattle.'")
-        input()
-        print("You tell Chris that you’ve always been interested in doing something similar, you find the idea of traveling the country and seeing all it has to offer to be exciting!")
-        input()
-        print("'It’s a very rewarding experience. But it’s also a significant time commitment, and too be honest, it can be a bit tiring driving for hours on end. But the experiences and sights make it worth it. There really isn’t much else like it, expect maybe traveling the world. But that’s whole different ballgame.'")
-        input()
-        print("'If I could offer one tip, it's too plan ahead of time and check out what’s going to be going in the towns you’re passing by. Try to find the best possible time to leave so you can maximize the events you can go too'")
+            print(
+                "'The end destination changes every year. Last year I stopped at San Francisco, and this time around I’ll probably be heading to Seattle.'")
+            input()
+            print(
+                "You tell Chris that you’ve always been interested in doing something similar, you find the idea of traveling the country and seeing all it has to offer to be exciting!")
+            input()
+            print(
+                "'It’s a very rewarding experience. But it’s also a significant time commitment, and too be honest, it can be a bit tiring driving for hours on end. But the experiences and sights make it worth it. There really isn’t much else like it, expect maybe traveling the world. But that’s whole different ballgame.'")
+            input()
+            print(
+                "'If I could offer one tip, it's too plan ahead of time and check out what’s going to be going in the towns you’re passing by. Try to find the best possible time to leave so you can maximize the events you can go too'")
 
-        print("You thank Chris for advice, if you ever do decide to take on such an endeavor, you’ll definitely make sure too have a plan.")
-        input()
-        print("'Well looks like our stop’s up here. It’s been great talking to you.” He says while extending his hand out for a farewell handshake.'")
-        print("You shake his hands and say goodbye, he offers one last piece of advice before departing.")
-        input()
-        print("'Hey, if you ever decide to go for it, hit me up on Facebook. I’ve got a list of my favorite places to stop that I’d be glad to share'")
+            print(
+                "You thank Chris for advice, if you ever do decide to take on such an endeavor, you’ll definitely make sure too have a plan.")
+            input()
+            print(
+                "'Well looks like our stop’s up here. It’s been great talking to you.” He says while extending his hand out for a farewell handshake.'")
+            print("You shake his hands and say goodbye, he offers one last piece of advice before departing.")
+            input()
+            print(
+                "'Hey, if you ever decide to go for it, hit me up on Facebook. I’ve got a list of my favorite places to stop that I’d be glad to share'")
 
-        print("You thank the Tiger as he goes on his way.")
-        input()
-        print("You have arrived at the festival")
-        self.bus_ride_completed = True
-        self.festival_entrance()
+            print("You thank the Tiger as he goes on his way.")
+            input()
+            print("You have arrived at the festival")
+            CharInfo.festival_checks.bus_ride_complete = True
+            self.festival_entrance()
+
+        elif CharInfo.festival_checks.bus_ride_complete is True:
+            self.festival_entrance()
+
+        else:
+            print("Invalid input")
+            return
 
     def festival_entrance(self):
-        CharInfo.player_info.player_location = 'Festival Start'
+        CharInfo.player_info.player_location = festival_area.festival_entrance
         print("You arrive at the festival and see crowds of people on the streets. Vendors as far as the eye can see.")
 
         print("The day is perfect for a festival, a light overcast keeps temperatures in the sun bearable, and a slight breeze keeps you cool.")
@@ -71,7 +98,10 @@ class FestivalStart:
             print("You brave the crowd and head towards the main festival area.")
             self.festival_main()
         elif festivaldirection in ['save', 'save game']:
-            save_sys.saving()
+            SaveSystem.save_sys.saving()
+        else:
+            print("Invalid input")
+            return self.festival_entrance()
 
     def festival_main(self):
         time.sleep(1)
@@ -123,11 +153,11 @@ class FestivalStart:
             (3): Wraiths \
             (4) None".lower())
             if painting_purchased in ['1']:
-                self.painting_purchase = 'husky'
+                CharInfo.GlobalCheckFestival.painting_purchase = 'husky'
             elif painting_purchased in ['2']:
-                self.painting_purchase = 'lake'
+                CharInfo.GlobalCheckFestival.painting_purchase = 'lake'
             elif painting_purchased in ['3']:
-                self.painting_purchase = 'wraiths'
+                CharInfo.GlobalCheckFestival.painting_purchase = 'wraiths'
             elif painting_purchased in ['4']:
                 print("You tell the painter that the prices were bit more then you hoping to pay.")
                 input()
