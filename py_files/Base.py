@@ -8,66 +8,24 @@ import os
 import pickle
 import SaveSystem
 import CharInfo
+import TravelSystem
+import Festival
 
-
-class Traveling:
-    def traveltofront(self):
-        tp = ('Tories Cafe', 'Sycamore Lakeview Park', 'Pool')  # tp is short for travel places, places to travel too.
-        print('You can think of the following places to travel to:')
-        print(tp[0], tp[1], tp[2])
-        travelarea = input("Where do you want to go?").lower()
-
-        if travelarea in ['tories', 'the cafe', 'eat', 'tories cafe']:
-            tories_cafe.thecafe()
-
-        elif travelarea in ['park', 'the park' 'sycamore lakeview park']:
-            sycamore_park.lakepark()
-        else:
-            print("Invalid input")
-            return self.traveltofront()
-
-
-# class GameState:  # Might have to put this in base because the import is causing all kinds of issues.
+# class Traveling:
+#     def traveltofront(self):
+#         tp = ('Tories Cafe', 'Sycamore Lakeview Park', 'Pool')  # tp is short for travel places, places to travel too.
+#         print('You can think of the following places to travel to:')
+#         print(tp[0], tp[1], tp[2])
+#         travelarea = input("Where do you want to go?").lower()
 #
-#     def saving(self):
-#         print("Saving game")
-#         pickle_out = open('gamestate.pickle', 'wb')
-#         pickle.dump([CharInfo.player_info.player_location, CharInfo.player_info.name, CharInfo.player_info.sex,
-#                     CharInfo.player_info.race, CharInfo.misc_checks.bathroom_bd, CharInfo.sasha_checks.sasha_talk,
-#                     CharInfo.sasha_checks.sasha_living, CharInfo.jacob_checks.jacob_kitchen, CharInfo.misc_checks.cafe_finished,
-#                     CharInfo.park_checks.park_lake_path, CharInfo.park_checks.park_roommate_path], pickle_out)
-#         pickle_out.close()
-#         print("Game Saved!")
-#         return
+#         if travelarea in ['tories', 'the cafe', 'eat', 'tories cafe']:
+#             tories_cafe.thecafe()
 #
-#     def loading(self):
-#         print("Loading game")
-#         pickle_in = open('gamestate.pickle', 'rb')
-#         [CharInfo.player_info.player_location, CharInfo.player_info.name, CharInfo.player_info.sex,
-#          CharInfo.player_info.race, CharInfo.misc_checks.bathroom_bd, CharInfo.sasha_checks.sasha_talk,
-#          CharInfo.sasha_checks.sasha_living, CharInfo.jacob_checks.jacob_kitchen, CharInfo.misc_checks.cafe_finished,
-#          CharInfo.park_checks.park_lake_path, CharInfo.park_checks.park_roommate_path] = pickle.load(pickle_in)
-#         pickle_in.close()
-#         print("Game Loaded!")
-#         self.playerlocation()
-#
-#     def playerlocation(self):
-#         if CharInfo.player_info.player_location in ['PC Bedroom', 'Sasha Living Room']:
-#             pcbedroom()
-#
-#         elif CharInfo.player_info.player_location in ["Sasha First Dialogue", 'Sasha Second Dialogue', 'Holly Cafe']: \
-#             hallway()
-#
-#         elif CharInfo.player_info.player_location in ['Jacob Kitchen Dialogue']:
-#             entranceway()
-#
-#         elif CharInfo.player_info.player_location in ['Park Walk']:
+#         elif travelarea in ['park', 'the park' 'sycamore lakeview park']:
 #             sycamore_park.lakepark()
-#
-#         elif CharInfo.player_info.player_location in ['Festival Start']:
-#             import Festival
-#             Festival.festival_area.festival_entrance()
-
+#         else:
+#             print("Invalid input")
+#             return self.traveltofront()
 
 def bank_money():
     print("You fire up your smartphone and check your bank balance")
@@ -91,18 +49,18 @@ def intro():
 
 
 def pcbedroom():
-    if CharInfo.misc_checks.bathroom_bd is False:
+    if CharInfo.misc_checks.bathroom_bd is not True:
         print(
             "You wake up the next morning, your bedroom is dimly lit with the only source of light being the sun as it sneaks through the blinds.")
-    if CharInfo.misc_checks.cafe_finished is True and CharInfo.sasha_checks.sasha_living is False:
+    elif CharInfo.misc_checks.cafe_finished is True and CharInfo.sasha_checks.sasha_living is not True:
         print("After returning from the cafe you do work on one of your current contracts before going to bed")
-    if CharInfo.sasha_checks.sasha_living is True and CharInfo.jacob_checks.jacob_bedroom is False:
+    elif CharInfo.sasha_checks.sasha_living is True and CharInfo.jacob_checks.jacob_bedroom is not True:
         print("You wake up the next day feeling better. Your conversation with Sasha helped ease your mind, and made you realize just how great of friends you have now.")
         print("You think about possibly asking Jacob about some of his past trips. He should be in his bedroom.")
         input()
     print("You are standing in your bedroom. You see the door to the bathroom to your east, and the doorway to the hallway directly ahead to the north.")
     print("You could also check your bank balance.")
-    CharInfo.player_info.player_location = 'PC Bedroom'
+    CharInfo.player_info.player_location = pcbedroom
     pcbedroomdirection = input('Which way do you go? ').lower()
     if pcbedroomdirection in ['east', 'e']:
         player_bathroom.bathroompc()
@@ -111,10 +69,10 @@ def pcbedroom():
         hallway()
 
     elif pcbedroomdirection in ['save']:
-        save_sys.saving()
+        SaveSystem.save_sys.saving()
 
     elif pcbedroomdirection in ['bank', 'money', 'balance']:
-        CharInfo.player_info.bank_money()
+        bank_money()
 
     else:
         print("Invalid input")
@@ -155,16 +113,16 @@ def hallway():
             entranceway()
             break
         elif hallwaydirection in ["east", "e"]:
-            if CharInfo.sasha_checks.sashatalk is False:  # Checks to see if player has talked to sasha before
+            if CharInfo.sasha_checks.sasha_talk is not True:  # Checks to see if player has talked to sasha before
                 sasha_encounter.bedroom()
                 break
-            elif CharInfo.sasha_checks.sashatalk is True:
+            elif CharInfo.sasha_checks.sasha_talk is True:
                 sasha_encounter.sashabedroom()
                 break
         elif hallwaydirection in ['save']:
             SaveSystem.save_sys.saving()
         elif hallwaydirection in ['north', 'n']:
-            if CharInfo.sasha_checks.sasha_living is False:
+            if CharInfo.sasha_checks.sasha_living is not True:
                 print("The door is locked. Maybe you should come back later.")
                 return hallway()
             elif CharInfo.sasha_checks.sasha_living is True:
@@ -191,8 +149,7 @@ class SashaEncounter:
                 return self.bedroom()
 
     def sashabedroomdialog(self):
-        if CharInfo.sasha_checks.sasha_talk is False:
-            CharInfo.sasha_talk = True
+        if CharInfo.sasha_checks.sasha_talk is not True:
             print("You approach the German Shepard and exchange greetings.")
             print(
                 "The German Shepard is one of your roommates, Sasha. She's a trustworthy sort. But a bit absent-minded at times")
@@ -203,7 +160,6 @@ class SashaEncounter:
             input()
             print('You explain to Sasha that you did indeed go on a week-long vacation up north, about 5 hours away.')
             input()
-            CharInfo.player_info.player_location = 'Sasha First Dialogue'
             print('"I was right after all then."')
             print(
                 """ "Hey, I’ve kept on top of all your chores, you’re gonna owe me for the weeks’ time you decided to disappear. I was thinking you could take of my work for 2 or so weeks." """)
@@ -212,7 +168,8 @@ class SashaEncounter:
             input()
             print("You say goodbye to Sasha and head back to the hallway/")
             input()
-            CharInfo.player_info.player_location = 'Sasha First Dialogue'  # Indicates that the player has talked to Sasha allowing for more dialog
+            CharInfo.sasha_checks.sasha_talk = True
+            CharInfo.player_info.player_location = hallway # Indicates that the player has talked to Sasha allowing for more dialog
             hallway()
         elif CharInfo.sasha_checks.sasha_talk is True:
             print(""" "You know, I actually had a friend once that basically disappeared for 2 weeks." """)
@@ -231,7 +188,7 @@ class SashaEncounter:
                 """ "Anyway, you're fine now and that's all that matters. You might want to check in with Jacob, he was gone for half the week so he wasn't entirely sure how long you were gone for" """)
             input()
             print("You exit Sasha's room and enter the hallway")
-            CharInfo.player_info.player_location = 'Sasha Second Dialogue'
+            CharInfo.player_info.player_location = hallway
             hallway()
         elif CharInfo.sasha_checks.sasha_talk is True and CharInfo.sasha_checks.sasha_living is True:
             print('"Hey, {}. Can\'t think of anything new going on"'.format(CharInfo.player_info.name))
@@ -248,7 +205,7 @@ class SashaEncounter:
                 break
             else:
                 print("Invalid input")
-                return self.sashabedroom
+                return
 
 
 def entranceway():
@@ -278,7 +235,7 @@ def entranceway():
             hallway()
 
         elif entrancewaydirection in ['save']:
-            save_sys.saving()
+            SaveSystem.save_sys.saving()
 
         else:
             print("Invalid input")
@@ -300,7 +257,6 @@ class LivingRoom:
             return self.sashadialogue()
 
     def sashaconversastion(self):
-        CharInfo.player_info.player_location = 'Sasha Living Room'
         print(
             "You walk up to Sasha and sit in the chair beside the couch. The TV is playing a superhero movie involving some sort of pink titan.")
         input()
@@ -405,7 +361,7 @@ class LivingRoom:
         input()
         print('You say goodbye to Sasha and head up to the room for the night, your mind full of thoughts to process')
         input()
-        CharInfo.player_info.player_location = 'Sasha Living Room'
+        CharInfo.player_info.player_location = pcbedroom
         CharInfo.sasha_checks.sasha_living = True
         pcbedroom()
 
@@ -417,7 +373,7 @@ class JacobDialogue:
                 "You enter the kitchen, there's various kitchen appliances and a table and chairs over to the right. You see a Deer to your left and the entrance way to the east. ")
             kitchendirection = input("What do you do? ").lower()
             if kitchendirection in ["talk", "t"]:
-                if CharInfo.jacob_checks.jacob_kitchen is False:  # Dialogue if Jacob hasn't been talked to before
+                if CharInfo.jacob_checks.jacob_kitchen is not True:  # Dialogue if Jacob hasn't been talked to before
                     print(
                         "The Deer is one of your roommates, Jacob. You give him a pat on the shoulder and strike up a conversation")
                     print(
@@ -435,7 +391,7 @@ class JacobDialogue:
                         '"Regardless, it’s good to see you. If you ever wanna talk about that vacation a bit more in-depth just let me know, I’d been thinking of possibly going up there myself."')
                     input()
                     CharInfo.jacob_checks.jacob_kitchen = True  # Marks that the player has talked to Jacob
-                    CharInfo.player_info.player_location = 'Jacob Kitchen Dialogue'
+                    CharInfo.player_info.player_location = jacob_kitchen.startingkitchen
                     return self.startingkitchen()
                 elif CharInfo.jacob_checks.jacob_kitchen is True:  # Dialogue for Jacob after initial conversation
                     print("'Hey buddy. I've not nothing new to say.'")
@@ -479,7 +435,7 @@ class JacobDialogue:
         input()
         print("New travel area unlocked.")
         CharInfo.jacob_checks.jacob_bedroom = True
-        #travel_system.travel_function.tp.append('Lake Fest')
+        TravelSystem.tp.append('Lake Fest')
         input()
         pcbedroom()
 
@@ -490,7 +446,7 @@ class FirstWorld:
             print("You stand on your front porch ready for adventure! You could also return home by entering the door to your south.")
             fronthouseareadirection = input("Will you travel or return home?").lower()
             if fronthouseareadirection in ['travel', 't', 'go' 'adventure']:
-                travel_function.traveltofront()
+                TravelSystem.travel_function.traveltofront()
             elif fronthouseareadirection in ['south', 's' 'home' 'door']:
                 entranceway()
             else:
@@ -502,7 +458,6 @@ class ToriesCafe:
 
 
     def thecafe(self):
-        CharInfo.misc_checks.cafe_finished = False
         print("You catch a ride on the bus and end up at Tories Place, your all-time favorite place to grab lunch")
         print(
             "It’s a popular place amongst the younger crowd. The place has a modern aesthetic with colorful furniture and ample natural lighting giving the place a cheery vibe.")
@@ -587,9 +542,10 @@ class ToriesCafe:
                 CharInfo.player_info.name))
         print("You say goodbye to Holly and decide to head home for the day")
         input()
-        CharInfo.player_info.player_location = 'Holly Cafe'
+        CharInfo.player_info.player_location = hallway
         CharInfo.misc_checks.cafe_finished = True
         hallway()
+
 
 class SycamorePark:
     def lakepark(self):
@@ -633,7 +589,7 @@ class SycamorePark:
             elif CharInfo.park_checks.park_lake_path is not True and CharInfo.park_checks.park_roommate_path is True:  # If the player has seen the roommate path then the self reflection path is played
                 self.parkpathself()
         elif parkdecision in ['save']:
-            save_sys.saving()
+            SaveSystem.save_sys.saving()
         else:
             print("Invalid input")
             return self.lakepark()
@@ -669,7 +625,7 @@ class SycamorePark:
         input()
         print(
             "Caught up in your thoughts you find yourself at the end of your walk before you know it. You are now back at the park entrance way.")
-        CharInfo.player_info.player_location = 'Park Walk'
+        CharInfo.player_info.player_location = sycamore_park.lakepark
         CharInfo.park_checks.park_roommate_path = True
         input()
         self.lakepark()
@@ -708,7 +664,7 @@ class SycamorePark:
         input()
         print(
             "As you reminisce on your memories you realize that over an hour has passed, you snap out of it and finish your walk prematurely before heading back to the park entrance way.")
-        CharInfo.player_info.player_location = 'Park Walk'
+        CharInfo.player_info.player_location = sycamore_park.lakepark
         CharInfo.park_checks.park_lake_path = True
         input()
         self.lakepark()
@@ -725,20 +681,24 @@ tories_cafe = ToriesCafe()
 
 player_bathroom = PCBathroom() # Make sure to include the () when adding classes)
 
-#save_sys = GameState
-
 sasha_living = LivingRoom()
 
 sasha_encounter = SashaEncounter()
 
-travel_function = Traveling()
-
 # Starts the game
+
+
+TravelSystem.travel_function.travel_point_cafe = tories_cafe.thecafe # Sets travel points
+TravelSystem.travel_function.travel_point_park = sycamore_park.lakepark
+TravelSystem.travel_function.travel_point_festival_one = Festival.festival_area.bus_ride
+
+
 loadingoption = input("Do you wish to load a game? ").lower()  # Make it so this is the first question asked.
 if loadingoption in ['yes', 'y', 'load', 'l']:
     SaveSystem.save_sys.loading()
 elif loadingoption in ['no', 'n']:
     pass
+
 print("Hello", CharInfo.player_info.name)
 time.sleep(3)
 print("You are about to embark on a hastily made journey involving animal people")

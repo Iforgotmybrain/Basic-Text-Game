@@ -1,30 +1,8 @@
 # Festival area
 import time
 import CharInfo
-import pickle
-#  What if each file had it's own save system.
+import TravelSystem
 
-
-class GameState:  # Might have to put this in base because the import is causing all kinds of issues.
-    def saving(self):
-        print("Saving game")
-        pickle_out = open('gamestate.pickle', 'wb')
-        pickle.dump([], pickle_out)
-        pickle_out.close()
-        print("Game Saved!")
-        self.playerlocation()
-
-    def loading(self):
-        print("Loading game")
-        pickle_in = open('gamestate.pickle', 'rb')
-        [] = pickle.load(pickle_in)
-        pickle_in.close()
-        print("Game Loaded!")
-        self.playerlocation()
-
-    def playerlocation(self):
-        if CharInfo.player_info.player_location in ['Festival Start']:
-            festival_area.festival_entrance()
 
 class FestivalStart:
     def __init__(self):
@@ -88,7 +66,6 @@ class FestivalStart:
         print("You see rows of vendors directly ahead to your north, and the bus stop to travel home.")
         festivaldirection = input("What will you do? ")
         if festivaldirection in ['travel', 'home', 'bus', 'stop', 'bus stop']:
-            import TravelSystem
             TravelSystem.travel_function.traveltofront()
         elif festivaldirection in ['north', 'vendors', 'festival', 'n']:
             print("You brave the crowd and head towards the main festival area.")
@@ -164,19 +141,7 @@ class FestivalStart:
             print("Your bank balance is now {}".format(CharInfo.player_info.money))
 
 
-
-
-
-
-
-
-
-
-
 festival_area = FestivalStart()
-
-save_sys = GameState()
-
 
 
 

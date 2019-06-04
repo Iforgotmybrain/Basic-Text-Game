@@ -1,7 +1,5 @@
 import pickle
 import CharInfo
-import CharLocator
-
 
 class GameState:
     def saving(self):
@@ -24,24 +22,6 @@ class GameState:
          CharInfo.park_checks.park_lake_path, CharInfo.park_checks.park_roommate_path] = pickle.load(pickle_in)
         pickle_in.close()
         print("Game Loaded!")
-        CharLocator.playerlocation()
-
-    def playerlocation(self):
-        import Base
-        if CharInfo.player_info.player_location in ['PC Bedroom', 'Sasha Living Room']:
-            Base.pcbedroom()
-
-        elif CharInfo.player_info.player_location in ["Sasha First Dialogue", 'Sasha Second Dialogue', 'Holly Cafe']: \
-            Base.hallway()
-
-        elif CharInfo.player_info.player_location in ['Jacob Kitchen Dialogue']:
-            Base.entranceway()
-
-        elif CharInfo.player_info.player_location in ['Park Walk']:
-            Base.sycamore_park.lakepark()
-
-        elif CharInfo.player_info.player_location in ['Festival Start']:
-            import Festival
-            Festival.festival_area.festival_entrance()
+        CharInfo.player_info.player_location()  # This might work.
 
 save_sys = GameState()
