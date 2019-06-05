@@ -15,19 +15,21 @@ Phase 1 (All Complete)
 Phase 2
 * Figure out a name for this game
 * Continue progressing the story through new characters and areas aswell as backstory
-* Tweak existing areas and code for better user experience
+* Tweak existing areas and code for better user experience (Pretty much complete)
 * Implement pygame GUI to make this a proper, usable game. (Not possible)
 * Look into porting game over to Android (Might be possible)
-* Figure out how I want to handle certain elements of the game
-* Figure out how I want to handle the pool area
+* Figure out how I want to handle certain elements of the game (???)
+* Figure out how I want to handle the pool area (Won't make into the full game. Might end up in a alt version of game)
 * Implement Sasha Living Room dialogue. (Completed)
-* Implement new dialogue with Jacob
-* Introduce characters that aren't related to education e.g work buddies, online friends, ect.
-* Release first version using PyInstaller
+* Implement new dialogue with Jacob (Complete)
+* Introduce characters that aren't related to education e.g work buddies, online friends, ect.(Workiung on it)
+* Release first version using PyInstaller (Maybe after the festivala area?)
 * Work on making levels more open (think other text games hint hint FS)
-* Think about making current levels more open
+* Think about making current levels more open (Too much work for not enough pay off)
 * Implement a new travel system (Completed, allows for more open game design now)
 * Implement save system (Completed, didn't think this would be so easy.)
 * Make it so the load option appears before the name and race inputs.
 * Make it so the user cannot input garbage values for race, name or sex.
-* Implement money system (Will tie into future game areas)
+* Implement money system (Completed)
+* Implement Festival area fully (WIP)
+
