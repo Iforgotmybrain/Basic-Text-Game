@@ -133,7 +133,7 @@ class FestivalStart:
             input()
             print("'Understandable. If you change your mind you might try looking me up online.'")
             print("He hands you a business card and you part ways.")
-            # stuff here to check off painter
+            return self.festival_main()
         elif painter_purchase_option in ['2']:
             print("'Well, the price for both depends on what you want'")
 
@@ -163,7 +163,7 @@ class FestivalStart:
                 input()
                 print("'Understandable. If you change your mind you might try looking me up online.'")
                 print("He hands you a business card and you part ways.")
-                # Return somehow
+                return self.festival_main()
             print('"Excellent! I’ll get it wrapped up and ready to go. You’ll be looking at bill of about $225."')
             input()
             print("You pay the painter and collect the painting.")
@@ -204,7 +204,7 @@ class FestivalStart:
         elif wooden_choice in ['3']:
             print("Okay, that's fine. If you change your mind I'll be here.")
             input()
-            #return
+            return self.festival_main()
 
     def trashy_vendor(self):
         print("You decide to visit the t-shirt vendor.")
@@ -269,7 +269,9 @@ class FestivalStart:
             input()
             print("You leave the booth.")
             input()
-            #return
+            return self.festival_main()
+
+class FestivalMid:
 
 
 festival_area = FestivalStart()
