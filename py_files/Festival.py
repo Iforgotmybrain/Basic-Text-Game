@@ -272,9 +272,167 @@ class FestivalStart:
             return self.festival_main()
 
 class FestivalMid:
+    def inital_concert_dialogue(self):
+        print(
+            "After checking out the vendors and merchants, you decide to grab something to eat from the many food trucks present.")
+        input()
+        print(
+            "You decided to get a beef gyro, a slushy, and a funnel cake. An unhealthy meal, yes, but it’s a special event, who cares?")
+        print("All together the meal cost you $15. Food trucks are damn expensive.")
+        input()
+        print("After eating your meal you head towards one of the many events here.")
+        print(
+            "This one is a concert, it features various local musicians and bands, with the main headliner being a band called Lioness Untamed.")
+        input()
+        print(
+            "As you arrive at the concert stage you see one band setting up, according to the schedule their name is Airplane Harness. They primarily play indie music, which helps explain their odd name choice.")
+        input()
+        print(
+            "Your feelings on indie music differ from band to band, so you decide to stick around and see if you like their music.")
+        print(
+            "As you walk towards the stage you feel a tap on your shoulders. You turn around to see who’s trying to get your attention, and to your surprise it was Holly.")
+        input()
+        print('"Fancy meeting you here, friend. Never really thought of you as the festival type."')
+        print(
+            "You tell Holly you thought the same of her, she never seemed to like crowds of people back in high school.")
+        input()
+        print(
+            '"Eh, it just depends on circumstances I guess. I don’t mind this kind of event too much because you can basically do whatever. Anyway, why are you here? As I was saying, I\'ve never really thought of you as the festival type."')
+        input()
+        print(
+            "You tell Holly that going to this festival is pretty much a tradition for you, you’ve been going to it ever since you were 7. You come to it pretty much no matter what. Even if you have to go alone, that doesn’t stop you.")
+        input()
+        print(
+            '"Huh, well good for you. I’ve only gone here, like 3 times I think. I pretty much only go If I have nothing else to do, or if someone wants me to go with them. This time it was the former."')
+        input()
+        print(
+            "You ask Holly if she knows anything about the band playing, as they seem to be a fairly underground group")
+        print(
+            '"Not really, no. I figured I’d check them out since I enjoy most indie music. It’s free so it\'s not like I’m out anything but my time if I don’t like them."')
+        print('"They seem to have a more lo-fi sound, which I can take or leave depending on the group."')
+        input()
+        print(
+            '"Okay, So, a bit of an unrelated topic. But I figured since both of us are here by ourselves we could maybe hang out a bit? Maybe just until the concert ends, or until one of us loses interest whichever comes first. It’s up to you though, just thought I’d throw the idea out there."')
+        input()
+        print(
+            "It’s been a long time since you’ve actually hung out and talked with Holly. And you are a bit a tired of wandering here alone, so her offer is definitely interesting. You can’t really think of any good reason not to at least stick together until the concert ends.")
+        input()
+        self.main_concert_dialogue()
+
+
+    def main_concert_dialogue(self):
+        print("You tell Holly that’d you be fine with her tagging along for now.")
+        input()
+        print('"Awesome, festivals are always better when you have likeminded people to hang out with!"')
+        input()
+        print("The band seems to be finished setting up and is starting their set with a song called ‘Tretter’.")
+        print("Their sound is very low-fi like Holly said, it’s not really your cup of tea but you’ll stick around for a couple more songs.")
+        input()
+        print("About halfway into the song Holly offers her opinion on the band.")
+        print('"I can’t say this is really my jam. I’ll probably still stay and listen though since there really isn’t much else going on."')
+        input()
+        print("You agree with Holly, even if this isn’t the greatest music you’ve ever heard there really isn’t much else to do.")
+        input()
+        print("With there not being much else to do, you decide to get to know Holly a bit better by asking about her career as an artist. Primarily by asking how she got started.")
+        input()
+        print('"Well, like I said before I’ve been drawing since… eh, around middle school I’d say. Back then it was just a hobby, of course, just something to channel my creative ideas, and maybe show off a bit."')
+        input()
+        print('"When I went to college I ended up making a social media account dedicated to posting my art, I advertised it a bit and got a decent following, about 5000 people."')
+        print('"At that point, it was still just a hobby, but I was definitely thinking about the money potential."')
+        input()
+        print('"As you know I dropped out, yatta yatta you already know the story. After that, I got a full-time retail job and just kept working on my art and worked on getting more followers."')
+        input()
+        print("About what you expected to hear. You ask Holly when she started to see art as an actual career path instead of just a hobby.")
+        input()
+        print('"Hmm, I started taking commissions shortly after leaving college. It wasn’t a ton of money, just like beer money really. But it was something! And it was first time I’d been paid for doing art."')
+        input()
+        print('"About half a year into my retail job I expanded the commissions I took and also opened up a donation page. At this point, the income from my art was actually starting to rack up. Wasn’t as much as my ‘real job’ but it was enough to pay most some of my utilities every month. I was really starting to see art as a legitimate career path at this point."')
+        input()
+        print('"From there I just sort of kept expanding my work, I started making merch, I raised the prices of commissions a bit and set up an account on one of those monthly subscription type of sites."')
+        input()
+        print('"The art income eventually took over my retail job’s income. I ended up working at the retail job for about 2 months saving up the income from it before I quit and worked on art full time."')
+        print('"And now, here I am. I started doing art full-time 9 months ago, and it’s been surprisingly smooth sailing since."')
+        input()
+        print("You congratulate Holly on being able to support herself on her art. It’s not often that people are able to live off, or even achieve their ‘dream job’")
+        input()
+        print('"For sure. I’m definitely fortunate for being able to live of art."')
+        print('"You aren’t doing too bad either though, being able to live off of just odd jobs here and there is pretty damn nice."')
+        input()
+        print("You agree. You’re not sure if you would really consider that your dream job, but its definitely a better situation than most people are in. Your situation would probably be enough for most people. So long as one has a bearable job and enough money for their hobbies, they can live a pretty happy life.")
+        input()
+        print("The band has been gone through about half of their set at this point, you’re still not feeling the music and the only thing really keeping you here is Holly.")
+        input()
+        print("You decide you’re going to bare the rest of the concert, or at least stay until Holly decides she’s heard enough.")
+        input()
+        print("The conversation between the two of you has died down a bit, there hasn’t really been a real in-depth conversation since discussing each other's careers. Just small talk amidst the compulsive checking of your smartphones and the occasional attention paid to the concert.")
+        input()
+        print("You grasp at straws while thinking of things to talk about. Eventually you decide to ask Holly what kind of art she draws.")
+        input()
+        print('"Well, I started off doing art for stuff like tv shows and movies, from there I just sort of expanded what I draw. Now I do commissions for a fair number of things, though I’d say I’m best at, or rather, I enjoy drawing concept art the most."')
+        input()
+        print('"As far as the species I’m best at drawing, I’d say Foxes (of course), leopards, and {}"'.format(CharInfo.player_info.race))
+        input()
+        print('"Alright, enough questioning me. Now it’s my turn. Why’d you leave your job at Syperion? "')
+        input()
+        print('A bit of a personal question, but you’ve been bugging her about her career, so fair enough.')
+        input()
+        print("You explain to Holly how it all started. Initially, it went it all went pretty well. The job paid exceptionally well, had good benefits, and looked really good on a resume. About 5 months into the job though you started to notice some of the dysfunction abound. Your co-workers were always starting silly rumors about each other, your ‘superiors’ never really valued your work or your feedback, and the work you were doing just wasn’t very fulfilling.")
+        input()
+        print("Most workplaces will have elements of all those things, this is true, but here they were overwhelming. You knew you weren’t long for that place and started saving up a decent chunk of your paycheck each month. You put half of that chunk into an investment account, and the other half went directly into your savings.")
+        input()
+        print("You stayed for about 7 months after that, and by the time you put in your 2-weeks, you had saved around $40,000 total. Enough to live modestly by yourself for 1 year. Or in your case, more than enough to live with your roommates for 2+ years.")
+        input()
+        print("'Wow, that still just amazes me. Saving 40k in only one year is just crazy. That’s almost how much I make in a year.'")
+        input()
+        print("And then after that, I’m assuming you started doing that contract work you were talking about?")
+        input()
+        print("Yes, you started working contracts shortly after being fired. They provide a nice in-flow of cash to help keep you going.")
+        input()
+        print('"Well, that was really insightful. I can totally understand quitting a job because you don’t like the culture, that’s pretty much why I took up art as my career."')
+        input()
+        print("At this point the band is on their last song. The evening is approaching, with only a few more hours left for the festival.")
+        input()
+        print("You could ask Holly to accompany you for the rest of the day, or you could part ways. ")
+        hollystayorleave = input("After thinking about it you decide too... (1): Ask Holly to tag along with you for the rest of the day \
+        (2): Go your separate ways")
+        if hollystayorleave in ['1']:
+            CharInfo.festival_checks.holly_stay = True
+            print("You ask Holly if she wants to tag along for the rest of the day.")
+            input()
+            print('"Well, I wasn’t initially planning on staying after this concert, but since you’re offering… Sure, I’ll gladly tag along."')
+            input()
+            print("As the band finishes their set you leave the concert and head back towards the main festival area.")
+            festival_end.festival_hub_end()
+        if hollystayorleave in ["2"]:
+            CharInfo.festival_checks.holly_stay = False
+            print("You decide to part ways with Holly.")
+            input()
+            print("As the band finishes their set you leave the concert and head back towards the main festival area.")
+            festival_end.festival_hub_end()
+
+
+class FestivalEnd:
+    def festival_hub_end(self):
+        print("There’s not much left to do here, you can only think of two other things you might be interested in.")
+        input()
+        print("You might check out the fair games up north, or you could take a walk to the east and check out the rest of the festival you haven’t seen yet.")
+        festivalhubchoice = input("You decide that first, you want to go... (east or north)").lower()
+        if festivalhubchoice in ['e', 'east']:
+            if CharInfo.festival_checks.holly_stay is True:
+                self.festival_walkway_holly()
+            elif CharInfo.festival_checks.holly_stay is False:
+                self.festival_walkway_self()
+
+
+    def festival_walkway_holly(self):
+
+
+
+
+
 
 
 festival_area = FestivalStart()
 
-
+festival_end = FestivalEnd()
 

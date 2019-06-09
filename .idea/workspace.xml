@@ -40,8 +40,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/py_files/CharInfo.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="850">
-              <caret line="50" selection-start-line="50" selection-end-line="50" />
+            <state relative-caret-position="333">
+              <caret line="50" lean-forward="true" selection-start-line="50" selection-end-line="50" />
             </state>
           </provider>
         </entry>
@@ -49,8 +49,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/py_files/Festival.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="370">
-              <caret line="273" column="18" selection-start-line="273" selection-start-column="18" selection-end-line="273" selection-end-column="18" />
+            <state relative-caret-position="217">
+              <caret line="415" column="68" selection-start-line="415" selection-start-column="68" selection-end-line="415" selection-end-column="68" />
             </state>
           </provider>
         </entry>
@@ -130,10 +130,10 @@
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="185" />
-    <option name="y" value="-25" />
+    <option name="x" value="286" />
+    <option name="y" value="-8" />
     <option name="width" value="974" />
-    <option name="height" value="1047" />
+    <option name="height" value="991" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -343,13 +343,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/py_files/CharInfo.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="850">
-          <caret line="50" selection-start-line="50" selection-end-line="50" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/py_files/SaveSystem.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="459">
@@ -357,10 +350,17 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/py_files/CharInfo.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="333">
+          <caret line="50" lean-forward="true" selection-start-line="50" selection-end-line="50" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/py_files/Festival.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="370">
-          <caret line="273" column="18" selection-start-line="273" selection-start-column="18" selection-end-line="273" selection-end-column="18" />
+        <state relative-caret-position="217">
+          <caret line="415" column="68" selection-start-line="415" selection-start-column="68" selection-end-line="415" selection-end-column="68" />
         </state>
       </provider>
     </entry>
