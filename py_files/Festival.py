@@ -423,8 +423,119 @@ class FestivalEnd:
             elif CharInfo.festival_checks.holly_stay is False:
                 self.festival_walkway_self()
 
-
     def festival_walkway_holly(self):
+        print('"Didn’t see much when I went this way before, but who knows maybe something changed."')
+        input()
+        print("Indeed, this way doesn’t seem to have much going on. You walk past the small stadium where various events have been held throughout the day. None of which interested you.")
+        print('"I might have been interested in the derby, of course, that went on 3 hours ago, so…"')
+        input()
+        print('The only thing this path seems to offer is a nice walk. It loops around the stadium and will take you back to where you started.')
+        input()
+        print('"Seems like this would be a good time to talk. So, what do you do for fun? What are your hobbies?"')
+        input()
+        print("You tell Holly about your hobbies, which you find to be pretty uninteresting. Because, well, truth is your hobbies are a bit basic and boring. You enjoy movies, music, watching TV, and maybe playing video games or watching sports here and there. Among other things.")
+        input()
+        print('"I mean, yeah, those are pretty basic things. I won’t lie about that. That’s not necessarily a bad thing though. In some cases, I’d say it can even be a positive. Since those interests are so common, it can make it easier for other people to relate to you. So long as you don’t let those hobbies become the only thing defining you, it’s fine. That’s when you become a basic bitch, or bastard. You definitely don’t have that problem, though."')
+        input()
+        print('"So yeah, I like a lot of the same stuff. Music, movies, all that. You already know about my art, and I also enjoy fishing on occasion."')
+        print('"Guess I’m pretty ‘basic’ as well."')
+        input()
+        print("You also mention to Holly that you like traveling, though you rarely do so. You also mention that you’ve been thinking about going on a road trip around the country.")
+        input()
+        print('"That bit about the road trip seems pretty interesting… I’ve never thought about doing something like that before."')
+        print('"Has to be a pretty big commitment though, right? You’re basically putting the rest of your life on pause for the duration of the trip."')
+        print('"You’d almost have to be doing contract work like us or have some damn good vacation time."')
+        input()
+        print('You mention to Holly that that’s part of the reason you’d never really considered it until recently. There was no way to get that much time off when working at Syperion.')
+        input()
+        print('"It’s definitely a cool idea. What made you think of doing that anyway?"')
+        input()
+        print("You mention the tiger you met on the bus. While you’ve given the idea of a road trip a passing thought before, it’s his first-hand account that has really driven your interest.")
+        input()
+        print('"Taking advice from a vagabond huh? Suppose there are worst things you could do. It’s not like your going to make ‘road tripping’ a lifestyle, right?"')
+        print('"Anyway, looks like we\'re almost back at the start. Guess we can go check out those games real quick."')
+        input()
+        # Festival games
+
+    def festival_walkway_self(self):
+        print("This way doesn’t seem to have much going on, as the only of interest is the small stadium where various events have been held throughout the day. None of which interested you.")
+        input()
+        print("Indeed, the only thing this path seems to offer is a nice walk. It loops around the stadium and will take you back to where you started.")
+        print("Oh well, if nothing else you can reflect on the day while walking back.")
+        input()
+        print("The day has gone pretty well, you think. About the same as every other year you’ve went. The only big ‘change’ was running into Holly. Which was nice, but ultimately you just don’t really feel a connection with her anymore, not like you used too anyway.")
+        input()
+        print("That’s just the way it goes. You’ve learnt that by now. Life is filled with what-ifs, if you dwelt on every single one of them you’d never get anywhere.")
+        print("You’ve dealt with this situation before, you’ll deal with it again. Though with how much of a recurrence this seems to be, you’re beginning to think perhaps you’re part of the problem.")
+        input()
+        print("Maybe you’re just not making enough of an effort to maintain these relationships.")
+        input()
+        print("Actually, thinking back too it, you never got to say goodbye to Holly. Maybe you’ll run into her again and be able to say a proper goodbye. That could be a good start.")
+        print("You walk a bit more and eventually arrive back at the place you started. Perhaps you could check out those games?")
+        # Festival Games
+
+
+
+
+    def festival_ending_holly(self):
+        print("After checking out everything the festival has to offer, you head back towards the entrance to watch the ending fireworks show.")
+        input()
+        print("It’s been a long and interesting day. You came expecting to stay for an hour or two and then go home. But after talking to Holly you decided to stay.")
+        print("You really feel like the relationship between you and her has strengthened today. You got to talk really in-depth about each other, just like in the olden days.")
+        input()
+        print("You tell Holly that you’ve appreciated her company today, it’s been a while since you’ve been able to hang out with someone like you did today.")
+        input()
+        print('"I really enjoyed too. It reminded me a lot of when we, ya know, actually saw each other on a regular basis."')
+        input()
+        print("You both lean on Holly’s car in the parking lot, watching the fireworks as the last bit of sun falls below the horizon, giving way to the stars and planets to light the night sky.")
+        input()
+        print("You feel serene, this day truly feels like one from your childhood. Hanging out with a friend at the end of the day doing some simple shit, it’s nice, calming, and familiar. You wouldn’t trade it for anything.")
+        input()
+        print("The lightshow ends eventually, as all things do. And now it’s time to head back home.")
+        input()
+        print("'Suppose this is today, then. It’s been fantastic, it really has. The festival was alright but the real highlight was just being able to… get to know you again.'")
+        input()
+        print('"Hey, if you ever wanna do something like this again, you can hit this number up and let me know"')
+        print("Holly shows you her number on her phone, you add it to your contacts.")
+        input()
+        print('"I’ll be seeing you, {}. I’m sure it’ll happen one way or another."'.format(CharInfo.player_info.name))
+        input()
+        print("You see goodbye to Holly and head back to the bus stop. What a great day.")
+        # Now what
+
+    def festival_ending_self(self):
+        print("After checking out everything the festival has to offer, you back towards the entrance to watch the ending fireworks show.")
+        input()
+        print("It’s been a long and interesting day. You came expecting to stay for an hour or two and then go home. But after talking to Holly you decided to stay.")
+        print("You had some nice discussions with her but it didn’t really go much beyond that. There just wasn’t enough interest from either party.")
+        input()
+        print("Still, you can’t help but feel that maybe you missed out on something. It’s not everyday you get to try and rekindle a fading friendship. ")
+        print("Oh well, it’s like you said, you can’t dwell on the past too much.")
+        input()
+        print("Speaking of Holly, you never did see her again. Shame you never got to say goodbye.")
+        input()
+        print("As you head through the parking lot and towards the bus stop, you spot Holly leaning on her car, watching the fireworks. Suppose it’s not too late for farewells after all.")
+        input()
+        print("You walk up to the car, waving at Holly as you approach.")
+        input()
+        print('"Huh, I figured you’d leave Lake Fest after the concert. Guess I’m wrong again."')
+        print('"So, what’s up? Come to say your farewells?"')
+        input()
+        print("That’s what you had in mind, yes. Though thinking about it, you could watch the rest of the fireworks with Holly if you wanted.")
+        festivalselfending= input("After thinking about it you decide to... (1): Just say goodbye to Holly. It’s been nice talking to her, but that’s as far you want it to go. \
+              (2): Offer to stay and watch the fireworks with her. ")
+        if festivalselfending in ['1']:
+            print('"Well, see ya. Been nice talking. Maybe we’ll run into each other again, what a coincidence that would be."')
+        elif festivalselfending in ['2']:
+            print('"Err, appreciate the offer but you’re a bit late, as I was just getting ready to leave."')
+            input()
+            print('"Been nice talking, maybe we’ll run into each other again, what a coincidence that would be."')
+            print('You say goodbye to Holly, a bit surprised that she brushed off your offer.')
+
+
+
+
+
 
 
 
