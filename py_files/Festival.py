@@ -422,7 +422,9 @@ class FestivalEnd:
                 self.festival_walkway_holly()
             elif CharInfo.festival_checks.holly_stay is False:
                 self.festival_walkway_self()
-
+        elif festivalhubchoice in ['n', 'north']:
+            print("Area WIP")
+            return self.festival_hub_end()
     def festival_walkway_holly(self):
         print('"Didn’t see much when I went this way before, but who knows maybe something changed."')
         input()
@@ -501,6 +503,11 @@ class FestivalEnd:
         print('"I’ll be seeing you, {}. I’m sure it’ll happen one way or another."'.format(CharInfo.player_info.name))
         input()
         print("You see goodbye to Holly and head back to the bus stop. What a great day.")
+        input()
+        print("You head home on the bus and head to bed. Even a day as nice as this one ends the same as the rest.")
+        input()
+        TravelSystem.travel_function.travel_point_bedroom()
+
         # Now what
 
     def festival_ending_self(self):
@@ -530,7 +537,14 @@ class FestivalEnd:
             print('"Err, appreciate the offer but you’re a bit late, as I was just getting ready to leave."')
             input()
             print('"Been nice talking, maybe we’ll run into each other again, what a coincidence that would be."')
-            print('You say goodbye to Holly, a bit surprised that she brushed off your offer.')
+            print('You say goodbye to Holly, a bit surprised that she brushed you off.')
+            input()
+            print("It makes sense though, she probably figured that if you were serious about the friendship you probably would have stuck around after the concert.")
+            input()
+            print("You head to the bus stop and hop on the bus home.")
+            print("Once you get home you head up to bed. The day ending like any other.")
+            input()
+            TravelSystem.travel_function.travel_point_bedroom()
 
 
 
