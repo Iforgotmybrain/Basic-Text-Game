@@ -41,7 +41,7 @@ class GlobalCheckLakePark:
 
 class GlobalCheckFestival:
     def __init__(self, bus_ride_complete, painting_purchase, wooden_sculpture, trash_vendor, festival_item_purchased,
-                 holly_stay, festival_walk):
+                 holly_stay, festival_walk, festival_game):
         self.bus_ride_complete = bus_ride_complete
         self.painting_purchase = painting_purchase
         self.wooden_sculpture = wooden_sculpture
@@ -49,6 +49,7 @@ class GlobalCheckFestival:
         self.trash_vendor = trash_vendor
         self.holly_stay = holly_stay
         self.festival_walk = festival_walk
+        self.festival_game = festival_game
 
 player_info = PlayerCharacter()
 sasha_checks = GlobalCheckSasha(sasha_talk=GlobalCheckSasha, sasha_living=GlobalCheckSasha)
@@ -58,4 +59,4 @@ park_checks = GlobalCheckLakePark(park_lake_path=GlobalCheckLakePark, park_roomm
 festival_checks = GlobalCheckFestival(bus_ride_complete=GlobalCheckFestival, painting_purchase=GlobalCheckFestival,
                                       wooden_sculpture=GlobalCheckFestival, festival_item_purchased=GlobalCheckFestival,
                                       trash_vendor=GlobalCheckFestival, holly_stay = GlobalCheckFestival,
-                                      festival_walk=GlobalCheckFestival)
+                                      festival_walk=GlobalCheckFestival, festival_game=GlobalCheckFestival)
