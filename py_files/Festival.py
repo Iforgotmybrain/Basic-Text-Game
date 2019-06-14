@@ -1,15 +1,12 @@
 # Festival area
 import time
+import random
 import CharInfo
 import TravelSystem
 import SaveSystem
 
 
 class FestivalStart:
-    def __init__(self):
-        self.bus_ride_completed = False
-        self.painting_purchase = ''
-
     def bus_ride(self):
         if CharInfo.festival_checks.bus_ride_complete is not True:
             print(
@@ -104,19 +101,29 @@ class FestivalStart:
             return self.festival_entrance()
 
     def festival_main(self):
+        CharInfo.player_info.player_location = festival_area.festival_main
         time.sleep(1)
         print("You can see stands for everything from spices to graphic tees. The quaint downtown streets filled with folks from every part of the state, and country for that matter.")
         input()
         print("Initially you don’t see any vendors that catch your eye, though as you go walk further you do find a couple of places you wouldn’t mind checking out.")
         input()
         print("One is a painter; their stand features a host of beautiful oil paintings of various subjects and locations.")
-        time.sleep(1)
+        input()
         print("The second is a wood sculptor, he has various objects depicted in wood for sale.")
-        time.sleep(1)
+        input()
         print("And finally, the third is a novelty t-shirt and hat seller. You know, the kind that has hats with a big ass weed leaf and Snoop Dogg on them. You know what I’m talking about.")
         festival_vendor = input("Which one do you want to check out? ")
         if festival_vendor in ['paint', 'painter', 'oil painting','painting']:
             self.vendor_painting()
+        elif festival_vendor in ['hat', 'shirt', 'tshirt', 't-shirt', 'trash', 'weed', 'novelty vendor', 'snoop dogg']:
+            self.trashy_vendor()
+        elif festival_vendor in ['wood', 'wooden', 'wood sculptor', 'wooden sculptor']:
+            self.wooden_vendor()
+        elif festival_vendor in ['save', 'saving', 'save game']:
+            SaveSystem.save_sys.saving()
+        else:
+            print("Invalid input")
+            return self.festival_main()
 
 
     def vendor_painting(self):
@@ -136,8 +143,7 @@ class FestivalStart:
             return self.festival_main()
         elif painter_purchase_option in ['2']:
             print("'Well, the price for both depends on what you want'")
-
-            print("''For example, the piece with the vixen will run you about $250. The one of the ocean beach, about $200")
+            print("'For example, the piece with the vixen will run you about $250. The one of the ocean beach, about $200'")
             input()
             print("'Requests are about $500 or so for a self-portrait, and around $400 or so for a specific landscape'")
             input()
@@ -153,11 +159,11 @@ class FestivalStart:
             (3): Wraiths \
             (4) None".lower())
             if painting_purchased in ['1']:
-                CharInfo.GlobalCheckFestival.painting_purchase = 'husky'
+                CharInfo.festival_checks.painting_purchase = 'husky'
             elif painting_purchased in ['2']:
-                CharInfo.GlobalCheckFestival.painting_purchase = 'lake'
+                CharInfo.festival_checks.painting_purchase = 'lake'
             elif painting_purchased in ['3']:
-                CharInfo.GlobalCheckFestival.painting_purchase = 'wraiths'
+                CharInfo.festival_checks.painting_purchase = 'wraiths'
             elif painting_purchased in ['4']:
                 print("You tell the painter that the prices were bit more then you hoping to pay.")
                 input()
@@ -167,9 +173,12 @@ class FestivalStart:
             print('"Excellent! I’ll get it wrapped up and ready to go. You’ll be looking at bill of about $225."')
             input()
             print("You pay the painter and collect the painting.")
-            CharInfo.GlobalCheckFestival.festival_item_purchased = True
+            CharInfo.festival_checks.festival_item_purchased = True
             CharInfo.player_info.money -= 225
             print("Your bank balance is now {}".format(CharInfo.player_info.money))
+            CharInfo.player_info.player_location = festival_mid.inital_concert_dialogue
+            SaveSystem.save_sys.saving()
+            festival_mid.inital_concert_dialogue()
 
     def wooden_vendor(self):
         print("You decide to check out the wood sculptor’s booth.")
@@ -182,17 +191,21 @@ class FestivalStart:
         input()
         wooden_choice = input("After thinking about it, you decide to… (1): Purchase the box (2): Purchase the plane \
               (3): Purchase nothing")
+
         if wooden_choice in ['1']:
-            CharInfo.GlobalCheckFestival.festival_item_purchased = True
-            CharInfo.GlobalCheckFestival.wooden_sculpture = 'box'
+            CharInfo.festival_checks.festival_item_purchased = True
+            CharInfo.festival_checks.wooden_sculpture = 'box'
             print('"Excellent choice, I’ll get that ready to go for you."')
             print("You pay the vendor $45 and receive the wooden box")
             CharInfo.player_info.money -= 45
             print("Your bank balance is now {}".format(CharInfo.player_info.money))
-            #return
+            CharInfo.player_info.player_location = festival_mid.inital_concert_dialogue
+            SaveSystem.save_sys.saving()
+            festival_mid.inital_concert_dialogue()
+
         elif wooden_choice in ['2']:
-            CharInfo.GlobalCheckFestival.festival_item_purchased = True
-            CharInfo.GlobalCheckFestival.wooden_sculpture = 'plane'
+            CharInfo.festival_checks.festival_item_purchased = True
+            CharInfo.festival_checks.wooden_sculpture = 'plane'
             print("A fantastic choice, that’s one of my favorite items I have for sale!")
             input()
             print("The vendor bags the item and you pay him $300.")
@@ -200,7 +213,10 @@ class FestivalStart:
             input()
             CharInfo.player_info.money -= 300
             print("Your bank balance is now {}".format(CharInfo.player_info.money))
-            #return
+            CharInfo.player_info.player_location = festival_mid.inital_concert_dialogue
+            SaveSystem.save_sys.saving()
+            festival_mid.inital_concert_dialogue()
+
         elif wooden_choice in ['3']:
             print("Okay, that's fine. If you change your mind I'll be here.")
             input()
@@ -221,6 +237,7 @@ class FestivalStart:
             (2): The bootleg NY Yankees hat. You don’t really like the Yankees, or snap-back hats, but odds are you know someone who does. It might come in handy as a gift someday.\
             (3): An absurdly outdated meme shirt that has the troll face on it. Much like the Snoop Dogg shirt, you probably aren’t going to wear, but you might wear it in jest, or give it away as a gag gift.\
             (4) Nothing")
+
         if trashy_vendor == '1':
             print("You take the Snoop Dogg shirt and bring it to the vendor.")
             input()
@@ -230,11 +247,13 @@ class FestivalStart:
             print('"Hah, the Snoop Dogg one is probably of my favorites. It’s surprisingly popular as well."')
             input()
             print("You hand the alligator $15 and receive the shirt.")
-            CharInfo.GlobalCheckFestival.festival_item_purchased = True
-            CharInfo.GlobalCheckFestival.trash_vendor = 'snoop'
+            CharInfo.festival_checks.festival_item_purchased = True
+            CharInfo.festival_checks.trash_vendor = 'snoop'
             CharInfo.player_info.money -= 15
             print("Your bank balance is now {}".format(CharInfo.player_info.money))
-            #return
+            CharInfo.player_info.player_location = festival_mid.inital_concert_dialogue
+            SaveSystem.save_sys.saving()
+            festival_mid.inital_concert_dialogue()
 
         elif trashy_vendor == '2':
             print("You grab the bootleg hat and take it to the vendor.")
@@ -244,10 +263,13 @@ class FestivalStart:
             print('"Hmm, let’s see… A hat? That’ll be $20."')
             input()
             print("You hand the alligator $20 and receive the hat.")
-            CharInfo.GlobalCheckFestival.festival_item_purchased = True
-            CharInfo.GlobalCheckFestival.trash_vendor = 'hat'
+            CharInfo.festival_checks.festival_item_purchased = True
+            CharInfo.festival_checks.trash_vendor = 'hat'
             CharInfo.player_info.money -= 20
             print("Your bank balance is now {}".format(CharInfo.player_info.money))
+            CharInfo.player_info.player_location = festival_mid.inital_concert_dialogue
+            SaveSystem.save_sys.saving()
+            festival_mid.inital_concert_dialogue()
 
         elif trashy_vendor == '3':
             print("You grab the troll face shirt and take it to the vendor.")
@@ -259,10 +281,13 @@ class FestivalStart:
             print('"Actually, you know what, I hardly sell any of these so I’ll give to you for $8."')
             input()
             print("You hand the alligator $8 and receive the shirt.")
-            CharInfo.GlobalCheckFestival.festival_item_purchased = True
-            CharInfo.GlobalCheckFestival.trash_vendor = 'troll'
+            CharInfo.festival_checks.festival_item_purchased = True
+            CharInfo.festival_checks.trash_vendor = 'troll'
             CharInfo.player_info.money -= 8
             print("Your bank balance is now {}".format(CharInfo.player_info.money))
+            CharInfo.player_info.player_location = festival_mid.inital_concert_dialogue
+            SaveSystem.save_sys.saving()
+            festival_mid.inital_concert_dialogue()
 
         elif trashy_vendor == '4':
             print("You just cannot imagine buying anything here.")
@@ -280,6 +305,7 @@ class FestivalMid:
             "You decided to get a beef gyro, a slushy, and a funnel cake. An unhealthy meal, yes, but it’s a special event, who cares?")
         print("All together the meal cost you $15. Food trucks are damn expensive.")
         input()
+        print("You feel like now may be a good time too 'save'")
         print("After eating your meal you head towards one of the many events here.")
         print(
             "This one is a concert, it features various local musicians and bands, with the main headliner being a band called Lioness Untamed.")
@@ -413,10 +439,16 @@ class FestivalMid:
 
 class FestivalEnd:
     def festival_hub_end(self):
-        print("There’s not much left to do here, you can only think of two other things you might be interested in.")
-        input()
-        print("You might check out the fair games up north, or you could take a walk to the east and check out the rest of the festival you haven’t seen yet.")
-        festivalhubchoice = input("You decide that first, you want to go... (east or north)").lower()
+        CharInfo.player_info.player_location = festival_end.festival_hub_end
+        if CharInfo.festival_checks.festival_walk is not True:
+            print(
+                "There’s not much left to do here, you can only think of two other things you might be interested in.")
+            input()
+            print(
+                "You might check out the fair games up north, or you could take a walk to the east and check out the rest of the festival you haven’t seen yet.")
+        elif CharInfo.festival_checks.festival_walk is True:
+            print("There's the festival games to the north, and the looping walk way to the east.")
+        festivalhubchoice = input("You decide that you want to go... (east, north, or save)").lower()
         if festivalhubchoice in ['e', 'east']:
             if CharInfo.festival_checks.holly_stay is True:
                 self.festival_walkway_holly()
@@ -425,6 +457,53 @@ class FestivalEnd:
         elif festivalhubchoice in ['n', 'north']:
             print("Area WIP")
             return self.festival_hub_end()
+        elif festivalhubchoice in ['save', 'saving', 'save game']:
+            SaveSystem.save_sys.saving()
+
+    def festival_games_holly(self):
+        print("You head towards the many ‘fair games’ set up at this festival.")
+        input()
+        print('"I used to always bug the hell out of my parents about playing these games. They’d always say ‘no, you’re not playing those games, they’re a rip-off. I could go to the store and buy you whatever toy it is you want for less money than it would take to win one of those games."')
+        input()
+        print('"Well guess what, it wasn’t about the toy, it was about the experience! I don’t think Krigers has you throwing a ball into a bowl in order to get a toy, do they Dad?"')
+        print('"They are terribly unfair though, of course I didn’t really understand that as a kid. I think I’ve won a grand total of once. And that was on the basketball one, it was just complete luck."')
+        input()
+        print("As a kid, you had a similar experience to Holly. Though your parents would occasionally give in and let you play a few.")
+        input()
+        print("As you walk down the path you see all the games. There’s the basketball game, which is rigged by setting the hoop higher than an official one. The ‘throw this ping pong ball into the water’ game. Which is difficult because the little ball just bounces off everything. The shooty game, which has you shooting a fragile paper target with inaccurate BB pellets. You get the idea, this is a hive of scum and villainy, full of unfair games and shady business practices.")
+        input()
+        print("Well, you came here for a reason, might as well play at least one of these games.")
+        input()
+        print('"I wouldn’t mind playing the one where you try to throw a baseball at a certain speed. It’s up to you though."')
+        input()
+        print("You could try the baseball one, you also thought about doing the BB gun one. They're all rigged in some way though, your odds are probably the same no matter which one you have a go at.")
+        fairgamechoice = input('After thinking about it, you decide to... (1): Play the baseball game \
+        (2): Play the BB gun game. ')
+        if fairgamechoice in [1]:
+            self.festival_baseball_holly()
+
+
+    def festival_baseball_holly(self):
+        print("You decide to go with Holly’s choice.")
+        input()
+        print("You walk up to the booth and pay for 2 a go at throwing the ball. One for each of you. It cost a total of $7. Which is ridiculous, but like Holly said you’re paying for the ‘experience’.")
+        print("You offer Holly the first pitch since this was her first choice.")
+        input()
+        print('"Sure, I’ll have a go at it. I actually played softball when I was in middle school so maybe I can try and channel some of that 6th-grade energy to give me an edge."')
+        input()
+        print("Holly lines up at the target. Her goal is to throw the ball at a speed of 60 MPH. A pretty high target for the average person. It’s made even more difficult with how inaccurate the sensor on the target is. It probably hasn’t been replaced or maintained since the thing was first made. Even if it was, there’s nothing stopping the vendor from making it read a bit slower.")
+        input()
+        print("She thinks about it for a minute, lining up her throw. She reels back with the ball in her hand, ready to destroy the hell out of that target.")
+        input()
+        print("She extends her arm and throws the ball at what seems to be a decent speed. The display takes a minute to show the speed, you both wait with mild anticipation, thinking about all the bragging opportunities if one of you were to make it while the other didn’t.")
+        input()
+        holly_speed = random.randint(50, 65)
+        print("The display finally shows the speed. Holly threw the ball at a speed of { MPH.".format(holly_speed))
+        if holly_speed > 60:
+            print("")
+
+
+
     def festival_walkway_holly(self):
         print('"Didn’t see much when I went this way before, but who knows maybe something changed."')
         input()
@@ -457,7 +536,8 @@ class FestivalEnd:
         print('"Taking advice from a vagabond huh? Suppose there are worst things you could do. It’s not like your going to make ‘road tripping’ a lifestyle, right?"')
         print('"Anyway, looks like we\'re almost back at the start. Guess we can go check out those games real quick."')
         input()
-        # Festival games
+        CharInfo.festival_checks.festival_walk = True
+        self.festival_hub_end()
 
     def festival_walkway_self(self):
         print("This way doesn’t seem to have much going on, as the only of interest is the small stadium where various events have been held throughout the day. None of which interested you.")
@@ -474,7 +554,8 @@ class FestivalEnd:
         input()
         print("Actually, thinking back too it, you never got to say goodbye to Holly. Maybe you’ll run into her again and be able to say a proper goodbye. That could be a good start.")
         print("You walk a bit more and eventually arrive back at the place you started. Perhaps you could check out those games?")
-        # Festival Games
+        CharInfo.festival_checks.festival_walk = True
+        self.festival_hub_end()
 
 
 
@@ -561,3 +642,4 @@ festival_area = FestivalStart()
 
 festival_end = FestivalEnd()
 
+festival_mid = FestivalMid()

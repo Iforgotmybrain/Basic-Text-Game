@@ -680,10 +680,10 @@ sasha_encounter = SashaEncounter()
 # Starts the game
 
 
-TravelSystem.travel_function.travel_point_cafe = tories_cafe.thecafe # Sets travel points
+TravelSystem.travel_function.travel_point_cafe = tories_cafe.thecafe  # Sets travel points
 TravelSystem.travel_function.travel_point_park = sycamore_park.lakepark
 TravelSystem.travel_function.travel_point_festival_one = Festival.festival_area.bus_ride
-TravelSystem.travel_function.travel_point_bedroom = pcbedroom()
+TravelSystem.travel_function.travel_point_bedroom = pcbedroom
 
 
 loadingoption = input("Do you wish to load a game? ").lower()  # Make it so this is the first question asked.
