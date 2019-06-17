@@ -477,7 +477,7 @@ class FestivalEnd:
         input()
         print('"I wouldn’t mind playing the one where you try to throw a baseball at a certain speed. It’s up to you though."')
         input()
-        print("You could try the baseball one, you also thought about doing the BB gun one. They're all rigged in some way though, your odds are probably the same no matter which one you have a go at.")
+        print("You could try the baseball one, you also thought about doing the BB gun one. They're all rigged in some way though, your odds are probably the same no matter which one you have a go at. (Author note: The Baseball game is much better written than the BB gun game. Just something to consider.")
         fairgamechoice = input('After thinking about it, you decide to... (1): Play the baseball game \
         (2): Play the BB gun game. ')
         if fairgamechoice in ['1']:
@@ -486,11 +486,130 @@ class FestivalEnd:
             print("Ares WIP")
             return
 
+    def festvial_bb_holly(self):   # Not really happy with how this turned out. Honestly I don't consider it to be an equal to the baseball game.
+        print("You decide to check out the BB gun game. Your personal preference.")
+        input()
+        print("This game has you shooting out all of a paper target using an automatic BB gun that looks like an old tommy gun.")
+        input()
+        print("The gun is incredibly inaccurate and fires so many pellets at a time that you often end up hitting the same area repeatedly.")
+        input()
+        print("You pay the vendor enough for 2 turns on the gun, one for each of you. The total is $12, a ridiculous price.")
+        input()
+        print('"It might be ridiculous, but remember, you’re paying for the "experience" "')
+        input()
+        print("You decide to play first since it was your idea to check this game out.")
+        print("You line up at the gun. It’s quite beaten up, with most of the paint having chipped away.")
+        input()
+        print("The gun has sights on it but their quite trash, so you’re really just eyeballing it. The $12 you paid will give you 300 BB rounds each. Not much considering how fast the gun fires.")
+        print("You think the best way to go about this would be to shoot the outside of the target first.")
+        input()
+        print("You take hold of the gun and aim down its rudimentary sights, it’s bolted down to a rail which prevents you from aiming the gun with anything resembling decent accuracy.")
+        print("Guess you’ll just have to make do.")
+        input()
+        print("You start to shoot the target, with each pull of the trigger about 10 BB pellets fly out. An unnecessary amount, no doubt it was made that way in order to reduce your chance of winning.")
+        input()
+        print("You start off doing a pretty decent job, you’ve shot out a decent chunk of the target, with about half it remaining.")
+        print("It’s getting quite difficult at this point though since there’s less and less of the target to shoot. Instead of being able to essentially aim in the general area of the target and hit something, you have to be more careful with your shots. Which is difficult given the gun’s poor movement and sights.")
+        input()
+        print(" You knock out some more of the target, there’s about 25% remaining, but you only have 100 pellets to get the rest of it done. At this point, your shots are missing more than they are hitting. The remaining pieces of the target aren't supported by much, which leads to the paper just giving way to pellet, dealing no damage.")
+        input()
+        print("You’re just about to knock out the target, you aim the gun perfectly, your finger on the trigger ready to finally win one of these silly games.")
+        pc_win = random.randint(30, 100)
+        if pc_win > 70:
+            print("You push the trigger and the last barrage of BB pellets is unleashed. They hit the last bit of the target perfectly, destroying the last evidence of its existence.")
+            input()
+            print("Despite all the odds against you, you made it! You won!")
+            print("The vendor begrudgingly tells that you have the pick of any cheaply made stuffed animal in stock.")
+            input()
+            print("Among the options are a Dragon, German Shepard, and a Fox.")
+            pc_bbanimal = input("You decide to pick the... (dragon, german shepherd, fox)").lower()
+            if pc_bbanimal in ['dragon']:
+                print("You pick the dragon. You can never go wrong with a dragon.")
+
+            elif pc_bbanimal in ['german shepard', 'g shep', 'german shep']:
+                print("You pick the stuffed german shepard, it's coat is very similar to Sasha's, it's coat is primarily black with some tan.")
+
+            elif pc_bbanimal in ['fox']:
+                print("You decide too pick the fox, foreshadowing? Probably not. You just thought the fox looked the cutest.") # Do I keep this line? Might actually be foreshadowing I don't know.
+
+        elif pc_win < 70:
+            print("You push the trigger, ready to decimate the last of that pain in the ass target, but as you do you hear a clicking noise, and nothing comes out. You’ve run out BB pellets.")
+            input()
+            print("Goddamnit! You were this close to winning! You know you would have won if the gun wasn’t such a piece of trash.")
+            print("Oh well, it’s over. Maybe Holly will have some better luck. Which is really all these games are based on.")
+            input()
+        print("It’s Holly’s turn now, they say luck favors the Foxes, guess you’ll see.")
+        input()
+        print("She lines up at the gun, no doubt thinking the same things you did.")
+        print('"You could have told me this thing was impossible to aim. You’d think this thing was a weapon of mass destruction with how bolted down it is."')
+        input()
+        print("She makes good progress at the start, chipping away a similar amount to you. She seems to have slightly better control over the rate of fire than you did.")
+        input()
+        print("Holly seems to be falling into the same pits you did, as she knocks more and more of target off it gets more difficult to actually hit it. Guess this is one of the main obstacles in this game.")
+        print("As the game goes on it plays out very similar to your try. She ends up with about 20% of the target left but struggles to hit it due to Its flimsy nature. ")
+        input()
+        holly_win = random.randint(40, 100)
+        if holly_win > 60:
+            print("Holly ends up at the same point you did towards the end. She’s only got about 3 more trigger pulls before she runs out of ammo.")
+            input()
+            print("She lines up a shot to knock out the rest of the target, she pulls the trigger, but the pellets just fly past the paper as it gives way.")
+            print("Holly sighs, no doubt frustrated by this tedious game.")
+            input()
+            print("She lines up another shot in attempt to win this damn game.")
+            print("Holly pulls the trigger and the pellets land right on target, getting rid of what was left of the target.")
+            input()
+            print("To your surprise, Holly actually managed to pull it off and win!")
+            print("The game vendor begrudgingly offers Holly a choice of any cheaply made stuffed animal they have on display. Among those displayed are a Dragon, a German Shepard, and a {}.".format(CharInfo.player_info.race))
+            input()
+            print("Holly picks the {}. A funny coincidence all things considered, but that’s probably all it Is, a coincidence.".format(CharInfo.player_info.race))
+            if pc_win > 70:
+                print("It would seem that both of you made out today. It's rare enough for one person to win these kinds of games, but two? That's almost unheard of.")
+                input()
+            elif pc_win < 70:
+                print("It seems you were right, luck does favor the foxes. At least that $12 was not spent in vain.")
+                input()
+
+        elif holly_win < 60:
+            print("Holly’s nearing the end of the game, unfortunately, it seems she isn’t going to make it. There’s a good chunk of the target left, with her gun only having 40 rounds left.")
+            input()
+            print("She gets a few more bursts off before the gun clicks and runs out of ammo. She made a damn good effort but it just wasn’t enough.")
+            input()
+            if pc_win < 70:
+                print("Unsurprisingly, neither of you managed too win today. That's to be expected given how rigged these games are. As Holly would say, at least you 'experienced' the games.")
+                input()
+            elif pc_win > 70:
+                print("You are the only one to emerge victorious today, it seems you woke up on the right side of the bed.")
+                input()
+        print("With the game done and over with you evaluate your next course of action with Holly.")
+        if CharInfo.festival_checks.festival_walk is True:
+            print(
+                '"The day is getting pretty late, I suppose we should start heading towards the parking lot. We might be able to see the fireworks on our way out."')
+            input()
+            CharInfo.player_info.player_location = festival_end.festival_ending_holly
+            CharInfo.festival_checks.festival_game = True
+            SaveSystem.save_sys.saving()
+            self.festival_ending_holly()
+        elif CharInfo.festival_checks.festival_walk is not True:
+            CharInfo.festival_checks.festival_game = True
+            print('"The day\'s winding down, we should probably check out that other path before it gets too late."')
+            input()
+            CharInfo.player_info.player_location = festival_end.festival_walkway_holly
+            SaveSystem.save_sys.saving()
+            self.festival_walkway_holly()
+
+
+
+
+
+
+
+
 
     def festival_baseball_holly(self):
         print("You decide to go with Holly’s choice.")
         input()
         print("You walk up to the booth and pay for 2 a go at throwing the ball. One for each of you. It cost a total of $7. Which is ridiculous, but like Holly said you’re paying for the ‘experience’.")
+        CharInfo.player_info.money -= 7
         print("You offer Holly the first pitch since this was her first choice.")
         input()
         print('"Sure, I’ll have a go at it. I actually played softball when I was in middle school so maybe I can try and channel some of that 6th-grade energy to give me an edge."')
@@ -537,7 +656,7 @@ class FestivalEnd:
             if pc_animal_choice in ['fox']:
                 print("You decide too pick the fox, foreshadowing? Probably not. You just thought the fox looked the cutest.")
             elif pc_animal_choice in ['german shepard', 'g shep', 'german shep']:
-                print("You pick the stuffed german shepard, it's coat is very similar to Sasha's with it's color being primarily black with some tan.")
+                print("You pick the stuffed german shepard, it's coat is very similar to Sasha's, it's coat is primarily black with some tan.")
             elif pc_animal_choice in ['dragon']:
                 print("You pick the dragon. You can never go wrong with a dragon.")
         elif pc_speed < 60:
@@ -698,9 +817,6 @@ class FestivalEnd:
             print("Once you get home you head up to bed. The day ending like any other.")
             input()
             TravelSystem.travel_function.travel_point_bedroom()
-
-
-
 
 
 festival_area = FestivalStart()
