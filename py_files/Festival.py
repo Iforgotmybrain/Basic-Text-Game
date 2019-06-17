@@ -10,10 +10,10 @@ class FestivalStart:
     def bus_ride(self):
         if CharInfo.festival_checks.bus_ride_complete is not True:
             print(
-                "You hop on a bus headed to downtown. There’s a a special event today called Lake Fest, which hosts several vendors and activities.")
+                "You hop on a bus headed to downtown. There’s a special event today called Lake Fest, which hosts several vendors and activities.")
             input()
             print(
-                "While on the bus you sit next to a man with an ‘I heart NY shirt’ on. He’s carrying a sizable backpack and based on the apparel he’s wearing seems to be well-traveled.")
+                "While on the bus you sit next to a man with an ‘I heart NY shirt’ on. He’s carrying a sizable backpack and based on the apparel he’s wearing seems to have experience traveling.")
             print(
                 "The man looks to you and asks if you’re going to Lake Fest. You say yes, and that you’ve gone to it almost every year you’ve lived here.")
             input()
@@ -28,14 +28,14 @@ class FestivalStart:
                 "You can’t really think of anything else remarkable here. The town is actually quite boring. You offer a few eating recommendations, including Tories Café, stating that there really isn’t much to do here except check out the local restaurants.")
             input()
             print(
-                "'Yeah, I kind of figured. This is my second time going to this event and I’ve never really seen anything else to do.” The Tiger says with friendly tone.'")
+                "'Yeah, I kind of figured. This is my second time going to this event and I’ve never really seen anything else to do.” The Tiger says with a friendly tone.")
 
             print("'Anyway, I bet you’re probably wondering why someone would come here just for one event.'")
             input()
             print("You can’t say you were really burning your brain trying to figure that out, but you’ll humor him.")
 
             print(
-                "'Well, I’m actually road tripping across the country! I do it every year, in some shape or form. Last year I went by train but this time I’m doing it by car.” He says with an enthusiastic tone. Clearly he’s quite interested in traveling the country.'")
+                "'Well, I’m actually road tripping across the country! I do it every year, in some shape or form. Last year I went by train but now I’m doing it by car.” He says with an enthusiastic tone. Clearly he’s quite interested in traveling the country.'")
             input()
             print(
                 "You ask Chris for some more details, you’ve always been fascinated by the idea of traveling the country, but you’ve just never had the time or money to do so.")
@@ -50,7 +50,7 @@ class FestivalStart:
                 "'The end destination changes every year. Last year I stopped at San Francisco, and this time around I’ll probably be heading to Seattle.'")
             input()
             print(
-                "You tell Chris that you’ve always been interested in doing something similar, you find the idea of traveling the country and seeing all it has to offer to be exciting!")
+                "You tell Chris that you’ve been interested in doing something similar, you find the idea of traveling the country and seeing all it has to offer to be exciting!")
             input()
             print(
                 "'It’s a very rewarding experience. But it’s also a significant time commitment, and too be honest, it can be a bit tiring driving for hours on end. But the experiences and sights make it worth it. There really isn’t much else like it, expect maybe traveling the world. But that’s whole different ballgame.'")
