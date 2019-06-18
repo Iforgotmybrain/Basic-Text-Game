@@ -1,4 +1,4 @@
-# Basic-Text-Game
+# Tails From the Road
 
 # 5/31/19 Update:
 With my last commit I’m almost completely finished with I'd consider phase 1 of this project. The core foundation has been set with the save system and travel system being finished. The only thing left bugging me is the fact that the load option comes after the name, race, and sex inputs. That’s not a major issue though.
