@@ -19,11 +19,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/py_files/Base.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="170">
-              <caret line="411" column="94" selection-start-line="411" selection-start-column="94" selection-end-line="411" selection-end-column="94" />
+            <state relative-caret-position="-4834">
+              <caret line="386" column="47" selection-start-line="386" selection-start-column="47" selection-end-line="386" selection-end-column="47" />
               <folding>
                 <element signature="e#37#48#0" expanded="true" />
               </folding>
@@ -43,17 +43,17 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/py_files/CharInfo.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="222">
-              <caret line="43" column="44" selection-start-line="43" selection-start-column="44" selection-end-line="43" selection-end-column="44" />
+            <state relative-caret-position="374">
+              <caret line="22" column="49" selection-start-line="22" selection-start-column="49" selection-end-line="22" selection-end-column="49" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/py_files/Festival.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="306">
-              <caret line="52" column="43" selection-start-line="52" selection-start-column="43" selection-end-line="52" selection-end-column="43" />
+            <state relative-caret-position="8868">
+              <caret line="750" column="167" selection-start-line="750" selection-start-column="167" selection-end-line="750" selection-end-column="167" />
             </state>
           </provider>
         </entry>
@@ -62,7 +62,6 @@
         <entry file="file://$PROJECT_DIR$/py_files/SaveSystem.py">
           <provider selected="true" editor-type-id="text-editor">
             <state>
-              <caret lean-forward="true" />
               <folding>
                 <element signature="e#0#13#0" expanded="true" />
               </folding>
@@ -129,9 +128,9 @@
         <option value="$PROJECT_DIR$/py_files/teststoring.py" />
         <option value="$PROJECT_DIR$/py_files/CharLocator.py" />
         <option value="$PROJECT_DIR$/py_files/TravelSystem.py" />
-        <option value="$PROJECT_DIR$/py_files/CharInfo.py" />
         <option value="$PROJECT_DIR$/py_files/SaveSystem.py" />
         <option value="$PROJECT_DIR$/py_files/Base.py" />
+        <option value="$PROJECT_DIR$/py_files/CharInfo.py" />
         <option value="$PROJECT_DIR$/py_files/Festival.py" />
       </list>
     </option>
@@ -147,11 +146,29 @@
     <navigator proportions="" version="1">
       <foldersAlwaysOnTop value="true" />
     </navigator>
-    <panes />
+    <panes>
+      <pane id="Scope" />
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="TextGame" type="b2602c69:ProjectViewProjectNode" />
+              <item name="TextGame" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="TextGame" type="b2602c69:ProjectViewProjectNode" />
+              <item name="TextGame" type="462c0819:PsiDirectoryNode" />
+              <item name="py_files" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+    </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="last_opened_file_path" value="$PROJECT_DIR$/py files/Base.py" />
-    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PythonContentEntriesConfigurable" />
+    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -262,7 +279,7 @@
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" weight="0.18756586" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.18756586" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -305,6 +322,17 @@
       <path value="$PROJECT_DIR$" />
     </ignored-roots>
   </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/py_files/Festival.py</url>
+          <line>228</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/Sources/Travel_locations.py" />
     <entry file="file://$PROJECT_DIR$/Sources/Base.py" />
@@ -320,19 +348,8 @@
     <entry file="file://$PROJECT_DIR$/py files/__init__.py" />
     <entry file="file://$USER_HOME$/Desktop/Basic-Text-Game-6c066f55a019eb2a317b32c057f7d1318a01b934/py files/TravelSystem.py" />
     <entry file="file://$USER_HOME$/Desktop/Basic-Text-Game-6c066f55a019eb2a317b32c057f7d1318a01b934/py files/Base.py" />
-    <entry file="file://$PROJECT_DIR$/py_files/teststoring.py">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/py_files/CharLocator.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="18" column="50" selection-start-line="18" selection-start-column="50" selection-end-line="18" selection-end-column="50" />
-          <folding>
-            <element signature="e#0#11#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/py_files/teststoring.py" />
+    <entry file="file://$PROJECT_DIR$/py_files/CharLocator.py" />
     <entry file="file://$PROJECT_DIR$/py_files/TravelSystem.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="799">
@@ -342,35 +359,34 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/py_files/CharInfo.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="222">
-          <caret line="43" column="44" selection-start-line="43" selection-start-column="44" selection-end-line="43" selection-end-column="44" />
+        <state relative-caret-position="374">
+          <caret line="22" column="49" selection-start-line="22" selection-start-column="49" selection-end-line="22" selection-end-column="49" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/py_files/SaveSystem.py">
       <provider selected="true" editor-type-id="text-editor">
         <state>
-          <caret lean-forward="true" />
           <folding>
             <element signature="e#0#13#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/py_files/Base.py">
+    <entry file="file://$PROJECT_DIR$/py_files/Festival.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="411" column="94" selection-start-line="411" selection-start-column="94" selection-end-line="411" selection-end-column="94" />
-          <folding>
-            <element signature="e#37#48#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="8868">
+          <caret line="750" column="167" selection-start-line="750" selection-start-column="167" selection-end-line="750" selection-end-column="167" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/py_files/Festival.py">
+    <entry file="file://$PROJECT_DIR$/py_files/Base.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="52" column="43" selection-start-line="52" selection-start-column="43" selection-end-line="52" selection-end-column="43" />
+        <state relative-caret-position="-4834">
+          <caret line="386" column="47" selection-start-line="386" selection-start-column="47" selection-end-line="386" selection-end-column="47" />
+          <folding>
+            <element signature="e#37#48#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

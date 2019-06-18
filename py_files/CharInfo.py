@@ -14,7 +14,7 @@ class PlayerCharacter(PlayerStats):
     This class allows for me to easily add features as I need. Such as the money system. It literally took me two lines of
     code to add that. I could easily add a health system if needed."""
     def __init__(self):
-        super().__init__(name=input("What is your name? ").title(), sex=input("Do you wish to play as male or female? ").title(),  # I barely remember how the fuck I built this. Seems really complex for my knowledge level of python at the time.
+        super().__init__(name=input("What is your name? ").title(), sex=input("Do you wish to play as male or female? ").title(),  # I barely remember how I built this. Seems really complex for my knowledge level of python at the time.
                          race=input(
                              "Which race do you want to play as? Wolf, Lion, Fox or Dragon? (This is will not have a large effect on the game) ").title(), money=1200, player_location='')
 

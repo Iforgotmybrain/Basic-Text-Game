@@ -384,7 +384,7 @@ class JacobDialogue:
                     CharInfo.player_info.player_location = jacob_kitchen.startingkitchen
                     return self.startingkitchen()
                 elif CharInfo.jacob_checks.jacob_kitchen is True:  # Dialogue for Jacob after initial conversation
-                    print("'Hey buddy. I've not nothing new to say.'")
+                    print("'Hey buddy. I've got nothing new to say.'")
                     input()
                     return self.startingkitchen()
             elif kitchendirection in ['east', 'e']:
