@@ -2,7 +2,7 @@
 
 # 6/17/19 First Release Update
 
-I released the first version of Tails From the Past today, the game is still very much in development but I feel it’s at a point where it can sort of ‘stand on its own’ so to say. Now I can start advertising it and maybe get more than 1 unique visitors on this page (That’s not happening). The game was formerly just known as text game but after thinking about it for a while decided to name it Tails From the Past for the first release. I feel the name fits the scope of the game very well.
+I released the first version of Tails From the Past today, the game is still very much in development but I feel it’s at a point where it can sort of ‘stand on its own’ so to say. Now I can start advertising it and maybe get more than 1 unique visitors on this page (That’s not happening). The game was formerly just known as text game but after thinking about it for a while I decided to name it Tails From the Past for the first release. I feel the name fits the scope of the game very well.
 
 I won’t really post much of anything on this page anymore, as I have a little blog website set up for posting my thoughts and progress on the game. You can find it on my GitHub page or at https://iforgotmybrain.github.io/
 
