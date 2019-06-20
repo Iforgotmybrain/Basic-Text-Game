@@ -19,16 +19,19 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/py_files/Base.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="85">
-              <caret line="5" column="10" lean-forward="true" selection-start-line="5" selection-start-column="10" selection-end-line="5" selection-end-column="10" />
+            <state>
+              <caret column="7" selection-start-column="7" selection-end-column="7" />
+              <folding>
+                <element signature="e#47#58#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/py_files/TravelSystem.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="799">
@@ -144,7 +147,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -161,6 +163,7 @@
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -347,13 +350,6 @@
     <entry file="file://$USER_HOME$/Desktop/Basic-Text-Game-6c066f55a019eb2a317b32c057f7d1318a01b934/py files/Base.py" />
     <entry file="file://$PROJECT_DIR$/py_files/teststoring.py" />
     <entry file="file://$PROJECT_DIR$/py_files/CharLocator.py" />
-    <entry file="file://$PROJECT_DIR$/py_files/Base.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="5" column="10" lean-forward="true" selection-start-line="5" selection-start-column="10" selection-end-line="5" selection-end-column="10" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/py_files/CharInfo.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="374">
@@ -381,6 +377,16 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="799">
           <caret line="47" column="28" selection-start-line="47" selection-start-column="28" selection-end-line="47" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/py_files/Base.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="7" selection-start-column="7" selection-end-column="7" />
+          <folding>
+            <element signature="e#47#58#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

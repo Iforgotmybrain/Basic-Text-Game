@@ -1,4 +1,4 @@
-# Tails from the Road
+# Tales from the Road
 # -*- coding: utf-8 -*-
 
 import time
