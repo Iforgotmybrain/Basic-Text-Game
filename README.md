@@ -1,4 +1,4 @@
-# Tails From the Road
+# Tales From the Road
 
 # 6/17/19 First Release Update
 
