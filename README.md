@@ -10,7 +10,7 @@ I think that’s about it. Here’s to many more releases!
 
 
 # 5/31/19 Update:
-With my last commit I’m almost completely finished with I'd consider phase 1 of this project. The core foundation has been set with the save system and travel system being finished. The only thing left bugging me is the fact that the load option comes after the name, race, and sex inputs. That’s not a major issue though.
+With my last commit I’m almost completely finished with I'd consider phase 1 of this project. The core foundation has been set with the save system and travel system being finished. The only thing left bugging me is the fact that the load option comes after the name, race, and gender inputs. That’s not a major issue though.
 
 Next up is phase 2 which will mostly be a story endeavor I wager. I have a good idea of how to implement most things I might need so this phase will likely come along quick once the writing is finished.
 
@@ -21,7 +21,7 @@ This is a text game (name pending) made by me (Dylan Coleman) as a way to practi
 
 
 # About This Project
-Tails from the Past focuses primarly on the story, as a combat system just didn't really fit the theme of the storying I planned on telling. 
+Tales from the Past focuses primarly on the story, as a combat system just didn't really fit the theme of the storying I planned on telling. 
 
 The characters and 'universe' in this game are bit unique, there wasn't really any other examlpes of a text game made in the style I was going for, so I took a page out of Thanos’ book and said “Fine, I’ll do it myself”. 
 This project allows me to work on something I’m very passionate about and also learn how to program and write creatively. It also allows for lots of expansion opportunities, since there's so many different ways for me to build upon this game.
