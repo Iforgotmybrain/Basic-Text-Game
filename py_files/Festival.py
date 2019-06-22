@@ -771,6 +771,7 @@ class FestivalEnd:
         input()
         print("You head home on the bus and head to bed. Even a day as nice as this one ends the same as the rest.")
         input()
+        CharInfo.festival_checks.festival_ending = True
         TravelSystem.travel_function.travel_point_bedroom()
 
         # Now what
@@ -809,6 +810,7 @@ class FestivalEnd:
             print("You head to the bus stop and hop on the bus home.")
             print("Once you get home you head up to bed. The day ending like any other.")
             input()
+            CharInfo.festival_checks.festival_ending = True
             TravelSystem.travel_function.travel_point_bedroom()
 
 

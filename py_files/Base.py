@@ -43,7 +43,25 @@ def pcbedroom():
         print("You wake up the next day feeling better. Your conversation with Sasha helped ease your mind, and made you realize just how great of friends you have now.")
         print("You think about possibly asking Jacob about some of his past trips. He should be in his bedroom.")
         input()
+    elif CharInfo.festival_checks.festival_ending is True:
+        print("You wake up the next morning still a bit surprised by the events of last night.")
+        input()
+        print("You check your phone to make sure that last night wasn't just a dream, it definitely wasn't.")
+        input()
+        print("You think that now would be a good time to plan out the road trip, maybe try and figure out who you’d want to bring along, where you’d want to go, stuff like that.")
+        input()
+        print("You can think of a couple of things you could do; you might try asking your roommates for suggestions on where to go, and ask them rather they’d want to go on the road trip with you.")
+        input()
+        print("You could also check out Chris the Tiger’s Pawbook account and see what he suggests checking out. You could do that on your computer in the bedroom.")
+        input()
+        if CharInfo.festival_checks.holly_stay is True:
+            print("Maybe not strictly related to the road trip, but you could look into maybe going on another date with Holly as well. You might try and Call Holly to see if she’d be up for that.")
+            input()
+        print("It’s quite a nice day out as well, you might go on a walk just for the hell of it.")
+        input()
     print("You are standing in your bedroom. You see the door to the bathroom to your east, and the doorway to the hallway directly ahead to the north.")
+    if CharInfo.festival_checks.festival_ending is True:
+        print("There is also your computer to the south of the room.")
     print("You could also check your bank balance.")
     pcbedroomdirection = input('Which way do you go? ').lower()
     CharInfo.player_info.player_location = pcbedroom
@@ -58,10 +76,19 @@ def pcbedroom():
 
     elif pcbedroomdirection in ['bank', 'money', 'balance']:
         bank_money()
+    elif pcbedroomdirection in ['south', 's']:
+        #  placeholder computer function
 
     else:
         print("Invalid input")
         return pcbedroom()
+
+
+def pccomputer():
+    print("You hop on the computer and decide to look up Chris's Pawbook account.")
+    input()
+
+
 
 
 class PCBathroom:
@@ -76,7 +103,7 @@ class PCBathroom:
             bathroomoption = input("What do you do? ").lower()
 
             if bathroomoption in ["trunk", "chest"] and CharInfo.misc_checks.bathroom_bd is not True:  # Prevents user from opening trunk more than once
-                print("You open the trunk and find a mysterious silicone sculpture")
+                print("You open the trunk and find a mysterious sculpture")  # Might make this a trigger in the future
                 CharInfo.misc_checks.bathroom_bd = True
                 input()
                 return self.bathroompc()
