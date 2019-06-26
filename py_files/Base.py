@@ -85,8 +85,31 @@ def pcbedroom():
 
 
 def pccomputer():
-    print("You hop on the computer and decide to look up Chris's Pawbook account.")
-    input()
+    if CharInfo.chris_checks.chris_computer_list is not True:
+        print("You turn on the computer and log in, opening Firefox and hitting up Pawbook.")
+        print("You look up the full name Chris gave you; Chris Feldman.")
+        input()
+        print("You find him on the first page, his profile picture is a selfie of him at the Grand Canyon.")
+        print("He also has quite the following it would seem, with over 600 ‘pals’.")
+        input()
+        print(
+            "You add him as a pal and sent him a message, telling him that you’re going to take up his suggestions on where to go.")
+        print("After a short 5 minute wait he replies: 'I knew you’d end up going for it!'")
+        input()
+        print(
+            '"I’m assuming you’re going to head west? It wouldn’t quite be a coast to coast road trip but it’ll be close enough. You’ll probably end up missing out on a half days worth of driving, miss out on a couple of, in my opinion, cool stops, but there’s still plenty of stuff ahead."')
+        input()
+        print('"I\' guessing you’ll be starting off where you are now, Idenberg."')
+        print(
+            '"I’ll have to look up some routes you might go and get back to you on points of interest. Shouldn’t take me to long, I’ll probably have you a nice list by the end of the day."')
+        input()
+        print(
+            "You reply to Chris and thank him for helping you out, you tell him that you’ll be eagerly awaiting his list.")
+        CharInfo.chris_checks.chris_computer_list = True
+        pcbedroom()
+    elif CharInfo.chris_checks.chris_computer_list is True and CharInfo.chris_checks.chris_computer_list_completed is not True:
+        print("You check your Pawbook messages and don’t see anything from Chris. He’s probably still working on it")
+        pcbedroom()
 
 
 

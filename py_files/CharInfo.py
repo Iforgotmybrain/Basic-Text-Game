@@ -52,6 +52,11 @@ class GlobalCheckFestival:
         self.festival_game = festival_game
         self.festival_ending = festival_ending
 
+class GlobalCheckChris:
+    def __init__(self, chris_computer_list, chris_computer_list_completed):
+        self.chris_computer_list = chris_computer_list
+        self.chris_computer_list_completed = chris_computer_list_completed
+
 player_info = PlayerCharacter()
 sasha_checks = GlobalCheckSasha(sasha_talk=GlobalCheckSasha, sasha_living=GlobalCheckSasha)
 jacob_checks = GlobalCheckJacob(jacob_kitchen=GlobalCheckJacob, jacob_bedroom=GlobalCheckJacob)
@@ -62,3 +67,4 @@ festival_checks = GlobalCheckFestival(bus_ride_complete=GlobalCheckFestival, pai
                                       trash_vendor=GlobalCheckFestival, holly_stay = GlobalCheckFestival,
                                       festival_walk=GlobalCheckFestival, festival_game=GlobalCheckFestival,
                                       festival_ending=GlobalCheckFestival)
+chris_checks = GlobalCheckChris(chris_computer_list=GlobalCheckChris, chris_computer_list_completed=GlobalCheckChris)
