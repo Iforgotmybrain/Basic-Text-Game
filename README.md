@@ -1,5 +1,8 @@
 # Tales From the Road
 
+# 6/28/19 Reminder
+Just reminding you that good feedback will help me tremendously with developing this project. I’m the only one looking over this project right now, and while I hold myself to what I consider a decent standard, I don’t always pick up on everything. If you have anything you want to say about the project, have any questions, or anything else, please let me know on here or on twitter. My handle on twitter is the same as on here, @Iforgotmybrain.
+
 # 6/17/19 First Release Update
 
 I released the first version of Tales from the Road today, the game is still very much in development but I feel it’s at a point where it can sort of ‘stand on its own’ so to say. Now I can start advertising it. The game was formerly just known as text game but after thinking about it for a while I decided to name it Tales From the Past for the first release. I feel the name fits the scope of the game very well considering the story is going to be about a road trip, and the fact that the game is set in a fictional world.
