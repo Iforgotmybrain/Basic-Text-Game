@@ -446,7 +446,7 @@ class FestivalEnd:
             print("There's not much left to do here. The only other thing you could think to do is check out the bits of the festival over to the east.")
         elif CharInfo.festival_checks.festival_walk is False and CharInfo.festival_checks.holly_stay is True:
             print("There's the festival games to the north, and the looping walk way to the east.")
-        festivalhubchoice = input("You decide that you want to go... (direction or save)").lower()
+        festivalhubchoice = input("You decide that you want to go... (north, east, or save)").lower()
         if festivalhubchoice in ['e', 'east']:
             if CharInfo.festival_checks.holly_stay is True:
                 self.festival_walkway_holly()

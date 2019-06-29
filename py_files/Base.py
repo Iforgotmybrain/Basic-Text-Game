@@ -37,13 +37,11 @@ def pcbedroom():
     if CharInfo.misc_checks.bathroom_bd is not True:
         print(
             "You wake up the next morning, your bedroom is dimly lit with the only source of light being the sun as it sneaks through the blinds.")
-    elif CharInfo.misc_checks.cafe_finished is True and CharInfo.sasha_checks.sasha_living is not True:
-        print("After returning from the cafe you do work on one of your current contracts before going to bed")
     elif CharInfo.sasha_checks.sasha_living is True and CharInfo.jacob_checks.jacob_bedroom is not True:
         print("You wake up the next day feeling better. Your conversation with Sasha helped ease your mind, and made you realize just how great of friends you have now.")
         print("You think about possibly asking Jacob about some of his past trips. He should be in his bedroom.")
         input()
-    elif CharInfo.festival_checks.festival_ending is True:
+    elif CharInfo.festival_checks.festival_ending is True and CharInfo.chris_checks.chris_computer_list is not True:
         print("You wake up the next morning still a bit surprised by the events of last night.")
         input()
         print("You check your phone to make sure that last night wasn't just a dream, it definitely wasn't.")
@@ -76,8 +74,8 @@ def pcbedroom():
 
     elif pcbedroomdirection in ['bank', 'money', 'balance']:
         bank_money()
-    elif pcbedroomdirection in ['south', 's']:
-        #  placeholder computer function
+    elif pcbedroomdirection in ['south', 's', 'computer', 'pc']:
+        pccomputer()
 
     else:
         print("Invalid input")
@@ -106,6 +104,7 @@ def pccomputer():
         print(
             "You reply to Chris and thank him for helping you out, you tell him that you’ll be eagerly awaiting his list.")
         CharInfo.chris_checks.chris_computer_list = True
+        SaveSystem.save_sys.saving()
         pcbedroom()
     elif CharInfo.chris_checks.chris_computer_list is True and CharInfo.chris_checks.chris_computer_list_completed is not True:
         print("You check your Pawbook messages and don’t see anything from Chris. He’s probably still working on it")
@@ -261,8 +260,10 @@ def entranceway():
             break
 
         elif entrancewaydirection in ["east", "e"]:
-            if CharInfo.jacob_checks.jacob_kitchen is True and CharInfo.misc_checks.cafe_finished is True and CharInfo.park_checks.park_lake_path is True and CharInfo.sasha_checks.sasha_talk is True:
+            if CharInfo.jacob_checks.jacob_kitchen is True and CharInfo.misc_checks.cafe_finished is True and CharInfo.park_checks.park_lake_path is True and CharInfo.sasha_checks.sasha_talk is True and CharInfo.festival_checks.festival_ending is not True:
                 sasha_living.sashadialogue()
+            elif CharInfo.festival_checks.festival_ending is True:
+                jacob_kitchen.jacob_post_fest()
             else:
                 print(
                     "You enter the living area and see nothing of note. Perhaps you should return here after visiting a couple places.")
@@ -479,6 +480,96 @@ class JacobDialogue:
         input()
         pcbedroom()
 
+    def jacob_post_fest(self):
+        if CharInfo.jacob_checks.jacob_post_fest is not True:
+            print(
+                "You check out the living room yet again, it would seem Jacob is sitting in a chair watching something on his phone")
+            input()
+            print("He invites you to sit on the couch next to the chair, you have a seat and start talking about the lake festival.")
+            print(
+                '"Hey, how was Lake Fest yesterday? Every year I tell myself I’m gonna go but something comes up or I procrastinate and end up missing it."')
+            input()
+            print("You tell Jacob about your day at the festival, including your purchase at the vendor.")
+            input()
+            if CharInfo.festival_checks.painting_purchase is True:
+                print(
+                    '"A piece of artwork, huh? Never had you figured as that type, probably because I’ve never seen you hang so much as a picture on your walls."')
+                input()
+            elif CharInfo.festival_checks.wooden_sculpture is True:
+                print(
+                    '"Wood sculptures are pretty cool, I tried taking wood carving up as hobby but didn’t have much luck with it. Just didn’t have the ‘artistic vision’ I suppose."')
+                input()
+            elif CharInfo.festival_checks.trash_vendor is True:
+                print(
+                    '"Man guess I better be on the look out now, it’d be just like you to gift me something like that for my birthday."')
+                input()
+            print("You also tell Jacob about your time spent hanging out with Holly at the festival.")
+            input()
+            if CharInfo.festival_checks.holly_stay is True:
+                print(
+                    '"Hell yeah buddy, sounds like you two really hit it off. You better be planning on a follow up date; not every day you find someone like that."')
+                input()
+            elif CharInfo.festival_checks.holly_stay is not True:
+                print(
+                    '"Hey, if you don’t click, you don’t click. Guess there’s a reason you didn’t really stay friends, right?"')
+                input()
+            print("You thank Jacob for the words of encouragement. Now on too the real reason you came here to talk.")
+            input()
+            print("You tell Jacob that you’ve decided to commit to a road trip, like you mentioned to him earlier.")
+            print("You ask him if he has any ideas on where you should go or what you should see.")
+            input()
+            print(
+                '"Hah, I was just thinking of that road trip comment this morning. I didn’t think you really had it in you."')
+            input()
+            print(
+                '"Man, there’s a handful of places I can think of. There’s an awesome museum in Jonstown, which is along I-23 heading west. Should be right on the route you’d take."')
+            input()
+            print(
+                '"There’s also a beautiful state park in Loba, which is in the next state over. Place is called Occidentale State Park, they’ve got camping sites near by if you’re up for that as well. I went there about 3 years ago for spring break with an ex."')
+            input()
+            print(
+                '"Another place to check out is the Ragniti pop factory, it’s on Interstate 65 in Loba, which you’ll probably be taking in order to take on I-23. They give tours everyday, might be a nice little thing to check so you can give yourself a break from driving."')
+            input()
+            if CharInfo.sasha_checks.sasha_post_fest is not True:
+                print("You take a list of all the places Jacob gave you, this should be a good start.")
+                input()
+            elif CharInfo.sasha_checks.sasha_post_fest is True:
+                print(
+                    "You take a list of the places Jacob gave you, they should be a fine addition to your collection.")
+                input()
+            print(
+                "With Jacob’s experience traveling, you feel that he might be a good person to take along on your trip.")
+            print(
+                "You decide to ask him if he’d want to travel with you, saying that he doesn’t have too but that you’d definitely appreciate his experience and friendship out on the road.")
+            input()
+            print('"That’s a pretty nice offer, might take you up on it. How long till you take off?"')
+            input()
+            print("You tell Jacob that you were planning on heading out in around a months' time.")
+            input()
+            print(
+                '"A bit short notice too put in vacation time for work, I’ll have to discuss it with Joe and see if we can work something out. Probably be a about 3 or so weeks, yeah?"')
+            input()
+            print("You tell Jacob that you were planning on the road trip being no more than 4 weeks.")
+            input()
+            print(
+                '"Alright, I’ll check it out with my work and get back to you then, if I get the time off I guess we’ll be going on a road trip together!"')
+            input()
+            if CharInfo.sasha_checks.sasha_post_fest is not True:
+                print("You tell Jacob you’re looking forward too it. Now to see what Sasha has to say.")
+                input()
+            elif CharInfo.sasha_checks.sasha_post_fest is True and CharInfo.festival_checks.holly_stay is True:
+                print("You tell Jacob you’re looking forward to it. Now too see what’s up with Holly.")
+                input()
+            elif CharInfo.sasha_checks.sasha_post_fest is True and CharInfo.festival_checks.holly_stay is not True:
+                print(
+                    "You tell Jacob you’re looking forward to it. By now Chris should have gotten his list together, you should probably check the computer and see what he said.")
+                input()
+            CharInfo.jacob_checks.jacob_post_fest = True
+            SaveSystem.save_sys.saving()
+            entranceway()
+        elif CharInfo.jacob_checks.jacob_post_fest is True:
+            print("There's nobody in the living room, guess Jacob went to do something else.")
+            input()
 
 
 class FirstWorld:

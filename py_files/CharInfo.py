@@ -20,14 +20,16 @@ class PlayerCharacter(PlayerStats):
 
 
 class GlobalCheckSasha:
-    def __init__(self, sasha_talk, sasha_living):
+    def __init__(self, sasha_talk, sasha_living, sasha_post_fest):
         self.sasha_talk = sasha_talk
         self.sasha_living = sasha_living
+        self.sasha_post_fest = sasha_post_fest
 
 class GlobalCheckJacob:
-    def __init__(self, jacob_kitchen, jacob_bedroom):
+    def __init__(self, jacob_kitchen, jacob_bedroom, jacob_post_fest):
         self.jacob_kitchen = jacob_kitchen
         self.jacob_bedroom = jacob_bedroom
+        self.jacob_post_fest = jacob_post_fest
 
 class GlobalCheckMisc:
     def __init__(self, cafe_finished, bathroom_bd):
@@ -58,8 +60,10 @@ class GlobalCheckChris:
         self.chris_computer_list_completed = chris_computer_list_completed
 
 player_info = PlayerCharacter()
-sasha_checks = GlobalCheckSasha(sasha_talk=GlobalCheckSasha, sasha_living=GlobalCheckSasha)
-jacob_checks = GlobalCheckJacob(jacob_kitchen=GlobalCheckJacob, jacob_bedroom=GlobalCheckJacob)
+sasha_checks = GlobalCheckSasha(sasha_talk=GlobalCheckSasha, sasha_living=GlobalCheckSasha,
+                                sasha_post_fest= GlobalCheckSasha)
+jacob_checks = GlobalCheckJacob(jacob_kitchen=GlobalCheckJacob, jacob_bedroom=GlobalCheckJacob,
+                                jacob_post_fest = GlobalCheckJacob)
 misc_checks = GlobalCheckMisc(cafe_finished=GlobalCheckMisc, bathroom_bd=GlobalCheckMisc)
 park_checks = GlobalCheckLakePark(park_lake_path=GlobalCheckLakePark, park_roommate_path=GlobalCheckLakePark)
 festival_checks = GlobalCheckFestival(bus_ride_complete=GlobalCheckFestival, painting_purchase=GlobalCheckFestival,
