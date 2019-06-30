@@ -14,7 +14,7 @@ class GameState:
                     CharInfo.festival_checks.wooden_sculpture, CharInfo.festival_checks.trash_vendor,
                     CharInfo.festival_checks.holly_stay, CharInfo.festival_checks.festival_walk,
                     CharInfo.festival_checks.festival_game, CharInfo.festival_checks.festival_ending,
-                    CharInfo.chris_checks.chris_computer_list,
+                    CharInfo.chris_checks.chris_computer_list, CharInfo.holly_checks.holly_relationship_status,
                     CharInfo.jacob_checks.jacob_post_fest, CharInfo.sasha_checks.sasha_post_fest], pickle_out)
         pickle_out.close()
         print("Game Saved!")
@@ -32,7 +32,7 @@ class GameState:
          CharInfo.festival_checks.wooden_sculpture, CharInfo.festival_checks.trash_vendor,
          CharInfo.festival_checks.holly_stay,  CharInfo.festival_checks.festival_walk,
          CharInfo.festival_checks.festival_game, CharInfo.festival_checks.festival_ending,
-         CharInfo.chris_checks.chris_computer_list,
+         CharInfo.chris_checks.chris_computer_list, CharInfo.holly_checks.holly_relationship_status,
          CharInfo.jacob_checks.jacob_post_fest, CharInfo.sasha_checks.sasha_post_fest] = pickle.load(pickle_in)
         pickle_in.close()
         print("Game Loaded!")

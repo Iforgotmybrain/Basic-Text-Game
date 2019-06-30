@@ -10,6 +10,7 @@ import SaveSystem
 import CharInfo
 import TravelSystem
 import Festival
+import HollyText
 
 
 def bank_money():
@@ -37,11 +38,11 @@ def pcbedroom():
     if CharInfo.misc_checks.bathroom_bd is not True:
         print(
             "You wake up the next morning, your bedroom is dimly lit with the only source of light being the sun as it sneaks through the blinds.")
-    elif CharInfo.sasha_checks.sasha_living is True and CharInfo.jacob_checks.jacob_bedroom is not True:
+    elif CharInfo.sasha_checks.sasha_living is True and CharInfo.jacob_checks.jacob_bedroom is not True:  # Makes it so the dialogue doesn't repeat
         print("You wake up the next day feeling better. Your conversation with Sasha helped ease your mind, and made you realize just how great of friends you have now.")
         print("You think about possibly asking Jacob about some of his past trips. He should be in his bedroom.")
         input()
-    elif CharInfo.festival_checks.festival_ending is True and CharInfo.chris_checks.chris_computer_list is not True:
+    elif CharInfo.festival_checks.festival_ending is True and CharInfo.chris_checks.chris_computer_list is not True:  # Same thing.
         print("You wake up the next morning still a bit surprised by the events of last night.")
         input()
         print("You check your phone to make sure that last night wasn't just a dream, it definitely wasn't.")
@@ -52,16 +53,16 @@ def pcbedroom():
         input()
         print("You could also check out Chris the Tiger’s Pawbook account and see what he suggests checking out. You could do that on your computer in the bedroom.")
         input()
-        if CharInfo.festival_checks.holly_stay is True:
+        if CharInfo.festival_checks.holly_stay is True:  # Only brings up this dialogue is the player stuck around with Holly.
             print("Maybe not strictly related to the road trip, but you could look into maybe going on another date with Holly as well. You might try and Call Holly to see if she’d be up for that.")
             input()
         print("It’s quite a nice day out as well, you might go on a walk just for the hell of it.")
         input()
     print("You are standing in your bedroom. You see the door to the bathroom to your east, and the doorway to the hallway directly ahead to the north.")
-    if CharInfo.festival_checks.festival_ending is True:
-        print("There is also your computer to the south of the room.")
+    if CharInfo.festival_checks.festival_ending is True:  # Makes it so the player cannot access the phone or computer before they complete the festival. Which is when they become functional.
+        print("There is also your computer to the south of the room. You could also use your Phone to check up on Holly.")
     print("You could also check your bank balance.")
-    pcbedroomdirection = input('Which way do you go? ').lower()
+    pcbedroomdirection = input('Which do you do? ').lower()
     CharInfo.player_info.player_location = pcbedroom
     if pcbedroomdirection in ['east', 'e']:
         player_bathroom.bathroompc()
@@ -74,8 +75,12 @@ def pcbedroom():
 
     elif pcbedroomdirection in ['bank', 'money', 'balance']:
         bank_money()
+
     elif pcbedroomdirection in ['south', 's', 'computer', 'pc']:
         pccomputer()
+
+    elif pcbedroomdirection in ['phone', 'smartphone', 'cellphone', 'call', 'text']:
+        HollyText.holly_text_dialogue.holly_text_one()
 
     else:
         print("Invalid input")
@@ -554,22 +559,33 @@ class JacobDialogue:
             print(
                 '"Alright, I’ll check it out with my work and get back to you then, if I get the time off I guess we’ll be going on a road trip together!"')
             input()
+
             if CharInfo.sasha_checks.sasha_post_fest is not True:
                 print("You tell Jacob you’re looking forward too it. Now to see what Sasha has to say.")
                 input()
+                CharInfo.jacob_checks.jacob_post_fest = True
+                SaveSystem.save_sys.saving()
+                entranceway()
+
             elif CharInfo.sasha_checks.sasha_post_fest is True and CharInfo.festival_checks.holly_stay is True:
-                print("You tell Jacob you’re looking forward to it. Now too see what’s up with Holly.")
+                print("You tell Jacob you’re looking forward to it. Maybe now you should see what Holly's up to using your phone in the bedroom.")  # (This is placeholder. I want to make it so the player can use the phone at all locations)
                 input()
+                CharInfo.jacob_checks.jacob_post_fest = True
+                SaveSystem.save_sys.saving()
+                entranceway()
+
             elif CharInfo.sasha_checks.sasha_post_fest is True and CharInfo.festival_checks.holly_stay is not True:
                 print(
                     "You tell Jacob you’re looking forward to it. By now Chris should have gotten his list together, you should probably check the computer and see what he said.")
                 input()
-            CharInfo.jacob_checks.jacob_post_fest = True
-            SaveSystem.save_sys.saving()
-            entranceway()
+                CharInfo.jacob_checks.jacob_post_fest = True
+                SaveSystem.save_sys.saving()
+                entranceway()
+
         elif CharInfo.jacob_checks.jacob_post_fest is True:
             print("There's nobody in the living room, guess Jacob went to do something else.")
             input()
+            entranceway()
 
 
 class FirstWorld:
@@ -821,6 +837,7 @@ TravelSystem.travel_function.travel_point_cafe = tories_cafe.thecafe  # Sets tra
 TravelSystem.travel_function.travel_point_park = sycamore_park.lakepark
 TravelSystem.travel_function.travel_point_festival_one = Festival.festival_area.bus_ride
 TravelSystem.travel_function.travel_point_bedroom = pcbedroom
+TravelSystem.travel_function.travel_point_hallway = hallway
 
 
 loadingoption = input("Do you wish to load a game? ").lower()  # Make it so this is the first question asked.
