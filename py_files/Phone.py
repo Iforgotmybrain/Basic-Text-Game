@@ -3,6 +3,14 @@ import CharInfo
 import TravelSystem
 
 
+class PhonePlacement:
+    def phone_placeing(self):
+        if CharInfo.festival_checks.festival_ending is True and CharInfo.festival_checks.holly_stay is True:
+            holly_text_dialogue.holly_text_one()
+        else:
+            print("You can't think of anyone to text or call right now.")
+            return
+
 class HollyTextDialogue:
     def holly_text_one(self):
         print("You hold your smartphone and pull up your contacts app, scrolling down until you hit the H column and find “Holly”.")
@@ -21,6 +29,7 @@ class HollyTextDialogue:
         holly_relationship_option = input("(1): Ask Holly if she’d like to go another date sometime. \
         (2): Tell Holly that while you enjoyed last night you aren’t really interested in a relationship at the moment.\
         (3): Tell Holly that you just aren’t really interested in taking the relationship any further, as you didn’t really feel a strong connection with her.").lower()
+
         if holly_relationship_option in ['1']:
             print("You write up a message to Holly telling her that you really enjoyed your time spent together last night, and that you’d be interested in going on another date if she would be up for it.")
             input()
@@ -33,6 +42,54 @@ class HollyTextDialogue:
 
             if holly_one_option in ['1']:
                 print("It’s been a long time since you’ve gotten along with someone as well as you did with Holly yesterday. You sent the text message and eagerly await her response.")
+                input()
+                print("She sends a reply quite quickly, you read the message with great anticipation, it says the following:")
+                input()
+                print('"I’d totally be down for another date. I had a fantastic time last night, we had some really good chemistry going on, I felt."')
+                print('"I was thinking we could just get dinner together sometime next week. See where this thing goes from there."')
+                input()
+                print("You sent back a message saying that you’d be fine with getting dinner sometime. You also ask if she has any place in mind for dinner.")
+                input()
+                print("“I don’t know. I didn’t really think I’d get this far if I’m being honest.”")
+                print("“Maybe a steakhouse? I dunno, but I’d be fine with going somewhere you want.”")
+                input()
+                print("You’ve been feeling like Mexican food recently, but you also wouldn’t mind going to the Firefly Tavern.")
+                print("No better time then the present to pick a place to eat, you text Holly and tell her that you want to eat at…")
+                holly_restaurant = input("(1). El Presidente’s Palace, the Mexican restaurant. \
+                (2). Polo’s Steakhouse \
+                (3). Firefly Tavern")
+
+                if holly_restaurant in ['1']:
+                    print('"Mexican food sounds good, I’m down for that."')
+                    CharInfo.holly_checks.holly_date_restaurant = 'mexican'
+                    input()
+
+                elif holly_restaurant in ['2']:
+                    print('"Aw, you’re just going there because I mentioned it aren’t you?"')
+                    print('"It’s fine though, I mentioned it for a reason."')
+                    input()
+                    CharInfo.holly_checks.holly_date_restaurant = 'steakhouse'
+                    input()
+
+                elif holly_restaurant in ['3']:
+                    print('"Never been there, guess I’ll just have to trust your judgement in food."')
+                    CharInfo.holly_checks.holly_date_restaurant = 'tavern'
+                    input()
+
+                print('"Now we’ve just gotta figure out a time and date, Lemme just make sure I don’t have anything coming up real quick."')
+                input()
+                print("You know for a fact that you don’t have anything upcoming, so pretty much anytime would work.")
+                input()
+                print('"How about next Thursday at around 6 PM? Should give us some extra time after dinner, and we should be able to avoid a long wait time."')
+                input()
+                print("You tell Holly that the time will work great and that you’re looking forward to it.")
+                input()
+                print('"Same, if it’s anything like yesterday I’m sure it will be great."')
+                input()
+                print("The texts slow down shortly after that, with just some back and forth conversation throughout the rest of the day.")
+                CharInfo.holly_checks.holly_relationship_status = 'dating'
+                SaveSystem.save_sys.saving()
+                TravelSystem.travel_function.travel_point_bedroom()
 
             elif holly_one_option in ['2']:
                 return self.holly_text_decision()
@@ -47,6 +104,20 @@ class HollyTextDialogue:
 
             if holly_two_option in ['1']:
                 print("You sent the message, you appreciated Holly’s company but you just aren’t down for a relationship at the moment, you want to keep your options open.")
+                input()
+                print("She quickly replies, her message says: “That’s fine, I understand completely.”")
+                print("“I appreciate you saying that up front rather than just stringing me along.”")
+                input()
+                print("You tell Holly that you wouldn’t’ think of just leaving her out in the air. Even if your relationship doesn’t go anywhere else you still want to remain friends, after all.")
+                input()
+                print('"I get it, I’m fine with just being friends. If circumstances change I wouldn’t say no to another date, though."')
+                input()
+                print("You reply and tell Holly that you’ll keep it in mind, the grass isn’t always greener on the other side.")
+                print("The conversation ends fairly quickly after that message, you put your smartphone down and return the land of the living.")
+                input()
+                CharInfo.holly_checks.holly_relationship_status = 'hold'
+                SaveSystem.save_sys.saving()
+                TravelSystem.travel_function.travel_point_bedroom()
 
             elif holly_two_option in ['2']:
                 return self.holly_text_decision()
@@ -92,6 +163,8 @@ class HollyTextDialogue:
             elif holly_three_option in ['2']:
                 return self.holly_text_decision()
 
+
+smart_phone_placement = PhonePlacement()
 
 holly_text_dialogue = HollyTextDialogue()
 

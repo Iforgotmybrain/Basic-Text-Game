@@ -10,7 +10,7 @@ import SaveSystem
 import CharInfo
 import TravelSystem
 import Festival
-import HollyText
+import Phone
 
 
 def bank_money():
@@ -42,7 +42,8 @@ def pcbedroom():
         print("You wake up the next day feeling better. Your conversation with Sasha helped ease your mind, and made you realize just how great of friends you have now.")
         print("You think about possibly asking Jacob about some of his past trips. He should be in his bedroom.")
         input()
-    elif CharInfo.festival_checks.festival_ending is True and CharInfo.chris_checks.chris_computer_list is not True:  # Same thing.
+
+    elif CharInfo.festival_checks.festival_ending is True and CharInfo.chris_checks.chris_computer_list is not True: # Same thing.
         print("You wake up the next morning still a bit surprised by the events of last night.")
         input()
         print("You check your phone to make sure that last night wasn't just a dream, it definitely wasn't.")
@@ -53,14 +54,17 @@ def pcbedroom():
         input()
         print("You could also check out Chris the Tiger’s Pawbook account and see what he suggests checking out. You could do that on your computer in the bedroom.")
         input()
+
         if CharInfo.festival_checks.holly_stay is True:  # Only brings up this dialogue is the player stuck around with Holly.
             print("Maybe not strictly related to the road trip, but you could look into maybe going on another date with Holly as well. You might try and Call Holly to see if she’d be up for that.")
             input()
         print("It’s quite a nice day out as well, you might go on a walk just for the hell of it.")
         input()
     print("You are standing in your bedroom. You see the door to the bathroom to your east, and the doorway to the hallway directly ahead to the north.")
+
     if CharInfo.festival_checks.festival_ending is True:  # Makes it so the player cannot access the phone or computer before they complete the festival. Which is when they become functional.
         print("There is also your computer to the south of the room. You could also use your Phone to check up on Holly.")
+
     print("You could also check your bank balance.")
     pcbedroomdirection = input('Which do you do? ').lower()
     CharInfo.player_info.player_location = pcbedroom
@@ -79,8 +83,8 @@ def pcbedroom():
     elif pcbedroomdirection in ['south', 's', 'computer', 'pc']:
         pccomputer()
 
-    elif pcbedroomdirection in ['phone', 'smartphone', 'cellphone', 'call', 'text']:
-        HollyText.holly_text_dialogue.holly_text_one()
+    elif pcbedroomdirection in ['phone', 'smartphone', 'cellphone', 'call', 'text', 'cell']:
+        Phone.smart_phone_placement.phone_placeing()
 
     else:
         print("Invalid input")
@@ -149,25 +153,36 @@ def hallway():
         print("You enter a hallway. You can enter your bedroom to the south. There's also a doorway to your west, a staircase to your east, and another doorway to the north.")
         hallwaydirection = input("Which direction do you go? ").lower()
         if hallwaydirection in ["west", "w"]:
+
             if CharInfo.sasha_checks.sasha_talk is not True:  # Checks to see if player has talked to sasha before
                 sasha_encounter.bedroom()
                 break
+
             elif CharInfo.sasha_checks.sasha_talk is True:
                 sasha_encounter.sashabedroom()
                 break
+
         elif hallwaydirection in ["east", "e"]:
             entranceway()
             break
+
         elif hallwaydirection in ['save']:
             SaveSystem.save_sys.saving()
+
         elif hallwaydirection in ['north', 'n']:
             if CharInfo.sasha_checks.sasha_living is not True:
                 print("The door is locked. Maybe you should come back later.")
                 return hallway()
+
             elif CharInfo.sasha_checks.sasha_living is True:
                 jacob_kitchen.bedroomdialogue()
+
         elif hallwaydirection in ['south', 's']:
             pcbedroom()
+
+        elif hallwaydirection in ['phone', 'smartphone', 'cellphone', 'call', 'text', 'cell']:
+            Phone.smart_phone_placement.phone_placeing()
+
         else:
             print("Invalid input")
             return hallway()
@@ -265,10 +280,13 @@ def entranceway():
             break
 
         elif entrancewaydirection in ["east", "e"]:
+
             if CharInfo.jacob_checks.jacob_kitchen is True and CharInfo.misc_checks.cafe_finished is True and CharInfo.park_checks.park_lake_path is True and CharInfo.sasha_checks.sasha_talk is True and CharInfo.festival_checks.festival_ending is not True:
                 sasha_living.sashadialogue()
+
             elif CharInfo.festival_checks.festival_ending is True:
                 jacob_kitchen.jacob_post_fest()
+
             else:
                 print(
                     "You enter the living area and see nothing of note. Perhaps you should return here after visiting a couple places.")
@@ -280,6 +298,10 @@ def entranceway():
 
         elif entrancewaydirection in ['save']:
             SaveSystem.save_sys.saving()
+
+        elif entrancewaydirection in ['phone', 'smartphone', 'cellphone', 'call', 'text', 'cell']:
+            Phone.smart_phone_placement.phone_placeing()
+
 
         else:
             print("Invalid input")

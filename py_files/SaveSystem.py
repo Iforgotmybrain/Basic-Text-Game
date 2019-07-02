@@ -15,7 +15,8 @@ class GameState:
                     CharInfo.festival_checks.holly_stay, CharInfo.festival_checks.festival_walk,
                     CharInfo.festival_checks.festival_game, CharInfo.festival_checks.festival_ending,
                     CharInfo.chris_checks.chris_computer_list, CharInfo.holly_checks.holly_relationship_status,
-                    CharInfo.jacob_checks.jacob_post_fest, CharInfo.sasha_checks.sasha_post_fest], pickle_out)
+                    CharInfo.jacob_checks.jacob_post_fest, CharInfo.sasha_checks.sasha_post_fest,
+                    CharInfo.holly_checks.holly_date_restaurant], pickle_out)
         pickle_out.close()
         print("Game Saved!")
         CharInfo.player_info.player_location()
@@ -33,7 +34,8 @@ class GameState:
          CharInfo.festival_checks.holly_stay,  CharInfo.festival_checks.festival_walk,
          CharInfo.festival_checks.festival_game, CharInfo.festival_checks.festival_ending,
          CharInfo.chris_checks.chris_computer_list, CharInfo.holly_checks.holly_relationship_status,
-         CharInfo.jacob_checks.jacob_post_fest, CharInfo.sasha_checks.sasha_post_fest] = pickle.load(pickle_in)
+         CharInfo.jacob_checks.jacob_post_fest, CharInfo.sasha_checks.sasha_post_fest,
+         CharInfo.holly_checks.holly_date_restaurant] = pickle.load(pickle_in)
         pickle_in.close()
         print("Game Loaded!")
         CharInfo.player_info.player_location()

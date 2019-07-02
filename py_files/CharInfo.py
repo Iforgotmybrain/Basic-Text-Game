@@ -32,8 +32,9 @@ class GlobalCheckJacob:
         self.jacob_post_fest = jacob_post_fest
 
 class GlobalCheckHolly:
-    def __init__(self, holly_relationship_status):
+    def __init__(self, holly_relationship_status, holly_date_restaurant):
         self.holly_relationship_status = holly_relationship_status
+        self.holly_date_restaurant = holly_date_restaurant
 
 class GlobalCheckMisc:
     def __init__(self, cafe_finished, bathroom_bd):
@@ -68,7 +69,7 @@ sasha_checks = GlobalCheckSasha(sasha_talk=GlobalCheckSasha, sasha_living=Global
                                 sasha_post_fest= GlobalCheckSasha)
 jacob_checks = GlobalCheckJacob(jacob_kitchen=GlobalCheckJacob, jacob_bedroom=GlobalCheckJacob,
                                 jacob_post_fest = GlobalCheckJacob)
-holly_checks = GlobalCheckHolly(holly_relationship_status=GlobalCheckHolly)
+holly_checks = GlobalCheckHolly(holly_relationship_status=GlobalCheckHolly, holly_date_restaurant=GlobalCheckHolly)
 misc_checks = GlobalCheckMisc(cafe_finished=GlobalCheckMisc, bathroom_bd=GlobalCheckMisc)
 park_checks = GlobalCheckLakePark(park_lake_path=GlobalCheckLakePark, park_roommate_path=GlobalCheckLakePark)
 festival_checks = GlobalCheckFestival(bus_ride_complete=GlobalCheckFestival, painting_purchase=GlobalCheckFestival,
