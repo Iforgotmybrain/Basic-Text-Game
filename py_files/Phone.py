@@ -26,7 +26,7 @@ class HollyTextDialogue:
 
     def holly_text_decision(self):
         print("You think a bit about what to write up next, eventually deciding too:")
-        holly_relationship_option = input("(1): Ask Holly if she’d like to go another date sometime. \
+        holly_relationship_option = input("(1): Ask Holly if she’d like to go on another date sometime. \
         (2): Tell Holly that while you enjoyed last night you aren’t really interested in a relationship at the moment.\
         (3): Tell Holly that you just aren’t really interested in taking the relationship any further, as you didn’t really feel a strong connection with her.").lower()
 

@@ -63,7 +63,9 @@ def pcbedroom():
     print("You are standing in your bedroom. You see the door to the bathroom to your east, and the doorway to the hallway directly ahead to the north.")
 
     if CharInfo.festival_checks.festival_ending is True:  # Makes it so the player cannot access the phone or computer before they complete the festival. Which is when they become functional.
-        print("There is also your computer to the south of the room. You could also use your Phone to check up on Holly.")
+        print("There is also your computer to the south of the room.")
+        if CharInfo.jacob_checks.jacob_post_fest is True and CharInfo.sasha_checks.sasha_post_fest is True:
+            print("You could also use your Phone to check up on Holly.")
 
     print("You could also check your bank balance.")
     pcbedroomdirection = input('Which do you do? ').lower()
@@ -115,6 +117,7 @@ def pccomputer():
         CharInfo.chris_checks.chris_computer_list = True
         SaveSystem.save_sys.saving()
         pcbedroom()
+
     elif CharInfo.chris_checks.chris_computer_list is True and CharInfo.chris_checks.chris_computer_list_completed is not True:
         print("You check your Pawbook messages and don’t see anything from Chris. He’s probably still working on it")
         pcbedroom()
@@ -158,8 +161,12 @@ def hallway():
                 sasha_encounter.bedroom()
                 break
 
-            elif CharInfo.sasha_checks.sasha_talk is True:
+            elif CharInfo.sasha_checks.sasha_talk is True and CharInfo.festival_checks.festival_ending is not True:
                 sasha_encounter.sashabedroom()
+                break
+
+            elif CharInfo.festival_checks.festival_ending is True:
+                sasha_encounter.sasha_post_fest_dialogue()
                 break
 
         elif hallwaydirection in ["east", "e"]:
@@ -196,8 +203,10 @@ class SashaEncounter:
             print(
                 "To your left you see a German Shepard sitting at a desk, to the south you see the doorway to the hallway")
             bedroomoption = input("What do you do? ").lower()
-            if bedroomoption in ["talk", "t", 'left', 'l', 'german shepard', 'shepard']:
+
+            if bedroomoption in ["talk", "t", 'left', 'l', 'german shepard', 'shepard'] and CharInfo.festival_checks.festival_ending is not True:
                 self.sashabedroomdialog()
+
             elif bedroomoption in ["south", "s"]:
                 hallway()
             else:
@@ -253,15 +262,106 @@ class SashaEncounter:
         while True:
             print("You see Sasha, your roommate, and the doorway to the hallway to your south")
             direction = input("What do you wish to do? ").lower()
+
             if direction in ["south", "s"]:
                 hallway()
                 break
+
             elif direction in ["talk", 't']:
                 self.sashabedroomdialog()
                 break
+
             else:
                 print("Invalid input")
                 return self.sashabedroom()
+
+    def sasha_post_fest_dialogue(self):
+        print("You knock on Sasha’s door, hoping to get some input on your road trip itinerary.")
+        input()
+        print("While Sasha isn’t very well-traveled, you figured it couldn’t hurt to ask her what she thinks about the whole thing.")
+        input()
+        print("She answers the door and invites you in, her room largely unchanged from when you last saw it.")
+        input()
+        print("“So what brings you to me today? More confiding? Wanna talk about someone?”")
+        input()
+        print("You tell Sasha, that, despite her snarky remarks, you were actually here to talk about something else for once.")
+        input()
+        print("“Alright, I was just messing with you. Just seems like you always come to me when you need to talk about something, which is fine, just wanted to poke some fun at it.”")
+        input()
+        print("You mention to Sasha that the main reason you came here was to discuss destinations for the road trip.")
+        print("You take a brief moment to explain what the road trip is exactly, and what you currently plan on doing.")
+        input()
+        print("“Seems like a good time, bit of a different approach I suppose. I’ve always thought of road trips as just driving across the country, not really sightseeing.”")
+        input()
+        print("You ask Sasha if she has any suggestions on where to stop. You’re not expecting her to have a list as extensive as Chris or Jacob, but she might have some good suggestions from when she lived out of state.")
+        input()
+
+        if CharInfo.jacob_checks.jacob_post_fest is True:
+            print("“Want some places to check out, huh? Seems like Jacob’s given you a pretty good start on local places already.”")
+            input()
+
+        elif CharInfo.jacob_checks.jacob_post_fest is not True:
+            print("“Hah, maybe I’m not the best person to ask for travel destinations since I’m not the most well-traveled person. Jacob would probably be a good bet if you wanted some suggestions that are actually decent.”")
+            input()
+        print("“Regardless, I can think of couple places back in my old state of Choloco you could check out.”")
+        input()
+        print("“Let’s see, I always enjoyed checking out the aviation museum in Iridium City. Think it was called Beaver 17 Aviation Museum. Might be a bit out of the way though, since it’s in a more rural area of the state.”")
+        input()
+        print("“There’s also a big roller coaster park near Yinzville, it’s right along the turnpike so it shouldn’t be out of the way much.”")
+        input()
+        print("“Honestly that’s about all I can think of really. There’re a few nice parks but none I’d go out of my way to visit. Sorry I couldn’t be much help, I guess Choloco just isn’t that interesting of a state.”")
+        input()
+        print("You tell Sasha you appreciate her help anyway; any help is better than no help.")
+        print("You’ve thought about bringing along Sasha for the road trip, she’s been a great friend, and there’s not many other people you could see yourself trekking across the country with.")
+        input()
+        print("You do have to keep in mind the amount of people you’re planning on taking with you. You were thinking a max of 3 people too keep the car from being too crowded or busy.")
+        print("It might not be bad idea to ask even if you’re not sure on who you’re taking. Since it would give you an idea of who wants to go and who doesn’t.")
+        input()
+        print("You’re not making any final decisions yet, you’ve still got a fair bit of time to assemble and finalize your crew.")
+        input()
+        print("You decide to ask Sasha how she would feel about going on the road trip with you, telling her that it likely be a month trip, and that you’d be taking a total of 3 people.")
+        input()
+        print("“I’d be interested. 3 people seems like a good amount, and I’ve always wanted to get out and travel more.”")
+        print("“A months’ time though… That’s going to be really tough to try and get off at work. I don’t know if I even have that much vacation time…”")
+        input()
+        print("“Say, do you have anyone else interested in going? I figured you’d probably ask Jacob if you haven’t already. And then who knows who the 3rd person will be.”")
+        input()
+        if CharInfo.jacob_checks.jacob_post_fest is True:
+            print("You tell Sasha that you have indeed asked Jacob about tagging along, and that he’ll have to check with his boss first.")
+            input()
+        elif CharInfo.jacob_checks.jacob_post_fest is not True:
+            print("You tell Sasha she’s the first person you’ve asked about it.")
+            input()
+        print("“Okay, tell you what, I’ll check out my vacation time and get back to you on an answer. If I can somehow get the time off, it’ll likely be a yes.”")
+        input()
+        print("You give Sasha an enthusiastic cheer, telling her that you’re looking forward to hearing back from her.")
+        input()
+
+        if CharInfo.jacob_checks.jacob_post_fest is True and CharInfo.festival_checks.holly_stay is True:
+            print("You exit Sasha’s room. You should probably see about getting in contact with Holly. Your smartphone in the bedroom might be a good way to go about it.")
+            input()
+            CharInfo.sasha_checks.sasha_post_fest = True
+            CharInfo.player_info.player_location = hallway
+            SaveSystem.save_sys.saving()
+            hallway()
+
+        elif CharInfo.jacob_checks.jacob_post_fest is not True:
+            print("You exit Sasha’s room. You should probably go talk to Jacob about the road trip.")
+            input()
+            CharInfo.sasha_checks.sasha_post_fest = True
+            CharInfo.player_info.player_location = hallway
+            SaveSystem.save_sys.saving()
+            hallway()
+
+        elif CharInfo.jacob_checks.jacob_post_fest is True and CharInfo.festival_checks.holly_stay is not True:
+            print("You exit Holly’s room. Chris probably has his list posted on Pawbook by now.")
+            CharInfo.sasha_checks.sasha_post_fest = True
+            CharInfo.player_info.player_location = hallway
+            SaveSystem.save_sys.saving()
+            hallway()
+
+
+
 
 
 def entranceway():
@@ -566,6 +666,11 @@ class JacobDialogue:
                 input()
             print(
                 "With Jacob’s experience traveling, you feel that he might be a good person to take along on your trip.")
+            print("Although, this might limit who you can take on the road trip. As you’re thinking of taking no more then 3 people. Anymore and it would get a bit crowded in the car.")
+            input()
+            print("Still, it might not hurt to ask him anyway. It would give you a good idea on if he would be willing to go.")
+            print("After all, you don’t have to make a final decision on who you’re taking until later. ")
+            input()
             print(
                 "You decide to ask him if he’d want to travel with you, saying that he doesn’t have too but that you’d definitely appreciate his experience and friendship out on the road.")
             input()
@@ -579,7 +684,7 @@ class JacobDialogue:
             print("You tell Jacob that you were planning on the road trip being no more than 4 weeks.")
             input()
             print(
-                '"Alright, I’ll check it out with my work and get back to you then, if I get the time off I guess we’ll be going on a road trip together!"')
+                '"Alright, I’ll check it out with my work and get back to you then, if I get the time off I’ll let you know and we can work it out."')
             input()
 
             if CharInfo.sasha_checks.sasha_post_fest is not True:

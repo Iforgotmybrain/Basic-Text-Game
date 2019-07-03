@@ -29,7 +29,7 @@ class GlobalCheckJacob:
     def __init__(self, jacob_kitchen, jacob_bedroom, jacob_post_fest):
         self.jacob_kitchen = jacob_kitchen
         self.jacob_bedroom = jacob_bedroom
-        self.jacob_post_fest = jacob_post_fest
+        self.jacob_post_fest = jacob_post_fest  # Marks that the player has talked to Jacob about the road trip.
 
 class GlobalCheckHolly:
     def __init__(self, holly_relationship_status, holly_date_restaurant):
