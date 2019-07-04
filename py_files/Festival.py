@@ -115,7 +115,8 @@ class FestivalStart:
         festival_vendor = input("Which one do you want to check out? ")
         if festival_vendor in ['paint', 'painter', 'oil painting','painting']:
             self.vendor_painting()
-        elif festival_vendor in ['hat', 'shirt', 'tshirt', 't-shirt', 'trash', 'weed', 'novelty vendor', 'snoop dogg']:
+        elif festival_vendor in ['hat', 'shirt', 'tshirt', 't-shirt', 'trash', 'weed', 'novelty vendor', 'snoop dogg',
+                                 'novelty', '3rd', 'third']:
             self.trashy_vendor()
         elif festival_vendor in ['wood', 'wooden', 'wood sculptor', 'wooden sculptor']:
             self.wooden_vendor()
@@ -226,7 +227,9 @@ class FestivalStart:
         print("You decide to visit the t-shirt vendor.")
         print("This booth sells graphic tees, and the finest of bootleg snap-back hats. The shirts are $15 and the hats are $20")
         input()
-        print("The T-shirts mostly have some form of meme or pop culture reference on them. You can see a T-shirt with Heath Ledger’s joker on it, with the caption ‘why so serious?’. You also see a T-shirt with the oh-so popular game Fortnite on it, the shirt has picture of the game’s iconic llama with the caption ‘eat, sleep, Fortnite, repeat’.")
+        print("The T-shirts mostly have some form of meme or pop culture reference on them. You can see a T-shirt with Heath Ledger’s joker on it, with the caption ‘why so serious?’. ")
+        input()
+        print ("You also see a T-shirt with the oh-so popular game Fortnite on it, the shirt has picture of the game’s iconic mascot with the caption ‘eat, sleep, Fortnite, repeat’.")
         input()
         print("The hats mostly have popular sports teams on them, with the Yankees easily being the most common one. They also have a hat with weed leaf on the front, and the number 420 on the bill.")
         input()
@@ -235,7 +238,7 @@ class FestivalStart:
         print("But, if you had to choose ''something'', you think you would pick…")
         trashy_vendor = input("(1): The shirt with Snoop Dogg and weed references on it, no way in hell are you going to wear it, but it might make a good gag gift someday. \
             (2): The bootleg NY Yankees hat. You don’t really like the Yankees, or snap-back hats, but odds are you know someone who does. It might come in handy as a gift someday.\
-            (3): An absurdly outdated meme shirt that has the troll face on it. Much like the Snoop Dogg shirt, you probably aren’t going to wear, but you might wear it in jest, or give it away as a gag gift.\
+            (3): An absurdly outdated meme shirt that has a troll face on it. Much like the Snoop Dogg shirt, you probably aren’t going to wear, but you could give it away as a gag gift.\
             (4) Nothing")
 
         if trashy_vendor == '1':

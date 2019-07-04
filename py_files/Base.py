@@ -460,7 +460,7 @@ class LivingRoom:
             "You were gone a week after that. You didn’t have time to mention it to most of your friends since they weren’t even there at the time. In an age without smartphones and social media, those friendships essentially ended that day")
         input()
         print(
-            "As you tell Sasha about the move, you remember another ordeal before the move. It involved some of your best-friends, Abbey and Jane. The move ended your friendships completely, yes, but you remember that you were on surprisingly shaking terms with both of them months before moving.")
+            "As you tell Sasha about the move, you remember another ordeal before the move. It involved some of your best-friends, Abbey and Jane. The move ended your friendships completely, yes, but you remember that you were on surprisingly shaky terms with both of them months before moving.")
         input()
         print(
             "You started to drift apart. Your interests were changing, and as you got older you has less and less common ground. To the point where Jane said that she ‘barely knew you’. It was actually a similar case with you, you didn’t know what they were interested in anymore. It’s hard to stay friends with someone when you have no idea what they want to talk about. Regardless, hearing that took you down a notch. Were you ignoring them and not even realizing it? Did they just not feel like you were friends anymore?")
@@ -837,12 +837,11 @@ class SycamorePark:
 
         parkdecision = input("After thinking about it, you decide to go... ").lower()
         if parkdecision in ['home', 'away', ]:
-            print("You decide too head home")
+            print("You decide to head home")
             first_world.fronthousearea()
 
         elif parkdecision in ['east', 'e']:
             print("You head down the path to your east.")
-            time.sleep(3)
             if CharInfo.park_checks.park_roommate_path is not True and CharInfo.park_checks.park_lake_path is not True:  # Randomly picks which path to go down
                 print(
                     secrets.choice(pathdialog)())  # Instead you call the function from the randomization bit. Like this
@@ -868,7 +867,6 @@ class SycamorePark:
 
     def parkpathrommates(self):
         print("This path is a slightly shorter path than the other one, as it doesn't go past the lake.")
-        time.sleep(3)
         print(
             "About 25 minutes into your hour or so walk you come across a group of college aged people hanging out on a set of benches. They remind you of your more recent years spent around Sasha and Jacob.")
         input()
