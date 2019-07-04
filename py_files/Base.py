@@ -46,8 +46,6 @@ def pcbedroom():
     elif CharInfo.festival_checks.festival_ending is True and CharInfo.chris_checks.chris_computer_list is not True: # Same thing.
         print("You wake up the next morning still a bit surprised by the events of last night.")
         input()
-        print("You check your phone to make sure that last night wasn't just a dream, it definitely wasn't.")
-        input()
         print("You think that now would be a good time to plan out the road trip, maybe try and figure out who you’d want to bring along, where you’d want to go, stuff like that.")
         input()
         print("You can think of a couple of things you could do; you might try asking your roommates for suggestions on where to go, and ask them rather they’d want to go on the road trip with you.")
@@ -106,14 +104,14 @@ def pccomputer():
         print("After a short 5 minute wait he replies: 'I knew you’d end up going for it!'")
         input()
         print(
-            '"I’m assuming you’re going to head west? It wouldn’t quite be a coast to coast road trip but it’ll be close enough. You’ll probably end up missing out on a half days worth of driving, miss out on a couple of, in my opinion, cool stops, but there’s still plenty of stuff ahead."')
+            '"I’m assuming you’re going to head west? It wouldn’t quite be a coast to coast road trip but it’ll be close enough. You’ll probably end up skipping out on a half days worth of driving, miss out on a couple of, in my opinion, cool stops, but there’s still plenty of other stuff ahead."')
         input()
-        print('"I\' guessing you’ll be starting off where you are now, Idenberg."')
+        print('"I\'m guessing you’ll be starting off where you are now, in Idenberg."')
         print(
             '"I’ll have to look up some routes you might go and get back to you on points of interest. Shouldn’t take me to long, I’ll probably have you a nice list by the end of the day."')
         input()
         print(
-            "You reply to Chris and thank him for helping you out, you tell him that you’ll be eagerly awaiting his list.")
+            "You reply to Chris and thank him for helping you out, you tell him that you’ll be awaiting his list.")
         CharInfo.chris_checks.chris_computer_list = True
         SaveSystem.save_sys.saving()
         pcbedroom()
@@ -179,6 +177,7 @@ def hallway():
         elif hallwaydirection in ['north', 'n']:
             if CharInfo.sasha_checks.sasha_living is not True:
                 print("The door is locked. Maybe you should come back later.")
+                input()
                 return hallway()
 
             elif CharInfo.sasha_checks.sasha_living is True:
@@ -225,9 +224,9 @@ class SashaEncounter:
             input()
             print('You explain to Sasha that you did indeed go on a week-long vacation up north, about 5 hours away.')
             input()
-            print('"I was right after all then."')
+            print('"Hah, I was right for once!"')
             print(
-                '"Hey, I’ve kept on top of all your chores, you’re gonna owe me for the weeks’ time you decided to disappear. I was thinking you could take of my work for 2 or so weeks."')
+                '"Hey, you know, I’ve kept on top of all your chores while you were gone. You’re gonna owe me for the weeks’ time you decided to disappear. I was thinking you could take of my work for 2 or so weeks."')
             input()
             print("You nod in agreement with Sasha, it only seems fair considering you didn’t give either of your roommates a heads up before leaving.")
             input()
@@ -244,7 +243,7 @@ class SashaEncounter:
             input()
             print(
                 """ "It was quite sad hearing about that for the first time, my friend was basically tearing herself apart, and by the time I knew something was up it was too late to intervene." """)
-            print(""" "She did end up getting help thankful, and last time I heard from her she was doing pretty good." """)
+            print(""" "She did end up getting help thankfully, and last time I heard from her she was doing pretty good." """)
             input()
             print(
                 """ "It makes me think of how I simply dismissed your disappearance as nothing to worry about. Who knows where you could have been or what you could have been up too!" """)
@@ -740,7 +739,7 @@ class ToriesCafe:
         cafedecision = input("Will you order first or go and say hi to the familiar face? ").lower()
 
         if cafedecision in ['order', 'eat', ]:
-            print("You decide to order some food before going to say hi.")
+            print("You decide to order some food real quick before going to say hi.")
             print("The line moves quick and before you know it’s your turn to order.")
             input()
             print(
@@ -762,13 +761,14 @@ class ToriesCafe:
 
     def hollydialoguecafe(self):
         print(
-            "Holly is a vixen. No, no, not like that, in the literal sense. You’ve known her since high school and while you haven’t really been in contact much since college, you still consider her to be a friend, albeit a distant one.")
+            "Holly is a vixen. No, not like that, in the literal sense. You’ve known her since high school and while you haven’t really been in contact much since college, you still consider her to be a friend, albeit a distant one.")
         input()
         print(
             "You exchange greetings with Holly and start conversing. There’s a lot of catching up to do, you follow each other on social media but of course that isn’t a replacement for a proper conversation.")
         print(
-            '"Hey {}! It\'s been awhile. I think the last time I saw you was when we went to the amusement park your sophomore year of college with a bunch of other high school friends. And the last I saw you regularly was back before you went off to college in 2014!"'.format(
+            '"Hey {}! It\'s been awhile. I think the last time I saw you was when we went to the amusement park your sophomore year of college with a bunch of other high school friends.'.format(
                 CharInfo.player_info.name))
+        print('"And the last time I saw you regularly was back before you went off to college in 2014!"')
         input()
         print(
             "You fill in some details about what you’ve been up too since that amusement park trip. Detailing your current living situation with Sasha and Jacob, as well as talking about your various college antics")
@@ -776,7 +776,8 @@ class ToriesCafe:
             "You ask what Holly’s been up too since then, a faint look of discomfort fills her face as she describes her falling out from college")
         input()
         print(
-            '"Yeah, I dropped out of college at the end of 2016. Believe it or not it wasn’t because of my grades, I just wasn’t enjoying college. I know that’s a pretty shit reason to drop out, but I just couldn’t see myself doing another 2 years there. Nor could I see myself being a marketer for the rest of my life"')
+            '"Yeah, I dropped out of college at the end of 2016. Believe it or not it wasn’t because of my grades, I just wasn’t enjoying college. I know that’s a pretty shit reason to drop out, but I just couldn’t see myself doing another 2 years there."')
+        print('"I couldn\'t see myself working as a marketer for the rest of my life either."')
         input()
         print(
             "You nod in agreement, remembering how many times you second guessed your choice to attend college.")
@@ -785,20 +786,22 @@ class ToriesCafe:
             '"More on the marketer thing, I knew I would have hated it and the corporate culture that surrounds it. Having to stick up to execs, deliver presentations on ideas that would ultimately be ignored by the project managers and higher-ups. Dealing with the petty workplace drama… That just wasn’t for me."')
         input()
         print(
-            '"That’s just me though. I’ve never been one to suck up and deal with other people’s bullshit"')
+            '"That’s just me though. You know I\'ve never been one to suck up and deal with other people’s bullshit"')
         input()
         print(
-            "You can definitely see yourself understanding Holly’s decision, thinking back at all the workplace drama and rejected proposals you’ve dealt with…")
+            "You can definitely see yourself understanding Holly’s decision, thinking back to all the workplace drama and rejected proposals you’ve dealt with…")
         print(
             "You ask Holly what she’s doing for work since she dropped out of college, she offers a surprising answer.")
         input()
         print(
-            '"I draw art for a living now! I was always interested in art, I’m sure you remember some of my drawings from back in high school. I never really thought of it as a legitimate career path, but I’ve managed to find a niche that pays a decent amount of money through commissions."')
+            '"I draw art for a living now! I was always interested in art, I’m sure you remember some of my drawings from back in high school."')
+        print('"I never really thought of it as a legitimate career path, but I’ve managed to find a niche that pays a decent amount of money through commissions."')
+        input()
         print(
             '"And you know, I really enjoy it. The customer tells me what they want, I draw it, and we go on our way. There’s (typically) no bullshit, and no one else telling me what to do."')
         input()
         print(
-            '"So, what have you been doing since graduating college? I know you finished with couple internships and a great GPA, so that’s had to have gotten you somewhere right?"')
+            '"So, what have you been doing since graduating college? I know you finished with a couple internships and a great GPA, so that’s had to have gotten you somewhere right?"')
         input()
         print(
             "You explain that you used to work for a local big business, but eventually quit for various reasons, including reasons she stated, like project managers ignoring ideas.")
@@ -812,7 +815,7 @@ class ToriesCafe:
         print(
             '"Well {}, it’s been fantastic talking but I’ve got a yoga class coming up in a half hour so I’ve gotta run. Maybe I’ll see you around some other time."'.format(
                 CharInfo.player_info.name))
-        print("You say goodbye to Holly and decide to head home for the day")
+        print("You say goodbye to Holly and decide to head home for the day.")
         input()
         CharInfo.player_info.player_location = hallway
         CharInfo.misc_checks.cafe_finished = True
@@ -823,9 +826,9 @@ class SycamorePark:
     def lakepark(self):
         if CharInfo.park_checks.park_roommate_path is not True and CharInfo.park_checks.park_lake_path is not True:
             print(
-                "You arrive at Sycamore Lakeview Park after a short walk down the street. You’ve never really been too this park (or any park really) despite being close to home.")
+                "You arrive at Sycamore Lakeview Park after a short walk down the street. You’ve never really been too this park despite being close to home.")
             print(
-                "Mainly because you've really felt like going to the park. You were always preoccupied by something else, just not up to going out, or sacred by the various flying insects that call this place home. ")
+                "That's mainly because you've never really felt like going to the park. You were always preoccupied by something else, just not up to going out, or sacred by the various insects that call this place home. ")
             input()
             print(
                 "Well, you’re here now and ready to make the most it. As you enter the park you see two separate walking paths you could take. One to the west, the other to the east. Or you could just say 'forget this' and head back home.")
@@ -866,19 +869,22 @@ class SycamorePark:
             return self.lakepark()
 
     def parkpathrommates(self):
-        print("This path is a slightly shorter path than the other one, as it doesn't go past the lake.")
+        print("This path is slightly shorter than the other one, as it doesn't go past the lake.")
+        input()
         print(
             "About 25 minutes into your hour or so walk you come across a group of college aged people hanging out on a set of benches. They remind you of your more recent years spent around Sasha and Jacob.")
         input()
         print("You remember how you met both of them in college. At different times of course.")
         print(
-            "You met Jacob in one of your upper-division elective courses, the one about environmental ethics or something of the sort. Very fitting considering Jacob has been a very outdoorsy, tree hugging type of guy ever since you’ve known him")
+            "You met Jacob in one of your upper-division elective courses, the one about environmental ethics or something like that. Very fitting considering Jacob has been a very outdoorsy type of guy ever since you’ve known him")
         input()
         print(
-            "You ended up starting a study group with him since you weren’t exactly having a great time in class. As it was taught by a not so fantastic professor. It started off as a pretty standard study group, consisting of you, Jacob and a couple other students. Eventually you started hanging out with him outside of the group and found out that he’s a really cool guy. You liked the same kind of movies, both loved pasta, and even ended up owning the same kind of car")
+            "You ended up starting a study group with him since you weren’t exactly having a great time in class. Mainly because it was taught by a not so fantastic professor.")
+        input()
+        print("It started off as a pretty standard study group, consisting of you, Jacob, and a couple other students. Eventually you started hanging out with him outside of the group and found out that he’s a really cool guy. You liked the same kind of movies, liked the same kinds of food, and even ended up owning the same brand of car.")
         input()
         print(
-            "The rest is history, you’ve been good friends with him ever since. To the point that you decided to room up with him starting your 4th year at college.")
+            "The rest is history, you’ve been good friends with him ever since. To the point that you decided to roommate up with him starting your 4th year at college.")
         input()
         print(
             "You ended up meeting Sasha in a similar way. You ran into her at one of the dining halls your very first year at college. You were sitting by yourself, and she came up and asked to sit with you.")
@@ -897,11 +903,13 @@ class SycamorePark:
             "Caught up in your thoughts you find yourself at the end of your walk before you know it. You are now back at the park entrance way.")
         CharInfo.player_info.player_location = sycamore_park.lakepark
         CharInfo.park_checks.park_roommate_path = True
+        SaveSystem.save_sys.saving()
         input()
         self.lakepark()
 
     def parkpathself(self):
         print("15 minutes into the walk you come across a familiar sight, the great Sycamore Lake. Hence the park’s name.")
+        input()
         print(
             "You’ve seen this lake at least a thousand times throughout your life. In both good and bad times. You normally never give a second thought when looking out upon its seemingly never-ending horizon, but this time is different.")
         input()
