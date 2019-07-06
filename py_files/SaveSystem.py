@@ -16,7 +16,7 @@ class GameState:
                     CharInfo.festival_checks.festival_game, CharInfo.festival_checks.festival_ending,
                     CharInfo.chris_checks.chris_computer_list, CharInfo.holly_checks.holly_relationship_status,
                     CharInfo.jacob_checks.jacob_post_fest, CharInfo.sasha_checks.sasha_post_fest,
-                    CharInfo.holly_checks.holly_date_restaurant], pickle_out)
+                    CharInfo.holly_checks.holly_date_restaurant, CharInfo.player_info.ending_points], pickle_out)
         pickle_out.close()
         print("Game Saved!")
         CharInfo.player_info.player_location()

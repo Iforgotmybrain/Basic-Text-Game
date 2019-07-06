@@ -87,6 +87,7 @@ class HollyTextDialogue:
                 print('"Same, if it’s anything like yesterday I’m sure it will be great."')
                 input()
                 print("The texts slow down shortly after that, with just some back and forth conversation throughout the rest of the day.")
+                CharInfo.player_info.ending_points += 2
                 CharInfo.holly_checks.holly_relationship_status = 'dating'
                 SaveSystem.save_sys.saving()
                 TravelSystem.travel_function.travel_point_bedroom()

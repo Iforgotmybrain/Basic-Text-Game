@@ -434,6 +434,7 @@ class FestivalMid:
         elif hollystayorleave in ["2"]:
             CharInfo.festival_checks.holly_stay = False
             print("You decide to part ways with Holly.")
+            CharInfo.player_info.ending_points -= 2
             input()
             print("As the band finishes their set you leave the concert and head back towards the main festival area.")
             festival_end.festival_hub_end()
