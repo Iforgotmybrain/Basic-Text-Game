@@ -446,7 +446,7 @@ class LivingRoom:
         if sashatalkorconfess in ['1']:
             print(
                 "You tell Sasha that you wanted to talk about your recent walk in the park.")  # Maybe implement a choice later? Don't really have the story options to make this optional yet.
-            input()
+            input()                                                                            # Surprisingly I did actually implement a choice later.
             print('"A walk in the park, huh? What about it did you want to talk about?"')
             input()
             print(
@@ -988,7 +988,8 @@ class SycamorePark:
 
 # Global Classes
 
-jacob_kitchen = JacobDialogue() # Global instance of JacobKitchen  # Provides info for the player character
+
+jacob_kitchen = JacobDialogue()  # Global instance of JacobKitchen  # Provides info for the player character
 
 first_world = FirstWorld()
 

@@ -6,7 +6,9 @@ class GameState:
         print("Saving game")
         pickle_out = open('gamestate.pickle', 'wb')
         pickle.dump([CharInfo.holly_checks, CharInfo.chris_checks, CharInfo.jacob_checks, CharInfo.sasha_checks,
-                     CharInfo.festival_checks, CharInfo.misc_checks, CharInfo.player_info], pickle_out)
+                     CharInfo.festival_checks, CharInfo.misc_checks, CharInfo.player_info, CharInfo.park_checks,
+                     CharInfo.dest_one, CharInfo.dest_two, CharInfo.dest_three_four, CharInfo.dest_five_six,
+                     CharInfo.dest_seven_eight], pickle_out)
         pickle_out.close()
         print("Game Saved!")
         CharInfo.player_info.player_location()
@@ -15,7 +17,9 @@ class GameState:
         print("Loading game")
         pickle_in = open('gamestate.pickle', 'rb')
         [CharInfo.holly_checks, CharInfo.chris_checks, CharInfo.jacob_checks, CharInfo.sasha_checks,
-         CharInfo.festival_checks, CharInfo.misc_checks, CharInfo.player_info] = pickle.load(pickle_in)
+         CharInfo.festival_checks, CharInfo.misc_checks, CharInfo.player_info, CharInfo.park_checks,
+         CharInfo.dest_one, CharInfo.dest_two, CharInfo.dest_three_four, CharInfo.dest_five_six,
+         CharInfo.dest_seven_eight] = pickle.load(pickle_in)
         pickle_in.close()
         print("Game Loaded!")
         CharInfo.player_info.player_location()
@@ -23,6 +27,5 @@ class GameState:
 save_sys = GameState()
 
 
-#  Read me idiot. This is what you need to do now: Add more Charinfo variables for the future in order to reduce the
-#  the need for new saves. Maybe find a way to make it so no new saves are needed at all? Don't think I can do this.
-#  This seems to be the best pickle solution. If I just add more class variables then I need I should be good.
+#  Can add or remove instances as I please now. Added 2 and removed 1 with bo problems. Only thing pickle cares is that
+#  the class itself is still there.

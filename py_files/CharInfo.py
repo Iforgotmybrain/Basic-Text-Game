@@ -26,26 +26,31 @@ class GlobalCheckSasha:
         self.sasha_living = sasha_living
         self.sasha_post_fest = sasha_post_fest
 
+
 class GlobalCheckJacob:
     def __init__(self, jacob_kitchen, jacob_bedroom, jacob_post_fest):
         self.jacob_kitchen = jacob_kitchen
         self.jacob_bedroom = jacob_bedroom
         self.jacob_post_fest = jacob_post_fest  # Marks that the player has talked to Jacob about the road trip.
 
+
 class GlobalCheckHolly:
     def __init__(self, holly_relationship_status, holly_date_restaurant):
         self.holly_relationship_status = holly_relationship_status
         self.holly_date_restaurant = holly_date_restaurant
+
 
 class GlobalCheckMisc:
     def __init__(self, cafe_finished, bathroom_bd):
         self.cafe_finished = cafe_finished
         self.bathroom_bd = bathroom_bd
 
+
 class GlobalCheckLakePark:
     def __init__(self, park_lake_path, park_roommate_path):
         self.park_lake_path = park_lake_path
         self.park_roommate_path = park_roommate_path
+
 
 class GlobalCheckFestival:
     def __init__(self, bus_ride_complete, painting_purchase, wooden_sculpture, trash_vendor, festival_item_purchased,
@@ -60,22 +65,70 @@ class GlobalCheckFestival:
         self.festival_game = festival_game
         self.festival_ending = festival_ending
 
+
 class GlobalCheckChris:
     def __init__(self, chris_computer_list, chris_computer_list_completed):
         self.chris_computer_list = chris_computer_list
         self.chris_computer_list_completed = chris_computer_list_completed
 
+
+class GlobalCheckPlaceHolder:
+    pass
+
+
+class GlobalCheckRoadTrip:
+    pass
+
+
+class GlobalCheckDestinationOne:
+    pass
+
+
+class GlobalCheckDestinationTwo:
+    pass
+
+
+class GlobalCheckDestinationThreeFour:
+    pass
+
+
+class GlobalCheckDestinationFiveSix:
+    pass
+
+
+class GlobalCheckDestinationSevenEight:
+    pass
+
 player_info = PlayerCharacter()
+
 sasha_checks = GlobalCheckSasha(sasha_talk=GlobalCheckSasha, sasha_living=GlobalCheckSasha,
                                 sasha_post_fest= GlobalCheckSasha)
+
 jacob_checks = GlobalCheckJacob(jacob_kitchen=GlobalCheckJacob, jacob_bedroom=GlobalCheckJacob,
                                 jacob_post_fest = GlobalCheckJacob)
+
 holly_checks = GlobalCheckHolly(holly_relationship_status=GlobalCheckHolly, holly_date_restaurant=GlobalCheckHolly)
+
 misc_checks = GlobalCheckMisc(cafe_finished=GlobalCheckMisc, bathroom_bd=GlobalCheckMisc)
+
 park_checks = GlobalCheckLakePark(park_lake_path=GlobalCheckLakePark, park_roommate_path=GlobalCheckLakePark)
+
 festival_checks = GlobalCheckFestival(bus_ride_complete=GlobalCheckFestival, painting_purchase=GlobalCheckFestival,
                                       wooden_sculpture=GlobalCheckFestival, festival_item_purchased=GlobalCheckFestival,
                                       trash_vendor=GlobalCheckFestival, holly_stay = GlobalCheckFestival,
                                       festival_walk=GlobalCheckFestival, festival_game=GlobalCheckFestival,
                                       festival_ending=GlobalCheckFestival)
+
 chris_checks = GlobalCheckChris(chris_computer_list=GlobalCheckChris, chris_computer_list_completed=GlobalCheckChris)
+
+####_checks
+
+dest_one = GlobalCheckDestinationOne()
+
+dest_two = GlobalCheckDestinationTwo()
+
+dest_three_four = GlobalCheckDestinationThreeFour()
+
+dest_five_six = GlobalCheckDestinationFiveSix()
+
+dest_seven_eight = GlobalCheckDestinationSevenEight()
