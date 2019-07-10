@@ -1,6 +1,7 @@
 import pickle
 import CharInfo
 
+
 class GameState:
     def saving(self):
         print("Saving game")

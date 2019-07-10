@@ -547,6 +547,8 @@ class LivingRoom:
             pcbedroom()
 
         elif sashatalkorconfess in ['2']:
+            print("Placeholder")
+            return
 
 
 
