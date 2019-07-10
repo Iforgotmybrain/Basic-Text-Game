@@ -551,7 +551,6 @@ class LivingRoom:
             return
 
 
-
 class JacobDialogue:
     def startingkitchen(self):
         while True:

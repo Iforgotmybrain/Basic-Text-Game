@@ -1,23 +1,12 @@
 import pickle
 import CharInfo
 
-
 class GameState:
     def saving(self):
         print("Saving game")
         pickle_out = open('gamestate.pickle', 'wb')
-        pickle.dump([CharInfo.player_info.player_location, CharInfo.player_info.name, CharInfo.player_info.sex,
-                    CharInfo.player_info.race, CharInfo.misc_checks.bathroom_bd, CharInfo.sasha_checks.sasha_talk,
-                    CharInfo.sasha_checks.sasha_living, CharInfo.jacob_checks.jacob_kitchen, CharInfo.misc_checks.cafe_finished,
-                    CharInfo.park_checks.park_lake_path, CharInfo.park_checks.park_roommate_path,
-                    CharInfo.jacob_checks.jacob_bedroom, CharInfo.festival_checks.bus_ride_complete,
-                    CharInfo.festival_checks.painting_purchase, CharInfo.festival_checks.festival_item_purchased,
-                    CharInfo.festival_checks.wooden_sculpture, CharInfo.festival_checks.trash_vendor,
-                    CharInfo.festival_checks.holly_stay, CharInfo.festival_checks.festival_walk,
-                    CharInfo.festival_checks.festival_game, CharInfo.festival_checks.festival_ending,
-                    CharInfo.chris_checks.chris_computer_list, CharInfo.holly_checks.holly_relationship_status,
-                    CharInfo.jacob_checks.jacob_post_fest, CharInfo.sasha_checks.sasha_post_fest,
-                    CharInfo.holly_checks.holly_date_restaurant, CharInfo.player_info.ending_points], pickle_out)
+        pickle.dump([CharInfo.holly_checks, CharInfo.chris_checks, CharInfo.jacob_checks, CharInfo.sasha_checks,
+                     CharInfo.festival_checks, CharInfo.misc_checks, CharInfo.player_info], pickle_out)
         pickle_out.close()
         print("Game Saved!")
         CharInfo.player_info.player_location()
@@ -25,20 +14,15 @@ class GameState:
     def loading(self):
         print("Loading game")
         pickle_in = open('gamestate.pickle', 'rb')
-        [CharInfo.player_info.player_location, CharInfo.player_info.name, CharInfo.player_info.sex,
-         CharInfo.player_info.race, CharInfo.misc_checks.bathroom_bd, CharInfo.sasha_checks.sasha_talk,
-         CharInfo.sasha_checks.sasha_living, CharInfo.jacob_checks.jacob_kitchen, CharInfo.misc_checks.cafe_finished,
-         CharInfo.park_checks.park_lake_path, CharInfo.park_checks.park_roommate_path,
-         CharInfo.jacob_checks.jacob_bedroom, CharInfo.festival_checks.bus_ride_complete,
-         CharInfo.festival_checks.painting_purchase, CharInfo.festival_checks.festival_item_purchased,
-         CharInfo.festival_checks.wooden_sculpture, CharInfo.festival_checks.trash_vendor,
-         CharInfo.festival_checks.holly_stay,  CharInfo.festival_checks.festival_walk,
-         CharInfo.festival_checks.festival_game, CharInfo.festival_checks.festival_ending,
-         CharInfo.chris_checks.chris_computer_list, CharInfo.holly_checks.holly_relationship_status,
-         CharInfo.jacob_checks.jacob_post_fest, CharInfo.sasha_checks.sasha_post_fest,
-         CharInfo.holly_checks.holly_date_restaurant] = pickle.load(pickle_in)
+        [CharInfo.holly_checks, CharInfo.chris_checks, CharInfo.jacob_checks, CharInfo.sasha_checks,
+         CharInfo.festival_checks, CharInfo.misc_checks, CharInfo.player_info] = pickle.load(pickle_in)
         pickle_in.close()
         print("Game Loaded!")
         CharInfo.player_info.player_location()
 
 save_sys = GameState()
+
+
+#  Read me idiot. This is what you need to do now: Add more Charinfo variables for the future in order to reduce the
+#  the need for new saves. Maybe find a way to make it so no new saves are needed at all? Don't think I can do this.
+#  This seems to be the best pickle solution. If I just add more class variables then I need I should be good.
