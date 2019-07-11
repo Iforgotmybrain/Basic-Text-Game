@@ -12,6 +12,7 @@ import TravelSystem
 import Festival
 import Phone
 
+clear = lambda: os.system('cls')
 
 def bank_money():
     print("You fire up your smartphone and check your bank balance")
@@ -39,7 +40,7 @@ def pcbedroom():
         print(
             "You wake up the next morning, your bedroom is dimly lit with the only source of light being the sun as it sneaks through the blinds.")
     elif CharInfo.sasha_checks.sasha_living is True and CharInfo.jacob_checks.jacob_bedroom is not True:  # Makes it so the dialogue doesn't repeat
-        print("You wake up the next day feeling better. Your conversation with Sasha helped ease your mind, and made you realize just how great of friends you have now.")
+        print("You wake up the next day feeling pretty good. Your conversation with Sasha helped ease your mind, and made you realize just how great of friends you have now.")
         print("You think about possibly asking Jacob about some of his past trips. He should be in his bedroom.")
         input()
 
@@ -63,7 +64,7 @@ def pcbedroom():
     if CharInfo.festival_checks.festival_ending is True:  # Makes it so the player cannot access the phone or computer before they complete the festival. Which is when they become functional.
         print("There is also your computer to the south of the room.")
         if CharInfo.jacob_checks.jacob_post_fest is True and CharInfo.sasha_checks.sasha_post_fest is True:
-            print("You could also use your Phone to check up on Holly.")
+            print("You could also use your Phone.")
 
     print("You could also check your bank balance.")
     pcbedroomdirection = input('Which do you do? ').lower()
@@ -83,8 +84,8 @@ def pcbedroom():
     elif pcbedroomdirection in ['south', 's', 'computer', 'pc']:
         pccomputer()
 
-    elif pcbedroomdirection in ['phone', 'smartphone', 'cellphone', 'call', 'text', 'cell']:
-        Phone.smart_phone_placement.phone_placeing()
+    elif pcbedroomdirection in ['phone', 'smartphone', 'cellphone', 'call', 'text', 'cell', 'call holly']:
+        Phone.smart_phone_placement.phone_placing()
 
     else:
         print("Invalid input")
@@ -118,6 +119,8 @@ def pccomputer():
 
     elif CharInfo.chris_checks.chris_computer_list is True and CharInfo.chris_checks.chris_computer_list_completed is not True:
         print("You check your Pawbook messages and don’t see anything from Chris. He’s probably still working on it")
+        input()
+        clear()
         pcbedroom()
 
 
@@ -175,7 +178,7 @@ def hallway():
             SaveSystem.save_sys.saving()
 
         elif hallwaydirection in ['north', 'n']:
-            if CharInfo.sasha_checks.sasha_living is not True:
+            if CharInfo.sasha_checks.sasha_living is not True or CharInfo.festival_checks.festival_ending is True:
                 print("The door is locked. Maybe you should come back later.")
                 input()
                 return hallway()
@@ -252,6 +255,7 @@ class SashaEncounter:
                 """ "Anyway, you're fine now and that's all that matters. You might want to check in with Jacob, he was gone for half the week so he wasn't entirely sure how long you were gone for." """)
             input()
             print("You exit Sasha's room and enter the hallway")
+            clear()
             CharInfo.player_info.player_location = hallway
             hallway()
         elif CharInfo.sasha_checks.sasha_talk is True and CharInfo.sasha_checks.sasha_living is True:
@@ -281,13 +285,13 @@ class SashaEncounter:
         input()
         print("She answers the door and invites you in, her room largely unchanged from when you last saw it.")
         input()
-        print("“So what brings you to me today? More confiding? Wanna talk about someone?”")
+        print("“So what brings you to me today? Wanna talk about someone or something?”")
         input()
-        print("You tell Sasha, that, despite her snarky remarks, you were actually here to talk about something else for once.")
+        print("You tell Sasha that you were actually here to talk about something a bit different.")
         input()
-        print("“Alright, I was just messing with you. Just seems like you always come to me when you need to talk about something, which is fine, just wanted to poke some fun at it.”")
+        print("“Alright, let's hear it.”")
         input()
-        print("You mention to Sasha that the main reason you came here was to discuss destinations for the road trip.")
+        print("You mention to Sasha that the main reason you came here was to discuss destinations for a road trip.")
         print("You take a brief moment to explain what the road trip is exactly, and what you currently plan on doing.")
         input()
         print("“Seems like a good time, bit of a different approach I suppose. I’ve always thought of road trips as just driving across the country, not really sightseeing.”")
@@ -318,7 +322,7 @@ class SashaEncounter:
         input()
         print("You’re not making any final decisions yet, you’ve still got a fair bit of time to assemble and finalize your crew.")
         input()
-        print("You decide to ask Sasha how she would feel about going on the road trip with you, telling her that it likely be a month trip, and that you’d be taking a total of 3 people.")
+        print("You decide to ask Sasha how she would feel about going on the road trip with you, telling her that it would likely be a months' trip, and that you’d be taking a total of 3 people.")
         input()
         print("“I’d be interested. 3 people seems like a good amount, and I’ve always wanted to get out and travel more.”")
         print("“A months’ time though… That’s going to be really tough to try and get off at work. I don’t know if I even have that much vacation time…”")
@@ -339,6 +343,7 @@ class SashaEncounter:
         if CharInfo.jacob_checks.jacob_post_fest is True and CharInfo.festival_checks.holly_stay is True:
             print("You exit Sasha’s room. You should probably see about getting in contact with Holly. Your smartphone in the bedroom might be a good way to go about it.")
             input()
+            clear()
             CharInfo.sasha_checks.sasha_post_fest = True
             CharInfo.player_info.player_location = hallway
             SaveSystem.save_sys.saving()
@@ -347,6 +352,7 @@ class SashaEncounter:
         elif CharInfo.jacob_checks.jacob_post_fest is not True:
             print("You exit Sasha’s room. You should probably go talk to Jacob about the road trip.")
             input()
+            clear()
             CharInfo.sasha_checks.sasha_post_fest = True
             CharInfo.player_info.player_location = hallway
             SaveSystem.save_sys.saving()
@@ -354,6 +360,7 @@ class SashaEncounter:
 
         elif CharInfo.jacob_checks.jacob_post_fest is True and CharInfo.festival_checks.holly_stay is not True:
             print("You exit Holly’s room. Chris probably has his list posted on Pawbook by now.")
+            clear()
             CharInfo.sasha_checks.sasha_post_fest = True
             CharInfo.player_info.player_location = hallway
             SaveSystem.save_sys.saving()
@@ -409,8 +416,7 @@ def entranceway():
 
 class LivingRoom:
     def sashadialogue(self):
-        CharInfo.sasha_checks.sasha_living = False
-        if CharInfo.sasha_checks.sasha_living is False:
+        if CharInfo.sasha_checks.sasha_living is not True:
             print("You return to the living room once again, Sasha is sitting on the couch watching something on the television. You can talk to her or return to the entrance way to your south.")
         elif CharInfo.sasha_checks.sasha_living is True:
             print("You see Sasha still, she has nothing new to say.")
@@ -540,6 +546,7 @@ class LivingRoom:
             print(
                 'You say goodbye to Sasha and head up to the room for the night, your mind full of thoughts to process')
             input()
+            clear()
             CharInfo.player_info.player_location = pcbedroom
             CharInfo.sasha_checks.sasha_living = True
             CharInfo.player_info.ending_points += 2
@@ -547,8 +554,31 @@ class LivingRoom:
             pcbedroom()
 
         elif sashatalkorconfess in ['2']:
-            print("Placeholder")
-            return
+            print("You tell Sasha you just wanted to chat with her for a bit.")
+            input()
+            print("“Alright, just like old times! It's been awhile since we've just sat down and talked”")
+            input()
+            print("“So, what kind of movies do you like? Can’t remember ever talking about it with you, and I know we haven’t gone to see any together.”")
+            print("You spent the next half an hour talking about movies with Sasha, maybe not exactly what you had in mind when you came to talk with her, but it works.")
+            input()
+            clear()
+            print("“And that’s why I think the prequel movies are underrated. I’m telling you that they would have been seen in a more positive light during the initial release if the audience expectations weren’t set sky high.”")
+            input()
+            print("As Holly finishes her rant on the prequel movies you start to plan your exit.")
+            input()
+            print("“Anyway, I really enjoyed talking about movies with you. We really need to watch the Revengers movies sometime, I know you’ll love them.”")
+            input()
+            print("You tell Holly you’re looking forward to watching them with her sometime. Now is not that time though, as you also tell Holly you’ll be heading up to bed.")
+            input()
+            print(" “Alright, see you around then. We’ve really gotta talk more often!”")
+            input()
+            print("You nod your head in agreement with Holly before getting up and walking up to your room.")
+            input()
+            CharInfo.player_info.player_location = pcbedroom
+            CharInfo.sasha_checks.sasha_living = True
+            CharInfo.player_info.ending_points += 1
+            SaveSystem.save_sys.saving()
+            pcbedroom()
 
 
 class JacobDialogue:
@@ -592,7 +622,7 @@ class JacobDialogue:
     def bedroomdialogue(self):
         print("You knock on Jacob’s door, he opens the door and welcomes you in.")
         input()
-        print("As you enter Jacob's room you see how nicely decorated it is. You see the various landscape paintings on his walls and the house plants he has. It all meshes together great and creates a soothing atmosphere.")
+        print("As you enter Jacob's room you notice how nicely decorated it is. You see the various landscape paintings he has hung on the walls, and the house plants he has. It all meshes together great and creates a soothing atmosphere.")
         input()
         print('"What’s up?  Come to talk ‘bout that vacation?"')
         print("You tell Jacob that’s not quite what you had in mind, though the vacation will likely come up in the conversation.")
@@ -635,15 +665,15 @@ class JacobDialogue:
             input()
             print("You tell Jacob about your day at the festival, including your purchase at the vendor.")
             input()
-            if CharInfo.festival_checks.painting_purchase is True:
+            if CharInfo.festival_checks.painting_purchase in ['husky', 'wraith', 'lake']:
                 print(
                     '"A piece of artwork, huh? Never had you figured as that type, probably because I’ve never seen you hang so much as a picture on your walls."')
                 input()
-            elif CharInfo.festival_checks.wooden_sculpture is True:
+            elif CharInfo.festival_checks.wooden_sculpture in ['box', 'plane']:
                 print(
                     '"Wood sculptures are pretty cool, I tried taking wood carving up as hobby but didn’t have much luck with it. Just didn’t have the ‘artistic vision’ I suppose."')
                 input()
-            elif CharInfo.festival_checks.trash_vendor is True:
+            elif CharInfo.festival_checks.trash_vendor in ['snoop', 'hat', 'troll']:
                 print(
                     '"Man guess I better be on the look out now, it’d be just like you to gift me something like that for my birthday."')
                 input()
@@ -672,7 +702,7 @@ class JacobDialogue:
                 '"There’s also a beautiful state park in Loba, which is in the next state over. Place is called Occidentale State Park, they’ve got camping sites near by if you’re up for that as well. I went there about 3 years ago for spring break with an ex."')
             input()
             print(
-                '"Another place to check out is the Ragniti pop factory, it’s on Interstate 65 in Loba, which you’ll probably be taking in order to take on I-23. They give tours everyday, might be a nice little thing to check so you can give yourself a break from driving."')
+                '"Another place to check out is the Ragniti pop factory, it’s on Interstate 65 in Loba, which you’ll probably be taking in order to get on 23. They give tours everyday, might be a nice little thing to check out. Could give yourself a break from driving."')
             input()
             if CharInfo.sasha_checks.sasha_post_fest is not True:
                 print("You take a list of all the places Jacob gave you, this should be a good start.")
@@ -683,9 +713,9 @@ class JacobDialogue:
                 input()
             print(
                 "With Jacob’s experience traveling, you feel that he might be a good person to take along on your trip.")
-            print("Although, this might limit who you can take on the road trip. As you’re thinking of taking no more then 3 people. Anymore and it would get a bit crowded in the car.")
+            print("Although, this would limit who you can take on the road trip. As you’re thinking of taking no more then 3 people. Anymore and it would get a bit crowded in the car.")
             input()
-            print("Still, it might not hurt to ask him anyway. It would give you a good idea on if he would be willing to go.")
+            print("Still, it might not hurt to ask him anyway. That way you'd know if he's even willing to go.")
             print("After all, you don’t have to make a final decision on who you’re taking until later. ")
             input()
             print(
@@ -696,7 +726,7 @@ class JacobDialogue:
             print("You tell Jacob that you were planning on heading out in around a months' time.")
             input()
             print(
-                '"A bit short notice too put in vacation time for work, I’ll have to discuss it with Joe and see if we can work something out. Probably be a about 3 or so weeks, yeah?"')
+                '"A bit short notice too put in vacation time for work, I’ll have to discuss it with Joe and see if we can work something out. Probably be on the road about 3 or so weeks, yeah?"')
             input()
             print("You tell Jacob that you were planning on the road trip being no more than 4 weeks.")
             input()
@@ -707,6 +737,7 @@ class JacobDialogue:
             if CharInfo.sasha_checks.sasha_post_fest is not True:
                 print("You tell Jacob you’re looking forward too it. Now to see what Sasha has to say.")
                 input()
+                clear()
                 CharInfo.jacob_checks.jacob_post_fest = True
                 SaveSystem.save_sys.saving()
                 entranceway()
@@ -714,6 +745,7 @@ class JacobDialogue:
             elif CharInfo.sasha_checks.sasha_post_fest is True and CharInfo.festival_checks.holly_stay is True:
                 print("You tell Jacob you’re looking forward to it. Maybe now you should see what Holly's up to using your phone in the bedroom.")  # (This is placeholder. I want to make it so the player can use the phone at all locations)
                 input()
+                clear()
                 CharInfo.jacob_checks.jacob_post_fest = True
                 SaveSystem.save_sys.saving()
                 entranceway()
@@ -722,6 +754,7 @@ class JacobDialogue:
                 print(
                     "You tell Jacob you’re looking forward to it. By now Chris should have gotten his list together, you should probably check the computer and see what he said.")
                 input()
+                clear()
                 CharInfo.jacob_checks.jacob_post_fest = True
                 SaveSystem.save_sys.saving()
                 entranceway()
@@ -755,10 +788,13 @@ class ToriesCafe:
         print(
             "Looking around you see the line to order, it’s a bit after lunch so there isn’t much of a wait. You can also see a familiar face sitting down at one of the tables")
         input()
-        cafedecision = input("(1): Order food and then go over say hi to Holly.(2): Go over and say hi to Holly right away. (3): Just order some food and go home.").lower()
+        cafedecision = input("(1): Order food and then go over say hi to Holly. (2): Go over and say hi to Holly right away. (3): Just order some food and go home.").lower()
 
         if cafedecision in ['1', '3']:
-            print("You decide to order some food real quick before going to say hi.")
+            if cafedecision in ['1']:
+                print("You decide to order some food real quick before going over to say hi")
+            elif cafedecision in ['3']:
+                print("You decide to just do your own thing and order some food.")
             print("The line moves quick and before you know it’s your turn to order.")
             input()
             print(
@@ -770,23 +806,23 @@ class ToriesCafe:
                 print("You sit down at a table after grabbing your food.")
                 print("Nothing much happens while eating. Although, looking over at Holly's table you feel like you might have missed an opportunity.")
                 input()
-                print("She's sitting all alone and doesn't seem to be particularly engaged in anything.")
-                print("It would have been interesting to hear what she's been up to since you last met.")
+                print("She doesn't seem to be preoccupied by anything, it might have been interesting to go over and talk about what's been going on since you last saw her.")
                 input()
-                print("Oh well, you might end up meeting her some other time. You were never that close to her anyway.")
+                print("Oh well, you might end up meeting her some other time. If not you could always message her on Pawbook to see if she wants to get lunch sometime.")
                 input()
                 print("You finish up your meal and throw your trash away before hopping on the bus to go back home for the day.")
                 input()
+                clear()
                 CharInfo.misc_checks.cafe_finished = True
-                CharInfo.player_info.player_location = entranceway
-                CharInfo.player_info.ending_points -= 1
+                CharInfo.player_info.player_location = pcbedroom
+                CharInfo.player_info.ending_points -= 3
                 SaveSystem.save_sys.saving()
-                entranceway()
+                pcbedroom()
 
             print("Having ordered your food, you head over to the table of Holly, a friend of yours from high school.")
             self.hollydialoguecafe()
 
-        elif cafedecision in ['3']:
+        elif cafedecision in ['2']:
             print("You decide to first go over and say hi to Holly.")
             input()
             self.hollydialoguecafe()
@@ -854,6 +890,9 @@ class ToriesCafe:
                 CharInfo.player_info.name))
         print("You say goodbye to Holly and decide to head home for the day.")
         input()
+        print("When you arrive home you work on your contract for a bit before heading to bed.")
+        input()
+        clear()
         CharInfo.player_info.ending_points += 1
         CharInfo.player_info.player_location = hallway
         CharInfo.misc_checks.cafe_finished = True
@@ -879,8 +918,8 @@ class SycamorePark:
 
         parkdecision = input("After thinking about it, you decide to go... ").lower()
         if parkdecision in ['home', 'away', ]:
-            print("You decide to head home")
-            first_world.fronthousearea()
+            print("You decide to head home.")
+            entranceway()
 
         elif parkdecision in ['east', 'e']:
             print("You head down the path to your east.")
@@ -940,6 +979,7 @@ class SycamorePark:
         input()
         print(
             "Caught up in your thoughts you find yourself at the end of your walk before you know it. You are now back at the park entrance way.")
+        clear()
         CharInfo.player_info.player_location = sycamore_park.lakepark
         CharInfo.park_checks.park_roommate_path = True
         SaveSystem.save_sys.saving()
@@ -981,9 +1021,10 @@ class SycamorePark:
         input()
         print(
             "As you reminisce on your memories you realize that over an hour has passed, you snap out of it and finish your walk prematurely before heading back to the park entrance way.")
+        input()
+        clear()
         CharInfo.player_info.player_location = sycamore_park.lakepark
         CharInfo.park_checks.park_lake_path = True
-        input()
         self.lakepark()
 
 # Global Classes
@@ -1045,4 +1086,5 @@ print("It will look like this:")
 input('(1): You now understand how dialogue prompts work. (2): Choose any number listed to continue.')
 print("With that out of the way, let's get started")
 time.sleep(3)
+clear()
 intro()

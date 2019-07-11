@@ -4,8 +4,8 @@ import TravelSystem
 
 
 class PhonePlacement:
-    def phone_placeing(self):
-        if CharInfo.festival_checks.festival_ending is True and CharInfo.festival_checks.holly_stay is True:
+    def phone_placing(self):
+        if CharInfo.festival_checks.festival_ending is True and CharInfo.festival_checks.holly_stay is True and CharInfo.holly_checks.holly_relationship_status != 'rejected' or 'dating' or 'hold':
             holly_text_dialogue.holly_text_one()
         else:
             print("You can't think of anyone to text or call right now.")
@@ -28,17 +28,17 @@ class HollyTextDialogue:
         print("You think a bit about what to write up next, eventually deciding too:")
         holly_relationship_option = input("(1): Ask Holly if she’d like to go on another date sometime. \
         (2): Tell Holly that while you enjoyed last night you aren’t really interested in a relationship at the moment.\
-        (3): Tell Holly that you just aren’t really interested in taking the relationship any further, as you didn’t really feel a strong connection with her.").lower()
+        (3): Tell Holly that you just aren’t really interested in taking the relationship any further, as you didn’t really feel a strong connection with her. ").lower()
 
         if holly_relationship_option in ['1']:
             print("You write up a message to Holly telling her that you really enjoyed your time spent together last night, and that you’d be interested in going on another date if she would be up for it.")
             input()
             print("You hesitate for a moment before sending the message, if she says yes who knows how far this relationship might end up going. It could end up limiting your options in the future.")
             input()
-            print("But at the same time if you spent to much time waiting around she’ll probably think you aren’t interested in her. You’ve gotta capture the feeling before it’s gone.")
+            print("But at the same time if you spent to much time waiting around she’ll probably think you aren’t interested in her. It's like thar Airplane Harness song went, 'You’ve only got so long to capture the feeling before it’s gone.'")
             input()
             print("You contemplate for a moment, eventually deciding to…")
-            holly_one_option = input("(1): Sent the text (2): Erase the message and go back to the drawing board")
+            holly_one_option = input("(1): Sent the text (2): Erase the message and go back to the drawing board ")
 
             if holly_one_option in ['1']:
                 print("It’s been a long time since you’ve gotten along with someone as well as you did with Holly yesterday. You sent the text message and eagerly await her response.")
@@ -57,7 +57,7 @@ class HollyTextDialogue:
                 print("No better time then the present to pick a place to eat, you text Holly and tell her that you want to eat at…")
                 holly_restaurant = input("(1). El Presidente’s Palace, the Mexican restaurant. \
                 (2). Polo’s Steakhouse \
-                (3). Firefly Tavern")
+                (3). Firefly Tavern ")
 
                 if holly_restaurant in ['1']:
                     print('"Mexican food sounds good, I’m down for that."')
@@ -101,7 +101,7 @@ class HollyTextDialogue:
             print("You think about the message for a minute, this likely won’t completely erase any future relationship potential with Holly, but it will certainly put it on hold indefinitely.")
             input()
             print("After thinking about it, you decide to…")
-            holly_two_option = input("(1): Sent the message (2): Go back to the drawing board")
+            holly_two_option = input("(1): Sent the message (2): Go back to the drawing board ")
 
             if holly_two_option in ['1']:
                 print("You sent the message, you appreciated Holly’s company but you just aren’t down for a relationship at the moment, you want to keep your options open.")
@@ -129,7 +129,7 @@ class HollyTextDialogue:
             print("After deliberating for a moment, you think about the possible ramifications of this message. This will for certain end any possibility of a romantic relationship with Holly, though your regular relationship will still be intact. It might be a bit more awkward though.")
             input()
             print("You decide to…")
-            holly_three_option = input("(1): Sent the message (2): Go back to the drawing board")
+            holly_three_option = input("(1): Sent the message (2): Go back to the drawing board ")
 
             if holly_three_option in ['1']:
                 print("You sent the message. It’s nothing against her as a person, she just wasn’t a good match for you.")

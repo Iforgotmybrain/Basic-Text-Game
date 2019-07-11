@@ -1,10 +1,12 @@
 # Festival area
 import time
 import random
+import os
 import CharInfo
 import TravelSystem
 import SaveSystem
 
+clear = lambda: os.system('cls')
 
 class FestivalStart:
     def bus_ride(self):
@@ -13,7 +15,7 @@ class FestivalStart:
                 "You hop on a bus headed to downtown. There’s a special event today called Lake Fest, which hosts several vendors and activities.")
             input()
             print(
-                "While on the bus you sit next to a man with an ‘I heart NY shirt’ on. He’s carrying a sizable backpack and based on the apparel he’s wearing seems to have experience traveling.")
+                "While on the bus you sit next to a man with an ‘I heart NY shirt’ on. He’s carrying a sizable backpack, and based on the apparel he’s wearing, he seems to have experience traveling.")
             print(
                 "The man looks to you and asks if you’re going to Lake Fest. You say yes, and that you’ve gone to it almost every year you’ve lived here.")
             input()
@@ -51,6 +53,7 @@ class FestivalStart:
             input()
             print(
                 "You tell Chris that you’ve been interested in doing something similar, you find the idea of traveling the country and seeing all it has to offer to be exciting!")
+            print("It would be a nice change of pace from the predictable nature of your life at the moment.")
             input()
             print(
                 "'It’s a very rewarding experience. But it’s also a significant time commitment, and too be honest, it can be a bit tiring driving for hours on end. But the experiences and sights make it worth it. There really isn’t much else like it, expect maybe traveling the world. But that’s whole different ballgame.'")
@@ -66,7 +69,7 @@ class FestivalStart:
             print("You shake his hands and say goodbye, he offers one last piece of advice before departing.")
             input()
             print(
-                "'Hey, if you ever decide to go for it, hit me up on Facebook. I’ve got a list of my favorite places to stop that I’d be glad to share'")
+                "'Hey, if you ever decide to go for it, hit me up on Pawbook. I’ve got a list of my favorite places to stop at it, I’d be glad to share'")
 
             print("You thank the Tiger as he goes on his way.")
             input()
@@ -111,7 +114,7 @@ class FestivalStart:
         input()
         print("The second is a wood sculptor, he has various objects depicted in wood for sale.")
         input()
-        print("And finally, the third is a novelty t-shirt and hat seller. You know, the kind that has hats with a big ass weed leaf and Snoop Dogg on them. You know what I’m talking about.")
+        print("And finally, the third is a novelty t-shirt and hat seller. You know, the kind that has hats with a big weed leaf and Snoop Dogg on them. You know what I’m talking about.")
         festival_vendor = input("Which one do you want to check out? ")
         if festival_vendor in ['paint', 'painter', 'oil painting','painting']:
             self.vendor_painting()
@@ -128,7 +131,7 @@ class FestivalStart:
 
 
     def vendor_painting(self):
-        print("You walk up to the painters stand, you see works ranging from beautiful mountain landscapes to tasteful nude works, separately featuring a horse and a vixen. He has a very diverse set of paintings.")
+        print("You walk up to the painters stand, you see works ranging from beautiful mountain landscapes to tasteful nude works. He has a very diverse set of paintings.")
         input()
         print("You browse their painting selections some more; the painter eventually asks if anything catches your eye.")
         input()
@@ -310,17 +313,17 @@ class FestivalMid:
         input()
         print("After eating your meal you head towards one of the many events being held here.")
         print(
-            "This one is a concert, it features various local musicians and bands, with the main headliner being a band called Lioness Untamed.")
+            "The event you're going too is a concert, it features various local musicians and bands, with the main headliner being a band called Lioness Untamed.")
         input()
         print(
-            "As you arrive at the concert stage you see one band setting up, according to the schedule their name is Airplane Harness. They primarily play indie music, which helps explain their odd name choice.")
+            "As you arrive at the concert stage you see one of the bands setting up, according to the schedule their name is Airplane Harness. They primarily play indie music, which helps explain their odd name choice.")
         input()
         print(
             "Your feelings on indie music differ from band to band, so you decide to stick around and see if you like their music.")
         print(
-            "As you walk towards the stage you feel a tap on your shoulders. You turn around to see who’s trying to get your attention, and to your surprise it was Holly.")
+            "As you walk towards the stage you feel a tap on your shoulders. You turn around to see who’s trying to get your attention, much to your surprise, it was Holly!")
         input()
-        print('"Fancy meeting you here, friend. Never really thought of you as the festival type."')
+        print('"Fancy meeting you here, old friend. Never really thought of you as the festival type."')
         print(
             "You tell Holly you thought the same of her, she never seemed to like crowds of people back in high school.")
         input()
@@ -363,18 +366,18 @@ class FestivalMid:
         input()
         print("With there not being much else to do, you decide to get to know Holly a bit better by asking about her career as an artist. Primarily by asking how she got started.")
         input()
-        print('"Well, like I said before I’ve been drawing since… eh, around middle school I’d say. Back then it was just a hobby, of course. Just something to channel my creative ideas, and maybe show off a bit."')
+        print('"Well, I’ve been drawing since… eh, around middle school I’d say. Back then it was just a hobby, of course. Just something to channel my creative ideas, and maybe show off a bit."')
         input()
         print('"When I went to college I ended up making a social media account dedicated to posting my art, I advertised it a bit and got a decent following, about 5000 people."')
         print('"At that point, it was still just a hobby, but I was definitely thinking about the money potential."')
         input()
-        print('"As you know I dropped out, yatta yatta you already know the story. After that, I got a full-time retail job and just kept working on my art and worked on getting more followers."')
+        print('"I dropped out of college, and then after that, I got a full-time retail job and just kept working on my art and worked on getting more followers."')
         input()
         print("About what you expected to hear. You ask Holly when she started to see art as an actual career path instead of just a hobby.")
         input()
         print('"Hmm, I started taking commissions shortly after leaving college. It wasn’t a ton of money, just like beer money really. But it was something! And it was first time I’d been paid for doing art."')
         input()
-        print('"About half a year into my retail job I expanded the commissions I took and also opened up a donation page. At this point, the income from my art was actually starting to rack up. Wasn’t as much as my ‘real job’ but it was enough to pay most some of my utilities every month. I was really starting to see art as a legitimate career path at this point."')
+        print('"About half a year into my retail job I expanded the commissions I took and also opened up a donation page. At this point, the income from my art was actually starting to rack up. Wasn’t as much as my ‘real job’ but it was enough to pay some of my utilities every month. I was really starting to see art as a legitimate career path at this point."')
         input()
         print('"From there I just sort of kept expanding my work, I started making merch, I raised the prices of commissions a bit and set up an account on one of those monthly subscription type of sites."')
         input()
@@ -383,16 +386,16 @@ class FestivalMid:
         input()
         print("You congratulate Holly on being able to support herself on her art. It’s not often that people are able to live off, or even achieve their ‘dream job’")
         input()
-        print('"For sure. I’m definitely fortunate for being able to live of art."')
+        print('"For sure. I’m definitely fortunate for being able to live off my art."')
         print('"You aren’t doing too bad either though, being able to live off of just odd jobs here and there is pretty damn nice."')
         input()
-        print("You agree. You’re not sure if you would really consider contract work to be your dream job, but its definitely a better situation than most people are in.")
+        print("You agree. You’re not sure if you would really consider contract work to be your dream job, but it's definitely a better situation than most people are in.")
         input()
         print("The band has been gone through about half of their set at this point, you’re still not feeling the music and the only thing really keeping you here is Holly.")
         input()
         print("You decide you’re going to bare the rest of the concert, or at least stay until Holly decides she’s heard enough.")
         input()
-        print("The conversation between the two of you has died down a bit, there hasn’t really been a really in-depth conversation since you discussed each other's careers. Just small talk amidst the compulsive checking of your smartphones and the occasional attention paid to the concert.")
+        print("The conversation between the two of you has died down a bit, there hasn’t really been an in-depth conversation since you discussed each other's careers. Just small talk amidst the compulsive checking of your smartphones and the occasional attention paid to the concert.")
         input()
         print("You grasp at straws while thinking of things to talk about. Eventually you decide to ask Holly what kind of art she draws.")
         input()
@@ -401,16 +404,17 @@ class FestivalMid:
         print('"As far as the species I’m best at drawing, I’d say Foxes (of course), Leopards, and Bears."'.format(CharInfo.player_info.race))
         input()
         print('"Alright, enough questioning me. Now it’s my turn. Why’d you leave your job at Syperion? "')
+        print("I saw the Pawbook post you made when you left, but you didn't really go into why you left.")
         input()
         print('A bit of a personal question, but you’ve been bugging her about her career, so fair enough.')
         input()
-        print("You explain to Holly how it all started. Initially, it went it all went pretty well. The job paid exceptionally well, had good benefits, and looked really good on a resume. About 5 months into the job though you started to notice some of the dysfunction abound. You grew tired of the petty office politics, your ‘superiors’ never really valued your work or your feedback, and the work you were doing just wasn’t very fulfilling.")
+        print("You explain to Holly how it all started. Initially, it all went pretty well. The job paid exceptionally well, had good benefits, and looked really good on a resume. About 5 months into the job though you started to notice some of the dysfunction abound. You grew tired of the petty office politics, your ‘superiors’ never really valued your work or your feedback, and the work you were doing just wasn’t very fulfilling.")
         input()
         print("Most workplaces will have elements of all those things, this is true, but here they were overwhelming. You knew you weren’t long for that place and started saving up a decent chunk of your paycheck each month. You put half of that chunk into an investment account, and the other half went directly into your savings.")
         input()
         print("You stayed for about 7 months after that, and by the time you put in your 2-weeks, you had saved around $40,000 total. Enough to live modestly by yourself for 1 year. Or in your case, more than enough to live with your roommates for 2+ years.")
         input()
-        print("'Wow, that still just amazes me. Saving 40k in only one year is just crazy. That’s almost how much I make in a year.'")
+        print("'Wow, that just amazes me. Saving 40k in only one year is just crazy. That’s almost how much I make in a year.'")
         input()
         print("'And then after that, I’m assuming you started doing that contract work you were talking about?'")
         input()
@@ -430,6 +434,7 @@ class FestivalMid:
             print('"Well, I wasn’t initially planning on staying after this concert, but since you’re offering… Sure, I’ll gladly tag along."')
             input()
             print("As the band finishes their set you leave the concert and head back towards the main festival area.")
+            CharInfo.player_info.ending_points += 3
             festival_end.festival_hub_end()
         elif hollystayorleave in ["2"]:
             CharInfo.festival_checks.holly_stay = False
@@ -466,7 +471,7 @@ class FestivalEnd:
             return self.festival_hub_end()
 
     def festival_games_holly(self):
-        print("You head towards the many ‘fair games’ set up at this festival.")
+        print("You head towards the many fair games set up at this festival.")
         input()
         print('"I used to always bug the hell out of my parents about playing these games. They’d always say ‘no, you’re not playing those games, they’re a rip-off. I could go to the store and buy you whatever toy it is you want for less money than it would take to win one of those games."')
         input()
@@ -484,11 +489,12 @@ class FestivalEnd:
         print("You could try the baseball one, you also thought about doing the BB gun one. They're all rigged in some way though, your odds are probably the same no matter which one you have a go at. (Author note: The Baseball game is much better written than the BB gun game. Just something to consider.")
         fairgamechoice = input('After thinking about it, you decide to... (1): Play the baseball game \
         (2): Play the BB gun game. ')
+
         if fairgamechoice in ['1']:
             self.festival_baseball_holly()
+
         elif fairgamechoice in ['2']:
-            print("Ares WIP")
-            return
+            self.festvial_bb_holly()
 
     def festvial_bb_holly(self):   # Not really happy with how this turned out. Honestly I don't consider it to be an equal to the baseball game.
         print("You decide to check out the BB gun game. Your personal preference.")
@@ -504,7 +510,7 @@ class FestivalEnd:
         print("You decide to play first since it was your idea to check this game out.")
         print("You line up at the gun. It’s quite beaten up, with most of the paint having chipped away.")
         input()
-        print("The gun has sights on it but their quite trash, so you’re really just eyeballing it. The $12 you paid will give you 300 BB rounds each. Not much considering how fast the gun fires.")
+        print("The gun has sights on it but they are quite trash, so you’re really just eyeballing it. The $12 you paid will give you 300 BB rounds each. Not much considering how fast the gun fires.")
         print("You think the best way to go about this would be to shoot the outside of the target first.")
         input()
         print("You take hold of the gun and aim down its rudimentary sights, it’s bolted down to a rail which prevents you from aiming the gun with anything resembling decent accuracy.")
@@ -515,7 +521,7 @@ class FestivalEnd:
         print("You start off doing a pretty decent job, you’ve shot out a decent chunk of the target, with about half it remaining.")
         print("It’s getting quite difficult at this point though since there’s less and less of the target to shoot. Instead of being able to essentially aim in the general area of the target and hit something, you have to be more careful with your shots. Which is difficult given the gun’s poor movement and sights.")
         input()
-        print(" You knock out some more of the target, there’s about 25% remaining, but you only have 100 pellets to get the rest of it done. At this point, your shots are missing more than they are hitting. The remaining pieces of the target aren't supported by much, which leads to the paper just giving way to pellet, dealing no damage.")
+        print(" You knock out some more of the target, there’s about 25% remaining, but you only have 100 pellets to get the rest of it done. At this point, your shots are missing more than they are hitting. The remaining pieces of the target aren't supported by much, which leads to the paper just giving way to pellets, dealing no damage.")
         input()
         print("You’re just about to knock out the target, you aim the gun perfectly, your finger on the trigger ready to finally win one of these silly games.")
         pc_win = random.randint(30, 100)
@@ -531,10 +537,10 @@ class FestivalEnd:
                 print("You pick the dragon. You can never go wrong with a dragon.")
 
             elif pc_bbanimal in ['german shepard', 'g shep', 'german shep']:
-                print("You pick the stuffed german shepard, it's coat is very similar to Sasha's, it's coat is primarily black with some tan.")
+                print("You pick the stuffed german shepard, it's color is very similar to Sasha's, being primarily black with some tan.")
 
             elif pc_bbanimal in ['fox']:
-                print("You decide too pick the fox, foreshadowing? Probably not. You just thought the fox looked the cutest.") # Do I keep this line? Might actually be foreshadowing I don't know.
+                print("You decide too pick the fox, foreshadowing? Probably not. You just thought the fox looked the cutest.")  # Do I keep this line? Might too heavy handed.
 
         elif pc_win < 70:
             print("You push the trigger, ready to decimate the last of that pain in the ass target, but as you do you hear a clicking noise, and nothing comes out. You’ve run out BB pellets.")
@@ -549,8 +555,8 @@ class FestivalEnd:
         input()
         print("She makes good progress at the start, chipping away a similar amount to you. She seems to have slightly better control over the rate of fire than you did.")
         input()
-        print("Holly seems to be falling into the same pits you did, as she knocks more and more of target off it gets more difficult to actually hit it. Guess this is one of the main obstacles in this game.")
-        print("As the game goes on it plays out very similar to your try. She ends up with about 20% of the target left but struggles to hit it due to Its flimsy nature. ")
+        print("Holly seems to be falling into the same issues you did, as she knocks more and more of target off it gets more difficult to actually hit it. Guess this is one of the main obstacles in this game.")
+        print("As the game goes on it plays out very similar to your try. She ends up with about 20% of the target left but struggles to hit the rest due to its flimsy nature. ")
         input()
         holly_win = random.randint(40, 100)
         if holly_win > 60:
@@ -565,12 +571,12 @@ class FestivalEnd:
             print("To your surprise, Holly actually managed to pull it off and win!")
             print("The game vendor begrudgingly offers Holly a choice of any cheaply made stuffed animal they have on display. Among those displayed are a Dragon, a German Shepard, and a {}.".format(CharInfo.player_info.race))
             input()
-            print("Holly picks the {}. A funny coincidence all things considered, but that’s probably all it Is, a coincidence.".format(CharInfo.player_info.race))
+            print("Holly picks the {}. A funny coincidence all things considered, but that’s probably all it is, a coincidence.".format(CharInfo.player_info.race))
             if pc_win > 70:
-                print("It would seem that both of you made out today. It's rare enough for one person to win these kinds of games, but two? That's almost unheard of.")
+                print("It would seem that both of you made out today. It's rare enough for one person to win these games, but two? That's almost unheard of.")
                 input()
             elif pc_win < 70:
-                print("It seems you were right, luck does favor the foxes. At least that $12 was not spent in vain.")
+                print("It seems the sayings were right, luck does favor the foxes. At least that $12 was not spent in vain.")
                 input()
 
         elif holly_win < 60:
@@ -582,7 +588,7 @@ class FestivalEnd:
                 print("Unsurprisingly, neither of you managed too win today. That's to be expected given how rigged these games are. As Holly would say, at least you 'experienced' the games.")
                 input()
             elif pc_win > 70:
-                print("You are the only one to emerge victorious today, it seems you woke up on the right side of the bed.")
+                print("You are the only one to emerge victorious today, even having won you feel like you wasted your money.")
                 input()
         print("With the game done and over with you evaluate your next course of action with Holly.")
         if CharInfo.festival_checks.festival_walk is True:
@@ -625,14 +631,14 @@ class FestivalEnd:
             print("Among them are a stuffed German Shepard, a stuffed Tiger, and a stuffed {}.".format(CharInfo.player_info.race))
             input()
             print("Holly chooses the stuffed {}".format(CharInfo.player_info.race))
-            print("A funny coincidence considering you’re a {} yourself. Eh, correlation doesn’t equal causation and all that, it’s nothing.".format(CharInfo.player_info.race))
+            print("A funny coincidence considering you’re a {} yourself. Eh, correlation doesn’t equal causation and all that.".format(CharInfo.player_info.race))
             input()
         elif holly_speed <= 60:
             print("Holly throws the ball with all her might, but it wasn’t enough, as the speed is short of the 60 mph target.")
         print("Now it’s your turn up. You’re probably the worst possible person to try this game, as you have no experience with baseball. That is unless you count those little plastic ones you threw around with when you were 4.")
         input()
         print("Well, you’ve gotta at least make an effort. You think about the proper form to throw the ball, trying to mimic the cardboard cut-out they have standing by their booth and the way Holly threw the ball.")
-        print("Eventually, you feel like you’ve got it the perfect form, you bring your arm back, ready to get back some of the money you wasted on this thing.")
+        print("Eventually, you feel like you’ve got the perfect form, you bring your arm back, ready to get back some of the money you wasted on this thing.")
         input()
         print("You throw the ball, you can tell your grip wasn’t quite right, as the ball didn’t seem to have as much oomph as you anticipated.")
         input()
@@ -691,9 +697,9 @@ class FestivalEnd:
         input()
         print("You tell Holly about your hobbies, which you find to be pretty uninteresting. Because, well, truth is your hobbies are a bit basic and boring. You enjoy movies, music, watching TV, and maybe playing video games or watching sports here and there. Among other things.")
         input()
-        print('"I mean, yeah, those are pretty basic things. I won’t lie about that. That’s not necessarily a bad thing though. In some cases, I’d say it can even be a positive. Since those interests are so common, it can make it easier for other people to relate to you. So long as you don’t let those hobbies become the only thing defining you, it’s fine. That’s when you become a basic bitch, or bastard. You definitely don’t have that problem, though."')
+        print('"I mean, sure, those are pretty basic things. I won’t lie about that. That’s not necessarily a bad thing though. In some cases, I’d say it can even be a positive. Since those interests are so common, it can make it easier for other people to relate to you. So long as you don’t let those hobbies become the only thing defining you, it’s fine. That’s when you become a basic bitch, or bastard. You definitely don’t have that problem, though."')
         input()
-        print('"So yeah, I like a lot of the same stuff. Music, movies, all that. You already know about my art, and I also enjoy fishing on occasion."')
+        print('"Ya know, I like a lot of the same stuff. Music, movies, all that. You already know about my art, and I also enjoy fishing on occasion."')
         print('"Guess I’m pretty ‘basic’ as well."')
         input()
         print("You also mention to Holly that you like traveling, though you rarely do so. You also mention that you’ve been thinking about going on a road trip around the country.")
@@ -756,7 +762,7 @@ class FestivalEnd:
         input()
         print("You tell Holly that you’ve appreciated her company today, it’s been a while since you’ve been able to hang out with someone like you did today.")
         input()
-        print('"I really enjoyed too. It reminded me a lot of when we, ya know, actually saw each other on a regular basis."')
+        print('"I really enjoyed it too. It reminded me a lot of when we, ya know, actually saw each other on a regular basis."')
         input()
         print("You both lean on Holly’s car in the parking lot, watching the fireworks as the last bit of sun falls below the horizon, giving way to the stars and planets to light the night sky.")
         input()
@@ -775,10 +781,9 @@ class FestivalEnd:
         input()
         print("You head home on the bus and head to bed. Even a day as nice as this one ends the same as the rest.")
         input()
+        clear()
         CharInfo.festival_checks.festival_ending = True
         TravelSystem.travel_function.travel_point_bedroom()
-
-        # Now what
 
     def festival_ending_self(self):
         print("After checking out everything the festival has to offer, you head back towards the entrance to watch the ending fireworks show.")
@@ -814,6 +819,7 @@ class FestivalEnd:
             print("You head to the bus stop and hop on the bus home.")
             print("Once you get home you head up to bed. The day ending like any other.")
             input()
+            clear()
             CharInfo.festival_checks.festival_ending = True
             TravelSystem.travel_function.travel_point_bedroom()
 

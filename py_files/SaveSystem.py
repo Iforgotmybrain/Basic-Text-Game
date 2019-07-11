@@ -1,5 +1,6 @@
 import pickle
 import CharInfo
+import TravelSystem
 
 class GameState:
     def saving(self):
@@ -8,7 +9,7 @@ class GameState:
         pickle.dump([CharInfo.holly_checks, CharInfo.chris_checks, CharInfo.jacob_checks, CharInfo.sasha_checks,
                      CharInfo.festival_checks, CharInfo.misc_checks, CharInfo.player_info, CharInfo.park_checks,
                      CharInfo.dest_one, CharInfo.dest_two, CharInfo.dest_three_four, CharInfo.dest_five_six,
-                     CharInfo.dest_seven_eight], pickle_out)
+                     CharInfo.dest_seven_eight, TravelSystem.tp.append], pickle_out)
         pickle_out.close()
         print("Game Saved!")
         CharInfo.player_info.player_location()
@@ -19,7 +20,7 @@ class GameState:
         [CharInfo.holly_checks, CharInfo.chris_checks, CharInfo.jacob_checks, CharInfo.sasha_checks,
          CharInfo.festival_checks, CharInfo.misc_checks, CharInfo.player_info, CharInfo.park_checks,
          CharInfo.dest_one, CharInfo.dest_two, CharInfo.dest_three_four, CharInfo.dest_five_six,
-         CharInfo.dest_seven_eight] = pickle.load(pickle_in)
+         CharInfo.dest_seven_eight, TravelSystem.tp.append] = pickle.load(pickle_in)
         pickle_in.close()
         print("Game Loaded!")
         CharInfo.player_info.player_location()
