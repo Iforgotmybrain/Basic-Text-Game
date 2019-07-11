@@ -7,7 +7,7 @@ class PlayerStats:
         self.race = race
         self.player_location = player_location
         self.money = money
-        self.ending_points = ending_points
+        self.ending_points = ending_points  # Ending points are now at a 30 to -30 scale.
 
 
 class PlayerCharacter(PlayerStats):
