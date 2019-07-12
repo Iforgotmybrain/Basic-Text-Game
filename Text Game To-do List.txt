@@ -19,7 +19,7 @@ Phase 2
 * Implement pygame GUI to make this a proper, usable game. (Not possible)
 * Look into porting game over to Android (Might be possible)
 * Figure out how I want to handle certain elements of the game (???)
-* Figure out how I want to handle the pool area (Won't make into the full game. Area scrapped because it had no purpose.)
+* Figure out how I want to handle the pool area (Won't make into the game. Area scrapped because it had no purpose.)
 * Implement Sasha Living Room dialogue. (Completed)
 * Implement new dialogue with Jacob (Complete)
 * Introduce characters that aren't related to education e.g work buddies, online friends, ect.(Completed)
@@ -27,12 +27,16 @@ Phase 2
 * Work on making levels more open (Levels still not as open as I'd like. Big area I can improve on.)
 * Think about making current levels more open (Too much work for not enough pay off)
 * Implement a new travel system (Completed, allows for more open game design now)
-* Implement save system (Completed, didn't think this would be so easy.)
+* Implement save system (Completed, didn't think this would be so easy.) (It wasn't that easy in hindsight)
 * Make it so the load option appears before the name and race inputs. (How?)
-* Make it so the user cannot input garbage values for race, name or sex. (How?)
+* Make it so the user cannot input garbage values for race, name or gender. (How?)
 * Implement money system (Completed)
 * Implement Festival area fully (Completed)
 
 Phase 3
-* 
+* Implement Jacob and Sasha dialogue relating to Road Trip (Completed)
+* Implement Chris online interaction (Mostly Completed)
+* Implement the new character, Valery the Hyena. (Named after Valery Legasov)
+* Work on Holly date scene (WIP)
+* Figure out how I want to handle road trip destinations
 
