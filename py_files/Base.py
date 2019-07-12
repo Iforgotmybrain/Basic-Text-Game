@@ -36,15 +36,16 @@ def intro():
 
 
 def pcbedroom():
-    if CharInfo.misc_checks.bathroom_bd is not True:
+    if CharInfo.sasha_checks.sasha_living is not True:
         print(
             "You wake up the next morning, your bedroom is dimly lit with the only source of light being the sun as it sneaks through the blinds.")
+
     elif CharInfo.sasha_checks.sasha_living is True and CharInfo.jacob_checks.jacob_bedroom is not True:  # Makes it so the dialogue doesn't repeat
         print("You wake up the next day feeling pretty good. Your conversation with Sasha helped ease your mind, and made you realize just how great of friends you have now.")
         print("You think about possibly asking Jacob about some of his past trips. He should be in his bedroom.")
         input()
 
-    elif CharInfo.festival_checks.festival_ending is True and CharInfo.chris_checks.chris_computer_list is not True: # Same thing.
+    elif CharInfo.festival_checks.festival_ending is True and CharInfo.chris_checks.chris_computer_list is not True:  # Same thing.
         print("You wake up the next morning still a bit surprised by the events of last night.")
         input()
         print("You think that now would be a good time to plan out the road trip, maybe try and figure out who you’d want to bring along, where you’d want to go, stuff like that.")
@@ -138,7 +139,7 @@ class PCBathroom:
             bathroomoption = input("What do you do? ").lower()
 
             if bathroomoption in ["trunk", "chest"] and CharInfo.misc_checks.bathroom_bd is not True:  # Prevents user from opening trunk more than once
-                print("You open the trunk and find a mysterious sculpture")  # Might make this a trigger in the future
+                print("You open the trunk and find a mysterious sculpture. It doesn't seem to have any significance, it must have been put here for some sort of testing.")  # Might make this a trigger in the future
                 CharInfo.misc_checks.bathroom_bd = True
                 input()
                 return self.bathroompc()
@@ -183,8 +184,12 @@ def hallway():
                 input()
                 return hallway()
 
-            elif CharInfo.sasha_checks.sasha_living is True:
+            elif CharInfo.sasha_checks.sasha_living is True and CharInfo.jacob_checks.jacob_bedroom is not True:
                 jacob_kitchen.bedroomdialogue()
+
+            else:
+                print("The door is locked.")
+                return hallway()
 
         elif hallwaydirection in ['south', 's']:
             pcbedroom()
@@ -447,7 +452,7 @@ class LivingRoom:
             '"Oh boy, you are in for a treat if you ever decide to catch up on them. Definitely let me know before you do, I’d love to re-watch all of them with you."')
         print('"Anyway, you want anything or just here to chat?"')
         input()
-        sashatalkorconfess = input("(1): Tell Sasha you wanted to talk about your walk in the park. (2:) Just keep chatting.")
+        sashatalkorconfess = input("(1): Tell Sasha you wanted to talk about your walk in the park. (2:) Just keep chatting.").lower()
 
         if sashatalkorconfess in ['1']:
             print(
@@ -650,7 +655,7 @@ class JacobDialogue:
         input()
         print("New travel area unlocked.")
         CharInfo.jacob_checks.jacob_bedroom = True
-        TravelSystem.tp.append('Lake Fest')
+        TravelSystem.travel_points.tp.append('Lake Fest')
         input()
         pcbedroom()
 
@@ -1052,6 +1057,7 @@ TravelSystem.travel_function.travel_point_park = sycamore_park.lakepark
 TravelSystem.travel_function.travel_point_festival_one = Festival.festival_area.bus_ride
 TravelSystem.travel_function.travel_point_bedroom = pcbedroom
 TravelSystem.travel_function.travel_point_hallway = hallway
+TravelSystem.travel_function.travel_point_home = entranceway
 
 
 loadingoption = input("Do you wish to load a game? ").lower()  # Make it so this is the first question asked.
@@ -1062,7 +1068,7 @@ elif loadingoption in ['no', 'n']:
 
 print("Hello", CharInfo.player_info.name)
 time.sleep(3)
-print("Welcome to Tales from the Road. A slice of life text game about furry characters")
+print("Welcome to Tales from the Road. A slice of life text game with furry characters")
 time.sleep(2)
 print("Your journey will soon begin as you return from vacation, but before that let's go over some details.")
 time.sleep(4)
@@ -1080,10 +1086,10 @@ print("Excellent. This game follows typical interactive fiction rules, e.g you t
 print(
     "In order to advance most dialogue in the game, you will have to press a key first. The console will print out a statement and then to get to the the next piece of dialogue you'll have to hit, say, enter.")
 input("Like this. expect you won't have any text telling you too press a key to continue. Press a key to continue.")
-print("Sometimes you'll able to choose the next dialogue option. The options will numbered which allows you to type in the corresponding number and select that dialogue option.")
+print("Sometimes you'll able to choose the next dialogue option. The options will be numbered which allows you to type in the corresponding number and select that dialogue option.")
 input()
 print("It will look like this:")
-input('(1): You now understand how dialogue prompts work. (2): Choose any number listed to continue.')
+input('(1): You now understand how dialogue prompts work. (2): Choose any number listed to continue. ')
 print("With that out of the way, let's get started")
 time.sleep(3)
 clear()

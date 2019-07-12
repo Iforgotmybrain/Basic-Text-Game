@@ -72,7 +72,7 @@ class GlobalCheckChris:
         self.chris_computer_list_completed = chris_computer_list_completed
 
 
-class GlobalCheckPlaceHolder:
+class GlobalCheckValery:
     pass
 
 
@@ -121,7 +121,7 @@ festival_checks = GlobalCheckFestival(bus_ride_complete=GlobalCheckFestival, pai
 
 chris_checks = GlobalCheckChris(chris_computer_list=GlobalCheckChris, chris_computer_list_completed=GlobalCheckChris)
 
-####_checks
+valery_checks = GlobalCheckValery()
 
 dest_one = GlobalCheckDestinationOne()
 

@@ -91,7 +91,7 @@ class FestivalStart:
         print("The day is perfect for a festival, a light overcast keeps temperatures in the sun bearable, and a slight breeze keeps you cool.")
         input()
         print("You see rows of vendors directly ahead to your north, and the bus stop to travel home.")
-        festivaldirection = input("What will you do? ")
+        festivaldirection = input("What will you do? ").lower()
         if festivaldirection in ['travel', 'home', 'bus', 'stop', 'bus stop']:
             TravelSystem.travel_function.traveltofront()
         elif festivaldirection in ['north', 'vendors', 'festival', 'n']:
@@ -115,7 +115,8 @@ class FestivalStart:
         print("The second is a wood sculptor, he has various objects depicted in wood for sale.")
         input()
         print("And finally, the third is a novelty t-shirt and hat seller. You know, the kind that has hats with a big weed leaf and Snoop Dogg on them. You know what I’m talking about.")
-        festival_vendor = input("Which one do you want to check out? ")
+        input()
+        festival_vendor = input("Which one do you want to check out? ").lower()
         if festival_vendor in ['paint', 'painter', 'oil painting','painting']:
             self.vendor_painting()
         elif festival_vendor in ['hat', 'shirt', 'tshirt', 't-shirt', 'trash', 'weed', 'novelty vendor', 'snoop dogg',
@@ -193,8 +194,7 @@ class FestivalStart:
         input()
         print('"The box would be $45, and the plane is about $300"')
         input()
-        wooden_choice = input("After thinking about it, you decide to… (1): Purchase the box (2): Purchase the plane \
-              (3): Purchase nothing")
+        wooden_choice = input("After thinking about it, you decide to… (1): Purchase the box (2): Purchase the plane (3): Purchase nothing ").lower()
 
         if wooden_choice in ['1']:
             CharInfo.festival_checks.festival_item_purchased = True
@@ -242,7 +242,7 @@ class FestivalStart:
         trashy_vendor = input("(1): The shirt with Snoop Dogg and weed references on it, no way in hell are you going to wear it, but it might make a good gag gift someday. \
             (2): The bootleg NY Yankees hat. You don’t really like the Yankees, or snap-back hats, but odds are you know someone who does. It might come in handy as a gift someday.\
             (3): An absurdly outdated meme shirt that has a troll face on it. Much like the Snoop Dogg shirt, you probably aren’t going to wear, but you could give it away as a gag gift.\
-            (4) Nothing")
+            (4) Nothing").lower()
 
         if trashy_vendor == '1':
             print("You take the Snoop Dogg shirt and bring it to the vendor.")
@@ -426,7 +426,8 @@ class FestivalMid:
         input()
         print("You could ask Holly to accompany you for the rest of the day, or you could part ways. ")
         hollystayorleave = input("After thinking about it you decide too... (1): Ask Holly to tag along with you for the rest of the day \
-        (2): Go your separate ways")
+        (2): Go your separate ways ").lower()
+
         if hollystayorleave in ['1']:
             CharInfo.festival_checks.holly_stay = True
             print("You ask Holly if she wants to tag along for the rest of the day.")
@@ -435,14 +436,20 @@ class FestivalMid:
             input()
             print("As the band finishes their set you leave the concert and head back towards the main festival area.")
             CharInfo.player_info.ending_points += 3
+            CharInfo.player_info.player_location = festival_end.festival_hub_end
+            SaveSystem.save_sys.saving()
             festival_end.festival_hub_end()
+
         elif hollystayorleave in ["2"]:
             CharInfo.festival_checks.holly_stay = False
             print("You decide to part ways with Holly.")
             CharInfo.player_info.ending_points -= 2
             input()
             print("As the band finishes their set you leave the concert and head back towards the main festival area.")
+            CharInfo.player_info.player_location = festival_end.festival_hub_end
+            SaveSystem.save_sys.saving()
             festival_end.festival_hub_end()
+
         else:
             print("Invalid input")
             return self.main_concert_dialogue()
@@ -453,19 +460,26 @@ class FestivalEnd:
         CharInfo.player_info.player_location = festival_end.festival_hub_end  # This keeps track of where the player is.
         if CharInfo.festival_checks.festival_walk is not True and CharInfo.festival_checks.holly_stay is False:
             print("There's not much left to do here. The only other thing you could think to do is check out the bits of the festival over to the east.")
+
         elif CharInfo.festival_checks.festival_walk is False and CharInfo.festival_checks.holly_stay is True:
             print("There's the festival games to the north, and the looping walk way to the east.")
-        festivalhubchoice = input("You decide that you want to go... (north, east, or save)").lower()
+        festivalhubchoice = input("You decide that you want to go... ").lower()
+
         if festivalhubchoice in ['e', 'east']:
+
             if CharInfo.festival_checks.holly_stay is True:
                 self.festival_walkway_holly()
+
             elif CharInfo.festival_checks.holly_stay is False:
                 self.festival_walkway_self()
+
         elif festivalhubchoice in ['n', 'north'] and CharInfo.festival_checks.holly_stay is True:  # Made it so the games are only open when you have Holly. Just too much dialogue to write otherwise.
             self.festival_games_holly()
             return self.festival_hub_end()
+
         elif festivalhubchoice in ['save', 'saving', 'save game']:
             SaveSystem.save_sys.saving()
+
         else:
             print("Invalid input")
             return self.festival_hub_end()
@@ -488,7 +502,7 @@ class FestivalEnd:
         input()
         print("You could try the baseball one, you also thought about doing the BB gun one. They're all rigged in some way though, your odds are probably the same no matter which one you have a go at. (Author note: The Baseball game is much better written than the BB gun game. Just something to consider.")
         fairgamechoice = input('After thinking about it, you decide to... (1): Play the baseball game \
-        (2): Play the BB gun game. ')
+        (2): Play the BB gun game. ').lower()
 
         if fairgamechoice in ['1']:
             self.festival_baseball_holly()
@@ -525,6 +539,7 @@ class FestivalEnd:
         input()
         print("You’re just about to knock out the target, you aim the gun perfectly, your finger on the trigger ready to finally win one of these silly games.")
         pc_win = random.randint(30, 100)
+
         if pc_win > 70:
             print("You push the trigger and the last barrage of BB pellets is unleashed. They hit the last bit of the target perfectly, destroying the last evidence of its existence.")
             input()
@@ -533,6 +548,7 @@ class FestivalEnd:
             input()
             print("Among the options are a Dragon, German Shepard, and a Fox.")
             pc_bbanimal = input("You decide to pick the... (dragon, german shepherd, fox)").lower()
+
             if pc_bbanimal in ['dragon']:
                 print("You pick the dragon. You can never go wrong with a dragon.")
 
@@ -559,6 +575,7 @@ class FestivalEnd:
         print("As the game goes on it plays out very similar to your try. She ends up with about 20% of the target left but struggles to hit the rest due to its flimsy nature. ")
         input()
         holly_win = random.randint(40, 100)
+
         if holly_win > 60:
             print("Holly ends up at the same point you did towards the end. She’s only got about 3 more trigger pulls before she runs out of ammo.")
             input()
@@ -572,9 +589,11 @@ class FestivalEnd:
             print("The game vendor begrudgingly offers Holly a choice of any cheaply made stuffed animal they have on display. Among those displayed are a Dragon, a German Shepard, and a {}.".format(CharInfo.player_info.race))
             input()
             print("Holly picks the {}. A funny coincidence all things considered, but that’s probably all it is, a coincidence.".format(CharInfo.player_info.race))
+
             if pc_win > 70:
                 print("It would seem that both of you made out today. It's rare enough for one person to win these games, but two? That's almost unheard of.")
                 input()
+
             elif pc_win < 70:
                 print("It seems the sayings were right, luck does favor the foxes. At least that $12 was not spent in vain.")
                 input()
@@ -591,6 +610,7 @@ class FestivalEnd:
                 print("You are the only one to emerge victorious today, even having won you feel like you wasted your money.")
                 input()
         print("With the game done and over with you evaluate your next course of action with Holly.")
+
         if CharInfo.festival_checks.festival_walk is True:
             print(
                 '"The day is getting pretty late, I suppose we should start heading towards the parking lot. We might be able to see the fireworks on our way out."')
@@ -599,6 +619,7 @@ class FestivalEnd:
             CharInfo.festival_checks.festival_game = True
             SaveSystem.save_sys.saving()
             self.festival_ending_holly()
+
         elif CharInfo.festival_checks.festival_walk is not True:
             CharInfo.festival_checks.festival_game = True
             print('"The day\'s winding down, we should probably check out that other path before it gets too late."')
@@ -624,6 +645,7 @@ class FestivalEnd:
         input()
         holly_speed = random.randint(50, 65)
         print("The display finally shows the speed. Holly threw the ball at a speed of {} MPH.".format(holly_speed))
+
         if holly_speed >= 60:
             print("Unbelievable! She actually made it! Quite a feat given all the factors fighting against her. Hopefully you nail it as well, else you’ll never hear the end of it.")
             input()
@@ -633,6 +655,7 @@ class FestivalEnd:
             print("Holly chooses the stuffed {}".format(CharInfo.player_info.race))
             print("A funny coincidence considering you’re a {} yourself. Eh, correlation doesn’t equal causation and all that.".format(CharInfo.player_info.race))
             input()
+
         elif holly_speed <= 60:
             print("Holly throws the ball with all her might, but it wasn’t enough, as the speed is short of the 60 mph target.")
         print("Now it’s your turn up. You’re probably the worst possible person to try this game, as you have no experience with baseball. That is unless you count those little plastic ones you threw around with when you were 4.")
@@ -645,30 +668,39 @@ class FestivalEnd:
         print("The ball moves at a decent speed, hitting the soft target and letting out an unsatisfying ‘plump’ sound.")
         pc_speed = random.randint(40, 70)
         print("The display shows your speed, you threw the ball at a speed of {}".format(pc_speed))
+
         if pc_speed > 60:
             print("You nail the target, reaching the target speed of 60MPH")
             input()
+
             if holly_speed >= 60:
                 print("Thankfully you came through and matched Holly, It would seem nobody gained bragging rights today.")
+
             elif holly_speed <= 60:
                 print("You emerge victorious today, gaining bragging rights against Holly for the foreseeable future.")
             print("The vendor offers you a choice of any cheaply made stuffed animal he has.")
             print("Among them are a stuffed Fox, a stuffed German Shepard, and a stuffed Dragon.")
             input()
-            pc_animal_choice = input("After thinking about it, you decide too pick the... (fox, german shepard, dragon")
+            pc_animal_choice = input("After thinking about it, you decide too pick the... (fox, german shepard, dragon").lower()
+
             if pc_animal_choice in ['fox']:
-                print("You decide too pick the fox, foreshadowing? Probably not. You just thought the fox looked the cutest.")
-            elif pc_animal_choice in ['german shepard', 'g shep', 'german shep']:
+                print("You decide too pick the fox. Foreshadowing? Probably not. You just thought the fox looked the cutest.")
+
+            elif pc_animal_choice in ['german shepard', 'g shep', 'german shep', 'shepard']:
                 print("You pick the stuffed german shepard, it's coat is very similar to Sasha's, it's coat is primarily black with some tan.")
+
             elif pc_animal_choice in ['dragon']:
                 print("You pick the dragon. You can never go wrong with a dragon.")
+
         elif pc_speed < 60:
             print("You gave it all you got but it just wasn’t enough to hit the target speed.")
             input()
             if holly_speed > 60:
                 print("It would seem Holly is the victor today, holding bragging rights against you for the foreseeable future.")
+
             elif holly_speed < 60:
                 print("It would seem nobody emerged victorious today. Not surprising given the awful chances. At least this way you’re both on even ground as far as bragging rights goes.")
+
         if CharInfo.festival_checks.festival_walk is True:
             print('"Well, the day is winding down, suppose we should start heading towards the parking lot. We might be able to see the fireworks on our way out."')
             input()
@@ -676,6 +708,7 @@ class FestivalEnd:
             CharInfo.festival_checks.festival_game = True
             SaveSystem.save_sys.saving()
             self.festival_ending_holly()
+
         elif CharInfo.festival_checks.festival_walk is not True:
             CharInfo.festival_checks.festival_game = True
             print('"It’s getting pretty late, suppose we should go check out that one path before it’s too late."')
@@ -738,19 +771,18 @@ class FestivalEnd:
         print("Indeed, the only thing this path seems to offer is a nice walk. It loops around the stadium and will take you back to where you started.")
         print("Oh well, if nothing else you can reflect on the day while walking back.")
         input()
-        print("The day has gone pretty well, you think. About the same as every other year you’ve went. The only big ‘change’ was running into Holly. Which was nice, but ultimately you just don’t really feel a connection with her anymore, not like you used too anyway.")
+        print("The day has gone pretty well, you think. About the same as every other year you’ve went. The only thing that was different was running into Holly. Which was nice, but ultimately you just don’t really feel a connection with her, not like you used too anyway.")
         input()
-        print("That’s just the way it goes. You’ve learnt that by now. Life is filled with what-ifs, if you dwelt on every single one of them you’d never get anywhere.")
-        print("You’ve dealt with this situation before, you’ll deal with it again. Though with how much of a recurrence this seems to be, you’re beginning to think perhaps you’re part of the problem.")
+        print("Actually, thinking back too it, you never got to say goodbye to Holly. Maybe you’ll run into her again and be able to say a proper goodbye.")
         input()
-        print("Maybe you’re just not making enough of an effort to maintain these relationships.")
+        print("Other than that the day has been pretty unremarkable. Just another average day.")
         input()
-        print("Actually, thinking back too it, you never got to say goodbye to Holly. Maybe you’ll run into her again and be able to say a proper goodbye. That could be a good start.")
-        print("You walk a bit more and eventually arrive back at the place you started. With nothing left to do you decide to head towards the bus stop.")
+        print("You walk a bit more and eventually arrive back at the place you started. With nothing left to do you decide to head home and start walking towards the bus stop.")
         input()
         CharInfo.festival_checks.festival_walk = True
         CharInfo.player_info.player_location = festival_end.festival_ending_self
         SaveSystem.save_sys.saving()
+        clear()
         self.festival_hub_end()
 
 
@@ -782,6 +814,7 @@ class FestivalEnd:
         print("You head home on the bus and head to bed. Even a day as nice as this one ends the same as the rest.")
         input()
         clear()
+        TravelSystem.travel_points.tp.remove('Lake Fest')
         CharInfo.festival_checks.festival_ending = True
         TravelSystem.travel_function.travel_point_bedroom()
 
@@ -792,7 +825,7 @@ class FestivalEnd:
         print("You had some nice discussions with her but it didn’t really go much beyond that. There just wasn’t enough interest from either party.")
         input()
         print("Still, you can’t help but feel that maybe you missed out on something. It’s not everyday you get to try and rekindle a fading friendship. ")
-        print("Oh well, it’s like you said, you can’t dwell on the past too much.")
+        print("Oh well, you can’t dwell on the past too much.")
         input()
         print("Speaking of Holly, you never did see her again. Shame you never got to say goodbye.")
         input()
@@ -805,9 +838,19 @@ class FestivalEnd:
         input()
         print("That’s what you had in mind, yes. Though thinking about it, you could watch the rest of the fireworks with Holly if you wanted.")
         festivalselfending= input("After thinking about it you decide to... (1): Just say goodbye to Holly. It’s been nice talking to her, but that’s as far you want it to go. \
-              (2): Offer to stay and watch the fireworks with her. ")
+              (2): Offer to stay and watch the fireworks with her. ").lower()
+
         if festivalselfending in ['1']:
             print('"Well, see ya. Been nice talking. Maybe we’ll run into each other again, what a coincidence that would be."')
+            input()
+            print("You head to the bus stop and hop on the bus home.")
+            print("Once you get home you head up to bed. The day ending like any other.")
+            input()
+            clear()
+            CharInfo.festival_checks.festival_ending = True
+            TravelSystem.travel_points.tp.remove('Lake Fest')
+            TravelSystem.travel_function.travel_point_bedroom()
+
         elif festivalselfending in ['2']:
             print('"Err, appreciate the offer but you’re a bit late, as I was just getting ready to leave."')
             input()
@@ -821,6 +864,7 @@ class FestivalEnd:
             input()
             clear()
             CharInfo.festival_checks.festival_ending = True
+            TravelSystem.travel_points.tp.remove('Lake Fest')
             TravelSystem.travel_function.travel_point_bedroom()
 
 

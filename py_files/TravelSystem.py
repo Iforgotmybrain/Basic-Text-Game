@@ -1,4 +1,6 @@
-tp = ['Tories Cafe', 'Sycamore Lakeview Park', 'Home']
+class TravelPoints:
+    def __init__(self):
+        self.tp = ['Tories Cafe', 'Sycamore Lakeview Park', 'Home']
 
 class Traveling:
     def __init__(self, travel_point_cafe, travel_point_park, travel_point_festival_one, travel_point_home,
@@ -12,7 +14,7 @@ class Traveling:
 
     def traveltofront(self):
         print('You can think of the following places to travel to:')
-        print(tp)
+        print(travel_points.tp)
         travel_test.portal()
 
 class TravelPortal(Traveling):
@@ -21,7 +23,7 @@ class TravelPortal(Traveling):
                          travel_point_home='', travel_point_bedroom='', travel_point_hallway='')
 
     def portal(self):
-        travelarea = input("Where do you want to go?").lower()
+        travelarea = input("Where do you want to go? ").lower()
 
         if travelarea in ['tories', 'the cafe', 'eat', 'tories cafe', 'cafe']:
             travel_function.travel_point_cafe()
@@ -51,3 +53,5 @@ travel_function = Traveling(travel_point_cafe=Traveling, travel_point_park=Trave
                             travel_point_bedroom=Traveling, travel_point_hallway=Traveling)
 
 travel_test = TravelPortal()
+
+travel_points = TravelPoints()
