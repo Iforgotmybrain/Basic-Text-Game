@@ -9,7 +9,8 @@ class PhonePlacement:
             holly_text_dialogue.holly_text_one()
         else:
             print("You can't think of anyone to text or call right now.")
-            return
+            return TravelSystem.travel_function.travel_point_bedroom()
+
 
 class HollyTextDialogue:
     def holly_text_one(self):
@@ -76,6 +77,10 @@ class HollyTextDialogue:
                     CharInfo.holly_checks.holly_date_restaurant = 'tavern'
                     input()
 
+                else:
+                    print("Invalid input")
+                    return self.holly_text_decision()
+
                 print('"Now we’ve just gotta figure out a time and date, Lemme just make sure I don’t have anything coming up real quick."')
                 input()
                 print("You know for a fact that you don’t have anything upcoming, so pretty much anytime would work.")
@@ -87,12 +92,33 @@ class HollyTextDialogue:
                 print('"Same, if it’s anything like yesterday I’m sure it will be great."')
                 input()
                 print("The texts slow down shortly after that, with just some back and forth conversation throughout the rest of the day.")
-                CharInfo.player_info.ending_points += 2
+                input()
                 CharInfo.holly_checks.holly_relationship_status = 'dating'
-                SaveSystem.save_sys.saving()
-                TravelSystem.travel_function.travel_point_bedroom()
+                CharInfo.player_info.ending_points += 2
+
+                if CharInfo.chris_checks.chris_computer_list_completed is not True:
+                    print(
+                        "You put your phone back in your pocket, after setting up your date with Holly there's still plenty of time for that walk you were thinking about.")
+                    input()
+                    print("Of course you could also just call it a day and forget the walk if you wanted.")
+                    print("If you want to call it a day you should probably head to your bedroom and Sleep.")
+                    input()
+                    TravelSystem.travel_points.tp.append('A quick walk')
+                    SaveSystem.save_sys.saving()
+                    TravelSystem.travel_function.travel_point_bedroom()
+
+                elif CharInfo.chris_checks.chris_computer_list_completed is True:
+                    print(
+                        "You put your back in your pocket, you should probably check to see if you Chris has that list completed.")
+                    input()
+                    SaveSystem.save_sys.saving()
+                    TravelSystem.travel_function.travel_point_bedroom()
 
             elif holly_one_option in ['2']:
+                return self.holly_text_decision()
+
+            else:
+                print("Invalid input")
                 return self.holly_text_decision()
 
         elif holly_relationship_option in ['2']:
@@ -114,13 +140,33 @@ class HollyTextDialogue:
                 print('"I get it, I’m fine with just being friends. If circumstances change I wouldn’t say no to another date, though."')
                 input()
                 print("You reply and tell Holly that you’ll keep it in mind, the grass isn’t always greener on the other side.")
-                print("The conversation ends fairly quickly after that message, you put your smartphone down and return the land of the living.")
+                print("The conversation ends fairly quickly after that message.")
                 input()
                 CharInfo.holly_checks.holly_relationship_status = 'hold'
-                SaveSystem.save_sys.saving()
-                TravelSystem.travel_function.travel_point_bedroom()
+
+                if CharInfo.chris_checks.chris_computer_list_completed is not True:
+                    print(
+                        "You put your back in your pocket, you should probably check to see if Chris has that list completed.")
+                    input()
+                    SaveSystem.save_sys.saving()
+                    TravelSystem.travel_function.travel_point_bedroom()
+
+                elif CharInfo.chris_checks.chris_computer_list_completed is True:
+                    print(
+                        "You put your phone back in your pocket, after dealing with Holly there's still plenty of time for that walk you were thinking about.")
+                    input()
+                    print("Of course you could also just call it a day and forget the walk if you wanted.")
+                    print("If you want to call it a day you should probably head to your bedroom and Sleep.")
+                    input()
+                    TravelSystem.travel_points.tp.append('A quick walk')
+                    SaveSystem.save_sys.saving()
+                    TravelSystem.travel_function.travel_point_bedroom()
 
             elif holly_two_option in ['2']:
+                return self.holly_text_decision()
+
+            else:
+                print("Invalid input")
                 return self.holly_text_decision()
 
         elif holly_relationship_option in ['3']:
@@ -148,21 +194,30 @@ class HollyTextDialogue:
                 CharInfo.holly_checks.holly_relationship_status = 'rejected'
                 input()
 
-                if CharInfo.jacob_checks.jacob_post_fest is True and CharInfo.sasha_checks.sasha_post_fest is True and \
-                        CharInfo.chris_checks.chris_computer_list_completed is True:
+                if CharInfo.chris_checks.chris_computer_list_completed is True:
                     print("You put your phone back in your pocket, after dealing with Holly there's still plenty of time for that walk you were thinking about.")
                     input()
+                    print("Of course you could also just call it a day and forget the walk if you wanted.")
+                    print("If you want to call it a day you should probably head to your bedroom and Sleep.")
+                    input()
+                    TravelSystem.travel_points.tp.append('A quick walk')
                     SaveSystem.save_sys.saving()
-                    TravelSystem.travel_function.travel_point_hallway()
+                    TravelSystem.travel_function.travel_point_bedroom()
 
                 elif CharInfo.chris_checks.chris_computer_list_completed is not True:
                     print("You put your back in your pocket, you should probably check to see if you Chris has that list completed.")
                     input()
                     SaveSystem.save_sys.saving()
-                    TravelSystem.travel_function.travel_point_hallway()
+                    TravelSystem.travel_function.travel_point_bedroom()
 
             elif holly_three_option in ['2']:
                 return self.holly_text_decision()
+
+            else:
+                return self.holly_text_decision()
+        else:
+            print("Invalid input")
+            return self.holly_text_decision()
 
 
 smart_phone_placement = PhonePlacement()

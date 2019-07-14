@@ -11,6 +11,7 @@ import CharInfo
 import TravelSystem
 import Festival
 import Phone
+import Walking
 
 clear = lambda: os.system('cls')
 
@@ -55,7 +56,7 @@ def pcbedroom():
         print("You could also check out Chris the Tiger’s Pawbook account and see what he suggests checking out. You could do that on your computer in the bedroom.")
         input()
 
-        if CharInfo.festival_checks.holly_stay is True:  # Only brings up this dialogue is the player stuck around with Holly.
+        if CharInfo.festival_checks.holly_stay is True:  # Only brings up this dialogue if the player stuck around with Holly.
             print("Maybe not strictly related to the road trip, but you could look into maybe going on another date with Holly as well. You might try and Call Holly to see if she’d be up for that.")
             input()
         print("It’s quite a nice day out as well, you might go on a walk just for the hell of it.")
@@ -70,6 +71,7 @@ def pcbedroom():
     print("You could also check your bank balance.")
     pcbedroomdirection = input('Which do you do? ').lower()
     CharInfo.player_info.player_location = pcbedroom
+
     if pcbedroomdirection in ['east', 'e']:
         player_bathroom.bathroompc()
 
@@ -87,6 +89,10 @@ def pcbedroom():
 
     elif pcbedroomdirection in ['phone', 'smartphone', 'cellphone', 'call', 'text', 'cell', 'call holly']:
         Phone.smart_phone_placement.phone_placing()
+
+    elif pcbedroomdirection in ['sleep'] and CharInfo.chris_checks.chris_computer_list_completed is True:
+        print("Placeholder text for stuff to be added later.")
+        return pcbedroom()
 
     else:
         print("Invalid input")
@@ -156,6 +162,7 @@ class PCBathroom:
 def hallway():
     while True:
         print("You enter a hallway. You can enter your bedroom to the south. There's also a doorway to your west, a staircase to your east, and another doorway to the north.")
+        CharInfo.player_info.player_location = hallway
         hallwaydirection = input("Which direction do you go? ").lower()
         if hallwaydirection in ["west", "w"]:
 
@@ -193,9 +200,6 @@ def hallway():
 
         elif hallwaydirection in ['south', 's']:
             pcbedroom()
-
-        elif hallwaydirection in ['phone', 'smartphone', 'cellphone', 'call', 'text', 'cell']:
-            Phone.smart_phone_placement.phone_placeing()
 
         else:
             print("Invalid input")
@@ -241,7 +245,7 @@ class SashaEncounter:
             print("You say goodbye to Sasha and head back to the hallway.")
             input()
             CharInfo.sasha_checks.sasha_talk = True
-            CharInfo.player_info.player_location = hallway # Indicates that the player has talked to Sasha allowing for more dialog
+            CharInfo.player_info.player_location = hallway
             hallway()
         elif CharInfo.sasha_checks.sasha_talk is True:
             print(""" "You know, I actually had a friend once that basically disappeared for 2 weeks." """)
@@ -452,7 +456,7 @@ class LivingRoom:
             '"Oh boy, you are in for a treat if you ever decide to catch up on them. Definitely let me know before you do, I’d love to re-watch all of them with you."')
         print('"Anyway, you want anything or just here to chat?"')
         input()
-        sashatalkorconfess = input("(1): Tell Sasha you wanted to talk about your walk in the park. (2:) Just keep chatting.").lower()
+        sashatalkorconfess = input("(1): Tell Sasha you wanted to talk about your walk in the park. (2:) Just keep chatting. ").lower()
 
         if sashatalkorconfess in ['1']:
             print(
@@ -670,28 +674,34 @@ class JacobDialogue:
             input()
             print("You tell Jacob about your day at the festival, including your purchase at the vendor.")
             input()
+
             if CharInfo.festival_checks.painting_purchase in ['husky', 'wraith', 'lake']:
                 print(
                     '"A piece of artwork, huh? Never had you figured as that type, probably because I’ve never seen you hang so much as a picture on your walls."')
                 input()
+
             elif CharInfo.festival_checks.wooden_sculpture in ['box', 'plane']:
                 print(
                     '"Wood sculptures are pretty cool, I tried taking wood carving up as hobby but didn’t have much luck with it. Just didn’t have the ‘artistic vision’ I suppose."')
                 input()
+
             elif CharInfo.festival_checks.trash_vendor in ['snoop', 'hat', 'troll']:
                 print(
                     '"Man guess I better be on the look out now, it’d be just like you to gift me something like that for my birthday."')
                 input()
+
             print("You also tell Jacob about your time spent hanging out with Holly at the festival.")
             input()
             if CharInfo.festival_checks.holly_stay is True:
                 print(
                     '"Hell yeah buddy, sounds like you two really hit it off. You better be planning on a follow up date; not every day you find someone like that."')
                 input()
+
             elif CharInfo.festival_checks.holly_stay is not True:
                 print(
                     '"Hey, if you don’t click, you don’t click. Guess there’s a reason you didn’t really stay friends, right?"')
                 input()
+
             print("You thank Jacob for the words of encouragement. Now on too the real reason you came here to talk.")
             input()
             print("You tell Jacob that you’ve decided to commit to a road trip, like you mentioned to him earlier.")
@@ -793,7 +803,7 @@ class ToriesCafe:
         print(
             "Looking around you see the line to order, it’s a bit after lunch so there isn’t much of a wait. You can also see a familiar face sitting down at one of the tables")
         input()
-        cafedecision = input("(1): Order food and then go over say hi to Holly. (2): Go over and say hi to Holly right away. (3): Just order some food and go home.").lower()
+        cafedecision = input("(1): Order food and then go over say hi to Holly. (2): Go over and say hi to Holly right away. (3): Just order some food and go home. ").lower()
 
         if cafedecision in ['1', '3']:
             if cafedecision in ['1']:
@@ -1043,7 +1053,7 @@ sycamore_park = SycamorePark()
 
 tories_cafe = ToriesCafe()
 
-player_bathroom = PCBathroom() # Make sure to include the () when adding classes)
+player_bathroom = PCBathroom()  # Make sure to include the () when adding classes)
 
 sasha_living = LivingRoom()
 
@@ -1058,6 +1068,7 @@ TravelSystem.travel_function.travel_point_festival_one = Festival.festival_area.
 TravelSystem.travel_function.travel_point_bedroom = pcbedroom
 TravelSystem.travel_function.travel_point_hallway = hallway
 TravelSystem.travel_function.travel_point_home = entranceway
+TravelSystem.travel_function.travel_quick_walk = Walking.quick_walk.valery_first_walk
 
 
 loadingoption = input("Do you wish to load a game? ").lower()  # Make it so this is the first question asked.

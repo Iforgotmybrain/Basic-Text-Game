@@ -73,7 +73,8 @@ class GlobalCheckChris:
 
 
 class GlobalCheckValery:
-    pass
+    def __init__(self, valery_first_walk):
+        self.valery_first_walk = valery_first_walk
 
 
 class GlobalCheckRoadTrip:
@@ -121,7 +122,7 @@ festival_checks = GlobalCheckFestival(bus_ride_complete=GlobalCheckFestival, pai
 
 chris_checks = GlobalCheckChris(chris_computer_list=GlobalCheckChris, chris_computer_list_completed=GlobalCheckChris)
 
-valery_checks = GlobalCheckValery()
+valery_checks = GlobalCheckValery(valery_first_walk=GlobalCheckValery)
 
 dest_one = GlobalCheckDestinationOne()
 

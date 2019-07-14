@@ -140,12 +140,14 @@ class FestivalStart:
         input()
         painter_purchase_option = input("(1). You state that you’re not really interested in any of the paintings. \
         (2). You ask the painter what the prices are for the individual pieces and the requests. ").lower()
+
         if painter_purchase_option in ['1']:
             print("You state that you’re not really interested in any of the paintings.")
             input()
             print("'Understandable. If you change your mind you might try looking me up online.'")
             print("He hands you a business card and you part ways.")
             return self.festival_main()
+
         elif painter_purchase_option in ['2']:
             print("'Well, the price for both depends on what you want'")
             print("'For example, the piece with the vixen will run you about $250. The one of the ocean beach, about $200'")
@@ -163,18 +165,26 @@ class FestivalStart:
             (2): Lake \
             (3): Wraiths \
             (4) None".lower())
+
             if painting_purchased in ['1']:
                 CharInfo.festival_checks.painting_purchase = 'husky'
+
             elif painting_purchased in ['2']:
                 CharInfo.festival_checks.painting_purchase = 'lake'
+
             elif painting_purchased in ['3']:
                 CharInfo.festival_checks.painting_purchase = 'wraiths'
+
             elif painting_purchased in ['4']:
                 print("You tell the painter that the prices were bit more then you hoping to pay.")
                 input()
                 print("'Understandable. If you change your mind you might try looking me up online.'")
                 print("He hands you a business card and you part ways.")
                 return self.festival_main()
+
+            else:
+                print("Invalid input")
+                return
             print('"Excellent! I’ll get it wrapped up and ready to go. You’ll be looking at bill of about $225."')
             input()
             print("You pay the painter and collect the painting.")
@@ -184,6 +194,9 @@ class FestivalStart:
             CharInfo.player_info.player_location = festival_mid.inital_concert_dialogue
             SaveSystem.save_sys.saving()
             festival_mid.inital_concert_dialogue()
+        else:
+            print("Invalid input")
+            return self.vendor_painting()
 
     def wooden_vendor(self):
         print("You decide to check out the wood sculptor’s booth.")
@@ -225,6 +238,10 @@ class FestivalStart:
             print("Okay, that's fine. If you change your mind I'll be here.")
             input()
             return self.festival_main()
+
+        else:
+            print("Invalid input")
+            return self.wooden_vendor()
 
     def trashy_vendor(self):
         print("You decide to visit the t-shirt vendor.")
@@ -301,6 +318,10 @@ class FestivalStart:
             print("You leave the booth.")
             input()
             return self.festival_main()
+
+        else:
+            print("Invalid input")
+            return self.trashy_vendor()
 
 class FestivalMid:
     def inital_concert_dialogue(self):
@@ -434,7 +455,6 @@ class FestivalMid:
             input()
             print('"Well, I wasn’t initially planning on staying after this concert, but since you’re offering… Sure, I’ll gladly tag along."')
             input()
-            print("As the band finishes their set you leave the concert and head back towards the main festival area.")
             CharInfo.player_info.ending_points += 3
             CharInfo.player_info.player_location = festival_end.festival_hub_end
             SaveSystem.save_sys.saving()
@@ -445,7 +465,6 @@ class FestivalMid:
             print("You decide to part ways with Holly.")
             CharInfo.player_info.ending_points -= 2
             input()
-            print("As the band finishes their set you leave the concert and head back towards the main festival area.")
             CharInfo.player_info.player_location = festival_end.festival_hub_end
             SaveSystem.save_sys.saving()
             festival_end.festival_hub_end()
@@ -458,11 +477,15 @@ class FestivalMid:
 class FestivalEnd:
     def festival_hub_end(self):
         CharInfo.player_info.player_location = festival_end.festival_hub_end  # This keeps track of where the player is.
-        if CharInfo.festival_checks.festival_walk is not True and CharInfo.festival_checks.holly_stay is False:
+        print("As the band finishes their set you leave the concert and head back towards the main festival area.")
+        input()
+
+        if CharInfo.festival_checks.festival_walk is not True and CharInfo.festival_checks.holly_stay is not True:
             print("There's not much left to do here. The only other thing you could think to do is check out the bits of the festival over to the east.")
 
-        elif CharInfo.festival_checks.festival_walk is False and CharInfo.festival_checks.holly_stay is True:
+        elif CharInfo.festival_checks.festival_walk is not True and CharInfo.festival_checks.holly_stay is True:
             print("There's the festival games to the north, and the looping walk way to the east.")
+
         festivalhubchoice = input("You decide that you want to go... ").lower()
 
         if festivalhubchoice in ['e', 'east']:
@@ -609,7 +632,7 @@ class FestivalEnd:
             elif pc_win > 70:
                 print("You are the only one to emerge victorious today, even having won you feel like you wasted your money.")
                 input()
-        print("With the game done and over with you evaluate your next course of action with Holly.")
+        print("With the game done and over with, you evaluate your next course of action with Holly.")
 
         if CharInfo.festival_checks.festival_walk is True:
             print(

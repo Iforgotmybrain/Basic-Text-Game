@@ -39,4 +39,5 @@ Phase 3
 * Implement the new character, Valery the Hyena. (Named after Valery Legasov)
 * Work on Holly date scene (WIP)
 * Figure out how I want to handle road trip destinations
+* Upload on more platforms (Itch.io, IFDB are current ones)
 
