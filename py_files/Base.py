@@ -67,6 +67,8 @@ def pcbedroom():
         print("There is also your computer to the south of the room.")
         if CharInfo.jacob_checks.jacob_post_fest is True and CharInfo.sasha_checks.sasha_post_fest is True:
             print("You could also use your Phone.")
+        if CharInfo.chris_checks.chris_computer_list_completed is True:
+            print("You might also end the day going to Sleep in your bed.")
 
     print("You could also check your bank balance.")
     pcbedroomdirection = input('Which do you do? ').lower()
@@ -91,8 +93,14 @@ def pcbedroom():
         Phone.smart_phone_placement.phone_placing()
 
     elif pcbedroomdirection in ['sleep'] and CharInfo.chris_checks.chris_computer_list_completed is True:
-        print("Placeholder text for stuff to be added later.")
-        return pcbedroom()
+        print("This will end the day and lock out any content you haven't completed.")
+        input()
+        pcsleep = input("Do you still want to go to sleep? (Yes or no)").lower()
+        if pcsleep in ['yes']:
+            CharInfo.valery_checks.valery_first_walk = 'no walk'
+            Walking.quick_walk.chapter_3_halfway_transistion()
+        elif pcsleep in ['no']:
+            return pcbedroom()
 
     else:
         print("Invalid input")
@@ -156,21 +164,30 @@ def pccomputer():
         input()
         print("Odds are you won’t end up going to every place on that list, but this is a really good place to start.")
         input()
-        print("You could even knock places off your list as you travel depending on what your time looks like, or depending on what your passengers want to do.")
+        print("You could knock places off your list as you travel depending on what your time looks like, or depending on what your passengers want to do.")
         input()
-        if CharInfo.holly_checks.holly_relationship_status in 'rejected' or 'dating' or 'hold':
+        CharInfo.chris_checks.chris_computer_list_completed = True
+        if CharInfo.holly_checks.holly_relationship_status in ['rejected', 'dating', 'hold']:
             print("With the road trip destinations mostly sorted out, you could go for that walk you were thinking of.")
-            print("Placeholder")
-            return pcbedroom()
+            input()
+            print("Since its getting late, you could also just stay in for the rest of day.")
+            TravelSystem.travel_points.tp.append('A quick walk')
+            SaveSystem.save_sys.saving()
+            clear()
+            pcbedroom()
 
-        elif CharInfo.holly_checks.holly_relationship_status != 'rejected' or 'dating' or 'hold':
+        elif CharInfo.holly_checks.holly_relationship_status not in ['rejected', 'dating', 'hold']:
             print("Now that you've got the road trip destinations mostly out of the way you could text Holly and see about another date.")
             input()
             if CharInfo.player_info.ending_points > -4:
                 print("Or you could just forget about texting her and go on that walk you were thinking of.")
+                input()
+                print("You also just say forget both of them and go to bed.")
             elif CharInfo.player_info.ending_points < -4:
                 print("You could also just go on the walk and not text Holly about another date. Though she likely won't appreciate being left hanging.")
-            CharInfo.chris_checks.chris_computer_list_completed = True
+                input()
+                print("You could also just go to bed and skip texting Holly and going on the walk.")
+            TravelSystem.travel_points.tp.append('A quick walk')
             SaveSystem.save_sys.saving()
             clear()
             pcbedroom()
@@ -1115,11 +1132,17 @@ sasha_encounter = SashaEncounter()
 
 
 TravelSystem.travel_function.travel_point_cafe = tories_cafe.thecafe  # Sets travel points
+
 TravelSystem.travel_function.travel_point_park = sycamore_park.lakepark
+
 TravelSystem.travel_function.travel_point_festival_one = Festival.festival_area.bus_ride
+
 TravelSystem.travel_function.travel_point_bedroom = pcbedroom
+
 TravelSystem.travel_function.travel_point_hallway = hallway
+
 TravelSystem.travel_function.travel_point_home = entranceway
+
 TravelSystem.travel_function.travel_quick_walk = Walking.quick_walk.valery_first_walk
 
 

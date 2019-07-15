@@ -58,6 +58,7 @@ class ValeryNeighborhoodWalk:
             print("As you finish your walk and return home nothing else happens. It was a fairly uneventful walk except for meeting Valery.")
             CharInfo.valery_checks.valery_first_walk = 'met'
             CharInfo.player_info.ending_points += 3
+            TravelSystem.travel_points.tp.remove('A quick walk')
             input()
             clear()
             self.chapter_3_halfway_transistion()
@@ -68,25 +69,50 @@ class ValeryNeighborhoodWalk:
             print("You continue on your walk with nothing else happening. The walk was pretty uneventful.")
             CharInfo.valery_checks.valery_first_walk = 'ignore'
             CharInfo.player_info.ending_points -= 1
+            TravelSystem.travel_points.tp.remove('A quick walk')
             input()
             clear()
             self.chapter_3_halfway_transistion()
 
+        else:
+            print("Invalid input.")
+            return self.valery_first_walk()
 
     def chapter_3_halfway_transistion(self):
-        if CharInfo.valery_checks.valery_first_walk in 'ignore' or 'met':
+        if CharInfo.valery_checks.valery_first_walk in ['ignore', 'met']:
             print("After having went on a walk you can’t think of anything else that you needed to do today.")
             input()
 
-        elif CharInfo.valery_checks.valery_first_walk in 'no walk':
+        elif CharInfo.valery_checks.valery_first_walk not in ['ignore', 'met']:
+            CharInfo.valery_checks.valery_first_walk = 'no walk'
+            TravelSystem.travel_points.tp.remove('A quick walk')
             print("It's getting fairly late so you decide to just skip the walk and stay in for the rest of the day.")
             input()
         print("You've gotten the basic plan for your road trip down, now you've just gotta figure out who you're bringing.")
         input()
 
-        if CharInfo.holly_checks.holly_relationship_status in 'dating':
+        if CharInfo.holly_checks.holly_relationship_status in ['dating']:
             print("You've also got that date with Holly to look forward too.")
             input()
+            print("You're quite excited for it given how well the last one went.")
+            input()
+
+        elif CharInfo.holly_checks.holly_relationship_status in ['hold', 'rejected']:
+            print("You also cleared things up in regards to Holly.")
+            input()
+            if CharInfo.holly_checks.holly_relationship_status in ['rejected']:
+                print("She was probably taken back a bit by the rejection, but it's better to be upfront with your feelings rather than just ghosting her.")
+                input()
+            elif CharInfo.holly_checks.holly_relationship_status in ['hold']:
+                print("Telling Holly you weren't interested in a relationship at the moment leaves things bit open. It wasn't an outright rejection so you could always try to rekindle things if you change your mind.")
+                input()
+                print("And it frees you up in regards to dating other people. But of course there's also no reason she can't go on other dates as well.")
+                input()
+
+        # Add dialogue if player ignored Holly
+
+        if CharInfo.valery_checks.valery_first_walk in ['met']:
+            print("You got to meet your new neighbor today as well. You'll have to go down to his apartment or meet up sometime and get to know him a bit better.")
 
         print("You've still got awhile to figure everything out though.")
         input()
@@ -96,7 +122,6 @@ class ValeryNeighborhoodWalk:
         input()
         print("For now, you're just going to relax for a bit while you take everything in.")
         input()
-        CharInfo.player_info.player_location = pcbedroom
         SaveSystem.save_sys.saving()
         clear()
         TravelSystem.travel_function.travel_point_bedroom()
