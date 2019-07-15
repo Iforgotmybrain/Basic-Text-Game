@@ -124,12 +124,6 @@ def pccomputer():
         SaveSystem.save_sys.saving()
         pcbedroom()
 
-    elif CharInfo.chris_checks.chris_computer_list is True and CharInfo.chris_checks.chris_computer_list_completed is not True:
-        print("You check your Pawbook messages and don’t see anything from Chris. He’s probably still working on it")
-        input()
-        clear()
-        pcbedroom()
-
     elif CharInfo.chris_checks.chris_computer_list is True and CharInfo.sasha_checks.sasha_post_fest \
             is True and CharInfo.jacob_checks.jacob_post_fest is True:
         print("You hop back on the computer and check your Pawbook messages.")
@@ -137,8 +131,8 @@ def pccomputer():
         print("It would seem that Chris has uploaded his list of road trip destinations that you asked him for, time to dive in and see what you’ve got to work with.")
         input()
         print("It would seem he sent you a word document, you download it and open it up. ")
-        print("The document says the following: \
-              “Hey {}, here’s the list I came up with for you. The route I came up with has you going west until you hit Ourses, then you’ll be going more northwest.”".format(CharInfo.player_info.name))
+        print("The document says the following:")
+        print("“Hey {}, here’s the list I came up with for you. The route I came up with has you going west until you hit Ourses, then you’ll be going more northwest.”".format(CharInfo.player_info.name))
         input()
         print("“Of course, you can edit it and mess around with it however you like, this is just what I came up with for ya.”")
         print("“Anyway, here’s the full list of places I recommend checking out along that route. It’s a big list, so don’t go into this expecting to hit them all.”")
@@ -153,23 +147,39 @@ def pccomputer():
         input()
         print("Beaver 17 Aviation Museum in Choloco.\
                Occidentale State Park in Loba. \
-               Jonstown Museum of Natural History. \
-               Ragniti Factory in Loba. \
-               Oxenvillie Art Festival in Ourses. \
-               12 Hopping Frogs Amusement Park in Jeremey’s Point, Ourses. \
-               Ulysses’ Island in Fromage \
-               City of Korkea in Fromage \
-               Elk Arts Festival in Melonenland, Koude. \
-               Koude Regiment Tank Museum. \
-               Black Hills National Forest in Rapid Falls, Omero. \
-               Yellowstone National Park in Sletter. \
-               Wolfpack Navy Museum in Choloco. \
-               Mount Hood National Forest in Choloco. \
-               City of Kystby in Choloco")
+               Black Hills National Forest in Rapid Falls, Omero.. \
+               Ulysses’ Island in Fromage")
+        input()
+        print("There are a lot more on the list but it seems the author had issues with formatting. Perhaps the rest will be in a text-file within a folder of some sort.")  # It's in your game folder silly
+        input()
+        print("(There should be a text-file in your game folder containing the rest of the locations.)")
         input()
         print("Odds are you won’t end up going to every place on that list, but this is a really good place to start.")
         input()
         print("You could even knock places off your list as you travel depending on what your time looks like, or depending on what your passengers want to do.")
+        input()
+        if CharInfo.holly_checks.holly_relationship_status in 'rejected' or 'dating' or 'hold':
+            print("With the road trip destinations mostly sorted out, you could go for that walk you were thinking of.")
+            print("Placeholder")
+            return pcbedroom()
+
+        elif CharInfo.holly_checks.holly_relationship_status != 'rejected' or 'dating' or 'hold':
+            print("Now that you've got the road trip destinations mostly out of the way you could text Holly and see about another date.")
+            input()
+            if CharInfo.player_info.ending_points > -4:
+                print("Or you could just forget about texting her and go on that walk you were thinking of.")
+            elif CharInfo.player_info.ending_points < -4:
+                print("You could also just go on the walk and not text Holly about another date. Though she likely won't appreciate being left hanging.")
+            CharInfo.chris_checks.chris_computer_list_completed = True
+            SaveSystem.save_sys.saving()
+            clear()
+            pcbedroom()
+
+    else:
+        print("You check your Pawbook messages and don’t see anything from Chris. He’s probably still working on it")
+        input()
+        clear()
+        pcbedroom()
 
 
 

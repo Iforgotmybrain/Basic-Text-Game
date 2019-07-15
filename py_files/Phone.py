@@ -5,10 +5,12 @@ import TravelSystem
 
 class PhonePlacement:
     def phone_placing(self):
-        if CharInfo.festival_checks.festival_ending is True and CharInfo.festival_checks.holly_stay is True and CharInfo.holly_checks.holly_relationship_status != 'rejected' or 'dating' or 'hold':
+        if CharInfo.festival_checks.holly_stay is True and CharInfo.holly_checks.holly_relationship_status not in ['rejected', 'dating', 'hold']:
             holly_text_dialogue.holly_text_one()
-        else:
+
+        elif CharInfo.holly_checks.holly_relationship_status in ['rejected', 'dating', 'hold']:
             print("You can't think of anyone to text or call right now.")
+            input()
             return TravelSystem.travel_function.travel_point_bedroom()
 
 

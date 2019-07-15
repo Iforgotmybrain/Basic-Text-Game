@@ -59,6 +59,7 @@ class ValeryNeighborhoodWalk:
             CharInfo.valery_checks.valery_first_walk = 'met'
             CharInfo.player_info.ending_points += 3
             input()
+            clear()
             self.chapter_3_halfway_transistion()
 
         elif valery_talk_or_ignore in ['2']:
@@ -68,6 +69,7 @@ class ValeryNeighborhoodWalk:
             CharInfo.valery_checks.valery_first_walk = 'ignore'
             CharInfo.player_info.ending_points -= 1
             input()
+            clear()
             self.chapter_3_halfway_transistion()
 
 
