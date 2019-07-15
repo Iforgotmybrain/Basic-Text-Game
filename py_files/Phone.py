@@ -96,7 +96,7 @@ class HollyTextDialogue:
                 CharInfo.holly_checks.holly_relationship_status = 'dating'
                 CharInfo.player_info.ending_points += 2
 
-                if CharInfo.chris_checks.chris_computer_list_completed is not True:
+                if CharInfo.chris_checks.chris_computer_list_completed is True:
                     print(
                         "You put your phone back in your pocket, after setting up your date with Holly there's still plenty of time for that walk you were thinking about.")
                     input()
@@ -107,7 +107,7 @@ class HollyTextDialogue:
                     SaveSystem.save_sys.saving()
                     TravelSystem.travel_function.travel_point_bedroom()
 
-                elif CharInfo.chris_checks.chris_computer_list_completed is True:
+                elif CharInfo.chris_checks.chris_computer_list_completed is not True:
                     print(
                         "You put your back in your pocket, you should probably check to see if you Chris has that list completed.")
                     input()

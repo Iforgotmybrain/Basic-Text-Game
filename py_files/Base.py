@@ -130,6 +130,48 @@ def pccomputer():
         clear()
         pcbedroom()
 
+    elif CharInfo.chris_checks.chris_computer_list is True and CharInfo.sasha_checks.sasha_post_fest \
+            is True and CharInfo.jacob_checks.jacob_post_fest is True:
+        print("You hop back on the computer and check your Pawbook messages.")
+        input()
+        print("It would seem that Chris has uploaded his list of road trip destinations that you asked him for, time to dive in and see what you’ve got to work with.")
+        input()
+        print("It would seem he sent you a word document, you download it and open it up. ")
+        print("The document says the following: \
+              “Hey {}, here’s the list I came up with for you. The route I came up with has you going west until you hit Ourses, then you’ll be going more northwest.”".format(CharInfo.player_info.name))
+        input()
+        print("“Of course, you can edit it and mess around with it however you like, this is just what I came up with for ya.”")
+        print("“Anyway, here’s the full list of places I recommend checking out along that route. It’s a big list, so don’t go into this expecting to hit them all.”")
+        input()
+        print("The list includes over 30 locations to check out. It’s going to take some time to shift through all the stuff here.")
+        print("There are some duplicates, as Jacob and Holly have already mentioned some of the locations on here.")
+        input()
+        print("You take a minute to shift through the recommendations, instantly eliminating some of them based off your interests.")
+        print("With the list trimmed down a bit, and the redundant locations merged together, you have about 15 places total you’d like to check out, with a few more places that you’d consider checking out if you had the time.")
+        input()
+        print("The list includes the following places:")
+        input()
+        print("Beaver 17 Aviation Museum in Choloco.\
+               Occidentale State Park in Loba. \
+               Jonstown Museum of Natural History. \
+               Ragniti Factory in Loba. \
+               Oxenvillie Art Festival in Ourses. \
+               12 Hopping Frogs Amusement Park in Jeremey’s Point, Ourses. \
+               Ulysses’ Island in Fromage \
+               City of Korkea in Fromage \
+               Elk Arts Festival in Melonenland, Koude. \
+               Koude Regiment Tank Museum. \
+               Black Hills National Forest in Rapid Falls, Omero. \
+               Yellowstone National Park in Sletter. \
+               Wolfpack Navy Museum in Choloco. \
+               Mount Hood National Forest in Choloco. \
+               City of Kystby in Choloco")
+        input()
+        print("Odds are you won’t end up going to every place on that list, but this is a really good place to start.")
+        input()
+        print("You could even knock places off your list as you travel depending on what your time looks like, or depending on what your passengers want to do.")
+
+
 
 
 
@@ -711,7 +753,7 @@ class JacobDialogue:
                 '"Hah, I was just thinking of that road trip comment this morning. I didn’t think you really had it in you."')
             input()
             print(
-                '"Man, there’s a handful of places I can think of. There’s an awesome museum in Jonstown, which is along I-23 heading west. Should be right on the route you’d take."')
+                '"Man, there’s a handful of places I can think of. There’s an awesome natural history museum in Jonstown, which is along I-23 heading west. Should be right on the route you’d take."')
             input()
             print(
                 '"There’s also a beautiful state park in Loba, which is in the next state over. Place is called Occidentale State Park, they’ve got camping sites near by if you’re up for that as well. I went there about 3 years ago for spring break with an ex."')

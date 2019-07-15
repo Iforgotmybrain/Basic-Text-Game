@@ -57,6 +57,7 @@ class ValeryNeighborhoodWalk:
             print("You wave goodbye to the hyena and continue on your walk.")
             print("As you finish your walk and return home nothing else happens. It was a fairly uneventful walk except for meeting Valery.")
             CharInfo.valery_checks.valery_first_walk = 'met'
+            CharInfo.player_info.ending_points += 3
             input()
             self.chapter_3_halfway_transistion()
 
@@ -65,6 +66,7 @@ class ValeryNeighborhoodWalk:
             input()
             print("You continue on your walk with nothing else happening. The walk was pretty uneventful.")
             CharInfo.valery_checks.valery_first_walk = 'ignore'
+            CharInfo.player_info.ending_points -= 1
             input()
             self.chapter_3_halfway_transistion()
 
@@ -95,6 +97,7 @@ class ValeryNeighborhoodWalk:
         CharInfo.player_info.player_location = pcbedroom
         SaveSystem.save_sys.saving()
         clear()
+        TravelSystem.travel_function.travel_point_bedroom()
 
 
 
