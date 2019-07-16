@@ -1,5 +1,8 @@
 # Tales From the Road
 
+# This Game is also on Itch.io
+Here's a link to that page: https://iforgotmybrain.itch.io/tales-from-the-road
+
 # 6/28/19 Reminder
 Just reminding you that good feedback will help me tremendously with developing this project. I’m the only one looking over this project right now, and while I hold myself to what I consider a decent standard, I don’t always pick up on everything. If you have anything you want to say about the project, have any questions, or anything else, please let me know on here or on twitter. My handle on twitter is the same as on here, @Iforgotmybrain.
 
