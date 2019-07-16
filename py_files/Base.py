@@ -248,9 +248,16 @@ def hallway():
                 sasha_encounter.sashabedroom()
                 break
 
-            elif CharInfo.festival_checks.festival_ending is True:
+            elif CharInfo.festival_checks.festival_ending is True and CharInfo.sasha_checks.sasha_post_fest is not True:
                 sasha_encounter.sasha_post_fest_dialogue()
                 break
+
+            elif CharInfo.sasha_checks.sasha_post_fest is True:
+                print("You knock on the door but no one answers. Seems Sasha is either busy or away.")
+                input()
+                CharInfo.player_info.player_location = hallway
+                clear()
+                return
 
         elif hallwaydirection in ["east", "e"]:
             entranceway()
