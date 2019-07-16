@@ -117,12 +117,12 @@ class FestivalStart:
         print("And finally, the third is a novelty t-shirt and hat seller. You know, the kind that has hats with a big weed leaf and Snoop Dogg on them. You know what I’m talking about.")
         input()
         festival_vendor = input("Which one do you want to check out? ").lower()
-        if festival_vendor in ['paint', 'painter', 'oil painting','painting']:
+        if festival_vendor in ['paint', 'painter', 'oil painting','painting', 'one' 'first']:
             self.vendor_painting()
         elif festival_vendor in ['hat', 'shirt', 'tshirt', 't-shirt', 'trash', 'weed', 'novelty vendor', 'snoop dogg',
                                  'novelty', '3rd', 'third']:
             self.trashy_vendor()
-        elif festival_vendor in ['wood', 'wooden', 'wood sculptor', 'wooden sculptor']:
+        elif festival_vendor in ['wood', 'wooden', 'wood sculptor', 'wooden sculptor', 'two', 'second']:
             self.wooden_vendor()
         elif festival_vendor in ['save', 'saving', 'save game']:
             SaveSystem.save_sys.saving()
@@ -132,7 +132,7 @@ class FestivalStart:
 
 
     def vendor_painting(self):
-        print("You walk up to the painters stand, you see works ranging from beautiful mountain landscapes to tasteful nude works. He has a very diverse set of paintings.")
+        print("You walk up to the painters stand, you see works ranging from beautiful mountain landscapes to well-done portraits. He has a very diverse set of paintings.")
         input()
         print("You browse their painting selections some more; the painter eventually asks if anything catches your eye.")
         input()
@@ -164,7 +164,7 @@ class FestivalStart:
             (1): Husky \
             (2): Lake \
             (3): Wraiths \
-            (4) None".lower())
+            (4) None ".lower())
 
             if painting_purchased in ['1']:
                 CharInfo.festival_checks.painting_purchase = 'husky'
@@ -889,6 +889,10 @@ class FestivalEnd:
             CharInfo.festival_checks.festival_ending = True
             TravelSystem.travel_points.tp.remove('Lake Fest')
             TravelSystem.travel_function.travel_point_bedroom()
+
+        else:
+            print("Invalid input")
+            return self.festival_ending_self()
 
 
 festival_area = FestivalStart()

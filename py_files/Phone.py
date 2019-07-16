@@ -8,7 +8,7 @@ class PhonePlacement:
         if CharInfo.festival_checks.holly_stay is True and CharInfo.holly_checks.holly_relationship_status not in ['rejected', 'dating', 'hold']:
             holly_text_dialogue.holly_text_one()
 
-        elif CharInfo.holly_checks.holly_relationship_status in ['rejected', 'dating', 'hold']:
+        elif CharInfo.holly_checks.holly_relationship_status in ['rejected', 'dating', 'hold'] or CharInfo.festival_checks.holly_stay is not True:
             print("You can't think of anyone to text or call right now.")
             input()
             return TravelSystem.travel_function.travel_point_bedroom()

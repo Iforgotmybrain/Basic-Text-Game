@@ -93,7 +93,6 @@ class ValeryNeighborhoodWalk:
 
         if CharInfo.holly_checks.holly_relationship_status in ['dating']:
             print("You've also got that date with Holly to look forward too.")
-            input()
             print("You're quite excited for it given how well the last one went.")
             input()
 
@@ -109,18 +108,25 @@ class ValeryNeighborhoodWalk:
                 print("And it frees you up in regards to dating other people. But of course there's also no reason she can't go on other dates as well.")
                 input()
 
-        # Add dialogue if player ignored Holly
+        elif CharInfo.holly_checks.holly_relationship_status not in ['rejected', 'dating', 'hold'] and CharInfo.festival_checks.holly_stay is True:
+            CharInfo.holly_checks.holly_relationship_status = 'ignored'
+            print("You didn't really clear things up with Holly as much as you just ignored.")
+            input()
+            print("Being ignored it'll upset her a bit. If you weren't interested in pursuing a relationship you probably would have been better off just saying so upfront.")
+            input()
+            CharInfo.player_info.ending_points -= 2
 
         if CharInfo.valery_checks.valery_first_walk in ['met']:
             print("You got to meet your new neighbor today as well. You'll have to go down to his apartment or meet up sometime and get to know him a bit better.")
+            input()
 
-        print("You've still got awhile to figure everything out though.")
-        input()
+        print("Well, You've still got plenty of time to figure everything out.")
         print("That's likely what you'll be doing for the next couple of weeks, just figuring out all the fine details of the trip.")
         input()
-        print("You still have to figure out stuff like the finances, but again, there's still plenty of time to figure all of that out.")
-        input()
+        print("Stuff like the finances and dealing with any plans you might have.")
         print("For now, you're just going to relax for a bit while you take everything in.")
+        input()
+        print("This is as far as the game currently goes. Thanks for playing! Check out the Itch.io page and my GitHub pages for updates.")
         input()
         SaveSystem.save_sys.saving()
         clear()

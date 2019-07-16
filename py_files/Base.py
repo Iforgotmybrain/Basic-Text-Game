@@ -65,7 +65,7 @@ def pcbedroom():
 
     if CharInfo.festival_checks.festival_ending is True:  # Makes it so the player cannot access the phone or computer before they complete the festival. Which is when they become functional.
         print("There is also your computer to the south of the room.")
-        if CharInfo.jacob_checks.jacob_post_fest is True and CharInfo.sasha_checks.sasha_post_fest is True:
+        if CharInfo.jacob_checks.jacob_post_fest is True and CharInfo.sasha_checks.sasha_post_fest is True and CharInfo.festival_checks.holly_stay is True:
             print("You could also use your Phone.")
         if CharInfo.chris_checks.chris_computer_list_completed is True:
             print("You might also end the day going to Sleep in your bed.")
@@ -95,11 +95,11 @@ def pcbedroom():
     elif pcbedroomdirection in ['sleep'] and CharInfo.chris_checks.chris_computer_list_completed is True:
         print("This will end the day and lock out any content you haven't completed.")
         input()
-        pcsleep = input("Do you still want to go to sleep? (Yes or no)").lower()
-        if pcsleep in ['yes']:
+        pcsleep = input("Do you still want to go to sleep? (Yes or no) ").lower()
+        if pcsleep in ['yes', 'y']:
             CharInfo.valery_checks.valery_first_walk = 'no walk'
             Walking.quick_walk.chapter_3_halfway_transistion()
-        elif pcsleep in ['no']:
+        elif pcsleep in ['no', 'n']:
             return pcbedroom()
 
     else:
@@ -164,19 +164,20 @@ def pccomputer():
         input()
         print("Odds are you won’t end up going to every place on that list, but this is a really good place to start.")
         input()
-        print("You could knock places off your list as you travel depending on what your time looks like, or depending on what your passengers want to do.")
+        print("You could knock places off your list as you travel depending on what your timeline looks like, or depending on what your passengers want to do.")
         input()
         CharInfo.chris_checks.chris_computer_list_completed = True
-        if CharInfo.holly_checks.holly_relationship_status in ['rejected', 'dating', 'hold']:
+        if CharInfo.holly_checks.holly_relationship_status in ['rejected', 'dating', 'hold'] or CharInfo.festival_checks.holly_stay is not True:
             print("With the road trip destinations mostly sorted out, you could go for that walk you were thinking of.")
             input()
             print("Since its getting late, you could also just stay in for the rest of day.")
+            input()
             TravelSystem.travel_points.tp.append('A quick walk')
             SaveSystem.save_sys.saving()
             clear()
             pcbedroom()
 
-        elif CharInfo.holly_checks.holly_relationship_status not in ['rejected', 'dating', 'hold']:
+        elif CharInfo.holly_checks.holly_relationship_status not in ['rejected', 'dating', 'hold'] and CharInfo.festival_checks.holly_stay is True:
             print("Now that you've got the road trip destinations mostly out of the way you could text Holly and see about another date.")
             input()
             if CharInfo.player_info.ending_points > -4:
@@ -191,6 +192,10 @@ def pccomputer():
             SaveSystem.save_sys.saving()
             clear()
             pcbedroom()
+    elif CharInfo.chris_checks.chris_computer_list_completed is True:
+        print("There's nothing new to check out on your computer")
+        input()
+        pcbedroom()
 
     else:
         print("You check your Pawbook messages and don’t see anything from Chris. He’s probably still working on it")
@@ -437,7 +442,7 @@ class SashaEncounter:
             hallway()
 
         elif CharInfo.jacob_checks.jacob_post_fest is True and CharInfo.festival_checks.holly_stay is not True:
-            print("You exit Holly’s room. Chris probably has his list posted on Pawbook by now.")
+            print("You exit Sasha’s room. Chris probably has his list posted on Pawbook by now.")
             clear()
             CharInfo.sasha_checks.sasha_post_fest = True
             CharInfo.player_info.player_location = hallway
@@ -897,6 +902,7 @@ class ToriesCafe:
                 print("You finish up your meal and throw your trash away before hopping on the bus to go back home for the day.")
                 input()
                 clear()
+                TravelSystem.travel_points.tp.remove('Tories Cafe')
                 CharInfo.misc_checks.cafe_finished = True
                 CharInfo.player_info.player_location = pcbedroom
                 CharInfo.player_info.ending_points -= 3
@@ -977,6 +983,7 @@ class ToriesCafe:
         print("When you arrive home you work on your contract for a bit before heading to bed.")
         input()
         clear()
+        TravelSystem.travel_points.tp.remove('Tories Cafe')
         CharInfo.player_info.ending_points += 1
         CharInfo.player_info.player_location = hallway
         CharInfo.misc_checks.cafe_finished = True
@@ -1001,7 +1008,7 @@ class SycamorePark:
                       self.parkpathself]  # In order to sort functions you can't call the function in this list.
 
         parkdecision = input("After thinking about it, you decide to go... ").lower()
-        if parkdecision in ['home', 'away', ]:
+        if parkdecision in ['home', 'away', 'forget this' ]:
             print("You decide to head home.")
             entranceway()
 
@@ -1064,6 +1071,7 @@ class SycamorePark:
         print(
             "Caught up in your thoughts you find yourself at the end of your walk before you know it. You are now back at the park entrance way.")
         clear()
+        TravelSystem.travel_points.tp.remove('Sycamore Lakeview Park')
         CharInfo.player_info.player_location = sycamore_park.lakepark
         CharInfo.park_checks.park_roommate_path = True
         SaveSystem.save_sys.saving()
@@ -1107,6 +1115,7 @@ class SycamorePark:
             "As you reminisce on your memories you realize that over an hour has passed, you snap out of it and finish your walk prematurely before heading back to the park entrance way.")
         input()
         clear()
+        TravelSystem.travel_points.tp.remove('Sycamore Lakeview Park')
         CharInfo.player_info.player_location = sycamore_park.lakepark
         CharInfo.park_checks.park_lake_path = True
         self.lakepark()
