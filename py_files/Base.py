@@ -133,7 +133,8 @@ def pccomputer():
         pcbedroom()
 
     elif CharInfo.chris_checks.chris_computer_list is True and CharInfo.sasha_checks.sasha_post_fest \
-            is True and CharInfo.jacob_checks.jacob_post_fest is True:
+            is True and CharInfo.jacob_checks.jacob_post_fest is True and \
+            CharInfo.chris_checks.chris_computer_list_completed is not True:
         print("You hop back on the computer and check your Pawbook messages.")
         input()
         print("It would seem that Chris has uploaded his list of road trip destinations that you asked him for, time to dive in and see what you’ve got to work with.")
@@ -158,13 +159,13 @@ def pccomputer():
                Black Hills National Forest in Rapid Falls, Omero.. \
                Ulysses’ Island in Fromage")
         input()
-        print("There are a lot more on the list but it seems the author had issues with formatting. Perhaps the rest will be in a text-file within a folder of some sort.")  # It's in your game folder silly
+        print("There are a lot more on the list but it seems the author had issues with formatting. Perhaps the rest will be in a text file within a folder of some sort.")  # It's in your game folder silly
         input()
-        print("(There should be a text-file in your game folder containing the rest of the locations.)")
+        print("(There should be a text file in your game folder containing the rest of the locations.)")
         input()
         print("Odds are you won’t end up going to every place on that list, but this is a really good place to start.")
         input()
-        print("You could knock places off your list as you travel depending on what your timeline looks like, or depending on what your passengers want to do.")
+        print("You could knock some places off your list as you travel. It'll depend a lot on what your timeline looks like, or depending on what your passengers want to do.")
         input()
         CharInfo.chris_checks.chris_computer_list_completed = True
         if CharInfo.holly_checks.holly_relationship_status in ['rejected', 'dating', 'hold'] or CharInfo.festival_checks.holly_stay is not True:
