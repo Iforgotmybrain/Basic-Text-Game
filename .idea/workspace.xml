@@ -19,11 +19,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/py_files/Base.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="323">
-              <caret line="172" column="19" selection-start-line="172" selection-start-column="19" selection-end-line="172" selection-end-column="19" />
+            <state relative-caret-position="459">
+              <caret line="102" column="30" selection-start-line="102" selection-start-column="30" selection-end-line="102" selection-end-column="30" />
               <folding>
                 <element signature="e#47#58#0" expanded="true" />
               </folding>
@@ -31,11 +31,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/py_files/Walking.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="901">
-              <caret line="56" column="44" selection-start-line="56" selection-start-column="44" selection-end-line="56" selection-end-column="44" />
+            <state relative-caret-position="674">
+              <caret line="146" column="84" selection-start-line="146" selection-start-column="84" selection-end-line="146" selection-end-column="84" />
             </state>
           </provider>
         </entry>
@@ -43,8 +43,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/py_files/Phone.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="136">
-              <caret line="10" column="146" selection-start-line="10" selection-start-column="146" selection-end-line="10" selection-end-column="146" />
+            <state relative-caret-position="255">
+              <caret line="15" selection-start-line="15" selection-end-line="15" />
               <folding>
                 <element signature="e#0#17#0" expanded="true" />
               </folding>
@@ -74,7 +74,7 @@
         <entry file="file://$PROJECT_DIR$/py_files/Festival.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="15028">
-              <caret line="889" column="12" selection-start-line="889" selection-start-column="12" selection-end-line="889" selection-end-column="12" />
+              <caret line="889" column="12" selection-start-line="889" selection-start-column="12" selection-end-line="889" selection-end-column="61" />
               <folding>
                 <element signature="e#16#27#0" expanded="true" />
               </folding>
@@ -164,8 +164,8 @@
         <option value="$PROJECT_DIR$/py_files/TravelSystem.py" />
         <option value="$PROJECT_DIR$/py_files/Festival.py" />
         <option value="$PROJECT_DIR$/py_files/Phone.py" />
-        <option value="$PROJECT_DIR$/py_files/Walking.py" />
         <option value="$PROJECT_DIR$/py_files/Base.py" />
+        <option value="$PROJECT_DIR$/py_files/Walking.py" />
       </list>
     </option>
   </component>
@@ -373,33 +373,6 @@
     <entry file="file://$USER_HOME$/Desktop/Basic-Text-Game-6c066f55a019eb2a317b32c057f7d1318a01b934/py files/Base.py" />
     <entry file="file://$PROJECT_DIR$/py_files/teststoring.py" />
     <entry file="file://$PROJECT_DIR$/py_files/CharLocator.py" />
-    <entry file="file://$PROJECT_DIR$/py_files/Base.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="172" column="19" selection-start-line="172" selection-start-column="19" selection-end-line="172" selection-end-column="19" />
-          <folding>
-            <element signature="e#47#58#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/py_files/Walking.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="901">
-          <caret line="56" column="44" selection-start-line="56" selection-start-column="44" selection-end-line="56" selection-end-column="44" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/py_files/Phone.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="10" column="146" selection-start-line="10" selection-start-column="146" selection-end-line="10" selection-end-column="146" />
-          <folding>
-            <element signature="e#0#17#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/py_files/TravelSystem.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="34">
@@ -417,7 +390,7 @@
     <entry file="file://$PROJECT_DIR$/py_files/Festival.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="15028">
-          <caret line="889" column="12" selection-start-line="889" selection-start-column="12" selection-end-line="889" selection-end-column="12" />
+          <caret line="889" column="12" selection-start-line="889" selection-start-column="12" selection-end-line="889" selection-end-column="61" />
           <folding>
             <element signature="e#16#27#0" expanded="true" />
           </folding>
@@ -431,6 +404,33 @@
           <folding>
             <element signature="e#0#13#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/py_files/Phone.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="15" selection-start-line="15" selection-end-line="15" />
+          <folding>
+            <element signature="e#0#17#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/py_files/Base.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="459">
+          <caret line="102" column="30" selection-start-line="102" selection-start-column="30" selection-end-line="102" selection-end-column="30" />
+          <folding>
+            <element signature="e#47#58#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/py_files/Walking.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="674">
+          <caret line="146" column="84" selection-start-line="146" selection-start-column="84" selection-end-line="146" selection-end-column="84" />
         </state>
       </provider>
     </entry>
