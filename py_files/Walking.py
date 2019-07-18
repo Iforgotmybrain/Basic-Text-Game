@@ -132,7 +132,21 @@ class ValeryNeighborhoodWalk:
         clear()
         TravelSystem.travel_function.travel_point_bedroom()
 
-
+class ValeryLunch:
+    def valery_house(self):
+        print("(1): Would be down for getting lunch sometime this weekend. ")
+        if CharInfo.player_info.ending_points >= -5:
+            print("(2): Don't really see the point in going to get lucnh with someone you hardley know")
+        if CharInfo.holly_checks.holly_relationship_status in ['dating']:
+            print("Would love to go but can't since you have a date setup for this weekend.")
+        if CharInfo.festival_checks.holly_stay is not True:
+            print("Testing test")
+            input()
+        elif CharInfo.festival_checks.holly_stay is True:
+            print("Real shit")
+            input()  # This way will work. Looks good on the command prompt as well.
 
 
 quick_walk = ValeryNeighborhoodWalk()
+
+valery_lunch = ValeryLunch()
