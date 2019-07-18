@@ -126,25 +126,77 @@ class ValeryNeighborhoodWalk:
         print("Stuff like the finances and dealing with any plans you might have.")
         print("For now, you're just going to relax for a bit while you take everything in.")
         input()
-        print("This is as far as the game currently goes. Thanks for playing! Check out the Itch.io page and my GitHub pages for updates.")
+        CharInfo.misc_checks.halfway_chap3 = True
+        SaveSystem.save_sys.saving()
+        clear()
+        print("It's been about 4 days since you started getting ready for your big road trip.")
         input()
+        print("Since then you haven’t done anything too taxing. You spent about a day to just relax, and then worked on clearing any appointments or obligations you might have had during or leading up to the road trip.")
+        input()
+        print("Today you were thinking of sorting out the budget for the road trip. The money you have in your bank account now won’t be nearly enough for the whole road trip.")
+        print("That means having to dip into your investments and savings. Not something you take lightly, but you feel that the experiences this trip will give you will be worth it.")
+        input()
+        print("Besides, you’ll probably be able to make up the difference by working on more contracts once you’re done with the road trip.")
+        input()
+        if CharInfo.valery_checks.valery_first_walk in ['met'] and CharInfo.player_info.ending_points <= -5:
+            print("You were considering going to see Valery as well. Though you have to wonder if he would even welcome your company. You hardly know him, after all.")
+            input()
+        elif CharInfo.valery_checks.valery_first_walk in ['met'] and CharInfo.player_info.ending_points >= -5:
+            print("You also thought of going to see if Valery needed help with anything. Might as well try and get to know your new neighbor some more.")
+            input()
+        if CharInfo.valery_checks.valery_first_walk in ['no walk'] and CharInfo.player_info.ending_points >= -3:
+            print("You recently got a new neighbor as well. You could go down and meet him, see if he needs help with anything.")
+            input()
+        if CharInfo.valery_checks.valery_first_walk in ['ignored'] and CharInfo.player_info.ending_points >= -5:
+            print("You could always go and introduce yourself to the new neighbor as well. Its not too late.")
+            input()
+        if CharInfo.valery_checks.valery_first_walk in ['met'] or CharInfo.valery_checks.valery_first_walk in ['ignored'] \
+            and CharInfo.player_info.ending_points >= -5 or CharInfo.valery_checks.valery_first_walk in ['no walk'] \
+            and CharInfo.player_info.ending_points >= -3:
+            TravelSystem.travel_points.tp.append('Valery\'s House')
+            print("Valery's House unlocked as travel option.")
+            input()
         SaveSystem.save_sys.saving()
         clear()
         TravelSystem.travel_function.travel_point_bedroom()
 
+
+
 class ValeryLunch:
     def valery_house(self):
-        print("(1): Would be down for getting lunch sometime this weekend. ")
-        if CharInfo.player_info.ending_points >= -5:
-            print("(2): Don't really see the point in going to get lucnh with someone you hardley know")
-        if CharInfo.holly_checks.holly_relationship_status in ['dating']:
-            print("Would love to go but can't since you have a date setup for this weekend.")
-        if CharInfo.festival_checks.holly_stay is not True:
-            print("Testing test")
+        print("You decide to go and see how your new neighbor, Valery, is doing.")
+        print("He seemed nice enough when you met him on your walk. Might as well go and get to know him a bit better.")
+        input()
+        print("You walk the down the street to the house he’s renting. You have to knock on his door as he doesn’t seem to have a doorbell.")
+        input()
+        print("Valery answers the door; he seems to be a bit surprised by you visiting.")
+        input()
+        print("“Hey, {}. I was wondering if you were really going to come down or not.".format(CharInfo.player_info.name))
+        input()
+        print("“I’m gonna be honest though, you’ve come down at a pretty bad time, as I’ve gotta go to work here in about half an hour.”")
+        print("“Maybe we can meet up for lunch or something in a couple of days. I’ve got the weekend off and no commitments so I’m pretty much free.”")
+        input()
+
+        if CharInfo.player_info.ending_points >= -4:
+            print("Going out for lunch doesn’t sound too bad. It would probably be a better way to get to know him anyway.")
             input()
-        elif CharInfo.festival_checks.holly_stay is True:
-            print("Real shit")
-            input()  # This way will work. Looks good on the command prompt as well.
+
+        elif CharInfo.player_info.ending_points <= -4:
+            print("You’re not quite sure how you feel about going out for lunch with someone you hardly know.")
+            input()
+            print("It feels like a bit of a rush to go from barely knowing your neighbor to going out and getting lunch.")
+            input()
+
+        print("You tell Valery that you…")
+        print("(1): Would be down for getting lunch sometime this weekend.")
+
+        if CharInfo.player_info.ending_points <= -5:
+            print("(2): Don't really see the point in going to get lunch with someone you hardly know")
+
+        elif CharInfo.player_info.ending_points >= -5:
+            print("(2): Appreciate the offer but have other plans for this weekend.")
+
+        valery_lunch_decision = input("")
 
 
 quick_walk = ValeryNeighborhoodWalk()

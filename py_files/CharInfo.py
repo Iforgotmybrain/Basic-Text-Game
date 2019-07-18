@@ -41,9 +41,10 @@ class GlobalCheckHolly:
 
 
 class GlobalCheckMisc:
-    def __init__(self, cafe_finished, bathroom_bd):
+    def __init__(self, cafe_finished, bathroom_bd, halfway_chap3):
         self.cafe_finished = cafe_finished
         self.bathroom_bd = bathroom_bd
+        self.halfway_chap3 = halfway_chap3
 
 
 class GlobalCheckLakePark:
@@ -110,7 +111,7 @@ jacob_checks = GlobalCheckJacob(jacob_kitchen=GlobalCheckJacob, jacob_bedroom=Gl
 
 holly_checks = GlobalCheckHolly(holly_relationship_status=GlobalCheckHolly, holly_date_restaurant=GlobalCheckHolly)
 
-misc_checks = GlobalCheckMisc(cafe_finished=GlobalCheckMisc, bathroom_bd=GlobalCheckMisc)
+misc_checks = GlobalCheckMisc(cafe_finished=GlobalCheckMisc, bathroom_bd=GlobalCheckMisc, halfway_chap3=GlobalCheckMisc)
 
 park_checks = GlobalCheckLakePark(park_lake_path=GlobalCheckLakePark, park_roommate_path=GlobalCheckLakePark)
 

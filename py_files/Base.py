@@ -65,9 +65,11 @@ def pcbedroom():
 
     if CharInfo.festival_checks.festival_ending is True:  # Makes it so the player cannot access the phone or computer before they complete the festival. Which is when they become functional.
         print("There is also your computer to the south of the room.")
+
         if CharInfo.jacob_checks.jacob_post_fest is True and CharInfo.sasha_checks.sasha_post_fest is True and CharInfo.festival_checks.holly_stay is True:
             print("You could also use your Phone.")
-        if CharInfo.chris_checks.chris_computer_list_completed is True:
+
+        if CharInfo.chris_checks.chris_computer_list_completed is True and CharInfo.misc_checks.halfway_chap3 is not True:
             print("You might also end the day going to Sleep in your bed.")
 
     print("You could also check your bank balance.")
