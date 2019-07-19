@@ -647,7 +647,7 @@ class LivingRoom:
             clear()
             CharInfo.player_info.player_location = pcbedroom
             CharInfo.sasha_checks.sasha_living = True
-            CharInfo.player_info.ending_points += 2
+            CharInfo.player_info.ending_points += 4
             SaveSystem.save_sys.saving()
             pcbedroom()
 
@@ -674,7 +674,7 @@ class LivingRoom:
             input()
             CharInfo.player_info.player_location = pcbedroom
             CharInfo.sasha_checks.sasha_living = True
-            CharInfo.player_info.ending_points += 1
+            CharInfo.player_info.ending_points += 2
             SaveSystem.save_sys.saving()
             pcbedroom()
 

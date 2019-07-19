@@ -57,7 +57,7 @@ class ValeryNeighborhoodWalk:
             print("You wave goodbye to the Hyena and continue on your walk.")
             print("As you finish your walk and return home nothing else happens. It was a fairly uneventful walk except for meeting Valery.")
             CharInfo.valery_checks.valery_first_walk = 'met'
-            CharInfo.player_info.ending_points += 3
+            CharInfo.player_info.ending_points += 4
             TravelSystem.travel_points.tp.remove('A quick walk')
             input()
             clear()
@@ -68,7 +68,7 @@ class ValeryNeighborhoodWalk:
             input()
             print("You continue on your walk with nothing else happening. The walk was pretty uneventful.")
             CharInfo.valery_checks.valery_first_walk = 'ignore'
-            CharInfo.player_info.ending_points -= 1
+            CharInfo.player_info.ending_points -= 2
             TravelSystem.travel_points.tp.remove('A quick walk')
             input()
             clear()
@@ -137,21 +137,21 @@ class ValeryNeighborhoodWalk:
         input()
         print("Besides, you’ll probably be able to make up the difference by working on more contracts once you’re done with the road trip.")
         input()
-        if CharInfo.valery_checks.valery_first_walk in ['met'] and CharInfo.player_info.ending_points <= -5:
+        if CharInfo.valery_checks.valery_first_walk in ['met'] and CharInfo.player_info.ending_points <= -4:
             print("You were considering going to see Valery as well. Though you have to wonder if he would even welcome your company. You hardly know him, after all.")
             input()
-        elif CharInfo.valery_checks.valery_first_walk in ['met'] and CharInfo.player_info.ending_points >= -5:
+        elif CharInfo.valery_checks.valery_first_walk in ['met'] and CharInfo.player_info.ending_points >= -4:
             print("You also thought of going to see if Valery needed help with anything. Might as well try and get to know your new neighbor some more.")
             input()
-        if CharInfo.valery_checks.valery_first_walk in ['no walk'] and CharInfo.player_info.ending_points >= -3:
+        if CharInfo.valery_checks.valery_first_walk in ['no walk'] and CharInfo.player_info.ending_points >= -2:
             print("You recently got a new neighbor as well. You could go down and meet him, see if he needs help with anything.")
             input()
-        if CharInfo.valery_checks.valery_first_walk in ['ignored'] and CharInfo.player_info.ending_points >= -5:
+        if CharInfo.valery_checks.valery_first_walk in ['ignored'] and CharInfo.player_info.ending_points >= -4:
             print("You could always go and introduce yourself to the new neighbor as well. Its not too late.")
             input()
         if CharInfo.valery_checks.valery_first_walk in ['met'] or CharInfo.valery_checks.valery_first_walk in ['ignored'] \
-            and CharInfo.player_info.ending_points >= -5 or CharInfo.valery_checks.valery_first_walk in ['no walk'] \
-            and CharInfo.player_info.ending_points >= -3:
+            and CharInfo.player_info.ending_points >= -4 or CharInfo.valery_checks.valery_first_walk in ['no walk'] \
+            and CharInfo.player_info.ending_points >= -2:
             TravelSystem.travel_points.tp.append('Valery\'s House')
             print("Valery's House unlocked as travel option.")
             input()
@@ -189,10 +189,10 @@ class ValeryLunch:
         print("You tell Valery that you…")
         print("(1): Would be down for getting lunch sometime this weekend.")
 
-        if CharInfo.player_info.ending_points <= -5:
+        if CharInfo.player_info.ending_points <= -4:
             print("(2): Don't really see the point in going to get lunch with someone you hardly know")
 
-        elif CharInfo.player_info.ending_points >= -5:
+        elif CharInfo.player_info.ending_points >= -4:
             print("(2): Appreciate the offer but have other plans for this weekend.")
 
         valery_lunch_decision = input("")

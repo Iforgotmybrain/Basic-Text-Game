@@ -101,7 +101,7 @@ class HollyTextDialogue:
                 print("The texts slow down shortly after that, with just some back and forth conversation throughout the rest of the day.")
                 input()
                 CharInfo.holly_checks.holly_relationship_status = 'dating'
-                CharInfo.player_info.ending_points += 2
+                CharInfo.player_info.ending_points += 4
 
                 if CharInfo.chris_checks.chris_computer_list_completed is True:
                     print(

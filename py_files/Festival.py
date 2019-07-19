@@ -455,7 +455,7 @@ class FestivalMid:
             input()
             print('"Well, I wasn’t initially planning on staying after this concert, but since you’re offering… Sure, I’ll gladly tag along."')
             input()
-            CharInfo.player_info.ending_points += 3
+            CharInfo.player_info.ending_points += 4
             CharInfo.player_info.player_location = festival_end.festival_hub_end
             SaveSystem.save_sys.saving()
             festival_end.festival_hub_end()
