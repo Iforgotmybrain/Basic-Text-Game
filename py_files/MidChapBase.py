@@ -1,15 +1,14 @@
 import time
 import secrets
-import sys
 import os
-import pickle
 import SaveSystem
 import CharInfo
 import TravelSystem
-import Festival
 import Phone
 import ValeryTransition
 import Debug
+
+clear = lambda: os.system('cls')
 
 class PCBedrooms:
     def chap3_mid_bedroom(self):
@@ -26,7 +25,7 @@ class PCBedrooms:
         print("The doorway to the hallway is to the north, and your bathroom is to the east.")
         print("You see your computer over to the south.")
         print("You also see your phone laying on the desk.")
-        chap3_bedroom_input = input("What do you do?").lower()
+        chap3_bedroom_input = input("What do you do? ").lower()
 
         if chap3_bedroom_input in ['north', 'n', 'hallway']:
             hallwaymid()
@@ -56,7 +55,7 @@ class LaterChapComputer:
     def computer_placement(self):
         print("You can visit or do the following things on your computer:")
         print(self.computer_websites)
-        computer_choice = input("What do you want to do?").lower()
+        computer_choice = input("What do you want to do? ").lower()
 
         if computer_choice in ['bank', 'bank account', 'check bank account', 'check bank', 'money', 'check money',
                                'bank website']:
@@ -87,7 +86,7 @@ def hallwaymid():
     CharInfo.player_info.player_location = hallwaymid
     print("You enter the hallway. You see the door to your bedroom to the south, Sasha's bedroom door to the west, and Jacob's bedroom door to the north.")
     print("You also see stairs over to the east that lead to the entrance way.")
-    hallway_direction = input("What way do you go?").lower()
+    hallway_direction = input("What way do you go? ").lower()
 
     if hallway_direction in ['north', 'n', 'jacob\'s room', 'jacob bedroom']:
         print("The door is locked. Seems Jacob is busy or away at the moment.")
@@ -118,11 +117,18 @@ def hallwaymid():
 def entrancewaymid():
     CharInfo.player_info.player_location = entrancewaymid
     print("You are standing in the entrance way. To your west you see the kitchen, and to the east you see the living room.")
-    print("You also see the doorway to outside directly to the north, and the stairs to the upstairs hallway right behind you to the south.")
-    entrance_way_direction = input("What direction will you go>").lower()
+    print("You also see the doorway to the outside directly to the north, and the stairs to the hallway right behind you to the south.")
+    entrance_way_direction = input("What direction will you go? ").lower()
 
-    if entrance_way_direction in ['north', 'n' 'outside', 'doorway']:
-        TravelSystem.travel_function.traveltofront()
+    if entrance_way_direction in ['north', 'n', 'outside', 'doorway']:
+        print("You stand on your porch ready for adventure.")
+        travel_or_stay = input("Will you travel or return home? ")
+
+        if travel_or_stay in ['travel', 't', 'go']:
+            TravelSystem.travel_function.traveltofront()
+
+        elif travel_or_stay in ['home', 'south']:
+            return entrancewaymid()
 
     elif entrance_way_direction in ['west', 'w', 'kitchen']:
         print("You enter the kitchen but don't see anything of interest.")
@@ -131,7 +137,7 @@ def entrancewaymid():
         return entrancewaymid()
 
     elif entrance_way_direction in ['east', 'e', 'living room']:
-        print("You look to the living room but don't see anything going on.")
+        print("You look to the living room but there doesn't seem to be anything going on.")
         input()
         return entrancewaymid()
 

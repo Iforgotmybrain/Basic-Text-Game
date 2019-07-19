@@ -5,7 +5,6 @@ import time
 import secrets
 import sys
 import os
-import pickle
 import SaveSystem
 import CharInfo
 import TravelSystem
@@ -1171,6 +1170,9 @@ TravelSystem.travel_function.travel_quick_walk = ValeryTransition.quick_walk.val
 
 TravelSystem.travel_function.travel_point_mid_bedroom = MidChapBase.PC_bedrooms.chap3_mid_bedroom
 
+TravelSystem.travel_function.travel_point_valery_house = ValeryTransition.valery_lunch.valery_house
+
+TravelSystem.travel_function.travel_point_mid_entranceway = MidChapBase.entrancewaymid
 
 loadingoption = input("Do you wish to load a game? ").lower()  # Make it so this is the first question asked.
 if loadingoption in ['yes', 'y', 'load', 'l']:

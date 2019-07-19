@@ -5,7 +5,7 @@ class TravelPoints:
 class Traveling:
     def __init__(self, travel_point_cafe, travel_point_park, travel_point_festival_one, travel_point_home,
                  travel_point_early_bedroom, travel_point_hallway, travel_point_quick_walk,
-                 travel_point_mid_bedroom):
+                 travel_point_mid_bedroom, travel_point_valery_house, travel_point_mid_entranceway):
         self.travel_point_cafe = travel_point_cafe
         self.travel_point_park = travel_point_park
         self.travel_point_festival_one = travel_point_festival_one
@@ -14,6 +14,8 @@ class Traveling:
         self.travel_point_hallway = travel_point_hallway
         self.travel_quick_walk = travel_point_quick_walk
         self.travel_point_mid_bedroom = travel_point_mid_bedroom
+        self.travel_point_valery_house = travel_point_valery_house
+        self.travel_point_mid_entranceway = travel_point_mid_entranceway
 
     def traveltofront(self):
         print('You can think of the following places to travel to:')
@@ -24,7 +26,8 @@ class TravelPortal(Traveling):
     def __init__(self):
         super().__init__(travel_point_park='', travel_point_cafe='', travel_point_festival_one='',
                          travel_point_home='', travel_point_early_bedroom='', travel_point_hallway='',
-                         travel_point_quick_walk='', travel_point_mid_bedroom='')
+                         travel_point_quick_walk='', travel_point_mid_bedroom='', travel_point_valery_house='',
+                         travel_point_mid_entranceway='')
 
     def portal(self):
         travelarea = input("Where do you want to go? ").lower()
@@ -50,6 +53,9 @@ class TravelPortal(Traveling):
         elif travelarea in ['walk', 'quick walk', 'a quick walk']:
             travel_function.travel_quick_walk()
 
+        elif travelarea in ['valery\'s house', 'valery', 'valery house']:
+            travel_function.travel_point_valery_house()
+
         else:
             print("Invalid input")
             return self.portal()
@@ -58,7 +64,8 @@ class TravelPortal(Traveling):
 travel_function = Traveling(travel_point_cafe=Traveling, travel_point_park=Traveling,
                             travel_point_festival_one=Traveling, travel_point_home=Traveling,
                             travel_point_early_bedroom=Traveling, travel_point_hallway=Traveling,
-                            travel_point_quick_walk=Traveling, travel_point_mid_bedroom=Traveling)
+                            travel_point_quick_walk=Traveling, travel_point_mid_bedroom=Traveling,
+                            travel_point_valery_house=Traveling, travel_point_mid_entranceway=Traveling)
 
 travel_test = TravelPortal()
 
