@@ -4,11 +4,11 @@
 Here's a link to that page: https://iforgotmybrain.itch.io/tales-from-the-road
 
 # 6/28/19 Reminder
-Just reminding you that good feedback will help me tremendously with developing this project. I’m the only one looking over this project right now, and while I hold myself to what I consider a decent standard, I don’t always pick up on everything. If you have anything you want to say about the project, have any questions, or anything else, please let me know on here or on twitter. My handle on twitter is the same as on here, @Iforgotmybrain.
+Just reminding you that good feedback will help me tremendously with developing this project. I’m the only one looking over this project right now, and while I hold myself to what I consider a decent standard, I don’t pick up on everything. If you have anything you want to say about the project, have any questions, or anything else, please let me know on here, on twitter or on Itch.io. My handle on twitter is the same as on here, @Iforgotmybrain.
 
 # 6/17/19 First Release Update
 
-I released the first version of Tales from the Road today, the game is still very much in development but I feel it’s at a point where it can sort of ‘stand on its own’ so to say. Now I can start advertising it. The game was formerly just known as text game but after thinking about it for a while I decided to name it Tales From the Road for the first release. I feel the name fits the game very well considering the later bits of the story are going to be about a road trip.
+I released the first version of Tales from the Road today, the game is still very much in development but I feel it’s at a point where it can sort of ‘stand on its own’ so to say. Now I can start advertising it. The game was formerly just known as text game but after thinking about it for a while I've decided to name it Tales From the Road for the first release. I feel the name fits the game very well considering the later bits of the story are going to be about a road trip.
 
 I won’t really post much of anything on this page anymore, as I have a little blog website set up for posting my thoughts and progress on the game. You can find it on my GitHub page or at https://iforgotmybrain.github.io/
 
