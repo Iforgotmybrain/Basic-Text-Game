@@ -11,7 +11,8 @@ import CharInfo
 import TravelSystem
 import Festival
 import Phone
-import Walking
+import ValeryTransition
+import MidChapBase
 
 clear = lambda: os.system('cls')
 
@@ -69,7 +70,7 @@ def pcbedroom():
         if CharInfo.jacob_checks.jacob_post_fest is True and CharInfo.sasha_checks.sasha_post_fest is True and CharInfo.festival_checks.holly_stay is True:
             print("You could also use your Phone.")
 
-        if CharInfo.chris_checks.chris_computer_list_completed is True and CharInfo.misc_checks.halfway_chap3 is not True:
+        if CharInfo.chris_checks.chris_computer_list_completed is True:
             print("You might also end the day going to Sleep in your bed.")
 
     print("You could also check your bank balance.")
@@ -99,9 +100,13 @@ def pcbedroom():
         input()
         pcsleep = input("Do you still want to go to sleep? (Yes or no) ").lower()
         if pcsleep in ['yes', 'y']:
+            TravelSystem.travel_points.tp.append('A quick walk')
             CharInfo.valery_checks.valery_first_walk = 'no walk'
-            Walking.quick_walk.chapter_3_halfway_transistion()
+            ValeryTransition.quick_walk.chapter_3_halfway_transistion()
         elif pcsleep in ['no', 'n']:
+            return pcbedroom()
+        else:
+            print("Invalid input")
             return pcbedroom()
 
     else:
@@ -1156,13 +1161,15 @@ TravelSystem.travel_function.travel_point_park = sycamore_park.lakepark
 
 TravelSystem.travel_function.travel_point_festival_one = Festival.festival_area.bus_ride
 
-TravelSystem.travel_function.travel_point_bedroom = pcbedroom
+TravelSystem.travel_function.travel_point_early_bedroom = pcbedroom
 
 TravelSystem.travel_function.travel_point_hallway = hallway
 
 TravelSystem.travel_function.travel_point_home = entranceway
 
-TravelSystem.travel_function.travel_quick_walk = Walking.quick_walk.valery_first_walk
+TravelSystem.travel_function.travel_quick_walk = ValeryTransition.quick_walk.valery_first_walk
+
+TravelSystem.travel_function.travel_point_mid_bedroom = MidChapBase.PC_bedrooms.chap3_mid_bedroom
 
 
 loadingoption = input("Do you wish to load a game? ").lower()  # Make it so this is the first question asked.

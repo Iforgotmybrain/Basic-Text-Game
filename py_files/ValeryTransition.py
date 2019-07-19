@@ -127,7 +127,6 @@ class ValeryNeighborhoodWalk:
         print("For now, you're just going to relax for a bit while you take everything in.")
         input()
         CharInfo.misc_checks.halfway_chap3 = True
-        SaveSystem.save_sys.saving()
         clear()
         print("It's been about 4 days since you started getting ready for your big road trip.")
         input()
@@ -156,9 +155,9 @@ class ValeryNeighborhoodWalk:
             TravelSystem.travel_points.tp.append('Valery\'s House')
             print("Valery's House unlocked as travel option.")
             input()
-        SaveSystem.save_sys.saving()
+        CharInfo.player_info.player_location = TravelSystem.travel_function.travel_point_mid_bedroom
         clear()
-        TravelSystem.travel_function.travel_point_bedroom()
+        SaveSystem.save_sys.saving()
 
 
 
