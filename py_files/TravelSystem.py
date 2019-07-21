@@ -1,4 +1,3 @@
-# _*_ coding: utf-8 _*_
 class TravelPoints:
     def __init__(self):
         self.tp = ['Tories Cafe', 'Sycamore Lakeview Park', 'Home']

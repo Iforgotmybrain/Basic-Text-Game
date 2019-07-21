@@ -1,5 +1,5 @@
 # Tales from the Road
-# _*_ coding: utf-8 _*_
+# -*- coding: utf-8 -*-
 
 import time
 import secrets

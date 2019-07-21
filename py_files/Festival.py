@@ -1,4 +1,3 @@
-# _*_ coding: utf-8 _*_
 # Festival area
 import time
 import random
