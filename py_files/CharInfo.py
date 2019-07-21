@@ -1,3 +1,4 @@
+# _*_ coding: utf-8 _*_
 class PlayerStats:
     """This class takes and store info about the player character. This includes their user-defined name, their sex, and
     their race. As of recent it also keeps track of their location. This was needed to implement the save system"""
