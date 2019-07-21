@@ -21,14 +21,14 @@ class PhonePlacement:
 
 class HollyTextDialogue:
     def holly_text_one(self):
-        print("You hold your smartphone and pull up your contacts app, scrolling down until you hit the H column and find “Holly”.")
+        print("You hold your smartphone and pull up your contacts app, scrolling down until you hit the H column and find 'Holly'.")
         input()
         print("You’ve never really been fond of calling people, so you decide to text her instead of calling.")
         print("You spent the next 20 minutes writing the perfect text, after much deliberation you decide to just keep it simple. You type up a simple greeting and tell Holly who it is that’s texting her, asking her what’s been going on since yesterday.")
         input()
         print("The next couple of minutes are spent browsing social media on your phone while you wait for a reply, soon your phone buzzes and a text message notification pops up on your screen")
         input()
-        print("The contents of the message read: “Hey. Haven’t really been doing much, just doing stuff around my apartment")
+        print("The contents of the message read: 'Hey. Haven’t really been doing much, just doing stuff around my apartment")
         input()
         self.holly_text_decision()
 
@@ -58,8 +58,8 @@ class HollyTextDialogue:
                 input()
                 print("You sent back a message saying that you’d be fine with getting dinner sometime. You also ask if she has any place in mind for dinner.")
                 input()
-                print("“I don’t know. I didn’t really think I’d get this far if I’m being honest.”")
-                print("“Maybe a steakhouse? I dunno, but I’d be fine with going somewhere you want.”")
+                print("'I don’t know. I didn’t really think I’d get this far if I’m being honest.'")
+                print("'Maybe a steakhouse? I dunno, but I’d be fine with going somewhere you want.'")
                 input()
                 print("You’ve been feeling like Mexican food recently, but you also wouldn’t mind going to the Firefly Tavern.")
                 print("No better time then the present to pick a place to eat, you text Holly and tell her that you want to eat at…")
@@ -139,8 +139,8 @@ class HollyTextDialogue:
             if holly_two_option in ['1']:
                 print("You sent the message, you appreciated Holly’s company but you just aren’t down for a relationship at the moment, you want to keep your options open.")
                 input()
-                print("She quickly replies, her message says: “That’s fine, I understand completely.”")
-                print("“I appreciate you saying that up front rather than just stringing me along.”")
+                print("She quickly replies, her message says: 'That’s fine, I understand completely.'")
+                print("'I appreciate you saying that up front rather than just stringing me along.'")
                 input()
                 print("You tell Holly that you wouldn’t’ think of just leaving her out in the air. Even if your relationship doesn’t go anywhere else you still want to remain friends, after all.")
                 input()
@@ -187,17 +187,17 @@ class HollyTextDialogue:
             if holly_three_option in ['1']:
                 print("You sent the message. It’s nothing against her as a person, she just wasn’t a good match for you.")
                 input()
-                print("She sends a reply fairly quickly; “Wow, I’m a bit surprised to hear that. I understand though, no point in going any further if there’s in no interest.")
+                print("She sends a reply fairly quickly; 'Wow, I’m a bit surprised to hear that. I understand though, no point in going any further if there’s in no interest.")
                 input()
-                print("“I appreciate you telling me that though, better than just ghosting me.”")
+                print("'I appreciate you telling me that though, better than just ghosting me.'")
                 input()
                 print("You thank Holly for understanding. You send her a text telling her that you’re still fine with being friends, so long as doesn’t find that too awkward.")
                 input()
-                print("“No, I’m fine with just being friends. It’s not like we broke up or anything. We basically only went on one ‘date’ after all.”")
+                print("'No, I’m fine with just being friends. It’s not like we broke up or anything. We basically only went on one ‘date’ after all.'")
                 input()
                 print("You sent a text thanking Holly again for understanding, telling her to have good rest of the day.")
                 input()
-                print("“Of course, same to you.”")
+                print("'Of course, same to you.'")
                 CharInfo.holly_checks.holly_relationship_status = 'rejected'
                 input()
 

@@ -19,7 +19,7 @@ class FestivalStart:
             print(
                 "The man looks to you and asks if you’re going to Lake Fest. You say yes, and that you’ve gone to it almost every year you’ve lived here.")
             input()
-            print("'So you’re a local” the Tiger says. “I’m Chris.” The Tiger reaches out to shake your hand'")
+            print("'So you’re a local' the Tiger says. “I’m Chris.' The Tiger reaches out to shake your hand'")
             input()
             print("You shake the Tiger’s hand and introduce yourself as {}.".format(CharInfo.player_info.name))
             print(
@@ -30,20 +30,20 @@ class FestivalStart:
                 "You can’t really think of anything else remarkable here. The town is actually quite boring. You offer a few eating recommendations, including Tories Café, stating that there really isn’t much to do here except check out the local restaurants.")
             input()
             print(
-                "'Yeah, I kind of figured. This is my second time going to this event and I’ve never really seen anything else to do.” The Tiger says with a friendly tone.")
+                "'Yeah, I kind of figured. This is my second time going to this event and I’ve never really seen anything else to do.' The Tiger says with a friendly tone.")
 
             print("'Anyway, I bet you’re probably wondering why someone would come here just for one event.'")
             input()
             print("You can’t say you were really burning your brain trying to figure that out, but you’ll humor him.")
 
             print(
-                "'Well, I’m actually road tripping across the country! I do it every year, in some shape or form. Last year I went by train but now I’m doing it by car.” He says with an enthusiastic tone. Clearly he’s quite interested in traveling the country.'")
+                "'Well, I’m actually road tripping across the country! I do it every year, in some shape or form. Last year I went by train but now I’m doing it by car.' He says with an enthusiastic tone. Clearly he’s quite interested in traveling the country.'")
             input()
             print(
                 "You ask Chris for some more details, you’ve always been fascinated by the idea of traveling the country, but you’ve just never had the time or money to do so.")
             input()
             print(
-                "'Well, I start off my trip on the east coast, in New York city as you might’ve guessed by my shirt.” He says while pointing to his 'I heart NY' shirt.'")
+                "'Well, I start off my trip on the east coast, in New York city as you might’ve guessed by my shirt.' He says while pointing to his 'I heart NY' shirt.'")
 
             print(
                 "'I spend a varying amount of time in each place I stop. Just depends on what that city has to offer, ya know?'")
@@ -65,7 +65,7 @@ class FestivalStart:
                 "You thank Chris for advice, if you ever do decide to take on such an endeavor, you’ll definitely make sure too have a plan.")
             input()
             print(
-                "'Well looks like our stop’s up here. It’s been great talking to you.” He says while extending his hand out for a farewell handshake.'")
+                "'Well looks like our stop’s up here. It’s been great talking to you.' He says while extending his hand out for a farewell handshake.'")
             print("You shake his hands and say goodbye, he offers one last piece of advice before departing.")
             input()
             print(
