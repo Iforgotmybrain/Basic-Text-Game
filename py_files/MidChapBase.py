@@ -8,7 +8,7 @@ import Phone
 import ValeryTransition
 import Debug
 
-clear = lambda: os.system('cls')
+clear = lambda: os.system('cls' if os.name == 'nt' else 'clear')
 
 class PCBedrooms:
     def chap3_mid_bedroom(self):

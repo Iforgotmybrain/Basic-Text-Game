@@ -6,7 +6,7 @@ import CharInfo
 import TravelSystem
 import SaveSystem
 
-clear = lambda: os.system('cls')
+clear = lambda: os.system('cls' if os.name == 'nt' else 'clear')
 
 class FestivalStart:
     def bus_ride(self):

@@ -13,7 +13,7 @@ import Phone
 import ValeryTransition
 import MidChapBase
 
-clear = lambda: os.system('cls')
+clear = lambda: os.system('cls' if os.name == 'nt' else 'clear')  # Thank you Poke on Stack Overflow
 
 def bank_money():
     print("You fire up your smartphone and check your bank balance")
