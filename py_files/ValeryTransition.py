@@ -41,18 +41,18 @@ class ValeryNeighborhoodWalk:
             print("You wave him down from across the street and walk over to introduce yourself. This seems a bit odd in your mind, but if the roles were reversed you probably wouldn’t think too much of it.")
             print("You walk up to the slim-built hyena and ask him if he’s the new occupant of the house down the street.")
             input()
-            print("'I am. Just moved in around 5 days ago.' the Hyena says in a somewhat surprised or perhaps confused tone.")
+            print("“I am. Just moved in around 5 days ago.” the Hyena says in a somewhat surprised or perhaps confused tone.")
             input()
             print("You reach out to shake his hand and introduce yourself as {}. You tell him that you live just a few houses down the street from where his house is.".format(CharInfo.player_info.name))
             input()
-            print("'I’m Valery, nice to meet you {}. You’re actually the first neighbor that I’ve met so far. Seems like nobody else had the same spunk that you did when it comes to meeting new neighbors'".format(CharInfo.player_info.name))
+            print("“I’m Valery, nice to meet you {}. You’re actually the first neighbor that I’ve met so far. Seems like nobody else had the same spunk that you did when it comes to meeting new neighbors”".format(CharInfo.player_info.name))
             input()
-            print("'I do appreciate the initiative, it can be a bit unnerving moving somewhere and knowing absolutely no one. Just getting to know the names of the people around me helps me feel a bit more at ease.'")
+            print("“I do appreciate the initiative, it can be a bit unnerving moving somewhere and knowing absolutely no one. Just getting to know the names of the people around me helps me feel a bit more at ease.”")
             input()
             print("You tell Valery that you’re quite glad you could help him feel more at home.")
             print("You also tell Valery that if he needs anything to just let you know. You tell him which house yours is before saying goodbye.")
             input()
-            print("'I’ll make sure to keep that in mind. Hopefully I’ll be seeing you around!'")
+            print("“I’ll make sure to keep that in mind. Hopefully I’ll be seeing you around!”")
             input()
             print("You wave goodbye to the Hyena and continue on your walk.")
             print("As you finish your walk and return home nothing else happens. It was a fairly uneventful walk except for meeting Valery.")
@@ -177,10 +177,10 @@ class ValeryLunch:
         input()
         print("Valery answers the door; he seems to be a bit surprised by you visiting.")
         input()
-        print("'Hey, {}. I was wondering if you were really going to come down or not.".format(CharInfo.player_info.name))
+        print("“Hey, {}. I was wondering if you were really going to come down or not.".format(CharInfo.player_info.name))
         input()
-        print("'Unfortunately, you’ve come down at a pretty bad time, as I’ve got work in about half an hour.'")
-        print("'Maybe we can meet up for lunch or something in a couple of days? I’ve got the weekend off and no commitments so I’m pretty much free.'")
+        print("“Unfortunately, you’ve come down at a pretty bad time, as I’ve got work in about half an hour.”")
+        print("“Maybe we can meet up for lunch or something in a couple of days? I’ve got the weekend off and no commitments so I’m pretty much free.”")
         input()
 
         if CharInfo.player_info.ending_points >= -4:
@@ -211,7 +211,7 @@ class ValeryLunch:
         if valery_lunch_decision in ['1']:
             print("You tell Valery that getting lunch this weekend sounds good.")
             input()
-            print("'Great! How about The Rat’s Pub on Saturday?'")
+            print("“Great! How about The Rat’s Pub on Saturday?”")
 
             if CharInfo.holly_checks.holly_relationship_status in ['dating']:
                 print("You don’t’ really have anything going on except for that date with Holly on Sunday. So that time should work well.")
@@ -223,7 +223,7 @@ class ValeryLunch:
 
             print("You tell Valery that The Rat's Pub on Saturday will work great. You'll see him there around 12 PM.")
             input()
-            print("'Awesome, see you Sunday!'")
+            print("“Awesome, see you Sunday!”")
             input()
 
             if CharInfo.holly_checks.holly_relationship_status not in ['dating']:
@@ -258,8 +258,8 @@ class ValeryLunch:
                 print("You tell Valery that you had some other plans for the weekend. Those plans may or may not be just sitting around the house and doing nothing, but he doesn’t need to know that.")
                 input()
 
-            print("'Aw, well that’s too bad. Maybe we can get lunch some other time.'")
-            print("'Well, I better get moving, see you around.'")
+            print("“Aw, well that’s too bad. Maybe we can get lunch some other time.”")
+            print("“Well, I better get moving, see you around.”")
             input()
             print("You see bye to Valery and head home.")
             input()
