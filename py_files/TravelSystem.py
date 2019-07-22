@@ -35,7 +35,7 @@ class TravelPortal(Traveling):
         if travelarea in ['tories', 'the cafe', 'eat', 'tories cafe', 'cafe']:
             travel_function.travel_point_cafe()
 
-        elif travelarea in ['park', 'the park', 'sycamore lakeview park', 'lakeview', 'sycamore']:
+        elif travelarea in ['park', 'the park', 'sycamore lakeview park', 'lakeview', 'sycamore', 'lakeview park']:
             travel_function.travel_point_park()
 
         elif travelarea in ['fest', 'lake fest', 'festival']:

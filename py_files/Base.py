@@ -180,7 +180,7 @@ def pccomputer():
         if CharInfo.holly_checks.holly_relationship_status in ['rejected', 'dating', 'hold'] or CharInfo.festival_checks.holly_stay is not True:
             print("With the road trip destinations mostly sorted out, you could go for that walk you were thinking of.")
             input()
-            print("Since its getting late, you could also just stay in for the rest of day.")
+            print("Since it's getting late, you could also just stay in for the rest of day.")
             input()
             TravelSystem.travel_points.tp.append('A quick walk')
             SaveSystem.save_sys.saving()
