@@ -1188,7 +1188,7 @@ print("Checking Game Version...")
 print("Latest: {}".format(version_check.json()))
 print("Current Version: {}".format(version.__version__))
 if version_check.json() not in [{'version': '0.1.4.1'}]:
-    print("An update for Tales from the Road seems to be avalibale. Check the GitHub page or Itch.io page for more details")
+    print("An update for Tales from the Road seems to be available. Check the GitHub page or Itch.io page for more details.")
 elif version_check.json() in [{'version': '0.1.4.1'}]:
     print("The game is running on the latest version, yay!")
 
