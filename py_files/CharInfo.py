@@ -41,11 +41,12 @@ class GlobalCheckHolly:
 
 
 class GlobalCheckMisc:
-    def __init__(self, cafe_finished, bathroom_bd, halfway_chap3):
+    def __init__(self, cafe_finished, bathroom_bd, halfway_chap3, money_scene, valery_open,):
         self.cafe_finished = cafe_finished
         self.bathroom_bd = bathroom_bd
         self.halfway_chap3 = halfway_chap3
-
+        self.money_scene = money_scene
+        self.valery_open = valery_open
 
 class GlobalCheckLakePark:
     def __init__(self, park_lake_path, park_roommate_path):
@@ -74,8 +75,9 @@ class GlobalCheckChris:
 
 
 class GlobalCheckValery:
-    def __init__(self, valery_first_walk):
+    def __init__(self, valery_first_walk, valery_lunch):
         self.valery_first_walk = valery_first_walk
+        self.valery_lunch = valery_lunch
 
 
 class GlobalCheckRoadTrip:
@@ -107,11 +109,12 @@ sasha_checks = GlobalCheckSasha(sasha_talk=GlobalCheckSasha, sasha_living=Global
                                 sasha_post_fest= GlobalCheckSasha)
 
 jacob_checks = GlobalCheckJacob(jacob_kitchen=GlobalCheckJacob, jacob_bedroom=GlobalCheckJacob,
-                                jacob_post_fest = GlobalCheckJacob)
+                                jacob_post_fest=GlobalCheckJacob)
 
 holly_checks = GlobalCheckHolly(holly_relationship_status=GlobalCheckHolly, holly_date_restaurant=GlobalCheckHolly)
 
-misc_checks = GlobalCheckMisc(cafe_finished=GlobalCheckMisc, bathroom_bd=GlobalCheckMisc, halfway_chap3=GlobalCheckMisc)
+misc_checks = GlobalCheckMisc(cafe_finished=GlobalCheckMisc, bathroom_bd=GlobalCheckMisc, halfway_chap3=GlobalCheckMisc,
+                              money_scene=GlobalCheckMisc, valery_open=GlobalCheckMisc)
 
 park_checks = GlobalCheckLakePark(park_lake_path=GlobalCheckLakePark, park_roommate_path=GlobalCheckLakePark)
 
@@ -123,7 +126,7 @@ festival_checks = GlobalCheckFestival(bus_ride_complete=GlobalCheckFestival, pai
 
 chris_checks = GlobalCheckChris(chris_computer_list=GlobalCheckChris, chris_computer_list_completed=GlobalCheckChris)
 
-valery_checks = GlobalCheckValery(valery_first_walk=GlobalCheckValery)
+valery_checks = GlobalCheckValery(valery_first_walk=GlobalCheckValery, valery_lunch=GlobalCheckValery)
 
 dest_one = GlobalCheckDestinationOne()
 

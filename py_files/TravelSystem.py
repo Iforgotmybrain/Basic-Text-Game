@@ -53,7 +53,7 @@ class TravelPortal(Traveling):
         elif travelarea in ['walk', 'quick walk', 'a quick walk']:
             travel_function.travel_quick_walk()
 
-        elif travelarea in ['valery\'s house', 'valery', 'valery house']:
+        elif travelarea in ['valery\'s house', 'valery', 'valery house', 'valery\'s']:
             travel_function.travel_point_valery_house()
 
         else:

@@ -2,6 +2,7 @@ import os
 import TravelSystem
 import SaveSystem
 import CharInfo
+import MidChapBase
 
 clear = lambda: os.system('cls' if os.name == 'nt' else 'clear')
 
@@ -161,6 +162,9 @@ class ValeryNeighborhoodWalk:
             and CharInfo.player_info.ending_points >= -4 or CharInfo.valery_checks.valery_first_walk in ['no walk'] \
             and CharInfo.player_info.ending_points >= -2:
             TravelSystem.travel_points.tp.append('Valery\'s House')
+            CharInfo.misc_checks.valery_open = True
+            CharInfo.valery_checks.valery_lunch = ''
+            CharInfo.misc_checks.money_scene = ''
             print("Valery's House unlocked as travel option.")
             input()
         CharInfo.player_info.player_location = TravelSystem.travel_function.travel_point_mid_bedroom
@@ -239,8 +243,15 @@ class ValeryLunch:
             clear()
             TravelSystem.travel_points.tp.remove('Valery\'s House')
             SaveSystem.save_sys.saving()
-            CharInfo.player_info.player_location = TravelSystem.travel_function.travel_point_mid_entranceway
-            TravelSystem.travel_function.travel_point_mid_entranceway()
+
+            if CharInfo.misc_checks.money_scene in ['no investment', 'investment']:
+                CharInfo.player_info.player_location = MidChapBase.last_of_chapter_3_transfer
+                SaveSystem.save_sys.saving()
+                MidChapBase.last_of_chapter_3_transfer()
+
+            else:
+                CharInfo.player_info.player_location = TravelSystem.travel_function.travel_point_mid_entranceway
+                TravelSystem.travel_function.travel_point_mid_entranceway()
 
         elif valery_lunch_decision in ['2']:
 
@@ -267,9 +278,14 @@ class ValeryLunch:
             CharInfo.player_info.ending_points -= 2
             clear()
             TravelSystem.travel_points.tp.remove('Valery\'s House')
-            SaveSystem.save_sys.saving()
-            CharInfo.player_info.player_location = TravelSystem.travel_function.travel_point_mid_entranceway
-            TravelSystem.travel_function.travel_point_mid_entranceway()
+            SaveSystem.save_sys.saving()  # Add player location tags here and else where later
+            if CharInfo.misc_checks.money_scene in ['no investment', 'investment']:
+                CharInfo.player_info.player_location = MidChapBase.last_of_chapter_3_transfer
+                MidChapBase.last_of_chapter_3_transfer()
+            else:
+                CharInfo.player_info.player_location = TravelSystem.travel_function.travel_point_mid_entranceway
+                TravelSystem.travel_function.travel_point_mid_entranceway()
+
 
 
 

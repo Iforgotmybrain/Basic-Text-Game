@@ -9,14 +9,9 @@ class PhonePlacement:
             holly_text_dialogue.holly_text_one()
 
         elif CharInfo.holly_checks.holly_relationship_status in ['rejected', 'dating', 'hold'] or CharInfo.festival_checks.holly_stay is not True:
-            print("(1). I am not santa")
-            if CharInfo.valery_checks.valery_first_walk in ['met']:
-                print("(2). I am the real santa")
-            testing_test = input("(3) I am santa")
-
             print("You can't think of anyone to text or call right now.")
             input()
-            return TravelSystem.travel_function.travel_point_bedroom()
+            CharInfo.player_info.player_location()
 
 
 class HollyTextDialogue:
