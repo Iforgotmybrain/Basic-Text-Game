@@ -261,7 +261,7 @@ class ValeryLunch:
             print("“Aw, well that’s too bad. Maybe we can get lunch some other time.”")
             print("“Well, I better get moving, see you around.”")
             input()
-            print("You see bye to Valery and head home.")
+            print("You say bye to Valery and head home.")
             input()
             CharInfo.valery_checks.valery_lunch = False
             CharInfo.player_info.ending_points -= 2

@@ -274,6 +274,7 @@ def hallway():
             SaveSystem.save_sys.saving()
 
         elif hallwaydirection in ['north', 'n']:
+
             if CharInfo.sasha_checks.sasha_living is not True or CharInfo.festival_checks.festival_ending is True:
                 print("The door is locked. Maybe you should come back later.")
                 input()
