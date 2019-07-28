@@ -293,6 +293,57 @@ class ValeryLunchStart:
                 SaveSystem.save_sys.saving()
                 return self.val_questions_rats()
 
+        elif val_get_to_know in ["2"]:
+            print("You ask Val about why he decided to move to Iridium City.")
+            input()
+            print("“Well that’s pretty simple, I moved here for work”")
+            print("“It was a pretty easy choice, I loved the area, and the pay and benefits for job were good, so I jumped on it.”")
+            input()
+            print("(1): So where do you work?")
+            print("(2): What do you love so much about Iridium City?")
+            print("(3): Cool, that’s enough. I don’t want to hear your whole life story.")
+            val_work_question = input("Pick a response")
+
+            if val_work_question in ['1']:
+                print("“I actually work for the city! Might not be the most prestigious work, but it’s good enough for me.”")
+                print("“Plus, it’s really cool having a job where you can make a big impact on the community. You don’t get that at a lot of places.”")
+                input()
+                print("You can definitely appreciate Valery’s comments on having satisfying work. The mundane and unimpactful nature of your previous job at Syperion was a big reason why you left.")
+                CharInfo.valery_checks.valery_date_points += 2
+                self.val_question_complete = True
+                input()
+                return self.val_questions_rats()
+
+            elif val_work_question in ["2"]:
+                print("“I just really like being by the lake. I love how a lot of the local businesses have names and such based around it, guess I just really like the atmosphere of the city.”")
+                self.val_question_complete = True
+                input()
+                return self.val_questions_rats()
+
+            elif val_work_question in ['3']:
+                if CharInfo.valery_checks.valery_date_points <= -16:
+                    print("“Okay, I’ve had it. You’ve been a total asshole this whole time for no damn reason.”")
+                    print("“If you didn’t want to come out for lunch you could have just said no, but instead you come out here and purposely fuck around.”")
+                    input()
+                    print("“I’m finished here, I’m not letting you push me around. Have fun paying for the bill, fucking dick.”")
+                    input()
+                    print("This scene can't be finished until I get towards the end.")
+                    input()
+                    return self.val_questions_rats()
+                print("“No need to be a dick about it. Could have just changed the subject…”")
+                CharInfo.valery_checks.valery_date_points -= 4
+                self.val_question_complete = True
+                input()
+                return self.val_questions_rats()
+
+        elif val_get_to_know in ["3"]:
+
+        elif val_get_to_know in ["4"]:
+
+        elif val_get_to_know in ['5']:
+
+        elif val_get_to_know in ['6']:
+
 
 
 
