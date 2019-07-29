@@ -286,7 +286,7 @@ class ValeryLunchStart:
                 print("“Can’t change your name until your 18. And at that point my name was just part of who I was.”")
                 print("“Besides, at 18 my worst years were behind me. I was done with high school, and middle school was becoming a distant memory.”")
                 input()
-                print("“Just didn’t make sense to change my name because a few people hated it.”")
+                print("“Just didn’t make sense to change my name because a few people I didn't even care about hated it.”")
                 CharInfo.valery_checks.valery_date_points -= 2
                 self.val_question_complete = True
                 input()
@@ -301,7 +301,12 @@ class ValeryLunchStart:
             input()
             print("(1): So where do you work?")
             print("(2): What do you love so much about Iridium City?")
-            print("(3): Cool, that’s enough. I don’t want to hear your whole life story.")
+            if CharInfo.player_info.ending_points <= -4 or CharInfo.valery_checks.valery_date_points <= -4:
+                print("(3): Cool, that’s enough. I don’t want to hear your whole life story.")
+
+            else:
+                print("(3): Cool story, let's change the subject.")
+
             val_work_question = input("Pick a response")
 
             if val_work_question in ['1']:
@@ -330,7 +335,10 @@ class ValeryLunchStart:
                     print("This scene can't be finished until I get towards the end.")
                     input()
                     return self.val_questions_rats()
-                print("“No need to be a dick about it. Could have just changed the subject…”")
+                elif CharInfo.player_info.ending_points <= -4 or CharInfo.valery_checks.valery_date_points <= -4:
+                    print("“No need to be a dick about it. Could have just changed the subject…”")
+                else:
+                    pass
                 CharInfo.valery_checks.valery_date_points -= 4
                 self.val_question_complete = True
                 input()
@@ -339,6 +347,21 @@ class ValeryLunchStart:
         elif val_get_to_know in ["3"]:
 
         elif val_get_to_know in ["4"]:
+            print("You ask Val what some of his hobbies are.")
+            print("“My hobbies? Well, I enjoy playing video games quite bit, I’ve also been messing around with the piano recently.”")
+            input()
+            print("“I’m not any good at it, but it’s been fun learning. I’m also pretty big into cars.”")
+            input()
+            print("(1): Video games? Have a favorite game or system?")
+            print("(2): How long have you been trying to play the piano?")
+            print("(3): Cars, huh? Do you track?")
+            if CharInfo.player_info.ending_points <= -4:
+                print("(4): Could you be any less interesting?")
+            else:
+                print("(4): Cool, let's talk about something else.")
+            val_hobbies_response = input("Pick a response")
+
+
 
         elif val_get_to_know in ['5']:
 
