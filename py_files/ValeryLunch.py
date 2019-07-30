@@ -380,7 +380,7 @@ class ValeryLunchStart:
                         "“The Lake Festival! One of friends was going and asked if I wanted to go. I said sure and ended up loving the festival and the city.”")
                     print("“Since then I’ve been to just about every festival here. And I make… well, made, a couple of my own trips every year.”")
                     input()
-                    print("“Don't really need to make trips up since I moved, right?”")
+                    print("“Don't really need to make trips to here since I moved, right?”")
                     input()
                     self.val_question_complete = True
 
