@@ -385,7 +385,47 @@ class ValeryLunchStart:
                     self.val_question_complete = True
 
                 elif val_city_question in ['2']:
-                    print("")
+                    print("“I’m gonna be honest, it’s been a bit underwhelming. Not the city itself so much, but just… the overall experience.”")
+                    input()
+                    print("“You know how it can be. Before you even start doing something you think about how everything’s going to go.”")
+                    print("“You plan it all out, think about how great things are going to be. Then you actually get to the real thing and… it just doesn’t go the way you were expecting.”")
+                    input()
+                    print("(1): What exactly hasn't gone to plan?")
+                    if CharInfo.player_info.ending_points <= -6 or CharInfo.valery_checks.valery_date_points <= -6:
+                        print("(2): That’s just how it goes, too bad. Let’s move onto something else.")
+                    else:
+                        print("(2): I get it. Let’s talk about something else.")
+
+                    val_moving_dialogue = input("Pick a response")
+
+                    if val_moving_dialogue in ['1']:
+                        print("“I don’t know If I’d say, “hasn’t gone to plan” it’s more not having expectations met.”")
+                        print("“Really I’ve just been a bit underwhelmed with my social life here.”")
+                        input()
+                        print("“Guess that’s to be expected with moving into a town where you don’t know anybody. Doesn’t really make it any easier though.”")
+                        input()
+                        print("(1): Well, you’ve got me to lean on, at least.")
+                        print("(2): It can be a hard adjustment, you’ve gotta do your best to put yourself out there and meet new people.")
+                        if CharInfo.player_info.ending_points <= -6 or CharInfo.valery_checks.valery_date_points <= -6:
+                            print("(3): Reality is often disappointing. It’s not my problem so let’s talk about something else.")
+                        else:
+                            print("(3): That’s just how it goes sometimes. Let's talk about something else.")
+                        val_social_response = input("Pick a response")
+
+                        if val_social_response in ['1']:
+
+                        elif val_social_response in ['2']:
+
+                        elif val_social_response in ['3']:
+                            if CharInfo.valery_checks.valery_date_points <= -16:
+                                print("")
+                            if CharInfo.player_info.ending_points <= -6 or CharInfo.valery_checks.valery_date_points <= -6:
+                                print("")
+
+
+                    elif val_moving_dialogue in ['2']:
+                        self.val_question_complete = True
+                        pass
 
                 elif val_city_question in ['3']:
                     print("")
