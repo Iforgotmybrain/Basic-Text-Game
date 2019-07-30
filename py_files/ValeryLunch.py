@@ -240,7 +240,7 @@ class ValeryLunchStart:
         print("(4): What his hobbies are.")
         print("(5): Just ignore him until dinner arrives.")
         if self.val_question_complete is True:
-            print("(6) Quit asking him questions. ")
+            print("(6) That's enough questions for now. ")
         val_get_to_know = input("What will you ask Valery? (You can come back and ask other questions.)")
 
         if val_get_to_know in ['1']:
@@ -362,6 +362,33 @@ class ValeryLunchStart:
 
 
         elif val_get_to_know in ["3"]:
+            print("“I’ve been coming up here for around 7 years! Of course, I haven’t lived here until very recent.”")
+            input()
+            while True:
+                print("(1): What made you start visiting the city?")
+                print("(2): How do you feel about living in the city so far?")
+                if CharInfo.player_info.ending_points <= -6 or CharInfo.valery_checks.valery_date_points <= -6:
+                    print(
+                        "(3): I’m gonna stop you right there. I don’t want to hear your whole story leading up to this day.")
+                    input()
+                else:
+                    print("(3): Interesting, but I wanna ask you about something else.")
+                val_city_question = input("Pick a response ")
+
+                if val_city_question in ['1']:
+                    print(
+                        "“The Lake Festival! One of friends was going and asked if I wanted to go. I said sure and ended up loving the festival and the city.”")
+                    print("“Since then I’ve been to just about every festival here. And I make… well, made, a couple of my own trips every year.”")
+                    input()
+                    print("“Don't really need to make trips up since I moved, right?”")
+                    input()
+                    self.val_question_complete = True
+
+                elif val_city_question in ['2']:
+                    print("")
+
+                elif val_city_question in ['3']:
+                    print("")
 
         elif val_get_to_know in ["4"]:
             print("You ask Val what some of his hobbies are.")
