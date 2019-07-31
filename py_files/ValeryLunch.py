@@ -236,7 +236,7 @@ class ValeryLunchStart:
         input()
         print("You tell the waitress you’ll take the {}. And that you’re fine with the sides that come with it.".format(self.pc_meal_choice))
         input()
-        print("“Alright I’ll get these order right in, just let me know If you need anything else” The waitress says as she finishes taking your orders.")
+        print("“Alright I’ll get these order right in, just let me know If you need anything else.” The waitress says as she finishes taking your orders.")
         input()
         print(
             "While you wait for your food to arrive, you should have plenty of time to get to know Valery a bit better.")
@@ -254,12 +254,12 @@ class ValeryLunchStart:
         print("(5): Just ignore him until dinner arrives.")
         if self.val_question_complete is True:
             print("(6) That's enough questions for now. ")
-        val_get_to_know = input("What will you ask Valery? (You can come back and ask other questions.)")
+        val_get_to_know = input("What will you ask Valery? (You can come back and ask other questions.) ")
 
         if val_get_to_know in ['1']:
             print("You ask Valery about his name, stating that Valery is a fairly unusual name for a guy.")
             input()
-            print("“It is quite a different name. I hated through my adolescence, now I've sort of come to like, though.”")
+            print("“You're right, it is quite a different name. I actually hated it through my adolescence, but with time I started to like it a bit more.”")
             input()
             print("“I believe my parents told me they named me after a scientist or something.”")
             print("“It’s been awhile since I asked them though so I could be misremembering.”")
@@ -267,11 +267,11 @@ class ValeryLunchStart:
             print("(1): Well I think it’s a very fitting name for you!")
             print("(2): So long as you’re happy with your name I guess that’s all that matters.")
             print("(3): If I were you, I’d have probably already changed my name by now.")
-            val_name_choice = input("Pick your response")
+            val_name_choice = input("Pick your response ")
 
             if val_name_choice in ['1']:
                 print("“Aw, thanks. It’s not often I get a compliment on my name.”")
-                print("“Most people just think it’s weird. Sometimes they’ll come right out and say it, but usually you just kind of infer what they’re thinking.”")
+                print("“Most people just think it’s weird. Sometimes they’ll come right out and say it, but usually you can just infer what they’re thinking.”")
                 input()
                 print("“Weird looks are pretty much all I have to deal with nowadays, thankfully. Back in high school and middle school I’d always get picked on because of my more feminine name…”")
                 input()
@@ -281,6 +281,7 @@ class ValeryLunchStart:
                 self.val_question_complete = True
                 input()
                 SaveSystem.save_sys.saving()
+                clear()
                 self.val_questions_rats()
 
             elif val_name_choice in ['2']:
@@ -293,6 +294,7 @@ class ValeryLunchStart:
                 self.val_question_complete = True
                 input()
                 SaveSystem.save_sys.saving()
+                clear()
                 self.val_questions_rats()
 
             elif val_name_choice in ['3']:
@@ -304,6 +306,11 @@ class ValeryLunchStart:
                 self.val_question_complete = True
                 input()
                 SaveSystem.save_sys.saving()
+                clear()
+                self.val_questions_rats()
+
+            else:
+                print("Invalid input")
                 self.val_questions_rats()
 
         elif val_get_to_know in ["2"]:
@@ -322,7 +329,7 @@ class ValeryLunchStart:
                 else:
                     print("(3): Cool story, let's change the subject.")
 
-                    val_work_question = input("Pick a response")
+                    val_work_question = input("Pick a response ")
 
                     if val_work_question in ['1']:
                         print(
@@ -369,7 +376,6 @@ class ValeryLunchStart:
                             pass
 
                         self.val_question_complete = True
-                        input()
                         self.val_questions_rats()
                         break
 
@@ -426,7 +432,35 @@ class ValeryLunchStart:
                         val_social_response = input("Pick a response")
 
                         if val_social_response in ['1']:
-                            print("")
+                            print("“Heh, I uh, didn’t expect you to say something like that.”")
+                            input()
+                            if CharInfo.valery_checks.valery_date_points >= 12:
+                                print(
+                                    "“You’re right, though. Might seem a bit sad, but you’re the closest thing I have to a friend in this town.”")
+                                print(
+                                    "“I really do appreciate how welcoming you’ve been to me. As you've probably guessed not everyone has been so gun-ho about getting to know me.”")
+                                input()
+                                print(
+                                    "“And with how well I’ve gotten along with you, it’s really helped me feel at home. "
+                                    "So thank you, it's been a long time since I've felt this way when hanging out with someone.”")
+                                input()
+                                print(
+                                    "“Anyway, that’s enough feely stuff for now, let’s talk about something else before I choke up.”")
+                                input()
+                                CharInfo.valery_checks.valery_date_points += 4
+                                CharInfo.player_info.ending_points += 2
+                                CharInfo.valery_checks.valery_heart_to_heart = True
+                                self.val_questions_rats()
+
+                            else:
+                                print("“I do appreciate you saying that, though. I suppose you are the closest thing I’ve got to a friend here.”")
+                                input()
+                                print("Just, uh, I probably won’t actually be leaning on you. No offence.")
+                                input()
+                                CharInfo.valery_checks.valery_date_points += 4
+                                CharInfo.player_info.ending_points += 2
+                                CharInfo.valery_checks.valery_heart_to_heart = False
+                                self.val_questions_rats()
 
                         elif val_social_response in ['2']:
                             print("“I know, and I’ve been trying. It’s the main reason I invited you out to lunch, after all.”")
@@ -570,6 +604,10 @@ class ValeryLunchStart:
 
         elif val_get_to_know in ['6']:
             pass
+
+        else:
+            print("Invalid input.")
+            self.val_questions_rats()
 
 
 
