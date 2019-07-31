@@ -5,6 +5,7 @@ import CharInfo
 import TravelSystem
 import Phone
 import Debug
+import ValeryLunch
 
 clear = lambda: os.system('cls' if os.name == 'nt' else 'clear')
 
@@ -285,18 +286,26 @@ def last_of_chapter_3_transfer():
         input()
         print("But for now you can just relax, and get ready for the very busy weekend.")
         input()
+        clear()
+        ValeryLunch.val_lunch.valery_lunch_intro()
 
     elif CharInfo.valery_checks.valery_lunch is True and CharInfo.holly_checks.holly_relationship_status not in ['dating'] or CharInfo.festival_checks.holly_stay is not True:
         print("Your schedule leading up to the road trip is pretty free, the only thing you really have going on is getting lunch with Valery on Saturday.")
         input()
         print("So you're going to seize the opportunity and just relax until then.")
         input()
+        clear()
+        ValeryLunch.val_lunch.valery_lunch_intro()
 
     elif CharInfo.valery_checks.valery_lunch is not True and CharInfo.holly_checks.holly_relationship_status in ['dating']:
         print("Your schedule leading up to the road trip is pretty free, the only thing you really have going on is that date with Holly on Sunday.")
         input()
         print("So you're going to seize the opportunity and just relax until then.")
         input()
+        clear()
+        print("Scene not currently added. The game will now quit on input.")
+        input()
+        sys.exit()
 
     elif CharInfo.valery_checks.valery_lunch is not True and CharInfo.holly_checks.holly_relationship_status not in ['dating'] or CharInfo.festival_checks.holly_stay is not True:
         print("Your schedule is essentially completely free leading up to the road trip.")

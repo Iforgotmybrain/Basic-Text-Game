@@ -42,7 +42,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.Test">
+  <component name="RunManager" selected="Python.Base">
     <configuration name="Base (1)" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="TextGame" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -129,8 +129,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.Test" />
         <item itemvalue="Python.Base" />
+        <item itemvalue="Python.Test" />
         <item itemvalue="Python.Base (1)" />
         <item itemvalue="Python.Base" />
       </list>

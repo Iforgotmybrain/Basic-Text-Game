@@ -1192,7 +1192,6 @@ if version_check.json() not in [{'version': '0.1.4.1'}]:
 elif version_check.json() in [{'version': '0.1.4.1'}]:
     print("The game is running on the latest version, yay!")
 
-
 loadingoption = input("Do you wish to load a game? ").lower()  # Make it so this is the first question asked.
 if loadingoption in ['yes', 'y', 'load', 'l']:
     SaveSystem.save_sys.loading()
