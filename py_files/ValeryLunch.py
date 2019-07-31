@@ -597,18 +597,49 @@ class ValeryLunchStart:
                         self.val_questions_rats()
                         break
 
-
-
         elif val_get_to_know in ['5']:
-            pass
+            print("For whatever reason, you decide to just sit in relative silence while you wait for your lunch to arrive.")
+            print("This likely won't lead to you becoming freinds or getting to know Valery very much, but it might lead to dinner ending a little faster.")
+            input()
+            CharInfo.player_info.player_location = val_ending_lunch.valery_lunch_arrival()
+            SaveSystem.save_sys.saving()
+            clear()
+            val_ending_lunch.valery_lunch_arrival()
 
         elif val_get_to_know in ['6']:
-            pass
+            print("Lunch should be arriving soon so you decide to lay off the questions for the time being")
+            if CharInfo.valery_checks.valery_heart_to_heart is True:
+                print("You feel like you've really gotten to know Valery over the course of this lunch.")
+                print("And just to think; if you hadn't gone out of your way to meet Valery a week ago, you probably wouldn't have been able to make such a great friend!")
+                input()
+            CharInfo.player_info.player_location = val_ending_lunch.valery_lunch_arrival()
+            SaveSystem.save_sys.saving()
+            clear()
+            val_ending_lunch.valery_lunch_arrival()
 
         else:
             print("Invalid input.")
             self.val_questions_rats()
 
+class ValeryLunchEnding:
+    def __init__(self):
+        pass
+
+    def valery_lunch_arrival(self):
+        print('"Looks like our food is on the way, quick service, as always!"')
+        input()
+        print("The waitress brings your food out, everything seems to be in order so it's time to dig in!")
+        print('"They have pretty decent portions here for the price. Only thing that\'s really lacking are the side options, but that\'s a pretty minor compliant all things considered."')
+        input()
+        if val_lunch.pc_meal_choice in ['grilled salmon', 'ribs']:
+            print("You have to agree with Valery, for $8 you get two sides and a fairly large portion of {}".format(val_lunch.pc_meal_choice))
+
+        elif val_lunch.pc_meal_choice in ['pulled pork sandwich']:
+            print("You have to agree with Val, for $8 you get two sides and a fairly large {}".format(val_lunch.pc_meal_choice))
+
+        print('"I don know about your {}, but my sandwich is fantastic. The fish is cooked perfectly."')
+        input()
+        print("")
 
 
 
@@ -619,3 +650,4 @@ class ValeryLunchStart:
 
 
 val_lunch = ValeryLunchStart()
+val_ending_lunch = ValeryLunchEnding()
