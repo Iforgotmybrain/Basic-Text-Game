@@ -246,7 +246,7 @@ class ValeryLunchStart:
         self.val_questions_rats()
 
     def val_questions_rats(self):
-        print("You decide to ask Valery...")
+        print("You decide to ask Valery... ")
         print("(1): About his fairly unusual name (For a dude)")
         print("(2): Why he decided to move here.")
         print("(3): How long he’s been coming to iridium City")
@@ -639,10 +639,123 @@ class ValeryLunchEnding:
 
         print('"I don know about your {}, but my sandwich is fantastic. The fish is cooked perfectly."')
         input()
-        print("")
+        if val_lunch.pc_meal_choice in ['grilled salmon']:
+            print("You have to say, the grilled salmon is quite good. The marinate and seasonings they use give it a perfect blend of salty and sweet.")
+            input()
+
+        elif val_lunch.pc_meal_choice in ['ribs']:
+            print("You have to say, your ribs are pretty much perfect. The barbeque sauce they use is quite sweet, and the ribs are juicy and tender.")
+            input()
+
+        elif val_lunch.pc_meal_choice in ['pulled pork sandwich']:
+            print("Your pulled pork sandwich is pretty good. The pork itself has been cooked almost perfectly, and the barbeque sauce is very sweet.")
+            input()
+
+        print("You and Valery spend the next 20 minutes just enjoying the meal, with only a little bit of small talk between the two of you.")
+        input()
+        clear()
+        print("“Another great lunch at The Rat’s Place. What’d you think, {}?”".format(CharInfo.player_info.name))
+        input()
+        print("(1): It was pretty good.")
+        print("(2): Nothing spectacular, it was decent.")
+        print("(3): Definitely not the highlight of the day.")
+        val_lunch_rate = input("Pick a response ")
+
+        if val_lunch_rate in ['1']:
+            if CharInfo.valery_checks.valery_date_points >= 12:
+                print("“Well I’m glad you enjoyed it. We’ll have to come here again some time.”")
+                input()
+                print(
+                    "“Oh, and don’t worry about the bill. I’ve got it covered. If you could just leave the tip, that’d be great.”")
+                print("You take a $5 bill from your wallet and put it on the table for the tip.")
+                input()
+
+            elif CharInfo.valery_checks.valery_date_points <= 12:
+                print("“I’m glad you enjoyed it, we’ll have to see about getting lunch some other time, maybe.”")
+                input()
+                print('"Here\'s your part of the bill, $10. I\'ll get the tip."')
+                input()
+                print("You hand Val a $10 bill to pay for your part of the meal.")
+                CharInfo.player_info.money -= 10
+
+            elif CharInfo.valery_checks.valery_date_points <= -6:
+                print('"Well at least we each had a good lunch, even if we didn\'t get along the greatest."')
+                input()
+                print('"Here\'s your part of the bill, $10. I\'ll get the tip."')
+                input()
+                print("You hand Val a $10 bill to pay for your part of the meal.")
+                CharInfo.player_info.money -= 10
+
+        elif val_lunch_rate in ['2']:
+            if CharInfo.valery_checks.valery_date_points >= 12:
+                print("“Well at least we got to know each other a little better. At least I think we did, anyway.”")
+                input()
+                print(
+                    "“Oh, and don’t worry about the bill. I’ve got it covered. If you could just leave the tip, that’d be great.”")
+                print("You take a $5 bill from your wallet and put it on the table for the tip.")
+                input()
+
+            elif CharInfo.valery_checks.valery_date_points <= 12:
+                print("“Guess that’s a pretty good summary of the whole lunch, huh?”")
+                input()
+                print('"Here\'s your part of the bill, $10. I\'ll get the tip."')
+                input()
+                print("You hand Val a $10 bill to pay for your part of the meal.")
+                CharInfo.player_info.money -= 10
+
+            elif CharInfo.valery_checks.valery_date_points <= -6:
+                print("“At least something was decent, because our conversations sure weren’t.”")
+                input()
+                print('"Here\'s your part of the bill, $10. I\'ll get the tip."')
+                input()
+                print("You hand Val a $10 bill to pay for your part of the meal.")
+                CharInfo.player_info.money -= 10
+
+        elif val_lunch_rate in ['3']:
+            if CharInfo.valery_checks.valery_date_points >= 12:
+                print("“Well at least our conversations were pretty good, right?”")
+                input()
+                print(
+                    "“Oh, and don’t worry about the bill. I’ve got it covered. If you could just leave the tip, that’d be great.”")
+                print("You take a $5 bill from your wallet and put it on the on the table for the tip.")
+                input()
+
+            elif CharInfo.valery_checks.valery_date_points <= -12:
+                print("“Hopefully you found our conversations to be a bit better than the food…”")
+                input()
+                print('"Here\'s your part of the bill, $10. I\'ll get the tip."')
+                input()
+                print("You hand Val a $10 bill to pay for your part of the meal.")
+                CharInfo.player_info.money -= 10
+
+            elif CharInfo.valery_checks.valery_date_points <= -6:
+                print("“Honestly that’s how I’d describe this whole ordeal. Just replace “the day” with “my life”.”")
+                CharInfo.valery_checks.valery_date_points -= 4
+                input()
+                print('"Here\'s your part of the bill, $10. I\'ll get the tip."')
+                input()
+                print("You hand Val a $10 bill to pay for your part of the meal.")
+                CharInfo.player_info.money -= 10
+
+        print('"Well with the bill taken care of I guess we should start heading out."')
+        input()
+        if CharInfo.valery_checks.valery_date_points >= 8:
+            print("(1): I was actually thinkink that maybe we could go to the nearby park and maybe take walk.")
+            print("(2): And so we shall. It's been great getting to know you.")
+        elif CharInfo.valery_checks.valery_date_points <= -6:
+            print("(1): Guess so. It's, uh, been a decent time.")
+            print("(2): Yup. See ya.")
+        elif CharInfo.valery_checks.valery_date_points <= 8:
+            print("(1): What would you think about going on a quick walk in the park?")
+            print("(2): It's a shame but you're right. It's been nice getting to know you.")
 
 
+        val_leaving_response = input("Pick a response")
 
+        if val_leaving_response in ['1']:
+            if CharInfo.valery_checks.valery_date_points >= 8:
+            elif CharInfo.valery_checks.valery_date_points <= -6:
+            elif CharInfo.valery_checks.valery_date_points <= 8:
 
 
 
