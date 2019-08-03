@@ -98,7 +98,7 @@ class ValeryNeighborhoodWalk:
             print("You're quite excited for it given how well the last one went.")
             input()
 
-        elif CharInfo.holly_checks.holly_relationship_status in ['hold', 'rejected']:
+        elif CharInfo.holly_checks.holly_relationship_status in ['hold', 'rejected', 'ignored']:
             print("You also cleared things up in regards to Holly.")
             input()
 
@@ -112,11 +112,14 @@ class ValeryNeighborhoodWalk:
                 print("And it frees you up in regards to dating other people. But of course there's also no reason she can't go on other dates as well.")
                 input()
 
+            elif CharInfo.holly_checks.holly_relationship_status in ['ignored']:
+                print("Just ignoring Holly probably wasn't the best way to deal with her, but it was definitely the easiest.")
+
         elif CharInfo.holly_checks.holly_relationship_status not in ['rejected', 'dating', 'hold'] and CharInfo.festival_checks.holly_stay is True:
             CharInfo.holly_checks.holly_relationship_status = 'ignored'
             print("You didn't really clear things up with Holly as much as you just ignored.")
             input()
-            print("Being ignored it'll upset her a bit. If you weren't interested in pursuing a relationship you probably would have been better off just saying so upfront.")
+            print("Being ignored will upset her a bit. If you weren't interested in pursuing a relationship you probably would have been better off just saying so upfront.")
             input()
             CharInfo.player_info.ending_points -= 2
 

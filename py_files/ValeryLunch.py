@@ -601,10 +601,10 @@ class ValeryLunchStart:
             print("For whatever reason, you decide to just sit in relative silence while you wait for your lunch to arrive.")
             print("This likely won't lead to you becoming freinds or getting to know Valery very much, but it might lead to dinner ending a little faster.")
             input()
-            CharInfo.player_info.player_location = val_ending_lunch.valery_lunch_arrival()
+            CharInfo.player_info.player_location = val_ending_lunch.valery_lunch_serving()
             SaveSystem.save_sys.saving()
             clear()
-            val_ending_lunch.valery_lunch_arrival()
+            val_ending_lunch.valery_lunch_serving()
 
         elif val_get_to_know in ['6']:
             print("Lunch should be arriving soon so you decide to lay off the questions for the time being")
@@ -612,20 +612,21 @@ class ValeryLunchStart:
                 print("You feel like you've really gotten to know Valery over the course of this lunch.")
                 print("And just to think; if you hadn't gone out of your way to meet Valery a week ago, you probably wouldn't have been able to make such a great friend!")
                 input()
-            CharInfo.player_info.player_location = val_ending_lunch.valery_lunch_arrival()
+            CharInfo.player_info.player_location = val_ending_lunch.valery_lunch_serving()
             SaveSystem.save_sys.saving()
             clear()
-            val_ending_lunch.valery_lunch_arrival()
+            val_ending_lunch.valery_lunch_serving()
 
         else:
             print("Invalid input.")
             self.val_questions_rats()
 
+
 class ValeryLunchEnding:
     def __init__(self):
         pass
 
-    def valery_lunch_arrival(self):
+    def valery_lunch_serving(self):
         print('"Looks like our food is on the way, quick service, as always!"')
         input()
         print("The waitress brings your food out, everything seems to be in order so it's time to dig in!")
@@ -670,7 +671,7 @@ class ValeryLunchEnding:
                 print("You take a $5 bill from your wallet and put it on the table for the tip.")
                 input()
 
-            elif CharInfo.valery_checks.valery_date_points <= 12:
+            elif CharInfo.valery_checks.valery_date_points < 12:
                 print("“I’m glad you enjoyed it, we’ll have to see about getting lunch some other time, maybe.”")
                 input()
                 print('"Here\'s your part of the bill, $10. I\'ll get the tip."')
@@ -695,7 +696,7 @@ class ValeryLunchEnding:
                 print("You take a $5 bill from your wallet and put it on the table for the tip.")
                 input()
 
-            elif CharInfo.valery_checks.valery_date_points <= 12:
+            elif CharInfo.valery_checks.valery_date_points < 12:
                 print("“Guess that’s a pretty good summary of the whole lunch, huh?”")
                 input()
                 print('"Here\'s your part of the bill, $10. I\'ll get the tip."')
@@ -720,7 +721,7 @@ class ValeryLunchEnding:
                 print("You take a $5 bill from your wallet and put it on the on the table for the tip.")
                 input()
 
-            elif CharInfo.valery_checks.valery_date_points <= -12:
+            elif CharInfo.valery_checks.valery_date_points < 12:
                 print("“Hopefully you found our conversations to be a bit better than the food…”")
                 input()
                 print('"Here\'s your part of the bill, $10. I\'ll get the tip."')
@@ -740,22 +741,67 @@ class ValeryLunchEnding:
         print('"Well with the bill taken care of I guess we should start heading out."')
         input()
         if CharInfo.valery_checks.valery_date_points >= 8:
-            print("(1): I was actually thinkink that maybe we could go to the nearby park and maybe take walk.")
+            print("(1): I was actually thinking that maybe we could go to the nearby park and just hangout some more.")
             print("(2): And so we shall. It's been great getting to know you.")
+
         elif CharInfo.valery_checks.valery_date_points <= -6:
             print("(1): Guess so. It's, uh, been a decent time.")
             print("(2): Yup. See ya.")
-        elif CharInfo.valery_checks.valery_date_points <= 8:
-            print("(1): What would you think about going on a quick walk in the park?")
-            print("(2): It's a shame but you're right. It's been nice getting to know you.")
-
 
         val_leaving_response = input("Pick a response")
 
         if val_leaving_response in ['1']:
             if CharInfo.valery_checks.valery_date_points >= 8:
+                print("You take a moment to think this through before committing, thinking about the ramifications if Valery were to say yes.")
+                input()
+
+                if CharInfo.holly_checks.holly_relationship_status in ['dating']:
+                    print("For starters, you would have to break up with Holly. Or at least, not go on that date set for tomorrow.")
+                    print("How she would handle you suddenly changing your mind and dating someone else is unknown, but she likely wouldn’t take too kindly to it.")
+                    input()
+
+                elif CharInfo.holly_checks.holly_relationship_status in ['hold']:
+                    print("For starters, it would end any possibility of hooking up with Holly.")
+                    print("And if you want to keep on good terms with her, you would too best to let her know that you have no interest in going on another date.")
+                    input()
+                print("This would prevent any other possible romance options, unless you were to break up with Valery later.")
+                print("Though he isn't likely to appreciate being dumped so soon after hooking up with you.")
+                input()
+                print("After thinking it through, you decide that...")
+                print("(1): You're going to go through with asking Valery to hangout in the park.")
+                print("(2): You've changed your mind and won't get romantically involved with Valery.")
+                val_date_decision = input("Pick a choice")
+
+                if val_date_decision in ['1']:
+                    print("You ask Valery if he'd be up to hanging out a bit more at the nearby park.")
+                    input()
+                    if CharInfo.valery_checks.valery_date_points >= 12:
+                        print('"I\'d love too! Honestly we got along so well today I almost forgot this was suppose to just be a lunch hangout kind of thing."')
+                        input()
+                        print('"If I\'m being honest, it... felt more like a date."')
+                        input()
+
+                    elif CharInfo.valery_checks.valery_date_points <= 4:
+                        print("I appreciate your kindness, but I just didn't feel that strong of connection with you.")
+                        input()
+                        print("I hope you're still alright with being friends, though. I just don't really feel like we would make a very good couple.")
+                        input()
+
+                    elif CharInfo.valery_checks.valery_date_points in range (6, 10):
+                        print("Y'know what? Sure. I enjoyed our little lunch together, definitely wouldn't mind getting to know you a bit more.")
+                        input()
+
+                elif val_date_decision in ['2']:
+                    print("Go to the second dialogue option")
+
+
+
             elif CharInfo.valery_checks.valery_date_points <= -6:
-            elif CharInfo.valery_checks.valery_date_points <= 8:
+                print('"I guess you could say that. See ya around."')
+                input()
+                print("You say goodbye to Valery and head home. The meet up probably could have went a little better, but at least you parted on decent terms.")
+                input()
+
 
 
 

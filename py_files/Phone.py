@@ -5,10 +5,10 @@ import TravelSystem
 
 class PhonePlacement:
     def phone_placing(self):
-        if CharInfo.festival_checks.holly_stay is True and CharInfo.holly_checks.holly_relationship_status not in ['rejected', 'dating', 'hold']:
+        if CharInfo.festival_checks.holly_stay is True and CharInfo.holly_checks.holly_relationship_status not in ['rejected', 'dating', 'hold', 'ignored']:
             holly_text_dialogue.holly_text_one()
 
-        elif CharInfo.holly_checks.holly_relationship_status in ['rejected', 'dating', 'hold'] or CharInfo.festival_checks.holly_stay is not True:
+        elif CharInfo.holly_checks.holly_relationship_status in ['rejected', 'dating', 'hold', 'ignored'] or CharInfo.festival_checks.holly_stay is not True:
             print("You can't think of anyone to text or call right now.")
             input()
             CharInfo.player_info.player_location()
@@ -31,7 +31,9 @@ class HollyTextDialogue:
         print("You think a bit about what to write up next, eventually deciding too:")
         holly_relationship_option = input("(1): Ask Holly if she’d like to go on another date sometime. \
         (2): Tell Holly that while you enjoyed last night you aren’t really interested in a relationship at the moment.\
-        (3): Tell Holly that you just aren’t really interested in taking the relationship any further, as you didn’t really feel a strong connection with her. ").lower()
+        (3): Tell Holly that you just aren’t really interested in taking the relationship any further, as you didn’t really feel a strong connection with her. \
+        (4): Just forget about texting her and go on with your life.").lower()
+
 
         if holly_relationship_option in ['1']:
             print("You write up a message to Holly telling her that you really enjoyed your time spent together last night, and that you’d be interested in going on another date if she would be up for it.")
@@ -217,6 +219,38 @@ class HollyTextDialogue:
 
             else:
                 return self.holly_text_decision()
+
+        elif holly_relationship_option in ['4']:
+            print("You contemplate just ignoring Holly's suggestion and going on with your business.")
+            print("You just don't see any reason why you should bother with telling her you aren't interested.")
+            input()
+            print("Doing so would of course end any possible relationship options with Holly, but if your considering this option you probably weren't fond of her to began with.")
+            input()
+            print("(1): Commit to ignoring Holly.")
+            print("(2): Reevaluate your options.")
+            holly_ignore = input("Select your choice")
+            if holly_ignore in ['1']:
+                CharInfo.holly_checks.holly_relationship_status = 'ignored'
+                CharInfo.player_info.ending_points -= 2
+
+                if CharInfo.chris_checks.chris_computer_list_completed is True:
+                    print("You put your phone back in your pocket and decide to just ignore Holly. After having dealt with that there's still plenty of time for that walk you were thinking about.")
+                    input()
+                    print("Of course you could also just call it a day and forget the walk if you wanted.")
+                    print("If you want to call it a day you should probably head to your bedroom and Sleep.")
+                    input()
+                    TravelSystem.travel_points.tp.append('A quick walk')
+                    SaveSystem.save_sys.saving()
+                    TravelSystem.travel_function.travel_point_bedroom()
+
+                elif CharInfo.chris_checks.chris_computer_list_completed is not True:
+                    print("You put your back in your pocket and decide to just ignore Holly. you should probably check to see if you Chris has that list completed.")
+                    input()
+                    SaveSystem.save_sys.saving()
+                    TravelSystem.travel_function.travel_point_bedroom()
+
+            elif holly_ignore in ['2']:
+                self.holly_text_decision()
         else:
             print("Invalid input")
             return self.holly_text_decision()

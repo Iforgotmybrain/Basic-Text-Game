@@ -320,6 +320,8 @@ def last_of_chapter_3_transfer():
 
 
 
+
+
 PC_bedrooms = PCBedrooms()
 
 chap_computer = LaterChapComputer()

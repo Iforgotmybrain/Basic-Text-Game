@@ -177,7 +177,7 @@ def pccomputer():
         print("You could knock some places off your list as you travel. It'll depend a lot on what your timeline looks like, or depending on what your passengers want to do.")
         input()
         CharInfo.chris_checks.chris_computer_list_completed = True
-        if CharInfo.holly_checks.holly_relationship_status in ['rejected', 'dating', 'hold'] or CharInfo.festival_checks.holly_stay is not True:
+        if CharInfo.holly_checks.holly_relationship_status in ['rejected', 'dating', 'hold', 'ignored'] or CharInfo.festival_checks.holly_stay is not True:
             print("With the road trip destinations mostly sorted out, you could go for that walk you were thinking of.")
             input()
             print("Since it's getting late, you could also just stay in for the rest of day.")
@@ -187,7 +187,7 @@ def pccomputer():
             clear()
             pcbedroom()
 
-        elif CharInfo.holly_checks.holly_relationship_status not in ['rejected', 'dating', 'hold'] and CharInfo.festival_checks.holly_stay is True:
+        elif CharInfo.holly_checks.holly_relationship_status not in ['rejected', 'dating', 'hold', 'ignored'] and CharInfo.festival_checks.holly_stay is True:
             print("Now that you've got the road trip destinations mostly out of the way you could text Holly and see about another date.")
             input()
             if CharInfo.player_info.ending_points > -4:
