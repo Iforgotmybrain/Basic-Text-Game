@@ -287,8 +287,7 @@ class ValeryLunchStart:
             elif val_name_choice in ['2']:
                 print("“I suppose so. The weird looks I get from people when I tell them my name is Valery can be a bit harsh at times, but I can deal with it.”")
                 input()
-                print("“People just outright disliking me because of my more feminine name hurts though, thankfully that hasn’t really been a problem since my high school and middle school years.”")
-                print("“Most people are decent enough to not dislike me just because of my name, thankfully.”")
+                print("“People just outright disliking me because of my more feminine name hurts though. Thankfully that hasn’t really been a problem since my high school and middle school years.”")
                 CharInfo.valery_checks.valery_date_points += 2
                 CharInfo.player_info.ending_points += 2
                 self.val_question_complete = True
@@ -317,7 +316,7 @@ class ValeryLunchStart:
             print("You ask Val about why he decided to move to Iridium City.")
             input()
             print("“Well that’s pretty simple, I moved here for work”")
-            print("“It was a pretty easy choice, I loved the area, and the pay and benefits for job were good, so I jumped on it.”")
+            print("“It was a pretty easy choice, I loved the area, and the pay and benefits for the job were good, so I jumped on it.”")
             input()
             while True:
                 print("(1): So where do you work?")
@@ -345,7 +344,7 @@ class ValeryLunchStart:
 
                     elif val_work_question in ["2"]:
                         print(
-                            "“I guess I just really like being by the lake. Just the whole atmosphere of the town is great, there's nothing else like it.”")
+                            "“I love the whole atmosphere of this place, there's nothing else like it.”")
                         self.val_question_complete = True
                         input()
 

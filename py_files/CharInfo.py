@@ -11,9 +11,7 @@ class PlayerStats:
 
 
 class PlayerCharacter(PlayerStats):
-    """This is where the user defines their character. This probably one of the things I'm most proud of in this project.
-    This class allows for me to easily add features as I need. Such as the money system. It literally took me two lines of
-    code to add that. I could easily add a health system if needed."""
+    """I cannot remember how or why I did this. Please send help."""
     def __init__(self):
         super().__init__(name=input("What is your name? ").title(), sex=input("Do you wish to play as male or female? ").title(),  # I barely remember how I built this. Seems really complex for my knowledge level of python at the time.
                          race=input(

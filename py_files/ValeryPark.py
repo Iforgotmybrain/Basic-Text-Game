@@ -80,6 +80,13 @@ class ValeryPark:
                 input()
 
         elif val_getting_know_response in ['2']:
+            print("“I can relate to that, unfortunately. I think the last time I truly felt intertwined with somebody was 4 years ago. And that only lasted for a few months.”")
+            print("“I’ve had hookups here and there since then, of course. But none of them were people I wanted to spend the rest of my life with.”")
+            input()
+
+        elif val_getting_know_response in ['3']:
+            print("“Honestly, I’d say the same thing. The last time I enjoyed being with someone this much was 4 years ago, if that tells you anything.”")
+            input()
 
 
 
