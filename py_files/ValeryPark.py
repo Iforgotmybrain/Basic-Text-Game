@@ -2,8 +2,13 @@ import CharInfo
 
 
 class ValeryPark:
-    def park_start(self):
-        print("You and Valery arrive at the park after a short walk. It’s fairly early into the evening and the park is fairly empty at the moment. Guess most people are probably still at work or at home at this point in the day.")
+    def park_start(self):  # Give the park more detail.
+        print("You and Valery arrive at the park after a short walk. It’s fairly early into the evening and the park is pretty empty at the moment. Guess most people are probably still at work or at home at this point in the day.")
+        input()
+        print("It would that it's more of urban park as it lacks dedicated walking trails, and instead just seems to have a set of paths that go all throughout the park.")
+        print("The fact that the park is located close to the city center contributes to its more open atmosphere.")
+        input()
+        print("While this park might not be as nice for just going on a walk, it seems perfect if you just want to sit down and relax or talk with someone.")
         input()
         print("“Never been to this park before. I usually go to the one on Gorge street if I want just chill or go for a quick walk.”")
         print("“So you wanna just sit down and chill for a bit? Because honestly, that sounds like the best time to me”")
@@ -91,3 +96,4 @@ class ValeryPark:
 
 
 
+val_park = ValeryPark()

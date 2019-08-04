@@ -3,16 +3,17 @@ import sys
 import CharInfo
 import TravelSystem
 import SaveSystem
+import ValeryPark
 clear = lambda: os.system('cls' if os.name == 'nt' else 'clear')
 
 
 class ValeryLunchStart:
     def __init__(self):
-        self.pc_meal_choice = ''
         self.val_question_complete = ''
 
 
     def valery_lunch_intro(self):
+        CharInfo.misc_checks.pc_meal_choice = ''
         CharInfo.valery_checks.valery_date_points = 0
         CharInfo.valery_checks.valery_heart_to_heart = False
         print("The weekend is finally here, and with it comes the various outings that you’ve been expecting.")
@@ -212,17 +213,17 @@ class ValeryLunchStart:
 
         if player_meal_choice in ['1']:
             print("You decide to go with the ribs, according to Valery they should be pretty good.")
-            self.pc_meal_choice = 'ribs'
+            CharInfo.misc_checks.pc_meal_choice = 'ribs'
             input()
 
         elif player_meal_choice in ['2']:
             print("You pick the grilled salmon. You’ve had salmon before, but never grilled. Might as well try it out now.")
-            self.pc_meal_choice = 'grilled salmon'
+            CharInfo.misc_checks.pc_meal_choice = 'grilled salmon'
             input()
 
         elif player_meal_choice in ['3']:
             print("With how good Valery says their barbeque is, the pulled pork sandwich should be great.")
-            self.pc_meal_choice = 'pulled pork sandwich'
+            CharInfo.misc_checks.pc_meal_choice = 'pulled pork sandwich'
             input()
 
         else:
@@ -234,7 +235,7 @@ class ValeryLunchStart:
         print("“I’ll have the perch sandwich” Valery says to waitress.")
         print("“And I’ll just take the fries that come with it.”")
         input()
-        print("You tell the waitress you’ll take the {}. And that you’re fine with the sides that come with it.".format(self.pc_meal_choice))
+        print("You tell the waitress you’ll take the {}. And that you’re fine with the sides that come with it.".format(CharInfo.misc_checks.pc_meal_choice))
         input()
         print("“Alright I’ll get these order right in, just let me know If you need anything else.” The waitress says as she finishes taking your orders.")
         input()
@@ -252,8 +253,9 @@ class ValeryLunchStart:
         print("(3): How long he’s been coming to iridium City")
         print("(4): What his hobbies are.")
         print("(5): Just ignore him until dinner arrives.")
+        print("(6): Save")
         if self.val_question_complete is True:
-            print("(6) That's enough questions for now. ")
+            print("(7) That's enough questions for now. ")
         val_get_to_know = input("What will you ask Valery? (You can come back and ask other questions.) ")
 
         if val_get_to_know in ['1']:
@@ -396,16 +398,16 @@ class ValeryLunchStart:
                 if val_city_question in ['1']:
                     print(
                         "“The Lake Festival! One of friends was going and asked if I wanted to go. I said sure and ended up loving the festival and the city.”")
-                    print("“Since then I’ve been to just about every festival here. And I make… well, made, a couple of my own trips every year.”")
+                    print("“Since then I’ve been to just about every lake festival. And I make… well, made, a couple of my own trips every year.”")
                     input()
-                    print("“Don't really need to make trips to here since I moved, right?”")
+                    print("“Don't really need to make trips here since I moved, right?”")
                     input()
                     self.val_question_complete = True
 
                 elif val_city_question in ['2']:
                     print("“I’m gonna be honest, it’s been a bit underwhelming. Not the city itself so much, but just… the overall experience.”")
                     input()
-                    print("“You know how it can be. Before you even start doing something you think about how everything’s going to go.”")
+                    print("“You know how it can be. Before you even get to do something you start making up scenarios in your head about how it's going to be.”")
                     print("“You plan it all out, think about how great things are going to be. Then you actually get to the real thing and… it just doesn’t go the way you were expecting.”")
                     input()
                     print("(1): What exactly hasn't gone to plan?")
@@ -414,7 +416,7 @@ class ValeryLunchStart:
                     else:
                         print("(2): I get it. Let’s talk about something else.")
 
-                    val_moving_dialogue = input("Pick a response")
+                    val_moving_dialogue = input("Pick a response ")
 
                     if val_moving_dialogue in ['1']:
                         print("“I don’t know If I’d say, “hasn’t gone to plan” it’s more not having expectations met.”")
@@ -428,10 +430,10 @@ class ValeryLunchStart:
                             print("(3): Reality is often disappointing. It’s not my problem so let’s talk about something else.")
                         else:
                             print("(3): Not everything goes to plan. You’ll just have to figure out a way to deal with it.")
-                        val_social_response = input("Pick a response")
+                        val_social_response = input("Pick a response ")
 
                         if val_social_response in ['1']:
-                            print("“Heh, I uh, didn’t expect you to say something like that.”")
+                            print("“I uh, didn’t expect you to say something like that.”")
                             input()
                             if CharInfo.valery_checks.valery_date_points >= 12:
                                 print(
@@ -463,16 +465,16 @@ class ValeryLunchStart:
 
                         elif val_social_response in ['2']:
                             print("“I know, and I’ve been trying. It’s the main reason I invited you out to lunch, after all.”")
-                            print("“The hardest part is just finding those people. You see someone at work, on the street or wherever, and you don’t anything about them. You don’t know how they’re going to react when you talk to them.”")
+                            print("“The hardest part is finding those people. You see someone at work, on the street or wherever, and you don’t anything about them. You don’t know how they’re going to react when you talk to them.”")
                             input()
-                            print("“You don’t know if you even have any shared interests, we might end up being complete opposites. It can be really intimidating.”")
+                            print("“You don’t know if they'll even have any shared interests, we might end up being complete opposites. So it can be scary, to me at least.”")
                             input()
-                            print("You ask Valery if he has tried finding friends in groups or clubs he's be interested in.")
+                            print("You ask Valery if he has tried finding friends in local clubs or groups for hobbies hes interested in")
                             input()
                             print("“I’ve definitely thought about it, but I usually end up not checking them out for similar reasons. It’s intimidating going to those meetups when you don’t know anyone.”")
                             print("“Those groups or clubs probably already have their own cliques set up, and I’d just end up feeling like the odd one out.”")
                             input()
-                            print("“Anyway, I think that’s enough talking about my problems. Let’s talk about something less depressing.”")
+                            print("“Anyway, I think that’s enough talking about my problems. Let’s talk about something less boring.”")
                             input()
                             CharInfo.valery_checks.valery_date_points += 6
                             CharInfo.player_info.ending_points += 4
@@ -522,13 +524,13 @@ class ValeryLunchStart:
                 elif val_city_question in ['3']:
                     print("")
 
-        elif val_get_to_know in ["4"]:
+        elif val_get_to_know in ["4"]:  # Maybe change some dialogue here
             print("You ask Val what some of his hobbies are.")
             print("“My hobbies? Well, I enjoy playing video games quite bit, I’ve also been messing around with the piano recently.”")
             input()
             print("“I’m not any good at it, but it’s been fun learning. I’m also pretty big into cars.”")
             input()
-            while True:
+            while True:  # While True loops make it so the player can ask multiple questions.
                 print("(1): Video games? Have a favorite game or system?")
                 print("(2): How long have you been trying to play the piano?")
                 print("(3): Cars, huh? Do you track?")
@@ -536,7 +538,7 @@ class ValeryLunchStart:
                     print("(4): Could you be any less interesting?")
                 else:
                     print("(4): Cool, let's talk about something else.")
-                val_hobbies_response = input("Pick a response")
+                val_hobbies_response = input("Pick a response ")
 
                 if val_hobbies_response in ['1']:
                     print("“Well I mostly play on PC and asking what my favorite game is… that’s a bit of a difficult question.”")
@@ -544,7 +546,7 @@ class ValeryLunchStart:
                     print("“Let’s see… I loved New Vegas, but Fallout 3 was one of my first introductions to open world games, there’s a lot of nostalgia there.”")
                     print("“And then you have games I loved as a kid, like Hot Pursuit 2 and Animal Crossing…”")
                     input()
-                    print("“Damn dude this is a loaded question. I guess I’ll go with animal Crossing. I’m gonna have to think on this a bit more later though…”")
+                    print("“Damn dude this is a loaded question. I guess I’ll go with animal Crossing. I’m gonna have to think on this a bit more though…”")
                     input()
                     self.val_question_complete = True
                     CharInfo.valery_checks.valery_date_points += 2
@@ -553,7 +555,7 @@ class ValeryLunchStart:
                     print("“Only a couple of months. Up until that point I'd never played an instrument before and decided I was finally going to take a swing at it.”")
                     input()
                     print("“It’s gone pretty well. I’m still a long way off from being decent, but I’m improving every month.”")
-                    print("“Maybe someday I’ll be good enough to form a band and quit being an engineer, hah.”")
+                    print("“Maybe someday I’ll be good enough to join a band and quit being an engineer, hah.”")
                     input()
                     self.val_question_complete = True
                     CharInfo.valery_checks.valery_date_points += 2
@@ -563,7 +565,7 @@ class ValeryLunchStart:
                     print("“No, haven’t really thought about doing that. I think the nearest track is like 2 hours away so it’d be a bit out of the way.")
                     print(" “I mainly just follow stuff online, gawk at any cool cars I see on the street. Stuff like that.”")
                     input()
-                    print("Guess that kind of makes me a casual car enthusiast. Oh well.")
+                    print('"Guess that kind of makes me a casual car enthusiast. Oh well."')
                     input()
                     self.val_question_complete = True
 
@@ -600,18 +602,23 @@ class ValeryLunchStart:
             print("For whatever reason, you decide to just sit in relative silence while you wait for your lunch to arrive.")
             print("This likely won't lead to you becoming freinds or getting to know Valery very much, but it might lead to dinner ending a little faster.")
             input()
-            CharInfo.player_info.player_location = val_ending_lunch.valery_lunch_serving()
+            CharInfo.player_info.player_location = val_ending_lunch.valery_lunch_serving
+            CharInfo.valery_checks.valery_date_points -= 4
             SaveSystem.save_sys.saving()
             clear()
             val_ending_lunch.valery_lunch_serving()
 
-        elif val_get_to_know in ['6']:
+        elif val_get_to_know in ['6', 'save', 'saving']:
+            CharInfo.player_info.player_location = val_lunch.val_questions_rats
+            SaveSystem.save_sys.saving()
+
+        elif val_get_to_know in ['7']:
             print("Lunch should be arriving soon so you decide to lay off the questions for the time being")
             if CharInfo.valery_checks.valery_heart_to_heart is True:
                 print("You feel like you've really gotten to know Valery over the course of this lunch.")
                 print("And just to think; if you hadn't gone out of your way to meet Valery a week ago, you probably wouldn't have been able to make such a great friend!")
                 input()
-            CharInfo.player_info.player_location = val_ending_lunch.valery_lunch_serving()
+            CharInfo.player_info.player_location = val_ending_lunch.valery_lunch_serving
             SaveSystem.save_sys.saving()
             clear()
             val_ending_lunch.valery_lunch_serving()
@@ -631,27 +638,28 @@ class ValeryLunchEnding:
         print("The waitress brings your food out, everything seems to be in order so it's time to dig in!")
         print('"They have pretty decent portions here for the price. Only thing that\'s really lacking are the side options, but that\'s a pretty minor compliant all things considered."')
         input()
-        if val_lunch.pc_meal_choice in ['grilled salmon', 'ribs']:
-            print("You have to agree with Valery, for $8 you get two sides and a fairly large portion of {}".format(val_lunch.pc_meal_choice))
+        if CharInfo.misc_checks.pc_meal_choice in ['grilled salmon', 'ribs']:  # Need to start a new save in order to check this.
+            print("You have to agree with Valery, for $8 you get two sides and a fairly large portion of {}".format(CharInfo.misc_checks.pc_meal_choice))
 
-        elif val_lunch.pc_meal_choice in ['pulled pork sandwich']:
-            print("You have to agree with Val, for $8 you get two sides and a fairly large {}".format(val_lunch.pc_meal_choice))
+        elif CharInfo.misc_checks.pc_meal_choice in ['pulled pork sandwich']:
+            print("You have to agree with Val, for $8 you get two sides and a fairly large {}".format(CharInfo.misc_checks.pc_meal_choice))
 
-        print('"I don know about your {}, but my sandwich is fantastic. The fish is cooked perfectly."')
+        print('"I don know about your {}, but my sandwich is fantastic. The fish is cooked perfectly."'.format(CharInfo.misc_checks.pc_meal_choice))
         input()
-        if val_lunch.pc_meal_choice in ['grilled salmon']:
+
+        if CharInfo.misc_checks.pc_meal_choice in ['grilled salmon']:
             print("You have to say, the grilled salmon is quite good. The marinate and seasonings they use give it a perfect blend of salty and sweet.")
             input()
 
-        elif val_lunch.pc_meal_choice in ['ribs']:
+        elif CharInfo.misc_checks.pc_meal_choice in ['ribs']:
             print("You have to say, your ribs are pretty much perfect. The barbeque sauce they use is quite sweet, and the ribs are juicy and tender.")
             input()
 
-        elif val_lunch.pc_meal_choice in ['pulled pork sandwich']:
+        elif CharInfo.misc_checks.pc_meal_choice in ['pulled pork sandwich']:
             print("Your pulled pork sandwich is pretty good. The pork itself has been cooked almost perfectly, and the barbeque sauce is very sweet.")
             input()
 
-        print("You and Valery spend the next 20 minutes just enjoying the meal, with only a little bit of small talk between the two of you.")
+        print("You and Valery spend the next 15 minutes just enjoying the meal, with only a little bit of small talk between the two of you.")
         input()
         clear()
         print("“Another great lunch at The Rat’s Place. What’d you think, {}?”".format(CharInfo.player_info.name))
@@ -747,7 +755,7 @@ class ValeryLunchEnding:
             print("(1): Guess so. It's, uh, been a decent time.")
             print("(2): Yup. See ya.")
 
-        val_leaving_response = input("Pick a response")
+        val_leaving_response = input("Pick a response ")
 
         if val_leaving_response in ['1']:
             if CharInfo.valery_checks.valery_date_points >= 8:
@@ -763,13 +771,13 @@ class ValeryLunchEnding:
                     print("For starters, it would end any possibility of hooking up with Holly.")
                     print("And if you want to keep on good terms with her, you would too best to let her know that you have no interest in going on another date.")
                     input()
-                print("This would prevent any other possible romance options, unless you were to break up with Valery later.")
+                print("This would make any future romance options quite difficult, unless you were to break up with Valery later.")
                 print("Though he isn't likely to appreciate being dumped so soon after hooking up with you.")
                 input()
                 print("After thinking it through, you decide that...")
                 print("(1): You're going to go through with asking Valery to hangout in the park.")
                 print("(2): You've changed your mind and won't get romantically involved with Valery.")
-                val_date_decision = input("Pick a choice")
+                val_date_decision = input("Pick a choice ")
 
                 if val_date_decision in ['1']:
                     print("You ask Valery if he'd be up to hanging out a bit more at the nearby park.")
@@ -779,6 +787,8 @@ class ValeryLunchEnding:
                         input()
                         print('"If I\'m being honest, it... felt more like a date."')
                         input()
+                        print("You felt a similar way. ")
+                        ValeryPark.val_park.park_start()
 
                     elif CharInfo.valery_checks.valery_date_points <= 4:
                         print("I appreciate your kindness, but I just didn't feel that strong of connection with you.")
@@ -789,6 +799,7 @@ class ValeryLunchEnding:
                     elif CharInfo.valery_checks.valery_date_points in range (6, 10):
                         print("Y'know what? Sure. I enjoyed our little lunch together, definitely wouldn't mind getting to know you a bit more.")
                         input()
+                        ValeryPark.val_park.park_start()
 
                 elif val_date_decision in ['2']:
                     print("Go to the second dialogue option")
