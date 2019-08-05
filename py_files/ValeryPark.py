@@ -16,7 +16,7 @@ class ValeryPark:
         input()
         print('"I\'m gonna change the tone a bit and ask you a bit more of a serious question. It\'s something that\'s been weighing on my mind all day."')
         input()
-        print("“When was the last time you really spent time with someone, and really got to know them?”")  # Doesn't flow that well.
+        print("“How long has it been since you really connected with someone? Talking to someone you feel you ”")  # Doesn't flow that well.
         input()
         print("(1): Well, not too long ago I got to spend some time with this old friend named Holly...")
         print("(2): It's been a long time since I've truly connected with someone.")
@@ -74,7 +74,7 @@ class ValeryPark:
                     input()
 
             elif CharInfo.festival_checks.holly_stay is not True:
-                print("Towards the end of the bands set you considered asking Holly if she wanted to tag along with for the rest of the night, but you decided to just go your separate ways.")
+                print("Towards the end of the bands set you considered asking Holly if she wanted to tag along with you for the rest of the night, but you decided to just go your separate ways.")
                 print("You just weren’t feeling that strong of a connection to her, so you figured it was best to just let it be.")
                 input()
                 print("“So you knew towards the end that it just wasn’t going to work out, huh?”")
@@ -91,6 +91,7 @@ class ValeryPark:
         elif val_getting_know_response in ['3']:
             print("“Honestly, I’d say the same thing. The last time I enjoyed being with someone this much was 4 years ago, if that tells you anything.”")
             input()
+        print("")
 
 
 
