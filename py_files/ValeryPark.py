@@ -14,17 +14,93 @@ class ValeryPark:
         input()
         print("You decide to follow Valery’s lead and just sit down at a bench and talk for a bit.")
         input()
-        print('"I\'m gonna change the tone a bit and ask you a bit more of a serious question. It\'s something that\'s been weighing on my mind all day."')
+        print(" ""Man, it has been a long time since I've been able to just sit down with someone and talk about - just whatever really."" Valery says as seems to relax a bit.")
+        print("""You've been asking me all this questions so I think its my turn to ask you some.""")
+        print("""Let's start off with a an easy one, did you into this intending to try and date me?""")
         input()
-        print("“How long has it been since you really connected with someone? Talking to someone you feel you ”")  # Doesn't flow that well.
+        print("(1): I had considered it a possibility, but I didn’t know you well enough to say if I’d even enjoy your company. No offense.")
+        print("(2):  I hadn’t really given it any thought. I just saw it as an opportunity to get to know someone new.")
+        print("(3): I’d be lying if I said I wasn’t banking on something sparking between us.")
+        val_first_question = input("Pick a response ")
+
+        if val_first_question in ['1']:
+            print("“Hah, no offense taken. Honestly, I went into this just expecting to maaaybe make a new friend, definitely did not expect to mesh so well with ya.”")
+            print("“I’m glad it’s worked out so well though. It’s uh, been a while since I’ve had such a great time just talking with someone.” Valery says while his face blushes.")
+            input()
+
+        elif val_first_question in ['2']:
+            print("“That’s pretty much what I was expecting. Just based off our brief conversations I never expected to get along so well with you.”")
+            print("“I’m not complaining though, it’s uh, been a while since I’ve had such a great time just talking with someone.” Valery says while his face blushes.")
+            input()
+
+        elif val_first_question in ['3']:
+            if CharInfo.player_info.sex in ['Male']:
+                print("“Can’t say that was the case for me. I was just expecting to eat some good food and get to know a cool dude.”")
+
+            elif CharInfo.player_info.sex in ['Female']:
+                print("“Can’t say that was the case for me. I was just expecting to eat some good food and get to know a cool gal.”")
+
+            print("“I’m not complaining though, it’s uh, been a while since I’ve had such a great time just talking with someone.” Valery says while his face blushes.")
+            input()
+
+        print("“Okay, next question: Were you at this year’s lake festival? I’ll explain why I’m asking this once you answer.”")
         input()
+        print("(1): I was! Went there pretty much all day and even got to meet an old friend.")
+        print("(2): I was there. In fact I’ve gone to pretty much every lake festival since the mid-2000s.")
+        print("(3): Uh, nope. Never set foot there this year ")
+        val_second_question = input("Pick an answer ")
+
+        if val_second_question in ['1']:
+            print("“I knew it! I swore I remembered seeing you there, you were at the concert talking to some vixen.” Valery says with an excited look on his face “I didn’t know who you were at the festival, but when you were introducing yourself a couple of days later I couldn’t help but think I remembered seeing you before.”")
+            input()
+            print("“I’m guessing the Fox was your old friend?”")
+            print("You confirm Val’s suspicions and state that the Fox’s name is Holly.")
+            input()
+            if CharInfo.festival_checks.holly_stay is True:
+                print("“Holly, huh? Well you two seemed to be getting along pretty well. Though I’m guessing you didn’t take that anywhere, else we probably wouldn’t be talking right now.”")
+                input()
+
+            elif CharInfo.festival_checks.holly_stay is not True:
+                print("“Holly, huh? You two seemed already pretty familiar with each other so that seems right.”")
+                input()
+
+        elif val_second_question in ['2']:
+            print("“I knew it! I swore I remembered seeing you there, you were at the concert talking to some vixen.” Valery says with an excited look on his face “I didn’t know who you were at the festival, but when you were introducing yourself a couple of days later I couldn’t help but think I remembered seeing you before.”")
+            input()
+            print("“And damn, every festival since the mid-2000s is some real dedication. Must be a tradition for you at this point.”")
+            print("You tell Val that’s pretty much what is, just a tradition you started when you were a teenager.")
+            input()
+            print("“Cool, if this whole relationship thing works out we’ll have to go there together next year.” Val says with a smile.")
+            input()
+
+        elif val_second_question in ['3']:
+            print("“Well I guess you must have a doppelganger because there was this {} that looked just like you at the concert. When I met you a few days after the festival I was thinking that I remembered seeing you there, guess not.”")
+            input()
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
         print("(1): Well, not too long ago I got to spend some time with this old friend named Holly...")
         print("(2): It's been a long time since I've truly connected with someone.")
         print("(3): I suppose it was today, with you.")
         val_getting_know_response = input("Pick a response")
 
         if val_getting_know_response in ['1']:
-            print("Yeah? Tell me some more about your time with her. You've been asking me questions all day, so now it's my turn.")
+            print("Yeah? Tell me some more about your time with her.")
             input()
             print("You oblige Val and start to talk about your time spent at the festival with Holly.")
             input()
@@ -87,11 +163,12 @@ class ValeryPark:
             print("“I can relate to that, unfortunately. I think the last time I truly felt intertwined with somebody was 4 years ago. And that only lasted for a few months.”")
             print("“I’ve had hookups here and there since then, of course. But none of them were people I wanted to spend the rest of my life with.”")
             input()
-
+            print("“I guess you just get used to it with time. It starts off lonely, you wonder how you’ll ever be able to go on without someone you can share all your experiences and accomplishments with. But you let those feelings simmer for a bit and they just become the new normal. And you start to forget what it actually feels like to be loved.”")
+            input()
+            print("I guess that's why that question was bugging me so much. ")
         elif val_getting_know_response in ['3']:
             print("“Honestly, I’d say the same thing. The last time I enjoyed being with someone this much was 4 years ago, if that tells you anything.”")
             input()
-        print("")
 
 
 
