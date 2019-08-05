@@ -19,7 +19,7 @@ class ValeryPark:
         print("""Let's start off with a an easy one, did you into this intending to try and date me?""")
         input()
         print("(1): I had considered it a possibility, but I didn’t know you well enough to say if I’d even enjoy your company. No offense.")
-        print("(2):  I hadn’t really given it any thought. I just saw it as an opportunity to get to know someone new.")
+        print("(2): I hadn’t really given it any thought. I just saw it as an opportunity to get to know someone new.")
         print("(3): I’d be lying if I said I wasn’t banking on something sparking between us.")
         val_first_question = input("Pick a response ")
 
@@ -76,6 +76,52 @@ class ValeryPark:
         elif val_second_question in ['3']:
             print("“Well I guess you must have a doppelganger because there was this {} that looked just like you at the concert. When I met you a few days after the festival I was thinking that I remembered seeing you there, guess not.”")
             input()
+
+        print("“Alright, I think this my last question for you: how long have you lived in Iridium City?")
+        input()
+        print("")
+        print("You tell Valery that you’ve been living here for around 3 years. Before that you were in college and then during your childhood your family lived in Sprucetown, which is about 2 hours east from where you live now.")  # Grammar?
+        input()
+        print("“Alright so you’ve been living by the lake most of your life.”")
+        print("“I’ve lived in-state my whole life but never by the lake, until recent of course.”")
+        input()
+        print("(1): Where’d you live before coming here?")
+        print("(2): I sat by the ocean and put in a place holder to remember to write this.")
+        val_living_question = input("Choose a response ")
+
+        if val_living_question in ['1']:
+            print("“Just before moving here? Nagysburg. Lived there for 3 years until I got that job offer. Before that I lived in Fulton, which is where I grew up and went to college. Ended up Staying there a year after graduating since I got a job at a local company.”")
+            input()
+            print("(1): How’d your time in Nagysburg and Fulton compare to here?")
+            print("(2): I’m guessing there was some reason you left those places to come here.")
+            val_moving_question = input("Choose a response ")
+
+            if val_moving_question in ['1']:
+                print("“My time in Nagysburg was pretty similar to here. Main difference is that in Nagysburg I had something resembling a friend group, while here I know you and that’s pretty much it.”")
+                print("“The job I had in Nagysburg wasn’t the great though. Hardly any paid time off and the insurance was trash. I’ve had it a lot better here in that regard.”")
+                input()
+                print("“Fulton’s a bit more complex. I had a great social life there, after all that’s where pretty every friend I made up until graduation lived.”")
+                print("“But I couldn’t help but feel unfulfilled. I’d lived my whole life there and it was really starting to drag on. You see the same people, drive the same roads to the same place your parents worked at when you were growing up.”")
+                input()
+                print("“It got mundane, and honestly a little depressing. Life wasn’t really exciting anymore, I felt like I was just running off a script doing the same thing week after week.”")
+                print("“So I started looking for jobs a fair ways away from home. Applied to a bunch of them but of course only a few asked me to interview. The company in Nagysburg ended up offering me the best salary and was in a pretty nice city so I figured that was probably my best bet.”")
+                input()
+                print("“Ended up being a pretty nice experience. Got along really well with my coworkers and one of my neighbors as well, they ended up being part of the friend group I was talking about.”")
+                input()
+                if CharInfo.valery_checks.valery_heart_to_heart is True:
+                    print("“And of course we’ve already talked a bit about my time here so far. Still pretty early into the move so I’m sure things will get better.”")
+                    input()
+
+            elif val_moving_question in ['2']:
+                print("“Yup. For Nagysburg it was the job. I ended up getting completely burnt out because they gave me shit for time off. Plus, the insurance was basically useless so when I did get burnt out, I couldn’t even afford to go and see a therapist to help me sort my stuff out.”")
+                input()
+                print("“And then for Fulton; I just got bored of living there. I’d lived my whole life there and it was really starting to drag on. You see the same people, drive the same roads to the same place your parents worked at when you were growing up.”")
+                print("“It just got to be too much for me. So I started looking for jobs that were a decent distance away from Fulton. Applied to a bunch of jobs and got a couple of interviews, the company in Nagysburg ended up having the best salary and location.”")
+                input()
+                print("“I jumped on the job offer and moved there shortly after.. Ended up being a pretty nice experience all things considered. I got along really well with my coworkers and even got to know one of my neighbor’s pretty well. That turned out to be a pretty nice group of friends.”")
+                input()
+                print("")
+
 
 
 
