@@ -1184,7 +1184,7 @@ TravelSystem.travel_function.travel_point_valery_house = ValeryTransition.valery
 
 TravelSystem.travel_function.travel_point_mid_entranceway = MidChapBase.entrancewaymid
 
-print("Checking Game Version...")
+print("Checking Game Version...")  # Chapter 1's writing is kind of trash. Might have to rewrite it instead of doing Holly's scene.
 print("Latest: {}".format(version_check.json()))
 print("Current Version: {}".format(version.__version__))
 if version_check.json() not in [{'version': '0.1.5'}]:

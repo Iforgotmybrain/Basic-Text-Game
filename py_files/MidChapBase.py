@@ -11,8 +11,8 @@ clear = lambda: os.system('cls' if os.name == 'nt' else 'clear')
 
 class PCBedrooms:
     def chap3_mid_bedroom(self):
-        CharInfo.player_info.player_location = PC_bedrooms.chap3_mid_bedroom
-        if CharInfo.misc_checks.halfway_chap3 is True and CharInfo.player_info.ending_points <= -4:
+        CharInfo.player_info.player_location = PC_bedrooms.chap3_mid_bedroom  # Just telling the game where the player is located.
+        if CharInfo.misc_checks.halfway_chap3 is True and CharInfo.player_info.ending_points <= -4:  # This little opening scene comment changes depending on the ending point count of the player.
             print("You're standing in your bedroom, your curtains are closed and no lights are on, making the room fairly dark.")
 
         elif CharInfo.misc_checks.halfway_chap3 is True and CharInfo.player_info.ending_points >= 4:
@@ -63,7 +63,7 @@ class LaterChapComputer:
     def __init__(self):
         self.computer_websites = ['Check bank account', 'Check Pawbook', 'Budget for Road Trip']
 
-    def computer_placement(self):
+    def computer_placement(self):  # Computer class works much like the travel system does. Start it up and then pick what you want to do.
         print("You can visit or do the following things on your computer:")
         print(self.computer_websites)
         computer_choice = input("What do you want to do? ").lower()

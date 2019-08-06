@@ -5,7 +5,7 @@ class ValeryPark:
     def park_start(self):  # Give the park more detail.
         print("You and Valery arrive at the park after a short walk. It’s fairly early into the evening and the park is pretty empty at the moment. Guess most people are probably still at work or at home at this point in the day.")
         input()
-        print("It would that this is more of urban park as it lacks dedicated walking trails, and instead just seems to have a set of paths that go all throughout the park.")
+        print("It would seem that this is more of urban park as it lacks dedicated walking trails, and instead just seems to have a set of paths that go all throughout the park.")
         print("While this park might not be as nice for just going on a walk, it seems perfect if you just want to sit down and relax or talk with someone.")
         input()
         print("“Never been to this park before. I usually go to the one on Gorge street when I wanna go for a quick walk.”")
@@ -86,7 +86,7 @@ class ValeryPark:
         print("“I’ve lived in-state my whole life but never by the lake, until recent of course.”")
         input()
         print("(1): Where’d you live before coming here?")
-        print("(2): I sat by the ocean and put in a place holder to remember to write this.")
+        print("(2): I sat by the ocean and put in a place holder to remember to write this and make it work.")
         val_living_question = input("Choose a response ")
 
         if val_living_question in ['1']:
@@ -118,103 +118,9 @@ class ValeryPark:
                 print("“And then for Fulton; I just got bored of living there. I’d lived my whole life there and it was really starting to drag on. You see the same people, drive the same roads to the same place your parents worked at when you were growing up.”")
                 print("“It just got to be too much for me. So I started looking for jobs that were a decent distance away from Fulton. Applied to a bunch of jobs and got a couple of interviews, the company in Nagysburg ended up having the best salary and location.”")
                 input()
-                print("“I jumped on the job offer and moved there shortly after.. Ended up being a pretty nice experience all things considered. I got along really well with my coworkers and even got to know one of my neighbor’s pretty well. That turned out to be a pretty nice group of friends.”")
-                input()
-                print("")
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-        print("(1): Well, not too long ago I got to spend some time with this old friend named Holly...")
-        print("(2): It's been a long time since I've truly connected with someone.")
-        print("(3): I suppose it was today, with you.")
-        val_getting_know_response = input("Pick a response")
-
-        if val_getting_know_response in ['1']:
-            print("Yeah? Tell me some more about your time with her.")
-            input()
-            print("You oblige Val and start to talk about your time spent at the festival with Holly.")
-            input()
-            print("The story starts with you meeting Holly at the lake festival concert, she surprised you quite a bit when she tapped on your shoulder and said hello.")  # Let's try first person dialogue. Breaks the rules but flip it.
-            input()
-            print("After that the two of you caught up a bit and talked about each other’s careers. That went on for around half an hour.")  # On second thought, let's not use first person that way. It's silly.
-            if CharInfo.festival_checks.holly_stay is True:
-                print("Towards the end of the bands set you asked Holly if she wanted to tag along with you for the rest of the night, lucky enough she said “sure”.")
-                input()
-                print("After the concert you and her checked out the rest of the festival.")
-                print("You talked a bit about hobbies and played one of those rigged fair games as well. Towards the end of the day the two of you sat on the hood of Holly’s car and watched the fireworks.")
-                input()
-                if CharInfo.holly_checks.holly_relationship_status in ['dating']:
-                    print("It was a great night, it reminded you of when the two of you used to hang out in high school. You wouldn’t have traded that night for anything.")
-                    input()
-                    print("“I’m guessing you met up with her again after that and it didn’t work out.”")
-                    input()
-                    print("(1): We haven't gone on any other dates after that. Although we were thinking of going on one this Sunday.")
-                    print("(2): I actually didn’t setup another date. Didn’t want my options to be limited.")
-                    val_dating_holly = input("Pick a response ")
-
-                    if val_dating_holly in ['1']:
-                        print("“I see. Well if anything happens between us I guess that’ll complicate things a bit, huh?’")
-                        input()
-
-                    elif val_dating_holly in ['2']:
-                        print("“Sure, you had such a great time but didn’t set up another date with her. There’s gotta be a lie somewhere in there.”")
-                        input()
-                        CharInfo.valery_checks.valery_date_points -= 4
-
-                elif CharInfo.holly_checks.holly_relationship_status in ['hold']:
-                    print("It was a decent night, although ultimately you didn’t feel the same connection to her you used too.")
-                    input()
-                    print('"Yeah I\'ve found that tends to happen quite a bit. No point in continuing to date someone you don\'t think you\'ll get along with."')
-                    input()
-
-                elif CharInfo.holly_checks.holly_relationship_status in ['rejected']:
-                    print("You can’t say it was the greatest night, in fact you’d say you were a bit disappointed. Holly just seemed like an entirely different person from who she used to be. You barely felt like friends, let alone anything more serious.")
-                    input()
-                    print('"That\'s too bad. I\'m guessing our time spent together today has gone a bit better than that if you wanted to talk with me some more."')
-                    input()
-
-                elif CharInfo.holly_checks.holly_relationship_status in ['ignored']:
-                    print("While the night might have sounded nice, it was – in your mind, awful. Holly was as uninteresting as always and seemed to struggle to connect with you. The festival itself was just alright, but It ended up being a waste of time all things considered.")
-                    input()
-                    print('"Wow, that sounds terrible. I\'m guessing our time spent together today has gone a bit better than that if you wanted to talk with me some more."')
-                    input()
-
-            elif CharInfo.festival_checks.holly_stay is not True:
-                print("Towards the end of the bands set you considered asking Holly if she wanted to tag along with you for the rest of the night, but you decided to just go your separate ways.")
-                print("You just weren’t feeling that strong of a connection to her, so you figured it was best to just let it be.")
-                input()
-                print("“So you knew towards the end that it just wasn’t going to work out, huh?”")
-                print("“I’ve had that happen on quite a few dates myself. It’s a bit disappointing when you spend a couple of hours getting to know someone and then realizing they’re not really a good fit for you.”")
-                input()
-                print("“Can’t say that’s happened today, at least for me. And given that you wanted to talk to me some more, you probably feel the same way.”")
+                print("“I jumped on the job offer and moved there shortly after. Ended up being a pretty nice experience all things considered. I got along really well with my coworkers and even got to know one of my neighbor’s pretty well. That turned out to be a pretty nice group of friends.”")
                 input()
 
-        elif val_getting_know_response in ['2']:
-            print("“I can relate to that, unfortunately. I think the last time I truly felt intertwined with somebody was 4 years ago. And that only lasted for a few months.”")
-            print("“I’ve had hookups here and there since then, of course. But none of them were people I wanted to spend the rest of my life with.”")
-            input()
-            print("“I guess you just get used to it with time. It starts off lonely, you wonder how you’ll ever be able to go on without someone you can share all your experiences and accomplishments with. But you let those feelings simmer for a bit and they just become the new normal. And you start to forget what it actually feels like to be loved.”")
-            input()
-            print("I guess that's why that question was bugging me so much. ")
-        elif val_getting_know_response in ['3']:
-            print("“Honestly, I’d say the same thing. The last time I enjoyed being with someone this much was 4 years ago, if that tells you anything.”")
-            input()
 
 
 
