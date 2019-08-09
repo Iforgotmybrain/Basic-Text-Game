@@ -1,8 +1,14 @@
+import os
+import sys
 import CharInfo
+import SaveSystem
+
+clear = lambda: os.system('cls' if os.name == 'nt' else 'clear')
 
 
 class ValeryPark:
     def park_start(self):  # Give the park more detail.
+        CharInfo.valery_checks.valery_true_ending = False  # Add save points
         print("You and Valery arrive at the park after a short walk. It’s fairly early into the evening and the park is pretty empty at the moment. Guess most people are probably still at work or at home at this point in the day.")
         input()
         print("It would seem that this is more of urban park as it lacks dedicated walking trails, and instead just seems to have a set of paths that go all throughout the park.")
@@ -74,7 +80,7 @@ class ValeryPark:
             input()
 
         elif val_second_question in ['3']:
-            print("“Well I guess you must have a doppelganger because there was this {} that looked just like you at the concert. When I met you a few days after the festival I was thinking that I remembered seeing you there, guess not.”")
+            print("“Well I guess you must have a doppelganger because there was this {} that looked just like you at the concert. When I met you a few days after the festival I was thinking that I remembered seeing you there, guess not.”".format(CharInfo.player_info.race.name.upper()))
             input()
 
         print("“Alright, I think this my last question for you: how long have you lived in Iridium City?")
@@ -120,6 +126,130 @@ class ValeryPark:
                 input()
                 print("“I jumped on the job offer and moved there shortly after. Ended up being a pretty nice experience all things considered. I got along really well with my coworkers and even got to know one of my neighbor’s pretty well. That turned out to be a pretty nice group of friends.”")
                 input()
+
+            print("(1): Seems like you did pretty well in the last new place you moved too. So I’m sure it’ll end up working out here, too.")
+            print("(2): Well hopefully you don’t run off too soon from here, I’d probably end up missing ya.")
+            print("(3): It’s good to get outside of your comfort zone and explore a bit. I’m actually planning on going on a cross-country road trip here pretty soon.")
+            val_deeper_move_question = input("Choose a response")
+
+            if val_deeper_move_question in ['1']:
+                print("“I didn’t do terrible in Nagysburg and Fulton I’ll say that. I don’t know if I’d say I did ‘pretty well’ though. After all there’s reason I moved away from those towns.”")
+                input()
+                print("“I’ve already explained my issues with Fulton pretty well, but there’s some other stuff that went on during my time in Nagysburg that I didn’t talk much about.”")
+                if CharInfo.valery_checks.valery_date_points >= 15 and CharInfo.valery_checks.valery_heart_to_heart is True:
+                    print("Valery seems to take a moment to think, he sighs before eventually talking again. “We’ve talked about some pretty deep stuff today, so I guess it’s alright if I talk to you about those issues.”")
+                    input()
+                    CharInfo.player_info.player_location = val_park.park_end
+                    SaveSystem.save_sys.saving()
+                    clear()
+                    self.park_end()
+                else:
+                    print("“And if I’m being honest, I just don’t feel comfortable talking about those issues right now. It’s nothing against you, just a personal thing.”")
+                    input()
+
+            elif val_deeper_move_question in ['2']:
+                print("“Hah, I’d probably end up missing you too. Or at least be left wondering what could have been.”")
+                input()
+                print("“Ya know, I kind of ran into that when I moved from Fulton and Nagysburg. Constantly thinking about how things could have gone if I had stayed instead of moved.”")
+                print("““It’s was a fairly deep-rooted problem for me in Nagysburg, I’ve gotten over it for the most part now. That and the lack of people to talk too in Nagysburg were really taking their toll on me.””")
+                input()
+                print("(1): Lack of people to talk too? Wanna talk a bit more about that?")
+                print("(2): I've given up, I'm sick of waiting, this is a placeholder until I get later into the game.")
+                val_talking_issue = input("Choose a response")
+
+                if val_talking_issue in ['1']:
+                    if CharInfo.valery_checks.valery_date_points >= 15 and CharInfo.valery_checks.valery_heart_to_heart is True:  # Dialogue can only be unlocked with a high date point score and the more in-depth dialogue scene at the restaurant.
+                        print("Valery seems to take a moment to think, he sighs before eventually talking again. “We’ve talked about some pretty deep stuff today, so I guess it’s alright if I talk to you about it.")
+                        input()
+                        CharInfo.player_info.player_location = val_park.park_end
+                        SaveSystem.save_sys.saving()
+                        clear()
+                        self.park_end()
+                    else:
+                        print("“And if I’m being honest, I just don’t feel comfortable talking about that issue right now. It’s nothing against you, just a personal thing.”")
+                        input()
+                        #  Put to end of game when I get there
+                elif val_talking_issue in ['2']:
+                    print("Placeholder.")
+                    input()
+
+            elif val_deeper_move_question in ['3']:
+                print("“A road trip, huh? Didn’t think you’d be the kind of person to go out and do something like that.”")
+                input()
+                print("You take some time to explain the whole concept to Valery. You tell him what your exact travel plans are and how long you plan on it taking.")
+                input()
+                print("“I won’t lie, it sounds really interesting. Be a great way to build our relationship, too. Maybe keep me in mind when your picking people to go, yeah?”")
+                print("You tell Val you'll keep him mind when you start picking your travel mates.")
+                input()
+                print("""I get what your saying about moving outside of your comfort zone. I did enjoy being in a new city and experience all the new thing that had to offer.""")
+                print("""What really got me down was just the complete lack of people I had to talk too about more serious stuff.""")
+                input()
+                print("(1): A lack of people to talk too? Wanna talk about that a bit more?")
+                print("(2): That's unfortunate. At least you seem to be having better luck with that this time around.")
+                val_talking_issue_1 = input("Choose a response ")
+
+                if val_talking_issue_1 in ['1']:
+                    if CharInfo.valery_checks.valery_date_points >= 15 and CharInfo.valery_checks.valery_heart_to_heart is True:
+                        print("Valery seems to take a moment to think, he sighs before eventually talking again. “We’ve talked about some pretty deep stuff today, so I guess it’s alright if I talk to you about it.")
+                        input()
+                        CharInfo.player_info.player_location = val_park.park_end
+                        SaveSystem.save_sys.saving()
+                        clear()
+                        self.park_end()
+                    else:
+                        print("“And if I’m being honest, I just don’t feel comfortable talking about that issue right now. It’s nothing against you, just a personal thing.”")
+                        input()
+                        #  Put to end of game when I get there
+
+                elif val_talking_issue_1 in ['2']:
+                    print("Placeholder")
+                    input()
+
+
+
+    def park_end(self):
+        if CharInfo.valery_checks.valery_heart_to_heart is True and CharInfo.valery_checks.valery_date_points >= 15:
+            print("“It’s not anything horrifying, don’t get the wrong idea. But it’s a pretty depressing and disappointing thing for me to look back on, so I don’t like talking about it too much.")
+            input()
+            print("“Towards the end of my time in Nagysburg I was in a pretty bad place. I was lonely, and as I might have mentioned, I started getting pretty burnt out on my job because they were practically working me to death.”")
+            input()
+            print("“Now, I know you might be thinking “How could you be lonely? You said you had a pretty solid group of friends, right?” I had friends, yes. But most of those friends weren’t really the kind you’d spill your heart out too. We never talked about anything too serious, mostly just kept it centered around work or our hobbies.”")
+            input()
+            print("“That meant I didn’t really have anybody to talk too about serious, in-depth stuff. Things like how I was feeling emotional, my future, job burn out, and numerous other things.”")
+            print("“Back in Fulton I’d have a couple of friends that’d be down for listening to whatever bullshit I want, but that wasn’t the case in Nagysburg.”")
+            input()
+            print("“And of course, I couldn’t afford to see a therapist to help with that issue since my health insurance, which I paid $300 a month for by the way, wouldn’t cover any of the cost for therapy. I would have been paying close to $200 per session to just talk to somebody about my problems. Even with my decent paying job I couldn’t afford that.”")  # Realest talk here. I've dealt with this exact situation before.
+            input()
+            print("“It was a pretty rough patch for me. I had no real friends to talk too, no family members, and no significant other to talk about it either. I felt so isolated from everybody else, I was dealing with all my challenges and issues myself, there was no one else to help me deal with them.”")
+            print("“I was just keeping all these feelings to myself and it wasn’t working. I didn’t know what to do. I didn’t feel like going to work, I didn’t feel like going out, I just wanted to stay at home and hide.”")
+            input()
+            print("(1): How’d you get out of that emotional pit?")
+            print("(2): And that’s part of the reason you wanted to move here, right?")
+            print("(3): I think I’ve heard enough.")
+            val_lonely_question = input("Choose a response ")
+
+            if val_lonely_question in ['1']:
+                print("“Honestly? I still haven’t 100% gotten out of that funk. I did start talking to some of my old friends towards the end of time at Nagysburg, which helped.”")
+                input()
+                print("“And then I’ve just been telling myself I have to really make an effort to try and meet new people, like you. That’s helped quite bit, even if I don’t end up connecting, I can at least feel good about the fact that I’m trying.”")
+                input()
+
+            elif val_lonely_question in ['2']:
+                print("“Kind of. I moved here because I really enjoyed the city, plus the job offer I got here was a lot less work intensive and had a lot better benefits.”")
+                input()
+                print("“Of course I did go into the move thinking about how well everything could work out for me. Thinking about how I’m going to meet all these awesome people, find my soulmate. So, I guess it was a mix of searching for a more satisfying life plus wanting a better job.”")
+                input()
+                print("“It’s worked out alright so far. Like I said the job is a lot better than my old one. And I’ve been keeping in contact with some of my old friends which has helped me a bit.”")
+                print("“And since I’ve gotten here I’ve been telling myself that I need to be more active in getting to know new people, which has help quite a bit as well. Even if I don’t end up connecting with someone I can at least feel good about the fact that I’m trying.”")
+                input()
+
+            elif val_lonely_question in ['3']:
+                print("“Ok. I understand. Not everyone wants to hear me complain about my problems.”")
+                input()
+                #  Send to end later
+
+        print("“And those failures make it even better when I find someone like you.” He says while jabbing your shoulder and giving you a slight grin.”")
+
 
 
 

@@ -18,7 +18,8 @@ import version
 
 clear = lambda: os.system('cls' if os.name == 'nt' else 'clear')  # Thank you Poke on Stack Overflow
 
-def bank_money():
+
+def bank_money():  # Checks the money value from the player info class in CharInfo. Not used past first half of chap 3
     print("You fire up your smartphone and check your bank balance")
     print("Your current balance is ${}".format(CharInfo.player_info.money))
     return pcbedroom()

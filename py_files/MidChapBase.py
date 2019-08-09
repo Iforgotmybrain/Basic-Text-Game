@@ -10,7 +10,7 @@ import ValeryLunch
 clear = lambda: os.system('cls' if os.name == 'nt' else 'clear')
 
 class PCBedrooms:
-    def chap3_mid_bedroom(self):
+    def chap3_mid_bedroom(self):  # If I just make a little intro func for every file that doesn't return that would allow me to get around the new class instance issue.
         CharInfo.player_info.player_location = PC_bedrooms.chap3_mid_bedroom  # Just telling the game where the player is located.
         if CharInfo.misc_checks.halfway_chap3 is True and CharInfo.player_info.ending_points <= -4:  # This little opening scene comment changes depending on the ending point count of the player.
             print("You're standing in your bedroom, your curtains are closed and no lights are on, making the room fairly dark.")
