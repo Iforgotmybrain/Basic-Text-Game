@@ -171,6 +171,7 @@ class ValeryPark:
                         #  Put to end of game when I get there
                 elif val_talking_issue in ['2']:
                     print("Placeholder.")
+                    CharInfo.valery_checks.valery_true_ending = False
                     input()
 
             elif val_deeper_move_question in ['3']:
@@ -233,6 +234,7 @@ class ValeryPark:
                 input()
                 print("“And then I’ve just been telling myself I have to really make an effort to try and meet new people, like you. That’s helped quite bit, even if I don’t end up connecting, I can at least feel good about the fact that I’m trying.”")
                 input()
+                CharInfo.valery_checks.valery_true_ending = True
 
             elif val_lonely_question in ['2']:
                 print("“Kind of. I moved here because I really enjoyed the city, plus the job offer I got here was a lot less work intensive and had a lot better benefits.”")
@@ -242,13 +244,30 @@ class ValeryPark:
                 print("“It’s worked out alright so far. Like I said the job is a lot better than my old one. And I’ve been keeping in contact with some of my old friends which has helped me a bit.”")
                 print("“And since I’ve gotten here I’ve been telling myself that I need to be more active in getting to know new people, which has help quite a bit as well. Even if I don’t end up connecting with someone I can at least feel good about the fact that I’m trying.”")
                 input()
+                CharInfo.valery_checks.valery_true_ending = True
 
             elif val_lonely_question in ['3']:
                 print("“Ok. I understand. Not everyone wants to hear me complain about my problems.”")
                 input()
+                CharInfo.valery_checks.valery_true_ending = False
+                CharInfo.valery_checks.valery_date_points -= 8
                 #  Send to end later
 
         print("“And those failures make it even better when I find someone like you.” He says while jabbing your shoulder and giving you a slight grin.”")
+        input()
+        print("“Oh, and I’m sure you knew this by now, but I know you brought me here because you were interested in me. I figured you probably worked that out given how personal our talks have gotten.”")
+        input()
+        if CharInfo.valery_checks.valery_heart_to_heart is True and CharInfo.valery_checks.valery_true_ending is not True:  # If the player choose the secret dialogue option in the restaurant but didn't finish all of Vals dialogue here
+            print("“It’s been great getting to know you, and honestly, I’d say I’m pretty into you as well. When we were talking in the restaurant I couldn’t help but feel like I was back in Fulton hanging out with an old friend. It was great”")
+
+        elif CharInfo.valery_checks.valery_heart_to_heart is True and CharInfo.valery_checks.valery_true_ending is True:  # If player choose the secret dialogue option and finished all of Vals dialogue.
+            print("“Don’t worry, the interest goes both ways, like me. Honestly wasn’t sure if I wanted our relationship to go any further than friends at the start, but after our talks here and at the restaurant, I kind of fell for you.”")
+
+        elif CharInfo.valery_checks.valery_heart_to_heart is not True and CharInfo.valery_checks.valery_date_points >= 15:  # If the player didn't choose the secret dialogue option but did get along well with Val
+            print("“The feeling is mutual. I wasn’t sure about taking our relationship any further than friends when we were talking in the restaurant, but when we got here and started talking a bit more in-depth I really started to enjoy my time with you.”")
+
+        elif CharInfo.valery_checks.valery_date_points <= 10:  # If the player didn't really talk with Valery much.
+            print(" “I’ll be honest, I like you. But I just don’t know if I can see us being a couple, you know? At least, not right now. I just don’t know you well enough.”")
 
 
 
