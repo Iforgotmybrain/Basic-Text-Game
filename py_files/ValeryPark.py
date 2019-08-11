@@ -257,17 +257,36 @@ class ValeryPark:
         input()
         print("“Oh, and I’m sure you knew this by now, but I know you brought me here because you were interested in me. I figured you probably worked that out given how personal our talks have gotten.”")
         input()
+
         if CharInfo.valery_checks.valery_heart_to_heart is True and CharInfo.valery_checks.valery_true_ending is not True:  # If the player choose the secret dialogue option in the restaurant but didn't finish all of Vals dialogue here
             print("“It’s been great getting to know you, and honestly, I’d say I’m pretty into you as well. When we were talking in the restaurant I couldn’t help but feel like I was back in Fulton hanging out with an old friend. It was great”")
+            input()
+            print("“I’d be lying if I said I wasn’t already thinking about what’s next for us. Better be another date, at least.”")
+            input()
+            print("(1): I was already thinking about that. I’ve got a couple of ideas I was in mind, including a road trip.")
+            print("(2): There’s still plenty of time to figure that out. Since we live in the same neighborhood, I’m sure we’ll be seeing each other quite often.")
+            print("(3): Yeah… we’ll see about that. I’m gonna be pretty busy so any date will have to be postponed a bit.")
+            val_ending_1_response = input("Choose a response")
 
         elif CharInfo.valery_checks.valery_heart_to_heart is True and CharInfo.valery_checks.valery_true_ending is True:  # If player choose the secret dialogue option and finished all of Vals dialogue.
             print("“Don’t worry, the interest goes both ways, like me. Honestly wasn’t sure if I wanted our relationship to go any further than friends at the start, but after our talks here and at the restaurant, I kind of fell for you.”")
+            input()
+            print("“The last time I enjoyed talking with someone this much was, uh, let’s just say awhile ago.”")
+            print("“I really like you, {}. And I can’t wait to spend even more time with you.”".format(CharInfo.player_info.name))
+            input()
+
 
         elif CharInfo.valery_checks.valery_heart_to_heart is not True and CharInfo.valery_checks.valery_date_points >= 15:  # If the player didn't choose the secret dialogue option but did get along well with Val
             print("“The feeling is mutual. I wasn’t sure about taking our relationship any further than friends when we were talking in the restaurant, but when we got here and started talking a bit more in-depth I really started to enjoy my time with you.”")
+            input()
+            print("“It’s been great getting to know you, never would have expected coming into this that I’d be leaving with a romantic interest in you.”")
+            input()
+
 
         elif CharInfo.valery_checks.valery_date_points <= 10:  # If the player didn't really talk with Valery much.
-            print(" “I’ll be honest, I like you. But I just don’t know if I can see us being a couple, you know? At least, not right now. I just don’t know you well enough.”")
+            print("“I’ll be honest, I like you. But I just don’t know if I can see us being a couple, you know? At least, not right now. I just don’t know you well enough.”")
+            print("“I just don’t think we’d get along that well. Maybe we can go on another date sometime, but for now though, no, I don’t feel the same way. I don’t see us being any more than friends.”")
+            input()
 
 
 
