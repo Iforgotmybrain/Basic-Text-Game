@@ -315,13 +315,13 @@ class ValeryEndings:
 
         elif val_ending_1_response in ['2']:
             print(
-                "Yeah, no point in worrying too much about it. Might be going on a few more walks around the neighborhood, heh.")
+                "Yeah, no point in worrying about it too much. Might be going on a few more walks around the neighborhood though heh.")
             input()
             self.ending_one_common()
 
         elif val_ending_1_response in ['3']:
             print(
-                "I'm sure you'll find time. From my experience we always end up over thinking how busy we'll end up being")
+                "I'm sure you'll find time. From my experience people always end up over thinking how busy they'll end up being,")
             input()
             self.ending_one_common()
 
@@ -339,7 +339,7 @@ class ValeryEndings:
                 "(1): *Give Valery a kiss on the cheek* We don't expect a lot of things, Valery. Most of time it's unpleasantness we don't expect, not today, though. See you around, Val.")
 
         print(
-            "(2): Never know what you're gonna get when you wake up in the morning. Most of time the day goes on as always, but sometimes you get unforgettable days like this. They make those mundane days worth it.")
+            "(2): Never know what you're gonna get when you wake up in the morning. Most of time the day goes on as usual, but sometimes you get unforgettable days like this. They make those mundane days worth it.")
 
         val_ending_1_last = input("Choose a response ")
 
@@ -371,18 +371,96 @@ class ValeryEndings:
         print(
             "“It’s been great getting to know you, never would have expected coming into this that I’d be leaving with a romantic interest in you.”")
         input()
-        print("(1): It was a bit of a surprise for me as well.")
-        print("")
+        print("(1): It was a bit of a surprise for me as well. I figured that, at most, we'd part our lunch today as friends.")
+        print("(2): Sometimes the best things in life come unexpectedly. Usually they just end up being the worst things in life, though. Like your employer firing you unexpectedly.")
+        val_ending_three_prompt = input("Choose a response ")
+
+        if val_ending_three_prompt in ['1']:
+            print("""Yeah I guess that's just how life can be sometimes. Keeps you on your toes, I guess.""")
+            input()
+            print("""Well it's 5 PM now and we've been talking since we got at the restaurant at 12. It's been a great day but I suppose it's about time for us to head home.""")
+            print("""Can't remember the last I was actually disappointed about having to go home. Now come here and give me a hug before we leave.""")
+            input()
+            print("You and Valery both stand up before hugging each other good bye.")
+            print("""See ya round, {}. I'm sure I'll see you around the neighborhood. Plus we've still gotta talk about our next date.""".format(CharInfo.player_info.name))
+            input()
+            print("You say good bye to Valery and watch as he walks to his car. Blah blah more fluff later.")
+
+        elif val_ending_three_prompt in ['2']:
+            print("""Oh hell yeah. This is probably the best 'unexpected' thing to happen to me. Everything else? Trash. Nothing but pain and suffering.""")
+            print("""It's hard for me to say that this one good thing outweighs the bad though, there's some real shit I've dealt with suddenly.""")
+            input()
+            print("Anyway, I think we've probably yakked on enough. It's 5 PM and we got at the restaurant at 12. We talk much longer and we'll be getting bit by mosquitoes.")
+            input()
+            print("""Can't remember the last I was actually disappointed about having to go home. Now come here and give me a hug before we leave.""")
+            input()
+            print("You and Valery both stand up before hugging each other goodbye.")
+            print("""See ya round, {}. I'll be looking for you around the neighborhood. Plus we've still gotta talk about our next date.""".format(CharInfo.player_info.name))
+            input()
+            print("You say goodbye to Valery and watch as he walks to his car. Blah blah more fluff later.")
 
     def ending_four_bad(self):
         print(
             "“I’ll be honest, I like you. But I just don’t know if I can see us being a couple, you know? At least, not right now. I just don’t know you well enough.”")
         print(
-            "“I just don’t think we’d get along that well. Maybe we can go on another date sometime, but for now though, no, I don’t feel the same way. I don’t see us being any more than friends.”")
+            "“Maybe we can go on another date sometime, but for now though, no, I don’t feel the same you seem too. I don’t really see us being any more than friends.”")
         input()
+        print("(1): I have to say, I'm a bit disappointed. But I understand, if you're not comfortable with dating me, that's fine.")  # Could take this to a weird end. Get into some real nice guy kind of stuff. Kind of makes me uncomfortable putting that kind of stuff into the game, though.
+        print("(2): Really? If you weren't interested in me you could have just declined my invitation to come here...")  # I Feel like it might normalize that kind of behavior, nice guys and their like are not good people. Also doesn't really fit the character so let's not do that actually.
+        val_ending_four_prompt = input("Choose a response ")
+
+        if val_ending_four_prompt in ['1']:
+            print("""I'm glad you took that as well as you did. I know there's some real pieces of work out there that go insane as soon as you deny them. I'm happy you're not one of them.""")
+            print("""I wouldn't say this is a complete denial but... yeah honestly I just don't see us working out. So I guess it kind of is.""")
+            input()
+            print("Well I suppose we should head home, we've wasted enough time talking here. I hope we can at least part as friends.")
+            input()
+            print("(1): *Get up and reach out to shake his hand* Friends it is.")
+            print("(2): I respect your choice, but I feel like it would just be awkward for us to keep hanging out.")
+            val_denied_four_prompt = input("Choose a response ")
+
+            if val_denied_four_prompt in ['1']:
+                print("Valery reaches out and shakes your hand 'I'm glad you feel the same, {}. Hopefully I'll see you round the neighborhood!'".format(CharInfo.player_info.name))
+                print("You say your goodbyes to Valery and tell him you're always glad to have another friend to count on.")
+                input()
+                print("More???")
+
+            elif val_denied_four_prompt in ['2']:
+                print("""I understand completely, there'd probably always be that thought in the back of our minds saying 'what if'.""")
+                print("""Well suppose that's it. I'll be seeing you, {}.""".format(CharInfo.player_info.name))
+                input()
+                print("You say your goodbyes to Valery and head back to your car.")
+                print("More???")
+
+        elif val_ending_four_prompt in ['2']:
+            print("""I thought that maybe I'd see something different in you here, but I didn't. It's not your fault, we just weren't made for each other.""")
+            print("""Don't get me wrong, I don't hate you or anything. I just... don't really see a serious relationship between the two of us going anywhere.""")
+            input()
+            print("Valery reaches out his hand to you 'I hope we can stay friends, though.'")
+            input()
+            print("(1): *Get up and reach out to shake his hand* Friends it is.")
+            print("(2): No. I don't think so. I doubt an ordinary relationship would work out either. Plus it would just be awkward.")
+            val_hard_denied_four_prompt = input("Choose a response ")
+
+            if val_hard_denied_four_prompt in ['1']:
+                print(
+                    "Valery reaches out and shakes your hand 'I'm glad you feel the same, {}. Hopefully I'll see you round the neighborhood!'".format(
+                        CharInfo.player_info.name))
+                print(
+                    "You say your goodbyes to Valery and tell him you're always glad to have another friend to count on.")
+                input()
+                print("More???")
+
+            elif val_hard_denied_four_prompt in ['2']:
+                print("""That's unfortunate but I understand your choice. If you feel that way it's definitely best for both of us if we just stopped hanging out.""")
+                print("""Suppose that's it then. Goodbye, {}""".format(CharInfo.player_info.name))
+                input()
+                print("You say bye to Valery and head back to your car.")
+                input()
+                print("More???")
 
 
-class ValeryDateOneEndingTransistion:
+class ValeryDateEndingTransistion:
     def ending_transition(self):
         pass
 
