@@ -7,6 +7,8 @@ clear = lambda: os.system('cls' if os.name == 'nt' else 'clear')
 
 
 class ValeryPark:
+    def __init__(self):
+        val_deeper_move_question = ''
     def park_start(self):  # Give the park more detail.
         CharInfo.valery_checks.valery_true_ending = False  # Add save points
         print("You and Valery arrive at the park after a short walk. It’s fairly early into the evening and the park is pretty empty at the moment. Guess most people are probably still at work or at home at this point in the day.")
@@ -130,9 +132,9 @@ class ValeryPark:
             print("(1): Seems like you did pretty well in the last new place you moved too. So I’m sure it’ll end up working out here, too.")
             print("(2): Well hopefully you don’t run off too soon from here, I’d probably end up missing ya.")
             print("(3): It’s good to get outside of your comfort zone and explore a bit. I’m actually planning on going on a cross-country road trip here pretty soon.")
-            val_deeper_move_question = input("Choose a response")
+            self.val_deeper_move_question = input("Choose a response")
 
-            if val_deeper_move_question in ['1']:
+            if self.val_deeper_move_question in ['1']:
                 print("“I didn’t do terrible in Nagysburg and Fulton I’ll say that. I don’t know if I’d say I did ‘pretty well’ though. After all there’s reason I moved away from those towns.”")
                 input()
                 print("“I’ve already explained my issues with Fulton pretty well, but there’s some other stuff that went on during my time in Nagysburg that I didn’t talk much about.”")
@@ -147,7 +149,7 @@ class ValeryPark:
                     print("“And if I’m being honest, I just don’t feel comfortable talking about those issues right now. It’s nothing against you, just a personal thing.”")
                     input()
 
-            elif val_deeper_move_question in ['2']:
+            elif self.val_deeper_move_question in ['2']:
                 print("“Hah, I’d probably end up missing you too. Or at least be left wondering what could have been.”")
                 input()
                 print("“Ya know, I kind of ran into that when I moved from Fulton and Nagysburg. Constantly thinking about how things could have gone if I had stayed instead of moved.”")
@@ -174,13 +176,13 @@ class ValeryPark:
                     CharInfo.valery_checks.valery_true_ending = False
                     input()
 
-            elif val_deeper_move_question in ['3']:
+            elif self.val_deeper_move_question in ['3']:
                 print("“A road trip, huh? Didn’t think you’d be the kind of person to go out and do something like that.”")
                 input()
                 print("You take some time to explain the whole concept to Valery. You tell him what your exact travel plans are and how long you plan on it taking.")
                 input()
-                print("“I won’t lie, it sounds really interesting. Be a great way to build our relationship, too. Maybe keep me in mind when your picking people to go, yeah?”")
-                print("You tell Val you'll keep him mind when you start picking your travel mates.")
+                print("“I won’t lie, it sounds really interesting. Be a great way to build our relationship, too. Maybe keep me in mind when you're picking people to go, yeah?”")
+                print("You tell Val you'll keep him in mind when you start picking your travel mates.")
                 input()
                 print("""I get what your saying about moving outside of your comfort zone. I did enjoy being in a new city and experience all the new thing that had to offer.""")
                 print("""What really got me down was just the complete lack of people I had to talk too about more serious stuff.""")
@@ -259,34 +261,130 @@ class ValeryPark:
         input()
 
         if CharInfo.valery_checks.valery_heart_to_heart is True and CharInfo.valery_checks.valery_true_ending is not True:  # If the player choose the secret dialogue option in the restaurant but didn't finish all of Vals dialogue here
-            print("“It’s been great getting to know you, and honestly, I’d say I’m pretty into you as well. When we were talking in the restaurant I couldn’t help but feel like I was back in Fulton hanging out with an old friend. It was great”")
-            input()
-            print("“I’d be lying if I said I wasn’t already thinking about what’s next for us. Better be another date, at least.”")
-            input()
-            print("(1): I was already thinking about that. I’ve got a couple of ideas I was in mind, including a road trip.")
-            print("(2): There’s still plenty of time to figure that out. Since we live in the same neighborhood, I’m sure we’ll be seeing each other quite often.")
-            print("(3): Yeah… we’ll see about that. I’m gonna be pretty busy so any date will have to be postponed a bit.")
-            val_ending_1_response = input("Choose a response")
+            val_endings.ending_one()  # Putting the endings in a separate class and giving them their own function works so much better. Looks much neater.
 
         elif CharInfo.valery_checks.valery_heart_to_heart is True and CharInfo.valery_checks.valery_true_ending is True:  # If player choose the secret dialogue option and finished all of Vals dialogue.
-            print("“Don’t worry, the interest goes both ways, like me. Honestly wasn’t sure if I wanted our relationship to go any further than friends at the start, but after our talks here and at the restaurant, I kind of fell for you.”")
-            input()
-            print("“The last time I enjoyed talking with someone this much was, uh, let’s just say awhile ago.”")
-            print("“I really like you, {}. And I can’t wait to spend even more time with you.”".format(CharInfo.player_info.name))
-            input()
-
+            val_endings.ending_two_true()
 
         elif CharInfo.valery_checks.valery_heart_to_heart is not True and CharInfo.valery_checks.valery_date_points >= 15:  # If the player didn't choose the secret dialogue option but did get along well with Val
-            print("“The feeling is mutual. I wasn’t sure about taking our relationship any further than friends when we were talking in the restaurant, but when we got here and started talking a bit more in-depth I really started to enjoy my time with you.”")
-            input()
-            print("“It’s been great getting to know you, never would have expected coming into this that I’d be leaving with a romantic interest in you.”")
-            input()
-
+            val_endings.ending_three()
 
         elif CharInfo.valery_checks.valery_date_points <= 10:  # If the player didn't really talk with Valery much.
-            print("“I’ll be honest, I like you. But I just don’t know if I can see us being a couple, you know? At least, not right now. I just don’t know you well enough.”")
-            print("“I just don’t think we’d get along that well. Maybe we can go on another date sometime, but for now though, no, I don’t feel the same way. I don’t see us being any more than friends.”")
+            val_endings.ending_four_bad()
+
+
+class ValeryEndings:
+    def ending_one(self):
+        print(
+            "“It’s been great getting to know you, and honestly, I’d say I’m pretty into you as well. When we were talking in the restaurant I couldn’t help but feel like I was back in Fulton hanging out with an old friend. It was great”")
+        input()
+        print(
+            "“I’d be lying if I said I wasn’t already thinking about what’s next for us. Better be another date, at least.”")
+        input()
+
+        if val_park.val_deeper_move_question in ['3']:
+            print(
+                "(1): I was already thinking about that. I’ve got a couple of ideas in mind, including that road trip I mentioned.")
+
+        elif val_park.val_deeper_move_question not in ['3']:
+            print(
+                "(1): I was already thinking about that. I've a got a couple of ideas in mind, including a road trip.")
+
+        print(
+            "(2): There’s still plenty of time to figure that out. Since we live in the same neighborhood, I’m sure we’ll be seeing each other quite often.")
+        print("(3): Yeah… we’ll see about that. I’m gonna be pretty busy so any date will have to be postponed a bit.")
+        val_ending_1_response = input("Choose a response")
+
+        if val_ending_1_response in ['1']:
+
+            if val_park.val_deeper_move_question in ['3']:
+                print(
+                    """Hell yeah, like I said I'm down for that. Just gotta let me know if you're committing so I can get my work stuff taken care of.""")
+                input()
+            else:
+                print("""A road trip, huh? Mind filling me in on the details?""")
+                input()
+                print(
+                    "You take some time to explain the whole concept to Valery. You tell him what your exact travel plans are and how long you plan on it taking.")
+                input()
+                print(
+                    "“I won’t lie, it sounds really interesting. Be a great way to build our relationship, too. Maybe keep me in mind when you're picking people to go, yeah?”")
+                print("You tell Val you'll keep him in mind when you start picking your travel mates.")
+                input()
+            self.ending_one_common()
+
+        elif val_ending_1_response in ['2']:
+            print(
+                "Yeah, no point in worrying too much about it. Might be going on a few more walks around the neighborhood, heh.")
             input()
+            self.ending_one_common()
+
+        elif val_ending_1_response in ['3']:
+            print(
+                "I'm sure you'll find time. From my experience we always end up over thinking how busy we'll end up being")
+            input()
+            self.ending_one_common()
+
+    def ending_one_common(self):
+        print(
+            "Well, I guess our day is about done here. It's been a joy talking with you, can't say I expected today to end with us figuring out when our next date will be.")
+        print(
+            "But I'll take it, Gods know it's been a long time since I've been in a serious relationship.")
+
+        if CharInfo.player_info.race in ['wolf', 'Wolf'] and CharInfo.player_info.sex in ['Female', 'female']:
+            print(
+                "(1): *Give Valery a kiss on the cheek* Sometimes you have days where life's a bitch, guess today was one where you got kissed by one instead. See you around, Val.")
+        else:
+            print(
+                "(1): *Give Valery a kiss on the cheek* We don't expect a lot of things, Valery. Most of time it's unpleasantness we don't expect, not today, though. See you around, Val.")
+
+        print(
+            "(2): Never know what you're gonna get when you wake up in the morning. Most of time the day goes on as always, but sometimes you get unforgettable days like this. They make those mundane days worth it.")
+
+        val_ending_1_last = input("Choose a response ")
+
+        if val_ending_1_last in ['1']:
+            print("End")
+
+        elif val_ending_1_last in ['2']:
+            print("""You're right, {}. That's why I'll be looking forward to our next date so much.""")
+            print("""Bah, that's enough rambling on. See you round the neighborhood, {}.""".format(
+                CharInfo.player_info.name))
+            input()
+            print("You say goodbye to Valery and watch as he walks back to his car.")
+
+    def ending_two_true(self):
+        print(
+            "“Don’t worry, the interest goes both ways, like me. Honestly wasn’t sure if I wanted our relationship to go any further than friends at the start, but after our talks here and at the restaurant, I kind of fell for you.”")
+        input()
+        print("“The last time I enjoyed talking with someone this much was, uh, let’s just say awhile ago.”")
+        print("“I really like you, {}. And I can’t wait to spend even more time with you.”".format(
+            CharInfo.player_info.name))
+        input()
+        print("(1): ")
+        print("(2): ")
+
+    def ending_three(self):
+        print(
+            "“The feeling is mutual. I wasn’t sure about taking our relationship any further than friends when we were talking in the restaurant, but when we got here and started talking a bit more in-depth I really started to enjoy my time with you.”")
+        input()
+        print(
+            "“It’s been great getting to know you, never would have expected coming into this that I’d be leaving with a romantic interest in you.”")
+        input()
+        print("(1): It was a bit of a surprise for me as well.")
+        print("")
+
+    def ending_four_bad(self):
+        print(
+            "“I’ll be honest, I like you. But I just don’t know if I can see us being a couple, you know? At least, not right now. I just don’t know you well enough.”")
+        print(
+            "“I just don’t think we’d get along that well. Maybe we can go on another date sometime, but for now though, no, I don’t feel the same way. I don’t see us being any more than friends.”")
+        input()
+
+
+class ValeryDateOneEndingTransistion:
+    def ending_transition(self):
+        pass
 
 
 
@@ -294,3 +392,4 @@ class ValeryPark:
 
 
 val_park = ValeryPark()
+val_endings = ValeryEndings()
