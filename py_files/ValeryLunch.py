@@ -634,6 +634,7 @@ class ValeryLunchEnding:
 
     def valery_lunch_serving(self):
         print('"Looks like our food is on the way, quick service, as always!"')
+        CharInfo.misc_checks.pc_meal_choice = 'ribs'
         input()
         print("The waitress brings your food out, everything seems to be in order so it's time to dig in!")
         print('"They have pretty decent portions here for the price. Only thing that\'s really lacking are the side options, but that\'s a pretty minor compliant all things considered."')
@@ -744,6 +745,9 @@ class ValeryLunchEnding:
                 input()
                 print("You hand Val a $10 bill to pay for your part of the meal.")
                 CharInfo.player_info.money -= 10
+        else:
+            print("Invalid")
+            self.valery_lunch_serving()
 
         print('"Well with the bill taken care of I guess we should start heading out."')
         input()
@@ -787,7 +791,9 @@ class ValeryLunchEnding:
                         input()
                         print('"If I\'m being honest, it... felt more like a date."')
                         input()
-                        print("You felt a similar way. ")
+                        print("You felt a similar way. ")  #Expand or remove
+                        CharInfo.player_info.player_location = ValeryPark.val_park.park_start()
+                        SaveSystem.save_sys.saving()
                         ValeryPark.val_park.park_start()
 
                     elif CharInfo.valery_checks.valery_date_points <= 4:
@@ -799,18 +805,21 @@ class ValeryLunchEnding:
                     elif CharInfo.valery_checks.valery_date_points in range (6, 10):
                         print("Y'know what? Sure. I enjoyed our little lunch together, definitely wouldn't mind getting to know you a bit more.")
                         input()
+                        CharInfo.player_info.player_location = ValeryPark.val_park.park_start()
+                        SaveSystem.save_sys.saving()
                         ValeryPark.val_park.park_start()
 
                 elif val_date_decision in ['2']:
                     print("Go to the second dialogue option")
-
-
 
             elif CharInfo.valery_checks.valery_date_points <= -6:
                 print('"I guess you could say that. See ya around."')
                 input()
                 print("You say goodbye to Valery and head home. The meet up probably could have went a little better, but at least you parted on decent terms.")
                 input()
+        else:
+            print("Invalid")
+            self.valery_lunch_serving()
 
 
 

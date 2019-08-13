@@ -9,8 +9,10 @@ clear = lambda: os.system('cls' if os.name == 'nt' else 'clear')
 class ValeryPark:
     def __init__(self):
         val_deeper_move_question = ''
+
     def park_start(self):  # Give the park more detail.
-        CharInfo.valery_checks.valery_true_ending = False  # Add save points
+        CharInfo.valery_checks.valery_true_ending = False  # Remember to add save points
+        CharInfo.valery_checks.valery_ending_path = ''
         print("You and Valery arrive at the park after a short walk. It’s fairly early into the evening and the park is pretty empty at the moment. Guess most people are probably still at work or at home at this point in the day.")
         input()
         print("It would seem that this is more of urban park as it lacks dedicated walking trails, and instead just seems to have a set of paths that go all throughout the park.")
@@ -18,37 +20,46 @@ class ValeryPark:
         input()
         print("“Never been to this park before. I usually go to the one on Gorge street when I wanna go for a quick walk.”")
         input()
-        print("“So, you wanna just sit down and chill for a bit? Because honestly, that sounds like the best time to me”")
+        print("“So, you wanna just sit down and chill for a bit? Because honestly, that sounds like a good time to me”")
         input()
         print("You decide to follow Valery’s lead and just sit down at a bench and talk for a bit.")
         input()
-        print(" ""Man, it has been a long time since I've been able to just sit down with someone and talk about - just whatever really."" Valery says as seems to relax a bit.")
-        print("""You've been asking me all this questions so I think its my turn to ask you some.""")
-        print("""Let's start off with a an easy one, did you into this intending to try and date me?""")
+        print(' "Man, it has been a long time since I\'ve been able to just sit down with someone and talk about - just whatever really." Valery says as he seems to relax a bit.')
+        print('"You\'ve been asking me all these questions so I think it\'s my turn to ask you some."')
+        print('"Let\'s start off with a an easy one, did you go into this intending to try and date me?"')
         input()
-        print("(1): I had considered it a possibility, but I didn’t know you well enough to say if I’d even enjoy your company. No offense.")
-        print("(2): I hadn’t really given it any thought. I just saw it as an opportunity to get to know someone new.")
+        print(
+            "(1): I had considered it a possibility, but I didn’t know you well enough to say if I’d even enjoy your company. No offense.")
+        print(
+            "(2): I hadn’t really given it any thought. I just saw it as an opportunity to get to know someone new.")
         print("(3): I’d be lying if I said I wasn’t banking on something sparking between us.")
         val_first_question = input("Pick a response ")
 
         if val_first_question in ['1']:
-            print("“Hah, no offense taken. Honestly, I went into this just expecting to maaaybe make a new friend, definitely did not expect to mesh so well with ya.”")
-            print("“I’m glad it’s worked out so well though. It’s uh, been a while since I’ve had such a great time just talking with someone.” Valery says while his face blushes.")
+            print(
+                "“Hah, no offense taken. Honestly, I went into this just expecting to maaaybe make a new friend, definitely did not expect to mesh so well with ya.”")
+            print(
+                "“I’m glad it’s worked out so well though. It’s uh, been a while since I’ve had such a great time just talking with someone.” Valery says while his face blushes.")
             input()
 
         elif val_first_question in ['2']:
-            print("“That’s pretty much what I was expecting. Just based off our brief conversations I never expected to get along so well with you.”")
-            print("“I’m not complaining though, it’s uh, been a while since I’ve had such a great time just talking with someone.” Valery says while his face blushes.")
+            print(
+                "“That’s pretty much what I was expecting. Just based off our brief conversations I never expected to get along so well with you.”")
+            print(
+                "“I’m not complaining though, it’s uh, been a while since I’ve had such a great time just talking with someone.” Valery says while his face blushes.")
             input()
 
         elif val_first_question in ['3']:
             if CharInfo.player_info.sex in ['Male']:
-                print("“Can’t say that was the case for me. I was just expecting to eat some good food and get to know a cool dude.”")
+                print(
+                    "“Can’t say that was the case for me. I was just expecting to eat some good food and get to know a cool dude.”")
 
             elif CharInfo.player_info.sex in ['Female']:
-                print("“Can’t say that was the case for me. I was just expecting to eat some good food and get to know a cool gal.”")
+                print(
+                    "“Can’t say that was the case for me. I was just expecting to eat some good food and get to know a cool gal.”")
 
-            print("“I’m not complaining though, it’s uh, been a while since I’ve had such a great time just talking with someone.” Valery says while his face blushes.")
+            print(
+                "“I’m not complaining though, it’s uh, been a while since I’ve had such a great time just talking with someone.” Valery says while his face blushes.")
             input()
 
         print("“Okay, next question: Were you at this year’s lake festival? I’ll explain why I’m asking this once you answer.”")
@@ -59,13 +70,15 @@ class ValeryPark:
         val_second_question = input("Pick an answer ")
 
         if val_second_question in ['1']:
-            print("“I knew it! I swore I remembered seeing you there, you were at the concert talking to some vixen.” Valery says with an excited look on his face “I didn’t know who you were at the festival, but when you were introducing yourself a couple of days later I couldn’t help but think I remembered seeing you before.”")
+            print(
+                "“I knew it! I swore I remembered seeing you there, you were at the concert talking to some vixen.” Valery says with an excited look on his face “I didn’t know who you were at the festival, of course, but when you were introducing yourself a couple of days later I couldn’t help but think I remembered seeing you before.”")
             input()
             print("“I’m guessing the Fox was your old friend?”")
             print("You confirm Val’s suspicions and state that the Fox’s name is Holly.")
             input()
             if CharInfo.festival_checks.holly_stay is True:
-                print("“Holly, huh? Well you two seemed to be getting along pretty well. Though I’m guessing you didn’t take that anywhere, else we probably wouldn’t be talking right now.”")
+                print(
+                    "“Holly, huh? Well you two seemed to be getting along pretty well. Though I’m guessing you didn’t take that anywhere, else we probably wouldn’t be talking right now.”")
                 input()
 
             elif CharInfo.festival_checks.holly_stay is not True:
@@ -73,24 +86,30 @@ class ValeryPark:
                 input()
 
         elif val_second_question in ['2']:
-            print("“I knew it! I swore I remembered seeing you there, you were at the concert talking to some vixen.” Valery says with an excited look on his face “I didn’t know who you were at the festival, but when you were introducing yourself a couple of days later I couldn’t help but think I remembered seeing you before.”")
+            print(
+                "“I knew it! I swore I remembered seeing you there, you were at the concert talking to some vixen.” Valery says with an excited look on his face “I didn’t know who you were at the festival, of course, but when you were introducing yourself a couple of days later I couldn’t help but think I remembered seeing you before.”")
             input()
-            print("“And damn, every festival since the mid-2000s is some real dedication. Must be a tradition for you at this point.”")
-            print("You tell Val that’s pretty much what is, just a tradition you started when you were a teenager.")
+            print(
+                "“And damn, every festival since the mid-2000s is some real dedication. Must be a tradition for you at this point.”")
+            print(
+                "You tell Val that’s pretty much what it is, just a tradition you started when you were a teenager.")
             input()
-            print("“Cool, if this whole relationship thing works out we’ll have to go there together next year.” Val says with a smile.")
+            print(
+                "“Cool, if this whole relationship thing works out we’ll have to go there together next year.” Val says with a smile.")
             input()
 
         elif val_second_question in ['3']:
-            print("“Well I guess you must have a doppelganger because there was this {} that looked just like you at the concert. When I met you a few days after the festival I was thinking that I remembered seeing you there, guess not.”".format(CharInfo.player_info.race.name.upper()))
+            print(
+                "“Well I guess you must have a doppelganger because there was this {} that looked just like you at the concert. When I met you a few days after the festival I was thinking that I remembered seeing you there, guess not.”".format(
+                    CharInfo.player_info.race.name.upper()))
             input()
 
-        print("“Alright, I think this my last question for you: how long have you lived in Iridium City?")
+        print("“Alright, I think this is my last question for you: how long have you lived in Iridium City?")
         input()
         print("")
         print("You tell Valery that you’ve been living here for around 3 years. Before that you were in college and then during your childhood your family lived in Sprucetown, which is about 2 hours east from where you live now.")  # Grammar?
         input()
-        print("“Alright so you’ve been living by the lake most of your life.”")
+        print("“Alright so you’ve been living in a lake city most of your life.”")
         print("“I’ve lived in-state my whole life but never by the lake, until recent of course.”")
         input()
         print("(1): Where’d you live before coming here?")
@@ -98,7 +117,7 @@ class ValeryPark:
         val_living_question = input("Choose a response ")
 
         if val_living_question in ['1']:
-            print("“Just before moving here? Nagysburg. Lived there for 3 years until I got that job offer. Before that I lived in Fulton, which is where I grew up and went to college. Ended up Staying there a year after graduating since I got a job at a local company.”")
+            print("“Just before moving here? Nagysburg. Lived there for 3 years until I got my job here. Before that I lived in Fulton, which is where I grew up and went to college. Ended up staying there a year after graduating since I got a job at a local company.”")
             input()
             print("(1): How’d your time in Nagysburg and Fulton compare to here?")
             print("(2): I’m guessing there was some reason you left those places to come here.")
@@ -106,7 +125,7 @@ class ValeryPark:
 
             if val_moving_question in ['1']:
                 print("“My time in Nagysburg was pretty similar to here. Main difference is that in Nagysburg I had something resembling a friend group, while here I know you and that’s pretty much it.”")
-                print("“The job I had in Nagysburg wasn’t the great though. Hardly any paid time off and the insurance was trash. I’ve had it a lot better here in that regard.”")
+                print("“The job I had in Nagysburg wasn’t that great though. Hardly any paid time off and the insurance was trash. I’ve had it a lot better here in that regard.”")
                 input()
                 print("“Fulton’s a bit more complex. I had a great social life there, after all that’s where pretty every friend I made up until graduation lived.”")
                 print("“But I couldn’t help but feel unfulfilled. I’d lived my whole life there and it was really starting to drag on. You see the same people, drive the same roads to the same place your parents worked at when you were growing up.”")
@@ -114,14 +133,14 @@ class ValeryPark:
                 print("“It got mundane, and honestly a little depressing. Life wasn’t really exciting anymore, I felt like I was just running off a script doing the same thing week after week.”")
                 print("“So I started looking for jobs a fair ways away from home. Applied to a bunch of them but of course only a few asked me to interview. The company in Nagysburg ended up offering me the best salary and was in a pretty nice city so I figured that was probably my best bet.”")
                 input()
-                print("“Ended up being a pretty nice experience. Got along really well with my coworkers and one of my neighbors as well, they ended up being part of the friend group I was talking about.”")
+                print("“Ended up being a pretty nice experience. Got along really well with my coworkers and one of my neighbors as well, they ended up being part of that friend group I was talking about.”")
                 input()
                 if CharInfo.valery_checks.valery_heart_to_heart is True:
                     print("“And of course we’ve already talked a bit about my time here so far. Still pretty early into the move so I’m sure things will get better.”")
                     input()
 
             elif val_moving_question in ['2']:
-                print("“Yup. For Nagysburg it was the job. I ended up getting completely burnt out because they gave me shit for time off. Plus, the insurance was basically useless so when I did get burnt out, I couldn’t even afford to go and see a therapist to help me sort my stuff out.”")
+                print("“Yup. For Nagysburg it was the job. I ended up getting completely burnt out because they gave me shit for time off. Plus, the insurance was basically useless so when I did get burnt out, I couldn’t even afford to go and see a therapist to help me get through it.”")
                 input()
                 print("“And then for Fulton; I just got bored of living there. I’d lived my whole life there and it was really starting to drag on. You see the same people, drive the same roads to the same place your parents worked at when you were growing up.”")
                 print("“It just got to be too much for me. So I started looking for jobs that were a decent distance away from Fulton. Applied to a bunch of jobs and got a couple of interviews, the company in Nagysburg ended up having the best salary and location.”")
@@ -132,18 +151,18 @@ class ValeryPark:
             print("(1): Seems like you did pretty well in the last new place you moved too. So I’m sure it’ll end up working out here, too.")
             print("(2): Well hopefully you don’t run off too soon from here, I’d probably end up missing ya.")
             print("(3): It’s good to get outside of your comfort zone and explore a bit. I’m actually planning on going on a cross-country road trip here pretty soon.")
-            self.val_deeper_move_question = input("Choose a response")
+            self.val_deeper_move_question = input("Choose a response ")
 
             if self.val_deeper_move_question in ['1']:
                 print("“I didn’t do terrible in Nagysburg and Fulton I’ll say that. I don’t know if I’d say I did ‘pretty well’ though. After all there’s reason I moved away from those towns.”")
                 input()
                 print("“I’ve already explained my issues with Fulton pretty well, but there’s some other stuff that went on during my time in Nagysburg that I didn’t talk much about.”")
                 if CharInfo.valery_checks.valery_date_points >= 15 and CharInfo.valery_checks.valery_heart_to_heart is True:
-                    print("Valery seems to take a moment to think, he sighs before eventually talking again. “We’ve talked about some pretty deep stuff today, so I guess it’s alright if I talk to you about those issues.”")
+                    print("Valery seems to take a moment to think, he sighs before eventually talking again. “We’ve talked about some pretty personal stuff already, so I guess it’s alright if I talk to you about those issues.”")
                     input()
                     CharInfo.player_info.player_location = val_park.park_end
-                    SaveSystem.save_sys.saving()
                     clear()
+                    SaveSystem.save_sys.saving()
                     self.park_end()
                 else:
                     print("“And if I’m being honest, I just don’t feel comfortable talking about those issues right now. It’s nothing against you, just a personal thing.”")
@@ -153,7 +172,7 @@ class ValeryPark:
                 print("“Hah, I’d probably end up missing you too. Or at least be left wondering what could have been.”")
                 input()
                 print("“Ya know, I kind of ran into that when I moved from Fulton and Nagysburg. Constantly thinking about how things could have gone if I had stayed instead of moved.”")
-                print("““It’s was a fairly deep-rooted problem for me in Nagysburg, I’ve gotten over it for the most part now. That and the lack of people to talk too in Nagysburg were really taking their toll on me.””")
+                print("“It was a fairly deep-rooted problem for me in Nagysburg, I’ve gotten over it now for the most part now. That and the lack of people to talk too in Nagysburg were really taking their toll on me.”")
                 input()
                 print("(1): Lack of people to talk too? Wanna talk a bit more about that?")
                 print("(2): I've given up, I'm sick of waiting, this is a placeholder until I get later into the game.")
@@ -207,6 +226,7 @@ class ValeryPark:
                 elif val_talking_issue_1 in ['2']:
                     print("Placeholder")
                     input()
+
 
 
 
@@ -362,7 +382,67 @@ class ValeryEndings:
             CharInfo.player_info.name))
         input()
         print("(1): ")
-        print("(2): ")
+        if val_park.val_deeper_move_question in ['3']:
+            print("(2): I feel the same, Valery. Don't know when our next date will be but I do have that road trip coming up...")
+        else:
+            print("(2):I feel the same. That said, I’m planning on going on a road trip pretty soon, might be a good opportunity for us to spend some more time together…")
+        print("(3): Same here, Valery. Although I’d be lying if I said I wasn’t at least a little bit interested in you coming into lunch.")
+        valery_ending_two_prompt = input("Choose a response ")
+
+        if valery_ending_two_prompt in ['1']:
+            pass
+
+        elif valery_ending_two_prompt in ['2']:
+            if val_park.val_deeper_move_question in ['3']:
+                print("“Exactly what I was thinking! Bit of a jump to go from a single date to spending a whole month together, be a good way to see if we can stand living with each other though.”")
+                print("“Like I said keep me in mind when you're asking people to tag along. I’m down for that 100%.”")
+                input()
+                print("""Well I have to say it's getting pretty late. It's 5 PM now and we've been talking since 12, sure didn't feel like that much time passed.""")
+                print("""Guess we better start heading home, we keep talking any longer and we'll be getting bit by mosquitoes.""")
+                input()
+                print('Valery stands up before resuming the conversation "Come give me a hug before we head back home."')
+                input()
+                print("(1): I was thinking of more than just a hug")
+                print("(2): *Hug Valery* ")
+                val_ending_two_prompt_two = input("Choose a response ")
+
+                if val_ending_two_prompt_two in ['1']:
+                    print("Placeholder")
+
+                elif val_ending_two_prompt_two in ['2']:
+                    print("You and Valery share a fairly long hug before saying your goodbyes.")
+                    print(' "I\'m sure I\'ll be seeing you around the neighborhood quite a bit now. Might even have to stop down at your house sometime." Valery says with a somewhat suggestive look.')
+                    print("See ya round then, {}".format(CharInfo.player_info.name))
+                    input()
+                    print("You say goodbye to Valery and watch as he heads back towards his car. Today was a good day.")
+                    input()
+
+        elif valery_ending_two_prompt in ['3']:
+            print("“Man, I didn’t think I was that attractive. Guess I just hit a nerve with ya.”")
+            print("""Cause I know it wasn't my personality that got you hooked, we had barely talked at that point.""")
+            input()
+            print("""You certainly aren't bad to look at either, although I generally weigh personality higher than looks, at least when it comes to serious relationships""")
+            input()
+            print("""Well, it's getting pretty late. Think we've been talking for a little over 5 hours, sure didn't feel like it though.""")
+            print("""Guess we better think about heading out, we keep talking any longer we'll end up getting devoured by mosquitoes.""")
+            input()
+            print('Valery stands up before continuing to talk "Come here and give me a hug before we head back home."')
+            input()
+            print("(1): I was thinking of more than just a hug")
+            print("(2): *Hug Valery* ")
+            val_ending_two_prompt_two = input("Choose a response ")
+
+            if val_ending_two_prompt_two in ['1']:
+                print("Placeholder")
+
+            elif val_ending_two_prompt_two in ['2']:
+                print("You and Valery share a fairly long hug before saying your goodbyes.")
+                print(
+                    ' "I\'m sure I\'ll be seeing you around the neighborhood quite a bit now. Might even have to stop down at your house sometime." Valery says with a somewhat suggestive look.')
+                print("See ya round then, {}".format(CharInfo.player_info.name))
+                input()
+                print("You say goodbye to Valery and watch as he heads back towards his car. Today was a good day.")
+                input()
 
     def ending_three(self):
         print(
