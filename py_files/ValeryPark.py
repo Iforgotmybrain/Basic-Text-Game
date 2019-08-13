@@ -8,7 +8,7 @@ clear = lambda: os.system('cls' if os.name == 'nt' else 'clear')
 
 class ValeryPark:
     def __init__(self):
-        val_deeper_move_question = ''
+        self.val_deeper_move_question = ''
 
     def park_start(self):  # Give the park more detail.
         CharInfo.valery_checks.valery_true_ending = False  # Remember to add save points
@@ -232,14 +232,14 @@ class ValeryPark:
 
     def park_end(self):
         if CharInfo.valery_checks.valery_heart_to_heart is True and CharInfo.valery_checks.valery_date_points >= 15:
-            print("“It’s not anything horrifying, don’t get the wrong idea. But it’s a pretty depressing and disappointing thing for me to look back on, so I don’t like talking about it too much.")
+            print("“It’s not anything horrifying, don’t get the wrong idea. But it’s a bit depressing for me to look back on, so I don’t like talking about it too much.")
             input()
             print("“Towards the end of my time in Nagysburg I was in a pretty bad place. I was lonely, and as I might have mentioned, I started getting pretty burnt out on my job because they were practically working me to death.”")
             input()
             print("“Now, I know you might be thinking “How could you be lonely? You said you had a pretty solid group of friends, right?” I had friends, yes. But most of those friends weren’t really the kind you’d spill your heart out too. We never talked about anything too serious, mostly just kept it centered around work or our hobbies.”")
             input()
-            print("“That meant I didn’t really have anybody to talk too about serious, in-depth stuff. Things like how I was feeling emotional, my future, job burn out, and numerous other things.”")
-            print("“Back in Fulton I’d have a couple of friends that’d be down for listening to whatever bullshit I want, but that wasn’t the case in Nagysburg.”")
+            print("“That meant I didn’t really have anybody to talk to about more serious stuff. Things like how I was feeling emotional, my future, job burn out, and numerous other things.”")
+            print("“Back in Fulton I’d have a couple of friends that’d be down for listening to whatever bullshit I wanted to talk about, but that wasn’t the case in Nagysburg.”")
             input()
             print("“And of course, I couldn’t afford to see a therapist to help with that issue since my health insurance, which I paid $300 a month for by the way, wouldn’t cover any of the cost for therapy. I would have been paying close to $200 per session to just talk to somebody about my problems. Even with my decent paying job I couldn’t afford that.”")  # Realest talk here. I've dealt with this exact situation before.
             input()
@@ -254,7 +254,12 @@ class ValeryPark:
             if val_lonely_question in ['1']:
                 print("“Honestly? I still haven’t 100% gotten out of that funk. I did start talking to some of my old friends towards the end of time at Nagysburg, which helped.”")
                 input()
-                print("“And then I’ve just been telling myself I have to really make an effort to try and meet new people, like you. That’s helped quite bit, even if I don’t end up connecting, I can at least feel good about the fact that I’m trying.”")
+                print('"Moving here has helped a bit. Or at least it\'s made me a bit more optimistic. New place, new opportunities and people."')
+                print('"Of course having too high of expectations can be a dangerous thing too. Like telling yourself that you\'re going to meet all these awesome people and then you actually get there for real and it\'s nothing like you imagined."')
+                input()
+                print('"Wouldn\'t say that exact scenario has happened for me, but I did kind of expect that moving here would help sovle some of my problems."')
+                input()
+                print("“And then I’ve also been telling myself I have to really make an effort to try and meet new people, like you. That’s helped quite bit too. Even if I don’t end up connecting, I can at least feel good about the fact that I’m trying.”")
                 input()
                 CharInfo.valery_checks.valery_true_ending = True
 
@@ -269,15 +274,22 @@ class ValeryPark:
                 CharInfo.valery_checks.valery_true_ending = True
 
             elif val_lonely_question in ['3']:
-                print("“Ok. I understand. Not everyone wants to hear me complain about my problems.”")
+                print("“Really? You couldn't take 10 minutes out of your life to just listen to what I have to say?”")
                 input()
                 CharInfo.valery_checks.valery_true_ending = False
                 CharInfo.valery_checks.valery_date_points -= 8
-                #  Send to end later
+                print('"You must not care about me too much if you don\'t want to hear me out. Suppose were done here then."')
+                print('"No point in continuing this pseudo-date when you can\'t even spare the time to listen to my story."')
+                input()
+                print("Valery gets up and walks to us car without even saying goodbye. Seems you really struck a nerve with him.")
+                input()
+                print("Placeholder")
+                input()
 
-        print("“And those failures make it even better when I find someone like you.” He says while jabbing your shoulder and giving you a slight grin.”")
+        print("“And of course those failures make it even better when I do actually connect with someone. Like with you.” He says while jabbing your shoulder and giving you a slight grin.”")
         input()
-        print("“Oh, and I’m sure you knew this by now, but I know you brought me here because you were interested in me. I figured you probably worked that out given how personal our talks have gotten.”")
+        print("“Alright, I don't like to talk my sad shit for too long, makes me too emotional. Let's talk about something a bit more upbeat.”")  # Need to word this better I think
+        print('"Namely, our relationship. Which is the reason you brought me. You didn\'t say it outright, but I know you\'re interested in me, why else would you have brought me here?"')
         input()
 
         if CharInfo.valery_checks.valery_heart_to_heart is True and CharInfo.valery_checks.valery_true_ending is not True:  # If the player choose the secret dialogue option in the restaurant but didn't finish all of Vals dialogue here
@@ -296,7 +308,7 @@ class ValeryPark:
 class ValeryEndings:
     def ending_one(self):
         print(
-            "“It’s been great getting to know you, and honestly, I’d say I’m pretty into you as well. When we were talking in the restaurant I couldn’t help but feel like I was back in Fulton hanging out with an old friend. It was great”")
+            "“Honestly, I’d say I’m pretty into you as well. When we were talking in the restaurant I couldn’t help but feel like I was back in Fulton hanging out with an old friend. It was great”")
         input()
         print(
             "“I’d be lying if I said I wasn’t already thinking about what’s next for us. Better be another date, at least.”")
@@ -377,7 +389,7 @@ class ValeryEndings:
         print(
             "“Don’t worry, the interest goes both ways, like me. Honestly wasn’t sure if I wanted our relationship to go any further than friends at the start, but after our talks here and at the restaurant, I kind of fell for you.”")
         input()
-        print("“The last time I enjoyed talking with someone this much was, uh, let’s just say awhile ago.”")
+        print("“The last time I enjoyed being around someone this much was, uh, let’s just say awhile ago.”")
         print("“I really like you, {}. And I can’t wait to spend even more time with you.”".format(
             CharInfo.player_info.name))
         input()
