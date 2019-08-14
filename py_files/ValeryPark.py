@@ -15,7 +15,8 @@ class ValeryPark:
         CharInfo.valery_checks.valery_ending_path = ''
         print("You and Valery arrive at the park after a short walk. It’s fairly early into the evening and the park is pretty empty at the moment. Guess most people are probably still at work or at home at this point in the day.")
         input()
-        print("It would seem that this is more of urban park as it lacks dedicated walking trails, and instead just seems to have a set of paths that go all throughout the park.")
+        print("It's late summer so the trees are still quite green, though the grass is looking a bit dry. Walking through the entrance you can see the map of the park and a few fountains.")
+        print("Looking at the map, it would seem that this is more of an urban park as it lacks dedicated walking trails, and instead just seems to have a set of paths that go all throughout the park.")
         print("While this park might not be as nice for just going on a walk, it seems perfect if you just want to sit down and relax or talk with someone.")
         input()
         print("“Never been to this park before. I usually go to the one on Gorge street when I wanna go for a quick walk.”")
@@ -26,41 +27,47 @@ class ValeryPark:
         input()
         print(' "Man, it has been a long time since I\'ve been able to just sit down with someone and talk about - just whatever really." Valery says as he seems to relax a bit.')
         print('"You\'ve been asking me all these questions so I think it\'s my turn to ask you some."')
-        print('"Let\'s start off with a an easy one, did you go into this intending to try and date me?"')
+        print('"Let\'s start off with a an easy one, what kind of music do you like to listen to?"')
         input()
         print(
-            "(1): I had considered it a possibility, but I didn’t know you well enough to say if I’d even enjoy your company. No offense.")
+            "(1): Metal and harder rock is usually what I listen too.")
         print(
-            "(2): I hadn’t really given it any thought. I just saw it as an opportunity to get to know someone new.")
-        print("(3): I’d be lying if I said I wasn’t banking on something sparking between us.")
+            "(2): Indie rock is my main jam, though I'm not opposed to other genres")
+        print("(3): Rap and hip-hop is typically what I'll listen too.")
+        print("(4): I like jazz quite a bit")
+        print("(5): Classical is what I enjoy listening to the most")
+        print("(6): Honestly I listen to a lot of different genres, they all have something I enjoy listening to.")
         val_first_question = input("Pick a response ")
 
         if val_first_question in ['1']:
             print(
-                "“Hah, no offense taken. Honestly, I went into this just expecting to maaaybe make a new friend, definitely did not expect to mesh so well with ya.”")
+                "“Interesting, wouldn't have taken you as someone who enjoyed heavier music.”")
             print(
-                "“I’m glad it’s worked out so well though. It’s uh, been a while since I’ve had such a great time just talking with someone.” Valery says while his face blushes.")
+                "“I could never get into metal myself, there's some heavier rock bands I like but I definitely wouldn't consider it my favorite genre.”")
             input()
+            print('"That would go to xyz dont know yet."')
 
         elif val_first_question in ['2']:
             print(
-                "“That’s pretty much what I was expecting. Just based off our brief conversations I never expected to get along so well with you.”")
+                "“Nice taste, I like quite a bit of indie music myself. Mainly some of the more psychedelic bands like Manhunter and Kings.”")
             print(
-                "“I’m not complaining though, it’s uh, been a while since I’ve had such a great time just talking with someone.” Valery says while his face blushes.")
+                '"Mainly I listen to xyz though."')
             input()
 
         elif val_first_question in ['3']:
-            if CharInfo.player_info.sex in ['Male']:
-                print(
-                    "“Can’t say that was the case for me. I was just expecting to eat some good food and get to know a cool dude.”")
-
-            elif CharInfo.player_info.sex in ['Female']:
-                print(
-                    "“Can’t say that was the case for me. I was just expecting to eat some good food and get to know a cool gal.”")
-
-            print(
-                "“I’m not complaining though, it’s uh, been a while since I’ve had such a great time just talking with someone.” Valery says while his face blushes.")
+            print('"Nice, I used to listen to a lot of rap when I was a bit younger, sort got out of it a bit now though."')
+            print('"Mainly it was Trap I listened too, now if I listen to any its more mainstream and vanilla stuff."')
             input()
+            print('"Now I mainly listen to xyz."')
+
+        elif val_first_question in ['4']:
+            print('"Could never get into jazz myself. I can see why people like it through."')
+            print('"It\'s a pretty broad genre though, I\'m sure I could find something I like if I searched long enough."')
+            input()
+            print('"Most of the time I listen to xyz though."')
+
+        elif val_first_question in ['5']:
+            print()
 
         print("“Okay, next question: Were you at this year’s lake festival? I’ll explain why I’m asking this once you answer.”")
         input()

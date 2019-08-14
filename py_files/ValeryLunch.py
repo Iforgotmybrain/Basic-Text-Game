@@ -85,9 +85,9 @@ class ValeryLunchStart:
 
         print("You and Valery sit down at your table and await the waiter to take your order.")
         input()
-        print("“Y'know, this restaurant is probably one of the more unique ones along the lake. Had to have cost a fair bit of money to make this monster of a glass wall.”")
-        print("""Just think of the engineering they had to do get it to work, you have to make sure the glass is tempered and fairly thick, or else it’ll be destroyed in one hailstorm.""")
-        print("""And you've gotta factor in the fact that its probably going to have to be cleaned pretty often...""")
+        print("“Y'know, this restaurant is probably one of the more unique ones along the lake. Had to have cost a fair bit of money to make this monster of a glass wall.""")
+        print(''"Just think of the engineering they had to do get it to work, you have to make sure the glass is tempered and fairly thick, or else it’ll be destroyed in one hailstorm."'')
+        print('"And you\'ve gotta factor in the fact that its probably going to have to be cleaned pretty often..."')
         input()
         print("“Sorry, was starting to go on a bit of tangent there. I’m an engineer so stuff like that kind of makes me geek out a bit.”")
         input()
@@ -157,7 +157,7 @@ class ValeryLunchStart:
             print("“Ehh, probably 5 times a week? A decent amount for sure, but it’s not like I spent all my time here.”")
             print("“I enjoy the atmosphere and the feeling of familiarity. I also like that it gives me the opportunity to just be around people.”")
             input()
-            print("“I don’t really know anyone else here, so it’s not like I can get together with someone. No significant other, and none of coworkers really get along with me.”")
+            print("“I don’t really know anyone else here, so it’s not like I can get together with someone. No significant other, and none of my coworkers really get along with me.”")
             print("“So yeah, it can get a bit a lonely. Going here just sort of, helps me feel connected.”")
             CharInfo.valery_checks.valery_date_points += 4
             CharInfo.player_info.ending_points += 2
@@ -613,7 +613,7 @@ class ValeryLunchStart:
             SaveSystem.save_sys.saving()
 
         elif val_get_to_know in ['7']:
-            print("Lunch should be arriving soon so you decide to lay off the questions for the time being")
+            print("Lunch should be arriving soon so you decide to lay off the questions for the time being.")
             if CharInfo.valery_checks.valery_heart_to_heart is True:
                 print("You feel like you've really gotten to know Valery over the course of this lunch.")
                 print("And just to think; if you hadn't gone out of your way to meet Valery a week ago, you probably wouldn't have been able to make such a great friend!")
@@ -634,7 +634,6 @@ class ValeryLunchEnding:
 
     def valery_lunch_serving(self):
         print('"Looks like our food is on the way, quick service, as always!"')
-        CharInfo.misc_checks.pc_meal_choice = 'ribs'
         input()
         print("The waitress brings your food out, everything seems to be in order so it's time to dig in!")
         print('"They have pretty decent portions here for the price. Only thing that\'s really lacking are the side options, but that\'s a pretty minor compliant all things considered."')
@@ -686,6 +685,7 @@ class ValeryLunchEnding:
                 input()
                 print("You hand Val a $10 bill to pay for your part of the meal.")
                 CharInfo.player_info.money -= 10
+                input()
 
             elif CharInfo.valery_checks.valery_date_points <= -6:
                 print('"Well at least we each had a good lunch, even if we didn\'t get along the greatest."')
@@ -755,7 +755,7 @@ class ValeryLunchEnding:
             print("(1): I was actually thinking that maybe we could go to the nearby park and just hangout some more.")
             print("(2): And so we shall. It's been great getting to know you.")
 
-        elif CharInfo.valery_checks.valery_date_points <= -6:
+        elif CharInfo.valery_checks.valery_date_points <8:  # Have to rig this to work
             print("(1): Guess so. It's, uh, been a decent time.")
             print("(2): Yup. See ya.")
 
@@ -791,23 +791,23 @@ class ValeryLunchEnding:
                         input()
                         print('"If I\'m being honest, it... felt more like a date."')
                         input()
-                        print("You felt a similar way. ")  #Expand or remove
                         CharInfo.player_info.player_location = ValeryPark.val_park.park_start()
                         SaveSystem.save_sys.saving()
                         ValeryPark.val_park.park_start()
 
-                    elif CharInfo.valery_checks.valery_date_points <= 4:
-                        print("I appreciate your kindness, but I just didn't feel that strong of connection with you.")
-                        input()
-                        print("I hope you're still alright with being friends, though. I just don't really feel like we would make a very good couple.")
-                        input()
-
-                    elif CharInfo.valery_checks.valery_date_points in range (6, 10):
+                    elif CharInfo.valery_checks.valery_date_points in range(6, 11):
                         print("Y'know what? Sure. I enjoyed our little lunch together, definitely wouldn't mind getting to know you a bit more.")
                         input()
                         CharInfo.player_info.player_location = ValeryPark.val_park.park_start()
                         SaveSystem.save_sys.saving()
                         ValeryPark.val_park.park_start()
+
+                    elif CharInfo.valery_checks.valery_date_points <= 6:  # Expand on this
+                        print("I appreciate your kindness, but I just didn't feel that strong of connection with you.")
+                        input()
+                        print("I hope you're still alright with being friends, though. I just don't really feel like we would make a very good couple.")
+                        input()
+
 
                 elif val_date_decision in ['2']:
                     print("Go to the second dialogue option")
