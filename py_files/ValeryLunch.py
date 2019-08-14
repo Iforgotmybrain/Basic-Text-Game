@@ -30,7 +30,7 @@ class ValeryLunchStart:
             print("You also have a date with Holly tomorrow, guess this weekend is quite busy.")
             input()
 
-        print("Pretty much the only thing you have going on today is the lunch with Valery, so you’ll probably just end up hanging around the house until lunch.")
+        print("Since you'll just be going to get lunch with Valery today, you'll just relax at home until it's time to go.")
         input()
         clear()
         print("A couple of hours pass and before you know It it’s time to head out to The Rat’s Place for lunch. You finish up the video you were watching on the computer and head to your car to drive to the restaurant.")
