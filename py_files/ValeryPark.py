@@ -56,7 +56,7 @@ class ValeryPark:
             print(
                 "“Nice taste, I like quite a bit of indie music myself. Mainly some of the more psychedelic bands like Manhunter and Kings.”")
             print(
-                '"Mainly I listen to alt-rock though, I used to listen to just regular rock music quite a bit as well but I got kind of bored of it."')
+                '"My primary genre I listen to alt-rock though, I used to listen to just regular rock music quite a bit as well but I got kind of bored of it."')
             input()
             print('"Mainly because mainstream rock hasn\'t changed that much since the 2000s. I was actually listening to whatever the top rock song of last year was and I seriously thought I was listening to a song from 2004."')
             print('"It had the same exact sound as a rock song from around 2004, only thing that gave away the fact it was a song made in 2018 was the fact that it mentioned the actual year. Shame to see such a storied and formerly great genre turn into a boring and stagnant mess."')
@@ -112,7 +112,7 @@ class ValeryPark:
 
         print("“Okay, next question: Were you at this year’s lake festival? I’ll explain why I’m asking this once you answer.”")
         input()
-        print("(1): I was! Went there pretty much all day and even got to meet an old friend.")
+        print("(1): I was! Went there pretty much all day and even got to meet an old friend.")  # Maybe expand this?
         print("(2): I was there. In fact I’ve gone to pretty much every lake festival since the mid-2000s.")
         print("(3): Uh, nope. Never set foot there this year ")
         val_second_question = input("Pick an answer ")
@@ -149,7 +149,7 @@ class ValeryPark:
         elif val_second_question in ['3']:
             print(
                 "“Well I guess you must have a doppelganger because there was this {} that looked just like you at the concert. When I met you a few days after the festival I was thinking that I remembered seeing you there, guess not.”".format(
-                    CharInfo.player_info.race.name.upper()))
+                    CharInfo.player_info.race.title()))
             input()
 
         print("“Alright, I think this is my last question for you: how long have you lived in Iridium City?")
@@ -157,8 +157,8 @@ class ValeryPark:
         print("")
         print("You tell Valery that you’ve been living here for around 3 years. Before that you were in college and then during your childhood your family lived in Sprucetown, which is about 2 hours east from where you live now.")  # Grammar?
         input()
-        print("“Alright so you’ve been living in a lake city most of your life.”")
-        print("“I’ve lived in-state my whole life but never by the lake, until recent of course.”")
+        print("“Alright so you’ve been living in a city by the lake for most of your life.”")
+        print("“I’ve lived in-state my whole life as well but never by the lake, until recent of course.”")
         input()
         print("(1): Where’d you live before coming here?")
         print("(2): I sat by the ocean and put in a place holder to remember to write this and make it work.")
@@ -251,8 +251,8 @@ class ValeryPark:
                 print("“I won’t lie, it sounds really interesting. Be a great way to build our relationship, too. Maybe keep me in mind when you're picking people to go, yeah?”")
                 print("You tell Val you'll keep him in mind when you start picking your travel mates.")
                 input()
-                print("""I get what your saying about moving outside of your comfort zone. I did enjoy being in a new city and experience all the new thing that had to offer.""")
-                print("""What really got me down was just the complete lack of people I had to talk too about more serious stuff.""")
+                print('"I get what your saying about moving outside of your comfort zone. I did enjoy being in a new city and experiencing all the new things that had to offer."')
+                print('"What really got me down was just the complete lack of people I had to talk too about more serious stuff."')
                 input()
                 print("(1): A lack of people to talk too? Wanna talk about that a bit more?")
                 print("(2): That's unfortunate. At least you seem to be having better luck with that this time around.")
@@ -267,7 +267,7 @@ class ValeryPark:
                         clear()
                         self.park_end()
                     else:
-                        print("“And if I’m being honest, I just don’t feel comfortable talking about that issue right now. It’s nothing against you, just a personal thing.”")
+                        print("“If I’m being honest, I just don’t feel comfortable talking about that issue right now. It’s nothing against you, just a personal thing.”")
                         input()
                         #  Put to end of game when I get there
 

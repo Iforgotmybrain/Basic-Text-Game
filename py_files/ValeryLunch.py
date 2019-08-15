@@ -633,6 +633,7 @@ class ValeryLunchEnding:
         pass
 
     def valery_lunch_serving(self):
+        CharInfo.valery_checks.valery_date_points += 6
         print('"Looks like our food is on the way, quick service, as always!"')
         input()
         print("The waitress brings your food out, everything seems to be in order so it's time to dig in!")
@@ -644,7 +645,7 @@ class ValeryLunchEnding:
         elif CharInfo.misc_checks.pc_meal_choice in ['pulled pork sandwich']:
             print("You have to agree with Val, for $8 you get two sides and a fairly large {}".format(CharInfo.misc_checks.pc_meal_choice))
 
-        print('"I don know about your {}, but my sandwich is fantastic. The fish is cooked perfectly."'.format(CharInfo.misc_checks.pc_meal_choice))
+        print('"I don\'t know about your {}, but my sandwich is fantastic. The fish is cooked perfectly."'.format(CharInfo.misc_checks.pc_meal_choice))
         input()
 
         if CharInfo.misc_checks.pc_meal_choice in ['grilled salmon']:
@@ -791,14 +792,14 @@ class ValeryLunchEnding:
                         input()
                         print('"If I\'m being honest, it... felt more like a date."')
                         input()
-                        CharInfo.player_info.player_location = ValeryPark.val_park.park_start()
+                        CharInfo.player_info.player_location = ValeryPark.val_park.park_start
                         SaveSystem.save_sys.saving()
                         ValeryPark.val_park.park_start()
 
                     elif CharInfo.valery_checks.valery_date_points in range(6, 11):
                         print("Y'know what? Sure. I enjoyed our little lunch together, definitely wouldn't mind getting to know you a bit more.")
                         input()
-                        CharInfo.player_info.player_location = ValeryPark.val_park.park_start()
+                        CharInfo.player_info.player_location = ValeryPark.val_park.park_start
                         SaveSystem.save_sys.saving()
                         ValeryPark.val_park.park_start()
 
