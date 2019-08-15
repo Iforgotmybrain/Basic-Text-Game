@@ -14,8 +14,10 @@ class ValeryLunchStart:
 
     def valery_lunch_intro(self):
         CharInfo.misc_checks.pc_meal_choice = ''
+        CharInfo.valery_checks.valery_ending_path = ''
         CharInfo.valery_checks.valery_date_points = 0
         CharInfo.valery_checks.valery_heart_to_heart = False
+        CharInfo.valery_checks.valery_true_ending = False
         print("The weekend is finally here, and with it comes the various outings that you’ve been expecting.")
         input()
         if CharInfo.player_info.ending_points <= -4:
@@ -756,7 +758,7 @@ class ValeryLunchEnding:
             print("(1): I was actually thinking that maybe we could go to the nearby park and just hangout some more.")
             print("(2): And so we shall. It's been great getting to know you.")
 
-        elif CharInfo.valery_checks.valery_date_points <8:  # Have to rig this to work
+        elif CharInfo.valery_checks.valery_date_points < 8:  # Have to rig this to work
             print("(1): Guess so. It's, uh, been a decent time.")
             print("(2): Yup. See ya.")
 
@@ -776,6 +778,7 @@ class ValeryLunchEnding:
                     print("For starters, it would end any possibility of hooking up with Holly.")
                     print("And if you want to keep on good terms with her, you would too best to let her know that you have no interest in going on another date.")
                     input()
+
                 print("This would make any future romance options quite difficult, unless you were to break up with Valery later.")
                 print("Though he isn't likely to appreciate being dumped so soon after hooking up with you.")
                 input()
@@ -787,6 +790,7 @@ class ValeryLunchEnding:
                 if val_date_decision in ['1']:
                     print("You ask Valery if he'd be up to hanging out a bit more at the nearby park.")
                     input()
+
                     if CharInfo.valery_checks.valery_date_points >= 12:
                         print('"I\'d love too! Honestly we got along so well today I almost forgot this was suppose to just be a lunch hangout kind of thing."')
                         input()
@@ -803,21 +807,50 @@ class ValeryLunchEnding:
                         SaveSystem.save_sys.saving()
                         ValeryPark.val_park.park_start()
 
-                    elif CharInfo.valery_checks.valery_date_points <= 6:  # Expand on this
+                    elif CharInfo.valery_checks.valery_date_points < 6:  # Expand on this
                         print("I appreciate your kindness, but I just didn't feel that strong of connection with you.")
                         input()
                         print("I hope you're still alright with being friends, though. I just don't really feel like we would make a very good couple.")
                         input()
+                        print("(1): Friends it is.")
+                        print("(2): Appreciate your kindness but I'll have to decline.")
+                        val_lunch_deny = input("Choose a response")
 
+                        if val_lunch_deny in ['1']:
+                            print('"Awesome. See you round the neighborhood, frined."')
+                            print('"Until then, take care."')
+                            input()
+                            print("You say goodbye to Valery and start heading back home.")
+                            CharInfo.valery_checks.valery_ending_path = 'restaurant'
+                            ValeryPark.val_trans.ending_transistion()
+
+                        elif val_lunch_deny in ['2']:
+                            CharInfo.valery_checks.valery_date_points -= 2
+                            print('"I understand. Would probably be a bit awkward for you anyway."')
+                            print('"Well take care, make sure to wave if you see me in the neighborhood."')
+                            input()
+                            print("You say goodbye to Valery and start heading home.")
+                            CharInfo.valery_checks.valery_ending_path = 'restaurant denied'
+                            ValeryPark.val_trans.ending_transistion()
 
                 elif val_date_decision in ['2']:
-                    print("Go to the second dialogue option")
+                    print("You decide to not ask Valery if he\'s interested in going to the park.")  # Does this end or continue?
 
-            elif CharInfo.valery_checks.valery_date_points <= -6:
-                print('"I guess you could say that. See ya around."')
+            elif CharInfo.valery_checks.valery_date_points < -4:
+                print('"It\'s certainly been a time. Don\'t know if I\'d say it was a decent one."')
+                print('"Maybe I\'ll see you round sometime, maybe not. Until then, take care."')
                 input()
-                print("You say goodbye to Valery and head home. The meet up probably could have went a little better, but at least you parted on decent terms.")
+                print("You say goodbye to Valery and head home.")
+                CharInfo.valery_checks.valery_ending_path = 'restaurant'
+                ValeryPark.val_trans.ending_transistion()
+
+            elif CharInfo.valery_checks.valery_date_points < 8:
+                print('"It\'s been alright. We\'ll have to see about hanging out some other time maybe."')
+                print('"Until then, take care."')
                 input()
+                print("You say goodbye to Valery and head home.")
+                CharInfo.valery_checks.valery_ending_path = 'restaurant'
+                ValeryPark.val_trans.ending_transistion()
         else:
             print("Invalid")
             self.valery_lunch_serving()
