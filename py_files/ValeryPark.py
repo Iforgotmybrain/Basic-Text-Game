@@ -45,29 +45,70 @@ class ValeryPark:
             print(
                 "“I could never get into metal myself, there's some heavier rock bands I like but I definitely wouldn't consider it my favorite genre.”")
             input()
-            print('"That would go to xyz dont know yet."')
+            print('"That would go to alt-rock. I used to listen to just regular rock music quite a bit as well but I got kind of bored of it."')
+            print('"Mainly because mainstream rock hasn\'t changed that much since the 2000s. I was actually listening to whatever the top rock song of last year was and I seriously thought I was listening to a song from 2004."')
+            print('"It had the same exact sound as a rock song from around 2004, only thing that gave away the fact it was a song made in 2018 was the fact that it mentioned the actual year. Shame to see such a storied and formerly great genre turn into a boring and stagnant mess."')
+            input()
+            print('"Alt-rock and indie rock have sort of gone the way I would have expected rock too, lot more experimentation and different sound styles. But that\'s enough about music, let\'s talk more about you."')
+            input()
 
         elif val_first_question in ['2']:
             print(
                 "“Nice taste, I like quite a bit of indie music myself. Mainly some of the more psychedelic bands like Manhunter and Kings.”")
             print(
-                '"Mainly I listen to xyz though."')
+                '"Mainly I listen to alt-rock though, I used to listen to just regular rock music quite a bit as well but I got kind of bored of it."')
+            input()
+            print('"Mainly because mainstream rock hasn\'t changed that much since the 2000s. I was actually listening to whatever the top rock song of last year was and I seriously thought I was listening to a song from 2004."')
+            print('"It had the same exact sound as a rock song from around 2004, only thing that gave away the fact it was a song made in 2018 was the fact that it mentioned the actual year. Shame to see such a storied and formerly great genre turn into a boring and stagnant mess."')
+            input()
+            print('"Alt-rock and indie rock have sort of gone the way I would have expected rock too, lot more experimentation and different sound styles. But that\'s enough about music, let\'s talk more about you."')
             input()
 
         elif val_first_question in ['3']:
             print('"Nice, I used to listen to a lot of rap when I was a bit younger, sort got out of it a bit now though."')
-            print('"Mainly it was Trap I listened too, now if I listen to any its more mainstream and vanilla stuff."')
+            print('"Mainly it was Trap I listened to, now if I listen to any its more mainstream and vanilla stuff."')
+            print('"Now I mainly listen to alt-rock, used to listen to regular rock quite a bit as well but got kind of bored of it."')
             input()
-            print('"Now I mainly listen to xyz."')
+            print('"Mainly because mainstream rock hasn\'t changed that much since the 2000s. I was actually listening to whatever the top rock song of last year was and I seriously thought I was listening to a song from 2004."')
+            print('"It had the same exact sound as a rock song from around 2004, only thing that gave away the fact it was a song made in 2018 was the fact that it mentioned the actual year. Shame to see such a storied and formerly great genre turn into a boring and stagnant mess."')
+            input()
+            print('"Alt-rock and indie rock have sort of gone the way I would have expected rock too, lot more experimentation and different sound styles. But that\'s enough about music, let\'s talk more about you."')
+            input()
+
+
 
         elif val_first_question in ['4']:
             print('"Could never get into jazz myself. I can see why people like it through."')
             print('"It\'s a pretty broad genre though, I\'m sure I could find something I like if I searched long enough."')
             input()
-            print('"Most of the time I listen to xyz though."')
+            print('"Most of the time I listen to alt-rock though, I liked rock quite a bit as well but I\'ve gotten a bit bored of it."')
+            input()
+            print('"Mainly because mainstream rock hasn\'t changed that much since the 2000s. I was actually listening to whatever the top rock song of last year was and I seriously thought I was listening to a song from 2004."')
+            print('"It had the same exact sound as a rock song from around 2004, only thing that gave away the fact it was a song made in 2018 was the fact that it mentioned the actual year. Shame to see such a storied and formerly great genre turn into a boring and stagnant mess."')
+            input()
+            print('"Alt-rock and indie rock have sort of gone the way I would have expected rock too, lot more experimentation and different sound styles. But that\'s enough about music, let\'s talk more about you."')
+            input()
 
         elif val_first_question in ['5']:
-            print()
+            print('"Interesting choice, can\'t say I enjoy listening to it myself but I appreciate how much of an impact its had on music as a whole."')
+            print('"I\'m more of an alt-rock guy myself, used to just listen to regular rock but I got kind of bored of it."')
+            input()
+            print('"Mainly because mainstream rock hasn\'t changed that much since the 2000s. I was actually listening to whatever the top rock song of last year was and I seriously thought I was listening to a song from 2004."')
+            print('"It had the same exact sound as a rock song from around 2004, only thing that gave away the fact it was a song made in 2018 was the fact that it mentioned the actual year. Shame to see such a storied and formerly great genre turn into a boring and stagnant mess."')
+            input()
+            print('"Alt-rock and indie rock have sort of gone the way I would have expected rock too, lot more experimentation and different sound styles. But that\'s enough about music, let\'s talk more about you."')
+            input()
+
+        elif val_first_question in ['6']:
+            print('"Nice, I totally get that. There\'s a ton of great music out there, and with streaming services its easy to find a bunch of stuff you like."')
+            print('"That\'s how I\'ve found a bunch of my favorite bands recently. Just browsing the suggested artists and listening to streaming radio."')
+            print('"My main genre is probably alt-rock though. Used to listen to a bunch of regular rock music as well, but I got bored of the genre."')
+            input()
+            print('"Mainly because mainstream rock hasn\'t changed that much since the 2000s. I was actually listening to whatever the top rock song of last year was and I seriously thought I was listening to a song from 2004."')
+            print('"It had the same exact sound as a rock song from around 2004, only thing that gave away the fact it was a song made in 2018 was the fact that it mentioned the actual year. Shame to see such a storied and formerly great genre turn into a boring and stagnant mess."')
+            input()
+            print('"Alt-rock and indie rock have sort of gone the way I would have expected rock too, lot more experimentation and different sound styles. But that\'s enough about music, let\'s talk more about you."')
+            input()
 
         print("“Okay, next question: Were you at this year’s lake festival? I’ll explain why I’m asking this once you answer.”")
         input()
