@@ -378,9 +378,9 @@ class ValeryPark:
                 print("Valery gets up and walks to us car without even saying goodbye. Seems you really struck a nerve with him.")
                 input()
                 CharInfo.valery_checks.valery_ending_path = 'disaster'
-                CharInfo.player_info.player_location = val_trans.ending_transistion
+                CharInfo.player_info.player_location = val_trans.ending_transition
                 SaveSystem.save_sys.saving()
-                val_trans.ending_transistion()
+                val_trans.ending_transition()
 
         print("“And of course those failures make it even better when I do actually connect with someone. Like with you.” He says while jabbing your shoulder and giving you a slight grin.”")
         input()
@@ -458,7 +458,7 @@ class ValeryEndings:
 
     def ending_one_common(self):
         print(
-            "Well, I guess our day is about done here. It's been a joy talking with you, can't say I expected today to end with us figuring out when our next date will be.")
+            "Well, I guess our day is about done here. It has been a joy talking with you, can't say I expected today to end with us figuring out when our next date will be.")
         print(
             "But I'll take it, Gods know it's been a long time since I've been in a serious relationship.")
 
@@ -475,14 +475,18 @@ class ValeryEndings:
         val_ending_1_last = input("Choose a response ")
 
         if val_ending_1_last in ['1']:
-            print("End")
+            print("placing holding please fill me in")
+            CharInfo.valery_checks.valery_ending_path = 'ending one kiss'
 
         elif val_ending_1_last in ['2']:
-            print("""You're right, {}. That's why I'll be looking forward to our next date so much.""")
-            print("""Bah, that's enough rambling on. See you round the neighborhood, {}.""".format(
+            print('"You\'re right, {}. That\'s why I\'ll be looking forward to our next date so much."')
+            print('"Bah, that\'s enough rambling on. See you round the neighborhood, {}."'.format(
                 CharInfo.player_info.name))
             input()
             print("You say goodbye to Valery and watch as he walks back to his car.")
+            input()
+            CharInfo.valery_checks.valery_ending_path = 'ending one normal'
+            val_trans.ending_transition()
 
     def ending_two_true(self):
         print(
@@ -504,6 +508,7 @@ class ValeryEndings:
             pass
 
         elif valery_ending_two_prompt in ['2']:
+
             if val_park.val_deeper_move_question in ['3']:
                 print("“Exactly what I was thinking! Bit of a jump to go from a single date to spending a whole month together, be a good way to see if we can stand living with each other though.”")
                 print("“Like I said keep me in mind when you're asking people to tag along. I’m down for that 100%.”")
@@ -527,6 +532,10 @@ class ValeryEndings:
                     input()
                     print("You say goodbye to Valery and watch as he heads back towards his car. Today was a good day.")
                     input()
+                    CharInfo.valery_checks.valery_ending_path = 'ending two normal'
+                    CharInfo.player_info.player_location = val_trans.ending_transition
+                    SaveSystem.save_sys.saving()
+                    val_trans.ending_transition()
 
         elif valery_ending_two_prompt in ['3']:
             print("“Man, I didn’t think I was that attractive. Guess I just hit a nerve with ya.”")
@@ -554,6 +563,10 @@ class ValeryEndings:
                 input()
                 print("You say goodbye to Valery and watch as he heads back towards his car. Today was a good day.")
                 input()
+                CharInfo.valery_checks.valery_ending_path = 'ending two normal'
+                CharInfo.player_info.player_location = val_trans.ending_transition
+                SaveSystem.save_sys.saving()
+                val_trans.ending_transition()
 
     def ending_three(self):
         print(
@@ -567,15 +580,20 @@ class ValeryEndings:
         val_ending_three_prompt = input("Choose a response ")
 
         if val_ending_three_prompt in ['1']:
-            print("""Yeah I guess that's just how life can be sometimes. Keeps you on your toes, I guess.""")
+            print('"Yeah I guess that\'s just how life can be sometimes. Keeps you on your toes, I guess."')
             input()
-            print("""Well it's 5 PM now and we've been talking since we got at the restaurant at 12. It's been a great day but I suppose it's about time for us to head home.""")
-            print("""Can't remember the last I was actually disappointed about having to go home. Now come here and give me a hug before we leave.""")
+            print('"Well it\'s 5 PM now and we\'ve been talking since we got at the restaurant at 12. It\'s been a great day but I suppose it\'s about time for us to head home."')
+            print('"Can\'t remember the last I was actually disappointed about having to go home. Now come here and give me a hug before we leave.)
             input()
             print("You and Valery both stand up before hugging each other good bye.")
-            print("""See ya round, {}. I'm sure I'll see you around the neighborhood. Plus we've still gotta talk about our next date.""".format(CharInfo.player_info.name))
+            print('"See ya round, {}. I\'m sure I\'ll see you around the neighborhood. Plus we\'ve still gotta talk about our next date."'.format(CharInfo.player_info.name))
             input()
-            print("You say good bye to Valery and watch as he walks to his car. Blah blah more fluff later.")
+            print("You say good bye to Valery and watch as he walks to his car. He looks pretty good from behind too.")
+            input()
+            CharInfo.valery_checks.valery_ending_path = 'ending three normal'
+            CharInfo.player_info.player_location = val_trans.ending_transition
+            SaveSystem.save_sys.saving()
+            val_trans.ending_transition()
 
         elif val_ending_three_prompt in ['2']:
             print("""Oh hell yeah. This is probably the best 'unexpected' thing to happen to me. Everything else? Trash. Nothing but pain and suffering.""")
@@ -588,7 +606,12 @@ class ValeryEndings:
             print("You and Valery both stand up before hugging each other goodbye.")
             print("""See ya round, {}. I'll be looking for you around the neighborhood. Plus we've still gotta talk about our next date.""".format(CharInfo.player_info.name))
             input()
-            print("You say goodbye to Valery and watch as he walks to his car. Blah blah more fluff later.")
+            print("You say goodbye to Valery and watch as he walks to his car. He looks pretty good from behind too.")
+            input()
+            CharInfo.valery_checks.valery_ending_path = 'ending three normal'
+            CharInfo.player_info.player_location = val_trans.ending_transition
+            SaveSystem.save_sys.saving()
+            val_trans.ending_transition()
 
     def ending_four_bad(self):
         print(
@@ -596,15 +619,15 @@ class ValeryEndings:
         print(
             "“Maybe we can go on another date sometime, but for now though, no, I don’t feel the same you seem too. I don’t really see us being any more than friends.”")
         input()
-        print("(1): I have to say, I'm a bit disappointed. But I understand, if you're not comfortable with dating me, that's fine.")  # Could take this to a weird end. Get into some real nice guy kind of stuff. Kind of makes me uncomfortable putting that kind of stuff into the game, though.
-        print("(2): Really? If you weren't interested in me you could have just declined my invitation to come here...")  # I Feel like it might normalize that kind of behavior, nice guys and their like are not good people. Also doesn't really fit the character so let's not do that actually.
+        print("(1): I have to say, I'm a bit disappointed. But I understand, if you're not comfortable with dating me, that's fine.")
+        print("(2): Really? If you weren't interested in me you could have just declined my invitation to come here...")
         val_ending_four_prompt = input("Choose a response ")
 
         if val_ending_four_prompt in ['1']:
-            print("""I'm glad you took that as well as you did. I know there's some real pieces of work out there that go insane as soon as you deny them. I'm happy you're not one of them.""")
-            print("""I wouldn't say this is a complete denial but... yeah honestly I just don't see us working out. So I guess it kind of is.""")
+            print('"I\'m glad you took that as well as you did. I know there\'s some real pieces of work out there that go insane as soon as you tell them you aren\'t interested in them. I\'m happy you\'re not one of them."')
+            print('"I wouldn\'t say this is a complete denial but... yeah honestly I just don\'t see us working out. So I guess it kind of is."')
             input()
-            print("Well I suppose we should head home, we've wasted enough time talking here. I hope we can at least part as friends.")
+            print('"Well I suppose we should head home, we\'ve wasted enough time talking here. I hope we can at least part as friends."')
             input()
             print("(1): *Get up and reach out to shake his hand* Friends it is.")
             print("(2): I respect your choice, but I feel like it would just be awkward for us to keep hanging out.")
@@ -612,25 +635,35 @@ class ValeryEndings:
 
             if val_denied_four_prompt in ['1']:
                 print("Valery reaches out and shakes your hand 'I'm glad you feel the same, {}. Hopefully I'll see you round the neighborhood!'".format(CharInfo.player_info.name))
-                print("You say your goodbyes to Valery and tell him you're always glad to have another friend to count on.")
+                print("You say your goodbyes to Valery and tell him you're happy to have another friend to count on.")
                 input()
-                print("More???")
+                print('"Damn straight. You can never have enough real friends. See you later."')
+                input()
+                CharInfo.valery_checks.valery_ending_path = 'ending four friends'
+                CharInfo.player_info.player_location = val_trans.ending_transition
+                SaveSystem.save_sys.saving()
+                val_trans.ending_transition()
 
             elif val_denied_four_prompt in ['2']:
-                print("""I understand completely, there'd probably always be that thought in the back of our minds saying 'what if'.""")
-                print("""Well suppose that's it. I'll be seeing you, {}.""".format(CharInfo.player_info.name))
+                print('"I understand completely, we\'d probably both have nagging thoughts in the back of our head saying "what if" ."')
+                print('"Well suppose that\'s it. I\'ll be seeing you, {}."'.format(CharInfo.player_info.name))
                 input()
                 print("You say your goodbyes to Valery and head back to your car.")
-                print("More???")
+                print("That went pretty well all things considered.")
+                input()
+                CharInfo.valery_checks.valery_ending_path = 'ending four denied'
+                CharInfo.player_info.player_location = val_trans.ending_transition
+                SaveSystem.save_sys.saving()
+                val_trans.ending_transition()
 
         elif val_ending_four_prompt in ['2']:
-            print("""I thought that maybe I'd see something different in you here, but I didn't. It's not your fault, we just weren't made for each other.""")
-            print("""Don't get me wrong, I don't hate you or anything. I just... don't really see a serious relationship between the two of us going anywhere.""")
+            print('"I thought that maybe I\'d see something different in you here, but I didn\'t. It\'s not your fault, we just weren\'t made for each other."')
+            print('"Don\'t get me wrong, I don\'t hate you or anything. I just... don\'t really see a serious relationship between the two of us going anywhere."')
             input()
             print("Valery reaches out his hand to you 'I hope we can stay friends, though.'")
             input()
             print("(1): *Get up and reach out to shake his hand* Friends it is.")
-            print("(2): No. I don't think so. I doubt an ordinary relationship would work out either. Plus it would just be awkward.")
+            print("(2): Oh, I don't think so. I doubt an ordinary relationship would work out either. Plus it would just be awkward.")
             val_hard_denied_four_prompt = input("Choose a response ")
 
             if val_hard_denied_four_prompt in ['1']:
@@ -640,23 +673,33 @@ class ValeryEndings:
                 print(
                     "You say your goodbyes to Valery and tell him you're always glad to have another friend to count on.")
                 input()
-                print("More???")
+                print("Same! You can never have enough real friends. See ya later!")
+                input()
+                CharInfo.valery_checks.valery_ending_path = 'ending four friends'
+                CharInfo.player_info.player_location = val_trans.ending_transition
+                SaveSystem.save_sys.saving()
+                val_trans.ending_transition()
 
             elif val_hard_denied_four_prompt in ['2']:
-                print("""That's unfortunate but I understand your choice. If you feel that way it's definitely best for both of us if we just stopped hanging out.""")
-                print("""Suppose that's it then. Goodbye, {}""".format(CharInfo.player_info.name))
+                print('"That\'s unfortunate but I understand your choice. If you feel that way it\'s definitely best for both of us if we just stopped hanging out."')
+                print('"Suppose that\'s it then. Goodbye, {}"'.format(CharInfo.player_info.name))
                 input()
                 print("You say bye to Valery and head back to your car.")
                 input()
-                print("More???")
+                print("Perhaps you were a bit harsh to Valery.")
+                input()
+                CharInfo.valery_checks.valery_ending_path = 'ending four denied'
+                CharInfo.player_info.player_location = val_trans.ending_transition
+                SaveSystem.save_sys.saving()
+                val_trans.ending_transition()
 
 
-class ValeryDateEndingTransistion:
+class ValeryDateEndingTransition:
 
-    def ending_transistion(self):
+    def ending_transition(self):
 
-        if CharInfo.valery_checks.valery_true_ending is True:
-            print("All things considered today couldn\'t have went much better. You feel like you really got to know Valery today, and it seems you even have a bit of relationship going on with him.")
+        if CharInfo.valery_checks.valery_ending_path in ['ending two normal']:
+            print("All things considered today couldn\'t have went much better. You feel like you really got to know Valery today and have quite the relationship already going on.")
             input()
 
         elif CharInfo.valery_checks.valery_heart_to_heart is True and CharInfo.valery_checks.valery_ending_path in ['restaurant']:
@@ -664,6 +707,7 @@ class ValeryDateEndingTransistion:
             input()
 
         elif CharInfo.valery_checks.valery_heart_to_heart is not True and CharInfo.valery_checks.valery_ending_path in ['restaurant']:
+
             if CharInfo.valery_checks.valery_date_points >= 8:
                 print("You had a decent time today, Valery seems like we'll be a nice friend to have around.")
                 input()
@@ -676,11 +720,18 @@ class ValeryDateEndingTransistion:
                 print("Today wasn't terrible but it wasn't great either. Valery still feels like more of an acquaintance than a friend.")
                 input()
 
-        elif CharInfo.valery_checks.valery_heart_to_heart is True and CharInfo.valery_checks.valery_true_ending is not True:
-            print("Today went pretty decent. Though the best time spent with Val today was probably in the restaurant. Your time in the park wasn't bad but you can't help but feel that maybe you dug for too much information.")
+        elif CharInfo.valery_checks.valery_ending_path in ['ending one kiss']:
+            print("It was a pretty nice day today. Perhaps it could have went a little bit better but it's hard to best what you just went through.")
+
+        elif CharInfo.valery_checks.valery_ending_path in ['ending one normal'] or CharInfo.valery_checks.valery_ending_path in ['ending three normal']:
+            print("You have a nice little thing going on with Valery right now. It should be interesting to see how it devlops as you get to know him even more.")
+
+        elif CharInfo.valery_checks.valery_ending_path in ['ending four denied']:
+            print("However it was pretty disappointing to be told that Valery wasn't interested in you. You can understand where he's coming from but it still hurts.")
+            print("Most likely it was for the best that you decided to just not pursue any type relationship with him. Just being friends would have been a bit awkward.")
             input()
 
-        elif CharInfo.valery_checks.valery_heart_to_heart is not True and CharInfo.valery_checks.valery_date_points in range(-2, 4):
+        elif CharInfo.valery_checks.valery_ending_path in ['ending four friends']:
             print("Today went about how you expected. You got to know someone new but didn't get much beyond that. Still, there's nothing wrong with just getting to know a new friend.")
             input()
 
@@ -688,11 +739,7 @@ class ValeryDateEndingTransistion:
             print("Today wasn\'t going too bad until you told Valery you didn\'t care much about his past struggles. You can understand why he would get upset at this but you genuinely just didn\'t give a shit.")
             input()
 
-        elif CharInfo.valery_checks.valery_date_points <= -4:
-            print("In retrospect, today was bit of a waste of time. You found almost no common ground with Valery and didn't develop any rapport with him. That happens sometimes, just gotta keep on going.")
-            input()
-
 
 val_park = ValeryPark()
 val_endings = ValeryEndings()
-val_trans = ValeryDateEndingTransistion()
+val_trans = ValeryDateEndingTransition()

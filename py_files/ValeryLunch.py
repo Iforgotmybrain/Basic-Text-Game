@@ -822,7 +822,7 @@ class ValeryLunchEnding:
                             input()
                             print("You say goodbye to Valery and start heading back home.")
                             CharInfo.valery_checks.valery_ending_path = 'restaurant'
-                            ValeryPark.val_trans.ending_transistion()
+                            ValeryPark.val_trans.ending_transition()
 
                         elif val_lunch_deny in ['2']:
                             CharInfo.valery_checks.valery_date_points -= 2
@@ -831,7 +831,7 @@ class ValeryLunchEnding:
                             input()
                             print("You say goodbye to Valery and start heading home.")
                             CharInfo.valery_checks.valery_ending_path = 'restaurant denied'
-                            ValeryPark.val_trans.ending_transistion()
+                            ValeryPark.val_trans.ending_transition()
 
                 elif val_date_decision in ['2']:
                     print("You decide to not ask Valery if he\'s interested in going to the park.")  # Does this end or continue?
@@ -842,7 +842,7 @@ class ValeryLunchEnding:
                 input()
                 print("You say goodbye to Valery and head home.")
                 CharInfo.valery_checks.valery_ending_path = 'restaurant'
-                ValeryPark.val_trans.ending_transistion()
+                ValeryPark.val_trans.ending_transition()
 
             elif CharInfo.valery_checks.valery_date_points < 8:
                 print('"It\'s been alright. We\'ll have to see about hanging out some other time maybe."')
@@ -850,7 +850,7 @@ class ValeryLunchEnding:
                 input()
                 print("You say goodbye to Valery and head home.")
                 CharInfo.valery_checks.valery_ending_path = 'restaurant'
-                ValeryPark.val_trans.ending_transistion()
+                ValeryPark.val_trans.ending_transition()
         else:
             print("Invalid")
             self.valery_lunch_serving()
