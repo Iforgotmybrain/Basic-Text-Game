@@ -46,8 +46,8 @@ def pcbedroom():
             "You wake up the next morning, your bedroom is dimly lit with the only source of light being the sun as it sneaks through the blinds.")
 
     elif CharInfo.sasha_checks.sasha_living is True and CharInfo.jacob_checks.jacob_bedroom is not True:  # Makes it so the dialogue doesn't repeat
-        print("You wake up the next day feeling pretty good. Your conversation with Sasha helped ease your mind, and made you realize just how great of friends you have now.")
-        print("You think about possibly asking Jacob about some of his past trips. He should be in his bedroom.")
+        print("You wake up the next day feeling pretty good. Your conversation with Sasha helped ease your mind.")
+        print("You think about possibly asking Jacob about something on your mind. He should be in his bedroom.")
         input()
 
     elif CharInfo.festival_checks.festival_ending is True and CharInfo.chris_checks.chris_computer_list is not True:  # Same thing.
@@ -371,6 +371,7 @@ class SashaEncounter:
             print('"Hey, nothing new to say."')
             input()
             hallway()
+
         # elif CharInfo.sasha_checks.sasha_talk is True:  # Oh lawd. This is gonna be cut for now and replaced later.
         #     print(""" "You know, I actually had a friend once that basically disappeared for 2 weeks." """)
         #     input()
@@ -568,7 +569,7 @@ class LivingRoom:
             "You walk up to Sasha and sit in the chair beside the couch. The TV is playing a superhero movie involving some sort of pink titan.")
         input()
         print(
-            '"Like the movie? It’s called Revengers: Titan Attack. One of the last movies in the Lightning Maus Movie Universe. There’s one more that comes after this, but it isn’t out on disc yet"')
+            '"Like the movie? It’s called Revengers: Titan Attack. One of the last movies in the Lightning Maus Movie Universe. There’s one more that comes after this, but it isn’t out on disc yet"')  # God these are some cheesy names
         input()
         print(
             '"Actually, do you even like superhero movies? I won’t say anymore about it just In-case you want to watch it at some point."')
@@ -578,107 +579,48 @@ class LivingRoom:
         input()
         print(
             '"Oh boy, you are in for a treat if you ever decide to catch up on them. Definitely let me know before you do, I’d love to re-watch all of them with you."')
-        print('"Anyway, you want anything or just here to chat?"')
+        print('"Anyway, you want something or just here to chat?"')
         input()
-        sashatalkorconfess = input("(1): Tell Sasha you wanted to talk about your walk in the park. (2:) Just keep chatting. ").lower()
+        sasha_talk_or_confess = input("(1): Tell Sasha you wanted to talk about purpose. (2:) Just keep chatting. ").lower()
 
-        if sashatalkorconfess in ['1']:
-            print(
-                "You tell Sasha that you wanted to talk about your recent walk in the park.")  # Maybe implement a choice later? Don't really have the story options to make this optional yet.
-            input()                                                                            # Surprisingly I did actually implement a choice later.
-            print('"A walk in the park, huh? What about it did you want to talk about?"')
+        if sasha_talk_or_confess in ['1']:
+            print("You tell Sasha you want to talk about finding a purpose in life.")
             input()
-            print(
-                "You take some time to explain what exactly is on your mind. That you're bothered by how you left your friends.")
+            print("“Purpose, huh? Yeah that doesn’t surprise, figured you’d get bored of your contract worker lifestyle.”")
+            print("“Well I’m assuming your issue is that you’re tired of not having something to chase after. The way you live now, you basically work for 2 weeks a month and then the rest is just spent pissing around.”")
             input()
-            print(
-                '"So, what happened to these friends? Did they move away? Lose interest in the relationship? Give me some more info."')
+            print("“I have a little bit of experience with this myself, which of course makes me an expert on the topic. Back when I graduated high school, I was a mess. I had zero idea what I wanted to do. My parents wanted me to go to college, but I didn’t feel like I would be cut out for it.”")
+            print("“I didn’t want to go straight to working either because there just wasn’t really a viable career path.”")
             input()
-            print(
-                "You start to provide some background information to Sasha, explaining the friends’ role in your life, how they affected you, and then eventually how it all broke down ")
-            print(
-                "You can remember exactly how it started, it was mid-September during your teen years. Your parents had just told you that they couldn’t afford to stay at the lake anymore and that they would be packing up and leaving by the end of the month.")
+            print("“So, I took a gap year to try and figure myself out. Told myself I’d work part time while ‘researching’ career paths. You know me, how well do you think that worked out?”")
+            print("“I just worked my part time job and didn’t do jack shit else. Worked my 20 hours a week and then pissed off and went partying with my friends or sat at home all day.”")
             input()
-            print(
-                "This was a huge change. By the end of the month, you’d be moving away from the place of your childhood, the place where you spent almost all your summer days. The place where you met your best-friends.")
+            print("“It was fun for a few months, but your mind wants something to work towards and this lifestyle was a dead end.”")
+            print("“I started to feel lost after those few months, I had no long-term goals, no real ambition, I wasn’t too far off from just being a deadbeat for the rest of my life truth be told. You surround yourself with negative people like that and you’ll find you're tangled in plaid quicker than you think.”")
             input()
-            print(
-                "You were gone a week after that. You didn’t have time to mention it to most of your friends since they weren’t even there at the time. In an age without smartphones and social media, those friendships essentially ended that day")
+            print("“After talking with my parents and a couple of my friends who actually did something after high school, I decided that I’d give college a try. I wasn’t going straight to university though; I’d go to community college and then transfer if I ended up enjoying it.”")
+            print("“Wasn’t my ideal path, but my way of doing things kind of turned out to be a disaster, so I said, “fuck it” and decided to give the more traditional post high school path a go.”")
+            print("“Ended up liking college quite a bit as you might have guessed. I went in declared as undecided but found my passion pretty quick, which was Geology.”")
             input()
-            print(
-                "As you tell Sasha about the move, you remember another ordeal before the move. It involved some of your best-friends, Abbey and Jane. The move ended your friendships completely, yes, but you remember that you were on surprisingly shaky terms with both of them months before moving.")
+            print("“Point is, sometimes you have to go outside your comfort zone and ideals to find what you want. Sometimes you don’t know exactly what you want and you’ve gotta just wing and hope you figure it out.”")
+            print("“If I were you, I’d start trying out new stuff. Maybe pick up a new hobby, meet someone new, volunteer. Just find something and see if you like it.”")
             input()
-            print(
-                "You started to drift apart. Your interests were changing, and as you got older you has less and less common ground. To the point where Jane said that she ‘barely knew you’. It was actually a similar case with you, you didn’t know what they were interested in anymore. It’s hard to stay friends with someone when you have no idea what they want to talk about. Regardless, hearing that took you down a notch. Were you ignoring them and not even realizing it? Did they just not feel like you were friends anymore?")
-            input()
-            print(
-                "You never got to ask them why they felt that way, so you can only assume. You feel it was a combination of both parties changing their ideas and interests, as well as Jane and Abbey hanging out with a different friend group. Both parties just slowly lost interest in each other.")
-            print(
-                "Looking back at it, you feel that the break down of the friendship was inevitable. Even if you hadn’t moved away, it's likely the friendship would have deteriorated further and further. The move simply accelerated things")
-            input()
-            print(
-                "You connected with Abbey and Jane on social media 3 years after moving away, but of course it wasn’t the same. There just wasn’t anything to talk about. Both groups were almost completely different people from the ones 3-4 years ago. Any connections you might have had were gone.")
-            input()
-            print("You should have let go at that point, but 7 years in the future and you still cling to the past.")
-            print(
-                "You look to Sasha after rambling on, she seems surprised to hear this from you, considering you’d never mentioned anything about it before.")
-            input()
-            print(
-                '"That’s quite the story. Can’t say I would have expected something like this from you. You always seemed like the kind of person to live in the present."')
-            print('"Then again perhaps I just suck at reading people."')
-            input()
-            print(
-                '"I think most of us have experienced something similar to you. A friendship breaking down for whatever reason"')
-            input()
-            print(
-                '"I think the reason you still look back at that time with such regret is because of the way your relationship broke down. You watched your relationship with Abbey and Jane slowly drift away. With it being the fault of no one. Apparently, you didn’t even really get to discuss it with them, that lack of closure has no doubt helped lead to your current feelings"')
-            input()
-            print('"People change, and in the case of Abbey and Jane, there just isn\'t much you can do about it."')
-            input()
-            print(
-                '"I’ve dealt with a kind of similar situation before. I’m sure you remember me talking about one of my roommates in college dropping out because of depression, well that wasn’t the first time something like that happened."')
-            input()
-            print(
-                '"One of my friends in high school was dealing with some serious shit. Depression, anxiety, and he never told anyone about it. He’d hid it from everyone else, there was no way to know what was going with him. He always cracked jokes, would hang out with you and do whatever, he seemed like one of the most carefree, happy guys I knew."')
-            print(
-                '"You probably know where this is going by now. He was dealing with serious clinical depression, didn’t want anyone to know because he didn’t want to burden them. He didn’t want people to feel sorry for him."')
-            input()
-            print(
-                '"He ended up committing suicide by overdosing during his junior year of high school. The last guy you would have expected to have that kind of stuff going on "')
-            print(
-                '"It was extremely difficult dealing with that for the first few months, hell, the first year even. Everybody at the school had trouble dealing with it."')
-            input()
-            print(
-                '"It took me a long time to come to terms with it. And then after that, I still dealt with a mix of guilt and sadness. I felt like I should have picked up on him being depressed. I should have been able to help him in some way. I tried numerous things to try and get past it, stuff as simple as trying new hobbies or traveling, and even went to therapy."')
-            input()
-            print(
-                '"Ultimately, what helped me the most was focusing on the friends that were still there, and on forming new friendships. It helps keep your mind off the past, and helps fill the void that was left. Instead of worrying about what happened in the past, you just try and focus on the now, and how you can make the most of it."')
-            input()
-            print(
-                '"Of course, that’s not always easy to do. Stuff like this never is. And even if you succeed, it doesn’t completely erase the past. You’ll still have moments of weakness, you’ll still think about what could have been"')
-            input()
-            print(
-                '"All you can do is try, and if that fails, ya know, you’ve gotta reach out to people. Family, friends, somebody. Just letting your thoughts simmer isn’t going to help, it just puts you further down the rabbit hole."')
-            print(
-                '"There’s no easy way out of these kinds of situations, and odds are, it\'s not going to be the first time you’re going to deal with it"')
-            input()
-            print(
-                'You find yourself resonating with Sasha’s advice and past experiences, though you feel like you’re left with more questions for yourself then before having this conversation. You’re not sure if that’s a good thing or a bad thing.')
-            input()
-            print('You ask Sasha if she still thinks about those memories very often.')
-            input()
-            print(
-                '"Yes, I still look back at those memories on occasion. Though I’ve found myself looking at the positives of those times rather the negatives. I’m at a point in my life where I feel I’ve moved on from that. I’m happy with how everything has worked out at this point, and that’s in no small part to my friends\' group and support group."')
-            input()
-            print(
-                'You thank Sasha for entertaining your thoughts and helping you out, it helped clear your mind a bit.')
-            input()
-            print(
-                '"Of course! That’s what friends are for. I’ll see you around; oh, and make sure you tell me if you want to catch up on the Revenger’s movies! I’ll be pissed if you don’t!"')
-            input()
-            print(
-                'You say goodbye to Sasha and head up to the room for the night, your mind full of thoughts to process')
-            input()
+            print("(1): Thank Sasha for advice.")
+            print("(2): Ask Sasha if she as any ideas that are more specific.")
+            sasha_confess_response = input("Choose a response")
+
+            if sasha_confess_response in ['1']:
+                print("“Of course, anything for my best friend. If you wanna talk about anything else, you just let me know. And if you find yourself sinking deeper, don’t struggle, ask for help.”")
+                input()
+                print("You say goodbye to Sasha and head up for the night. You have quite a lot to consider.")
+                input()
+
+            elif sasha_confess_response in ['2']:
+                print("“I don’t know. There’s that festival thing coming up tomorrow. Maybe go there and see if you meet someone. Jacob might have an idea too. Couldn’t hurt to ask him.”")
+                input()
+                print("You thank Sasha and head up for the night. You'll have to ask Jacob about something tomorrow.")
+                input()
+
             clear()
             CharInfo.player_info.player_location = pcbedroom
             CharInfo.sasha_checks.sasha_living = True
@@ -686,7 +628,7 @@ class LivingRoom:
             SaveSystem.save_sys.saving()
             pcbedroom()
 
-        elif sashatalkorconfess in ['2']:
+        elif sasha_talk_or_confess in ['2']:
             print("You tell Sasha you just wanted to chat with her for a bit.")
             input()
             print("“Alright, just like old times! It's been awhile since we've just sat down and talked”")
@@ -707,6 +649,7 @@ class LivingRoom:
             input()
             print("You nod your head in agreement with Holly before getting up and walking up to your room.")
             input()
+            clear()
             CharInfo.player_info.player_location = pcbedroom
             CharInfo.sasha_checks.sasha_living = True
             CharInfo.player_info.ending_points += 2
@@ -786,10 +729,11 @@ class JacobDialogue:
         input()
         print("As you enter Jacob's room you notice how nicely decorated it is. You see the various landscape paintings he has hung on the walls, and the house plants he has. It all meshes together great and creates a soothing atmosphere.")
         input()
-        print('"What’s up?  Come to talk ‘bout that vacation?"')
-        print("You tell Jacob that’s not quite what you had in mind, though the vacation will likely come up in the conversation.")
+        print('"What’s up?  Come to talk ‘bout something?"')
+        print("You tell Jacob that you were thinking of planning something but that you wanted to pick his brain for a bit first.")
         input()
-        print('"Okay then, what’d you want talk about?"')
+        print('"Okay then, pick away."')
+        input()
         print('You start by telling Jacob that you wanted to talk about his past trips. He’d talked previously about going on long trips out of state, something that you might be interested in doing yourself.')
         input()
         print('"Yeah, I’ve gone on a few trips out of state, I think furthest I’ve went was about a days’ worth of driving away"')
@@ -804,13 +748,14 @@ class JacobDialogue:
         input()
         print("You thank Jacob for shedding some light on his past trip. You’re still not sure if something like that is for you, you’ll just have to think about it.")
         input()
-        print("After talking with Jacob, you take some time and finish the current contract you’re working on. The deadline was still 1 week away but of course its best to get it done early.")
+        clear()
+        print("After talking with Jacob, you take some time and finish the current contract you’re working on. The deadline was still 1 week away but of course it's best to get it done early.")
         print("You are awarded $800 for the contract, you put 200 in your checking account, and the rest goes into an investment account.")
         input()
         CharInfo.player_info.money += 200
         print("Your bank balance is now {}".format(CharInfo.player_info.money))
         input()
-        print("New travel area unlocked.")
+        print("New travel area unlocked: Lake Fest.")
         CharInfo.jacob_checks.jacob_bedroom = True
         TravelSystem.travel_points.tp.append('Lake Fest')
         input()
