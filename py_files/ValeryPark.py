@@ -166,7 +166,7 @@ class ValeryPark:
         while True:
             print("(1): Where’d you live before coming here?")
             print(
-                "(2): I'm gonna be honest with you. I just don't think this gonna work out like I thought it was.")  # Last placeholder to fix
+                "(2): Look, I'm gonna be honest with you. I just don't think this gonna work out like I thought it was.")  # Last placeholder to fix
             val_living_question = input("Choose a response ")
             if val_living_question in ['1', '2']:
                 break
@@ -241,7 +241,7 @@ class ValeryPark:
                 else:
                     print("“And if I’m being honest, I just don’t feel comfortable talking about those issues right now. It’s nothing against you, just a personal thing.”")
                     input()  # Fix this. Too sleepy for now.
-                    breakpoint()
+                    print("")
 
             elif self.val_deeper_move_question in ['2']:
                 print("“Hah, I’d probably end up missing you too. Or at least be left wondering what could have been.”")
@@ -382,6 +382,28 @@ class ValeryPark:
 
         elif val_living_question in ['2']:
             print('"Huh? What do you mean?"')
+            input()
+            while True:
+                print(
+                    "(1): I'm not as interested in you as I thought I would be. I think it would be best if we just ended this little date right now.")
+                print(
+                    "(2): I mean that I'm not interested in you. I thought I saw something in you at the restaurant but I see now that was a mistake.")
+                print("(3): You're boring. You're pretty to look at but that's as far my interest for you goes.")
+                val_end_date = input("Choose a response ")
+
+                if val_end_date in ['1']:
+                    print('"Wow, alright. That\'s one hell of a surprise, figured you\'d have sorted out your interest in me back at the restaurant."')
+                    print('"If that\'s how you really feel I\'m not gonna try to convince you otherwise. Guess I\'ll be taking my leave."')
+                    input()
+                    print("Valery gets up and starts walking back to his car. That wasn't easy to do, but being honest with him was probably your best bet.")
+                    input()
+
+                elif val_end_date in ['2']:
+                    print('"Well shit, way to be blunt about it. Guess being subtle isn\'t something you\'s capable of."')
+                    print('"Guess there\'s no reason for me to stick around then. Can\'t see any point in trying to befriend someone that thinks so little of me."')
+                    input()
+
+
 
     def park_end(self):
         if CharInfo.valery_checks.valery_heart_to_heart is True and CharInfo.valery_checks.valery_date_points >= 15:
