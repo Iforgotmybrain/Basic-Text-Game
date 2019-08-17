@@ -9,6 +9,7 @@ import ValeryLunch
 
 clear = lambda: os.system('cls' if os.name == 'nt' else 'clear')
 
+
 class PCBedrooms:
     def chap3_mid_bedroom(self):  # If I just make a little intro func for every file that doesn't return that would allow me to get around the new class instance issue.
         CharInfo.player_info.player_location = PC_bedrooms.chap3_mid_bedroom  # Just telling the game where the player is located.
@@ -16,7 +17,7 @@ class PCBedrooms:
             print("You're standing in your bedroom, your curtains are closed and no lights are on, making the room fairly dark.")
 
         elif CharInfo.misc_checks.halfway_chap3 is True and CharInfo.player_info.ending_points >= 4:
-            print("You're standing in your bedroom, your curtains are lifted up, lighting up the room and giving it a cozy vibe.")
+            print("You're standing in your bedroom, your curtains are lifted up, filling the room with natural light and giving it a cozy vibe.")
 
         elif CharInfo.misc_checks.halfway_chap3 is True:
             print("You're standing in your bedroom, your curtains are open a bit, giving the room a bit of natural light.")
@@ -47,7 +48,7 @@ class PCBedrooms:
         elif chap3_bedroom_input in ['relax', 'bed', 'sleep', 'end day', 'end the day']:
             print("This will prevent you from accessing any other content from this day.")
             print("If you haven't met Valery today then you will not be able to progress your relationship with him any further.")
-            bed_relax = input("Proceed? (yes or no)").lower()
+            bed_relax = input("Proceed? (yes or no) ").lower()
             if bed_relax in ['yes', 'y']:
                 last_of_chapter_3_transfer()
 
@@ -93,11 +94,11 @@ class LaterChapComputer:
         return self.computer_placement()
 
     def pawbook(self):
-        print("There's nothing new on Pawbook.")
+        print("You go on Pawbook but find nothing new. Just the usual recipe posts from your Aunts, and political tirades courtesy of a very distant cousin. You really should mute him one of these days.")
         input()
         return self.computer_placement()  # + Stuff regarding checks, but there's really no checks for no so its blank.
 
-    def money_management(self):
+    def money_management(self):  # This is where my more current writing style kicks in. Very notable difference.
         print("Going on this road trip is going to be a pretty big expense, the mere ${} you have in your bank account won’t be nearly enough to supply you throughout the trip.".format(CharInfo.player_info.money))
         input()
         print("So, you’ll have to look into getting some money from your savings and possibly cash-out some of your investments.")
@@ -139,7 +140,7 @@ class LaterChapComputer:
         print("It’s a difficult decision, you ponder it for a while, going back and forth between the two options. Eventually deciding too…")
         print('(1): Stick with you\'ve got and avoid taking money from investments.')
         print("(2): Dip into your investment accounts in order to ensure you have enough money for the road trip.")
-        money_choice = input("Which will you pick? (1 or 2)").lower()
+        money_choice = input("Which will you pick? (1 or 2)" ).lower()
 
         if money_choice in ['1']:
             CharInfo.player_info.money += 2000
@@ -210,6 +211,9 @@ class LaterChapComputer:
                 CharInfo.player_info.player_location = last_of_chapter_3_transfer
                 SaveSystem.save_sys.saving()
                 last_of_chapter_3_transfer()
+        else:
+            print("Invalid input")
+            self.money_management()
 
 def hallwaymid():
     CharInfo.player_info.player_location = hallwaymid

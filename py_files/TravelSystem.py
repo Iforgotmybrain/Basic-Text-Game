@@ -1,33 +1,38 @@
+import CharInfo
 class TravelPoints:
     def __init__(self):
         self.tp = ['Tories Cafe', 'Sycamore Lakeview Park', 'Home']
 
+
 class Traveling:
-    def __init__(self, travel_point_cafe, travel_point_park, travel_point_festival_one, travel_point_home,
+    def __init__(self, travel_point_cafe, travel_point_park, travel_point_festival_one, travel_point_home_one,
                  travel_point_early_bedroom, travel_point_hallway, travel_point_quick_walk,
-                 travel_point_mid_bedroom, travel_point_valery_house, travel_point_mid_entranceway):
+                 travel_point_mid_bedroom, travel_point_valery_house, travel_point_mid_entranceway,
+                 travel_point_home_two):
         self.travel_point_cafe = travel_point_cafe
         self.travel_point_park = travel_point_park
         self.travel_point_festival_one = travel_point_festival_one
-        self.travel_point_home = travel_point_home
+        self.travel_point_home_one = travel_point_home_one
         self.travel_point_early_bedroom = travel_point_early_bedroom
         self.travel_point_hallway = travel_point_hallway
         self.travel_quick_walk = travel_point_quick_walk
         self.travel_point_mid_bedroom = travel_point_mid_bedroom
         self.travel_point_valery_house = travel_point_valery_house
         self.travel_point_mid_entranceway = travel_point_mid_entranceway
+        self.travel_point_home_two = travel_point_home_two
 
     def traveltofront(self):
-        print('You can think of the following places to travel to:')
+        print('You can think of the following places to check out:')
         print(travel_points.tp)
         travel_test.portal()
 
-class TravelPortal(Traveling):
+
+class TravelPortal(Traveling): # Don't forget to set these points up when you add a new one. I have them all setup in Base.py
     def __init__(self):
         super().__init__(travel_point_park='', travel_point_cafe='', travel_point_festival_one='',
-                         travel_point_home='', travel_point_early_bedroom='', travel_point_hallway='',
+                         travel_point_home_one='', travel_point_early_bedroom='', travel_point_hallway='',
                          travel_point_quick_walk='', travel_point_mid_bedroom='', travel_point_valery_house='',
-                         travel_point_mid_entranceway='')
+                         travel_point_mid_entranceway='', travel_point_home_two='')
 
     def portal(self):
         travelarea = input("Where do you want to go? ").lower()
@@ -42,7 +47,10 @@ class TravelPortal(Traveling):
             travel_function.travel_point_festival_one()
 
         elif travelarea in ['home', 'house']:
-            travel_function.travel_point_home()
+            if CharInfo.misc_checks.halfway_chap3 is not True:
+                travel_function.travel_point_home_one()
+            elif CharInfo.misc_checks.halfway_chap3 is True:
+                travel_function.travel_point_home_two()
 
         elif travelarea in ['bed', 'bedroom']:
             travel_function.travel_point_early_bedroom()
@@ -62,10 +70,11 @@ class TravelPortal(Traveling):
 
 
 travel_function = Traveling(travel_point_cafe=Traveling, travel_point_park=Traveling,
-                            travel_point_festival_one=Traveling, travel_point_home=Traveling,
+                            travel_point_festival_one=Traveling, travel_point_home_one=Traveling,
                             travel_point_early_bedroom=Traveling, travel_point_hallway=Traveling,
                             travel_point_quick_walk=Traveling, travel_point_mid_bedroom=Traveling,
-                            travel_point_valery_house=Traveling, travel_point_mid_entranceway=Traveling)
+                            travel_point_valery_house=Traveling, travel_point_mid_entranceway=Traveling,
+                            travel_point_home_two=Traveling)
 
 travel_test = TravelPortal()
 

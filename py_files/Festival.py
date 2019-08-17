@@ -445,34 +445,33 @@ class FestivalMid:
         input()
         print("At this point the band is on their last song. The evening is approaching, with only a few more hours left for the festival.")
         input()
-        print("You could ask Holly to accompany you for the rest of the day, or you could part ways. ")
-        hollystayorleave = input("After thinking about it you decide too... (1): Ask Holly to tag along with you for the rest of the day \
-        (2): Go your separate ways ").lower()
+        while True:
+            print("You could ask Holly to accompany you for the rest of the day, or you could part ways. ")
+            hollystayorleave = input("After thinking about it you decide too... (1): Ask Holly to tag along with you for the rest of the day \
+                    (2): Go your separate ways ").lower()
 
-        if hollystayorleave in ['1']:
-            CharInfo.festival_checks.holly_stay = True
-            print("You ask Holly if she wants to tag along for the rest of the day.")
-            input()
-            print('"Well, I wasn’t initially planning on staying after this concert, but since you’re offering… Sure, I’ll gladly tag along."')
-            input()
-            CharInfo.player_info.ending_points += 4
-            CharInfo.player_info.player_location = festival_end.festival_hub_end
-            SaveSystem.save_sys.saving()
-            festival_end.festival_hub_end()
+            if hollystayorleave in ['1']:
+                CharInfo.festival_checks.holly_stay = True
+                print("You ask Holly if she wants to tag along for the rest of the day.")
+                input()
+                print(
+                    '"Well, I wasn’t initially planning on staying after this concert, but since you’re offering… Sure, I’ll gladly tag along."')
+                input()
+                CharInfo.player_info.ending_points += 4
+                CharInfo.player_info.player_location = festival_end.festival_hub_end
+                SaveSystem.save_sys.saving()
+                festival_end.festival_hub_end()
+                break
 
-        elif hollystayorleave in ["2"]:
-            CharInfo.festival_checks.holly_stay = False
-            print("You decide to part ways with Holly.")
-            CharInfo.player_info.ending_points -= 2
-            input()
-            CharInfo.player_info.player_location = festival_end.festival_hub_end
-            SaveSystem.save_sys.saving()
-            festival_end.festival_hub_end()
-
-        else:
-            print("Invalid input")
-            return self.main_concert_dialogue()
-
+            elif hollystayorleave in ["2"]:
+                CharInfo.festival_checks.holly_stay = False
+                print("You decide to part ways with Holly.")
+                CharInfo.player_info.ending_points -= 2
+                input()
+                CharInfo.player_info.player_location = festival_end.festival_hub_end
+                SaveSystem.save_sys.saving()
+                festival_end.festival_hub_end()
+                break
 
 class FestivalEnd:
     def festival_hub_end(self):
@@ -768,7 +767,7 @@ class FestivalEnd:
         input()
         print('"It’s definitely a cool idea. What made you think of doing that anyway?"')
         input()
-        print("You mention the tiger you met on the bus. While you’ve given the idea of a road trip a passing thought before, it’s his first-hand account that has really driven your interest.")
+        print("You mention the Tiger you met on the bus. While you’ve given the idea of a road trip a passing thought before, it’s his first-hand account that has really driven your interest.")
         input()
         print('"Taking advice from a vagabond huh? Suppose there are worst things you could do. It’s not like your going to make ‘road tripping’ a lifestyle, right?"')
         if CharInfo.festival_checks.festival_game is not True:
@@ -839,7 +838,7 @@ class FestivalEnd:
         clear()
         TravelSystem.travel_points.tp.remove('Lake Fest')
         CharInfo.festival_checks.festival_ending = True
-        TravelSystem.travel_function.travel_point_bedroom()
+        TravelSystem.travel_function.travel_point_early_bedroom()
 
     def festival_ending_self(self):
         print("After checking out everything the festival has to offer, you head back towards the entrance to watch the ending fireworks show.")
@@ -872,7 +871,7 @@ class FestivalEnd:
             clear()
             CharInfo.festival_checks.festival_ending = True
             TravelSystem.travel_points.tp.remove('Lake Fest')
-            TravelSystem.travel_function.travel_point_bedroom()
+            TravelSystem.travel_function.travel_point_early_bedroom()
 
         elif festivalselfending in ['2']:
             print('"Err, appreciate the offer but you’re a bit late, as I was just getting ready to leave."')
@@ -888,7 +887,7 @@ class FestivalEnd:
             clear()
             CharInfo.festival_checks.festival_ending = True
             TravelSystem.travel_points.tp.remove('Lake Fest')
-            TravelSystem.travel_function.travel_point_bedroom()
+            TravelSystem.travel_function.travel_point_early_bedroom()
 
         else:
             print("Invalid input")

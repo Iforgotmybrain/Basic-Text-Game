@@ -27,12 +27,12 @@ def bank_money():  # Checks the money value from the player info class in CharIn
 def intro():
     print("As you finish the 5th and final season of Barking Bad you feel a sense of satisfaction, but also a feeling of sadness. The culmination of 5 years work is over in the span of an hour.")
     input()
-    print("While you’re satisfied with the ending of the show, you can’t help but feel disappointed that there won’t be any more episodes to look forward too. You find that it’s a common feeling when it comes to finishing excellent media.")
+    print("While you’re satisfied with the ending of the show, you can’t help but feel disappointed that there won’t be any more episodes to look forward to. You find that it’s a common feeling when it comes to finishing excellent media.")
     print("That feeling has been a familiar one recently, as you’ve binge watched 3 different shows this past week while staying at Teuton Resorts. This vacation has given yourself a break from your obligations, and from your housemates.")
     input()
     print("Unfortunately, this is your last day here, as your reservation is up tomorrow. It feels like your long-awaited vacation is over almost as soon as it began.")
     input()
-    print("You spent the rest of the day packing and cleaning the room. The next day you grab breakfast and head off for home.")
+    print("You spend the rest of the day packing and cleaning the room. The next day you grab breakfast and head off for home.")
     input()
     print("You eventually arrive at home in the evening, with none of your housemates to be seen. You bring your stuff inside and unpack it before getting something to eat. Afterwards you watch a short movie in your room and go to bed. Another day in paradise.")
     input()
@@ -239,6 +239,10 @@ class PCBathroom:
                 print("You return to your bedroom.")
                 return pcbedroom()
 
+            elif bathroomoption in ['fix', 'debug', 'teleport']:  # Teleport to other house file. For debugging.
+                MidChapBase.entrancewaymid()
+
+
 
 def hallway():
     while True:
@@ -299,9 +303,9 @@ class SashaEncounter:
     def bedroom(self):
         while True:
             print(
-                "You knock on Sasha's door and she welcomes you in. Her bedroom is fairly typical with nothing out of the ordinary, except of course for Sasha the German Shepard sitting at the desk")
+                "You knock on Sasha's door and she welcomes you in. Her bedroom is fairly typical with nothing out of the ordinary, except of course for Sasha the German Shepard sitting at the desk.")
             print(
-                "To your left you see Sasha sitting at a desk, to the south you see the doorway to the hallway")
+                "To your left you see Sasha sitting at a desk, to the south you see the doorway to the hallway.")
             bedroomoption = input("What do you do? ").lower()
 
             if bedroomoption in ["talk", "t", 'left', 'l', 'german shepard', 'shepard', 'sasha'] and CharInfo.festival_checks.festival_ending is not True:
@@ -317,50 +321,64 @@ class SashaEncounter:
         if CharInfo.sasha_checks.sasha_talk is not True:
             print("You approach Sasha and exchange greetings.")
             print(
-                "Sasha is your roommate, she's a trustworthy sort, but can be a bit absent-minded at times.")
+                "Sasha is your roommate, she's a trustworthy sort but can be a bit absent-minded at times.")
             print("She also looks fairly unusual for a German Shepard, with her fur being almost completely black.")
             input()
             print('"Oh hey, {}. I see you\'re back from vacation, most have gotten home last night when I was at work."'.format(
                     CharInfo.player_info.name))
-            print('"You were gone for like 2 weeks, right? Guess that\'s one of the perks of your lifestyle, you can take long vacations like that. Gotta admit I\'m a bit jealous, I\'d be lucky if I got a weeks vacation..."')
+            print('"You were gone for like 2 weeks, right? Guess that\'s one of the perks of your lifestyle, you can take long vacations like that. Gotta admit I\'m a bit jealous, can\'t remember the last time my work let me take even just one week off."')
             input()
             print('"So, how was Teuton Resorts? I heard it\'s a pretty nice place, lots of trails to walk, and they have those beautiful waterfalls."')
             input()
-            print("(1): Tell Sasha that the vacation was alright, but that you didn't really get to experience all the resort had to offer.")
-            print("(2): Explain to Sasha that you pretty much just sat in your room the whole time and watched movies and binged TV shows.")
-            print("(3): Describe to Sasha a wildly inaccurate representation of what you did.")
-            sasha_vacation = input("Choose a response ")
+            while True:
+                print(
+                    "(1): Tell Sasha that the vacation was alright, but that you didn't really get to experience all the resort had to offer.")
+                print(
+                    "(2): Explain to Sasha that you pretty much just sat in your room the whole time and watched movies and binged TV shows.")
+                print("(3): Describe to Sasha a wildly inaccurate representation of what you did.")
+                sasha_vacation = input("Choose a response ")
 
-            if sasha_vacation in ['1']:
-                print("You tell Sasha that you didn't really get the check out everything the resort had on offer but that the things you did check out were pretty nice.")
-                input()
-                print('"You were there for 2 weeks but didn\'t get to see everything? That sounds just like you. Next thing you\'ll tell me is that you just sat around and watched movies instead of exploring the resort."')
-                input()
-                print("You just laugh and agree with Sasha, she doesn't need to know that was almost exactly how it played out.")
-                input()
+                if sasha_vacation in ['1']:
+                    print(
+                        "You tell Sasha that you didn't really get the check out everything the resort had on offer but that the things you did check out were pretty nice.")
+                    input()
+                    print(
+                        '"You were there for 2 weeks but didn\'t get to see everything? That sounds just like you. Next thing you\'ll tell me is that you just sat around and watched movies instead of exploring the resort."')
+                    input()
+                    print(
+                        "You just laugh and agree with Sasha, she doesn't need to know that was almost exactly how it played out.")
+                    input()
+                    break
 
-            elif sasha_vacation in ['2']:
-                print("You tell Sasha you didn't do much except for checking out the hot tub and walking on one of the short trails when you first got there. You mainly just loafed around in your room watching movies and TV.'")
-                input()
-                print('"God, that\'s just like you. You go to one of the best resorts in the nation and you just spend the entire time there doing shit you could do here."')
-                print('"Sometimes I wonder how the hell you managed to get where you are."')
-                input()
+                elif sasha_vacation in ['2']:
+                    print(
+                        "You tell Sasha you didn't do much except for checking out the hot tub and walking on one of the short trails when you first got there. You mainly just loafed around in your room watching movies and TV.'")
+                    input()
+                    print(
+                        '"God, that\'s just like you. You go to one of the best resorts in the nation and you just spend the entire time there doing shit you could do here."')
+                    print('"Sometimes I wonder how the hell you managed to get where you are."')
+                    input()
+                    break
 
-            elif sasha_vacation in ['3']:
-                print("You lie and tell Sasha that your trip was pretty nice, and that you spent most of your time walking the trails and seeing all the landmarks.")
-                input()
-                print('"Uh huh, guess you had a sudden change of heart because I\'ve never seen you walk more than like, one trail."')
-                print('"Or you could be lying, but would the point of that be?"')
-                input()
+                elif sasha_vacation in ['3']:
+                    print(
+                        "You lie and tell Sasha that your trip was pretty nice, and that you spent most of your time walking the trails and seeing all the landmarks.")
+                    input()
+                    print(
+                        '"Uh huh, guess you had a sudden change of heart because I\'ve never seen you walk more than like, one trail."')
+                    print('"Or you could be lying, but would the point of that be?"')
+                    input()
+                    break
             print(
-                '"Anyway, I kept on top of all your chores while you were gone like you asked. I expect that you\'ll be covering for me the next month, right?"')
+                '"Anyway, I kept on top of all your chores while you were gone just like you asked. I expect that you\'ll be covering for me the next month, right?"')
             input()
-            print("You nod in agreement with Sasha, you agreed with Sasha that if she took care of your chores while you were gone you'd handle all of hers for a month.")
+            print("You nod in agreement with Sasha, you told Sasha that if she took care of your chores while you were gone you'd handle all of hers for a month.")
             input()
             print("You say goodbye to Sasha and head back to the hallway.")
             input()
             CharInfo.sasha_checks.sasha_talk = True
             CharInfo.player_info.player_location = hallway
+            SaveSystem.save_sys.saving()
             hallway()
 
         elif CharInfo.sasha_checks.sasha_talk is True:
@@ -565,7 +583,7 @@ class LivingRoom:
             "You walk up to Sasha and sit in the chair beside the couch. The TV is playing a superhero movie involving some sort of pink titan.")
         input()
         print(
-            '"Like the movie? It’s called Revengers: Titan Attack. One of the last movies in the Lightning Maus Movie Universe. There’s one more that comes after this, but it isn’t out on disc yet"')  # God these are some cheesy names
+            '"Like the movie? It’s called Revengers: Titan Attack. One of the last movies in the LM Movie Universe. There’s one more that comes after this, but it isn’t out on disc yet"')  # God these are some cheesy names
         input()
         print(
             '"Actually, do you even like superhero movies? I won’t say anymore about it just In-case you want to watch it at some point."')
@@ -577,45 +595,51 @@ class LivingRoom:
             '"Oh boy, you are in for a treat if you ever decide to catch up on them. Definitely let me know before you do, I’d love to re-watch all of them with you."')
         print('"Anyway, you want something or just here to chat?"')
         input()
-        sasha_talk_or_confess = input("(1): Tell Sasha you wanted to talk about purpose. (2:) Just keep chatting. ").lower()
+        sasha_talk_or_confess = input("(1): Tell Sasha you wanted to talk about finding your purpose. (2:) Just keep chatting. ").lower()
 
         if sasha_talk_or_confess in ['1']:
             print("You tell Sasha you want to talk about finding a purpose in life.")
             input()
             print("“Purpose, huh? Yeah that doesn’t surprise, figured you’d get bored of your contract worker lifestyle.”")
-            print("“Well I’m assuming your issue is that you’re tired of not having something to chase after. The way you live now, you basically work for 2 weeks a month and then the rest is just spent pissing around.”")
+            print("“Well I’m assuming your issue is that you’re tired of not having something to chase after. The way you live now, you basically work for 2 weeks a month and then the rest of your time is just spent pissing around.”")
             input()
             print("“I have a little bit of experience with this myself, which of course makes me an expert on the topic. Back when I graduated high school, I was a mess. I had zero idea what I wanted to do. My parents wanted me to go to college, but I didn’t feel like I would be cut out for it.”")
             print("“I didn’t want to go straight to working either because there just wasn’t really a viable career path.”")
             input()
-            print("“So, I took a gap year to try and figure myself out. Told myself I’d work part time while ‘researching’ career paths. You know me, how well do you think that worked out?”")
+            print("“So, I took a gap year to try and figure myself out. Told myself I’d work part time while ‘researching’ career paths. Now, you know me, how well do you think that worked out?”")
             print("“I just worked my part time job and didn’t do jack shit else. Worked my 20 hours a week and then pissed off and went partying with my friends or sat at home all day.”")
             input()
-            print("“It was fun for a few months, but your mind wants something to work towards and this lifestyle was a dead end.”")
+            print("“It was fun for a few months, but your mind wants something to work towards, and this lifestyle was a dead end.”")
             print("“I started to feel lost after those few months, I had no long-term goals, no real ambition, I wasn’t too far off from just being a deadbeat for the rest of my life truth be told. You surround yourself with negative people like that and you’ll find you're tangled in plaid quicker than you think.”")
             input()
             print("“After talking with my parents and a couple of my friends who actually did something after high school, I decided that I’d give college a try. I wasn’t going straight to university though; I’d go to community college and then transfer if I ended up enjoying it.”")
             print("“Wasn’t my ideal path, but my way of doing things kind of turned out to be a disaster, so I said, “fuck it” and decided to give the more traditional post high school path a go.”")
-            print("“Ended up liking college quite a bit as you might have guessed. I went in declared as undecided but found my passion pretty quick, which was Geology.”")
+            print("“Ended up liking college quite a bit as you might have guessed. I went in as undecided but found my passion pretty quick, which was Geology.”")
             input()
-            print("“Point is, sometimes you have to go outside your comfort zone and ideals to find what you want. Sometimes you don’t know exactly what you want and you’ve gotta just wing and hope you figure it out.”")
+            print("“Point is, sometimes you have to go outside your comfort zone and ideals to find what you want. Sometimes you don’t know exactly what you want and you’ve gotta just wing it and hope you figure it out.”")
             print("“If I were you, I’d start trying out new stuff. Maybe pick up a new hobby, meet someone new, volunteer. Just find something and see if you like it.”")
             input()
-            print("(1): Thank Sasha for advice.")
-            print("(2): Ask Sasha if she as any ideas that are more specific.")
-            sasha_confess_response = input("Choose a response")
+            while True:
+                print("(1): Thank Sasha for advice.")
+                print("(2): Ask Sasha if she as any ideas that are more specific.")
+                sasha_confess_response = input("Choose a response ")
 
-            if sasha_confess_response in ['1']:
-                print("“Of course, anything for my best friend. If you wanna talk about anything else, you just let me know. And if you find yourself sinking deeper, don’t struggle, ask for help.”")
-                input()
-                print("You say goodbye to Sasha and head up for the night. You have quite a lot to consider.")
-                input()
+                if sasha_confess_response in ['1']:
+                    print(
+                        "“Of course, anything for my best friend. If you wanna talk about anything else, you just let me know. And if you find yourself sinking deeper, don’t struggle, ask for help.”")
+                    input()
+                    print("You say goodbye to Sasha and head up for the night. You have quite a lot to consider.")
+                    input()
+                    break
 
-            elif sasha_confess_response in ['2']:
-                print("“I don’t know. There’s that festival thing coming up tomorrow. Maybe go there and see if you meet someone. Jacob might have an idea too. Couldn’t hurt to ask him.”")
-                input()
-                print("You thank Sasha and head up for the night. You'll have to ask Jacob about something tomorrow.")
-                input()
+                elif sasha_confess_response in ['2']:
+                    print(
+                        "“I don’t know. There’s that festival thing coming up tomorrow. Maybe go there and see if you meet someone. Jacob might have an idea too. Couldn’t hurt to ask him.”")
+                    input()
+                    print(
+                        "You thank Sasha and head up for the night. You'll have to ask Jacob some questions tomorrow.")
+                    input()
+                    break
 
             clear()
             CharInfo.player_info.player_location = pcbedroom
@@ -658,11 +682,11 @@ class JacobDialogue:
         while True:
             print(
                 "You enter the kitchen, there's various kitchen appliances and a table and chairs over to the right. You see Jacob the Deer to your left over by the fridge, and the entrance way to the east. ")
-            kitchendirection = input("What do you do? ").lower()
-            if kitchendirection in ["talk", "t", 'fridge']:
+            kitchendirection = input("What will you do? ").lower()
+            if kitchendirection in ["talk", "t", 'fridge', 'jacob', 'talk jacob the deer', 'jacob the deer']:
                 if CharInfo.jacob_checks.jacob_kitchen is not True:  # Dialogue if Jacob hasn't been talked to before
                     print(
-                        "Jacob is one of your roommates, he's a fairly tall Deer with brown eyes and a some what muscular build.")
+                        "Jacob is one of your roommates, he's a fairly tall Deer with brown eyes and a somewhat muscular build.")
                     print("And he always seems fond of wearing sweatshirts for some reason.")
                     input()
                     print("you walk over to Jacob and give him a pat on the shoulder and strike up a conversation")
@@ -674,32 +698,47 @@ class JacobDialogue:
                     input()
                     print('"So, do anything exciting up at Teuton? I\'ve been there a couple of times myself, I know they have some awesome hiking trails."')
                     input()
-                    print("(1): Give Jacob an accurate summary of your trip to the Teuton Resorts, telling him that you mostly just chilled in your room and watched movied and TV.")
-                    print("(2): Exaggerate your trip a bit and tell him that you walked a couple of the trails but spent a fair bit of time just sitting in your room.")
-                    print("(3): Completely lie about your time at the resort by telling him you spent pretty much all your time walking the trails.")
-                    jacob_vacation = input("Choose a response ")
+                    while True:
+                        print(
+                            "(1): Give Jacob an accurate summary of your trip to the Teuton Resorts, telling him that you mostly just chilled in your room and watched movied and TV.")
+                        print(
+                            "(2): Exaggerate your trip a bit and tell him that you walked a couple of the trails but spent a fair bit of time just sitting in your room.")
+                        print(
+                            "(3): Completely lie about your time at the resort by telling him you spent pretty much all your time walking the trails.")
+                        jacob_vacation = input("Choose a response ")
 
-                    if jacob_vacation in ['1']:
-                        print("You tell Jacob the truth, stating that you just spent your time in the room watching media.")
-                        input()
-                        print('"Not gonna lie that\'s pretty disappointing. You could have just done that stuff here, why spend 100+ dollars a day just to go up there and watch movies?"')
-                        print('"Eh, whatever. It\'s not my time or money so you can do whatever makes you happy. Even I don\'t really understand it."')
-                        input()
+                        if jacob_vacation in ['1']:
+                            print(
+                                "You tell Jacob the truth, stating that you just spent your time in the room watching media.")
+                            input()
+                            print(
+                                '"Not gonna lie that\'s pretty disappointing. You could have just done that stuff here, why spend 100+ dollars a day just to go up there and watch movies?"')
+                            print(
+                                '"Eh, whatever. It\'s not my time or money so you can do whatever makes you happy. Even I don\'t really understand it."')
+                            input()
+                            break
 
-                    elif jacob_vacation in ['2']:
-                        print("You bend the truth a bit and tell Jacob that you walked a couple of the trails in between watching movies and soaking in the hot tub.")
-                        input()
-                        print('"Yeah that honestly sounds about right for you. You\'ve never been one to be overly adventurous or outdoorsy."')
-                        print('"So long as you had a good time I guess it doesn\'t really matter what you do."')
-                        input()
+                        elif jacob_vacation in ['2']:
+                            print(
+                                "You bend the truth a bit and tell Jacob that you walked a couple of the trails in between watching movies and soaking in the hot tub.")
+                            input()
+                            print(
+                                '"Yeah that honestly sounds about right for you. You\'ve never been one to be overly adventurous or outdoorsy."')
+                            print('"So long as you had a good time I guess it doesn\'t really matter what you do."')
+                            input()
+                            break
 
-                    elif jacob_vacation in ['3']:
-                        print("You tell a complete lie to Jacob and explain that you pretty much did nothing but walk the many trails the resort has.")
-                        input()
-                        print('"Well good for you, I never thought of you as an outdoorsy hiking type but I guess you\'re changing."')
-                        print('"Hope you had a good time, I know I did when I went up there 2 years ago."')
-                        input()
-                    print('"Well buddy my lunch is about done cooking in the microwave so i\'ll be seeing you around."')
+                        elif jacob_vacation in ['3']:
+                            print(
+                                "You tell a complete lie to Jacob and explain that you pretty much did nothing but walk the many trails the resort has.")
+                            input()
+                            print(
+                                '"Well good for you, I never thought of you as an outdoorsy hiking type but I guess you\'re changing."')
+                            print('"Hope you had a good time, I know I did when I went up there 2 years ago."')
+                            input()
+                            break
+
+                    print('"Well buddy, my lunch is about done cooking in the microwave so I\'ll be seeing you around."')
                     input()
                     print("You say goodbye to Jacob and head back to the entrance way.")
                     input()
@@ -728,9 +767,9 @@ class JacobDialogue:
         print('"What’s up?  Come to talk ‘bout something?"')
         print("You tell Jacob that you were thinking of planning something but that you wanted to pick his brain for a bit first.")
         input()
-        print('"Okay then, pick away."')
+        print('"Alrighty, pick away."')
         input()
-        print('You start by telling Jacob that you wanted to talk about his past trips. He’d talked previously about going on long trips out of state, something that you might be interested in doing yourself.')
+        print('You start by telling Jacob that you wanted to talk about his past trips. You and him had talked previously about going on long trips out of state, something that you might be interested in doing yourself.')
         input()
         print('"Yeah, I’ve gone on a few trips out of state, I think furthest I’ve went was about a days’ worth of driving away"')
         print('"That was when I went to Yellowstone. What a fantastic place to visit."')
@@ -741,8 +780,9 @@ class JacobDialogue:
         print('You tell Jacob that’s part of the reason you’ve never really gone vacation anywhere too far away. The drive can really get too you.')
         input()
         print('"Yeah, I think that ends up being the case with a lot of people. You could fly, of course. In fact, that’s probably the best way to go for long distance vacations. But if you’re going only, say, 6 hours away, flying isn’t really an economical option."')
+        print('"That said, driving for long periods of time wouldn\'t be too bad if you were to sort of split up your driving time. Maybe take a break and visit a place that\'s on the way to your destination instead of going straight there."')
         input()
-        print("You thank Jacob for shedding some light on his past trip. You’re still not sure if something like that is for you, you’ll just have to think about it.")
+        print("You thank Jacob for his advice and for shedding some light on his past trip. You’re still not sure if something like that is for you, you’ll just have to think about it.")
         input()
         clear()
         print("After talking with Jacob, you take some time and finish the current contract you’re working on. The deadline was still 1 week away but of course it's best to get it done early.")
@@ -877,7 +917,7 @@ class JacobDialogue:
 class FirstWorld:
     def fronthousearea(self):
             print("You stand on your front porch ready for adventure! You could also return home by entering the door to your south.")
-            fronthouseareadirection = input("Will you travel or return home?").lower()
+            fronthouseareadirection = input("Will you travel or return home? ").lower()
             if fronthouseareadirection in ['travel', 't', 'go', 'adventure']:
                 TravelSystem.travel_function.traveltofront()
             elif fronthouseareadirection in ['south', 's', 'home', 'door']:
@@ -889,13 +929,13 @@ class FirstWorld:
 
 class ToriesCafe:
     def thecafe(self):
-        print("You catch a ride on the bus and end up at Tories Place, your all-time favorite place to grab lunch")
+        print("You catch a ride on the bus and end up at Tories Place, your all-time favorite place to grab lunch.")
         print(
             "It’s a popular place amongst the younger crowd. The place has a modern aesthetic with colorful furniture and ample natural lighting giving the place a cheery vibe.")
         input()
         print("They’re known for their fantastic wraps, and also have some pretty good soups.")
         print(
-            "Looking around you see the line to order, it’s a bit after lunch so there isn’t much of a wait. You can also see a familiar face sitting down at one of the tables")
+            "Looking around you see the line to order, it’s a bit after lunch so there isn’t much of a wait. You can also see a familiar face sitting down at one of the tables.")
         input()
         cafedecision = input("(1): Order food and then go over say hi to Holly. (2): Go over and say hi to Holly right away. (3): Just order some food and go home. ").lower()
 
@@ -943,32 +983,31 @@ class ToriesCafe:
 
     def hollydialoguecafe(self):  # Could make this have more user input but that's a lot of work for not a lot of reward. Dialogue here is fine.
         print(
-            "Holly is a vixen. No, no, not like that, in the literal sense. You’ve known her since high school and while you haven’t really been in contact much since college, you still consider her to be a friend, albeit a distant one.")
+            "Holly is a vixen. No, not like that; in the literal sense. You’ve known her since high school and while you haven’t really been in contact much since college, you still consider her to be a friend, albeit a distant one.")
         input()
         print(
             "You exchange greetings with Holly and start conversing. There’s a lot of catching up to do, you follow each other on social media but of course that isn’t a replacement for a proper conversation.")
         print(
             '"Hey {}! It\'s been awhile. I think the last time I saw you was when we went to the amusement park your sophomore year of college with a bunch of other high school friends.'.format(
                 CharInfo.player_info.name))
-        print('"And the last time I saw you regularly was back before you went off to college in 2014!"')
+        print('"And the last time I saw you regularly was back before you went off to college in 2013!"')
         input()
         print(
-            "You fill in some details about what you’ve been up too since that amusement park trip. Detailing your current living situation with Sasha and Jacob, as well as talking about your various college antics")
+            "You fill in some details about what you’ve been up too since that amusement park trip. Detailing your current living situation with Sasha and Jacob, as well as talking about your various college antics.")
         print(
-            "You ask what Holly’s been up too since then, a faint look of discomfort fills her face as she describes her falling out from college")
+            "You ask what Holly’s been up to since then, a faint look of discomfort fills her face as she describes her falling out from college.")
         input()
         print(
-            '"Yeah, I dropped out of college at the end of 2016. Believe it or not it wasn’t because of my grades, I just wasn’t enjoying college. I know that’s a pretty shit reason to drop out, but I just couldn’t see myself doing another 2 years there."')
-        print('"I couldn\'t see myself working as a marketer for the rest of my life either."')
+            '"Yeah, I dropped out of college at the end of 2016. Believe it or not it wasn’t because of my grades, I just wasn’t enjoying "the college life". I know that’s a pretty shit reason to drop out, but I just couldn’t see myself doing another 2 years there."')
+        print('"I couldn\'t see myself working as a marketer for the rest of my life either, which was my field of study."')
         input()
         print(
             "You nod in agreement, remembering how many times you second guessed your choice to attend college.")
         input()
         print(
-            '"More on the marketer thing, I knew I would have hated it and the corporate culture that surrounds it. Having to stick up to execs, deliver presentations on ideas that would ultimately be ignored by the project managers and higher-ups. Dealing with the petty workplace drama… That just wasn’t for me."')
-        input()
+            '"More on the marketer thing. I knew after I started my first internship that I would have hated that kind job and the corporate culture that surrounds it. Having to stick up to execs, deliver presentations on ideas that would ultimately be ignored by the project managers and higher-ups. Dealing with the petty workplace drama… That just wasn’t for me."')
         print(
-            '"That’s just me though. You know I\'ve never been one to suck up and deal with other people’s bullshit"')
+            '"You know I\'ve never been one to suck up and deal with other people’s bullshit"')
         input()
         print(
             "You can definitely see yourself understanding Holly’s decision, thinking back to all the workplace drama and rejected proposals you’ve dealt with…")
@@ -976,23 +1015,23 @@ class ToriesCafe:
             "You ask Holly what she’s doing for work since she dropped out of college, she offers a surprising answer.")
         input()
         print(
-            '"I draw art for a living now! I was always interested in art, I’m sure you remember some of my drawings from back in high school."')
-        print('"I never really thought of it as a legitimate career path, but I’ve managed to find a niche that pays a decent amount of money through commissions."')
+            '"I draw art for a living now! I was always interested in it, I’m sure you remember some of my drawings from back in high school."')
+        print('"I never really thought of it as a legitimate career path, but I’ve managed to build a decent enough profile that I can get by on commissions."')
         input()
         print(
             '"And you know, I really enjoy it. The customer tells me what they want, I draw it, and we go on our way. There’s (typically) no bullshit, and no one else telling me what to do."')
         input()
         print(
-            '"So, what have you been doing since graduating college? I know you finished with a couple internships and a great GPA, so that’s had to have gotten you somewhere right?"')
+            '"So, what have you been doing since graduating college? I know you finished with a couple of internships and a great GPA, so that’s had to have gotten you somewhere right?"')
         input()
         print(
-            "You explain that you used to work for a local big business, but eventually quit for various reasons, including reasons she stated, like project managers ignoring ideas.")
+            "You explain that you used to work for Spherion, but eventually quit for various reasons, including reasons she stated, like project managers ignoring ideas.")
         print(
             "You state that you had luckily saved up enough money to live comfortably for around 2 years before quitting. You talk about how you now do freelance work off and on, not unlike what Holly does. It helps keep a steady flow of money coming into your bank account. And with living expenses being split between three people, you really don’t need much money to support your lifestyle.")
         input()
         print(
             '"Wow, that’s fantastic. Hearing stuff like that almost makes me wish I would have stayed in college. I couldn’t imagine having a savings large enough to live on for 2 years. Let alone being able to amass that much money by only working for a year and a half!"')
-        print('"Still, like I said, I enjoy my work and I wouldn’t want it any other way."')
+        print('"Still, like I said, I enjoy my work and I\'m pretty happy with where I am in life."')
         input()
         print(
             '"Well {}, it’s been fantastic talking but I’ve got a yoga class coming up in a half hour so I’ve gotta run. Maybe I’ll see you around some other time."'.format(
@@ -1007,26 +1046,29 @@ class ToriesCafe:
         CharInfo.player_info.player_location = hallway
         CharInfo.misc_checks.cafe_finished = True
         SaveSystem.save_sys.saving()
-        hallway()
+        pcbedroom()
 
 
 class SycamorePark:
     def lakepark(self):
         if CharInfo.park_checks.park_roommate_path is not True and CharInfo.park_checks.park_lake_path is not True:
             print(
-                "You arrive at Sycamore Lakeview Park after a short walk down the street. You’ve never really been too this park despite being close to home.")
+                "You arrive at Sycamore Lakeview Park after a short walk down the street. You’ve never really been to this park despite it being close to home.")
             print(
                 "That's mainly because you've never really felt like going to the park. You were always preoccupied by something else, just not up to going out, or sacred by the various insects that call this place home. ")
             input()
+            print("The park itself is pretty nice, it features various walking paths and is situated right on the lake. Giving it some fantastic views.")
+            print("Most of the paths go through heavily wooded areas, providing amble shade and making it so you can stay relatively comfortable while walking")
+            input()
             print(
-                "Well, you’re here now and ready to make the most it. As you enter the park you see two separate walking paths you could take. One to the west, the other to the east. Or you could just say 'forget this' and head back home.")
+                "Well, you’re here and ready to make the most it. As you enter the park you see two separate walking paths you'd like to take. One to the west, the other to the east. Or you could just say 'forget this' and head back home.")
         else:
             print(
                 "You arrive at the park entrance, you see the two walking paths to your east and to your west. You could also head home.")
         pathdialog = [self.parkpathrommates,  # Used to randomize the path choice
                       self.parkpathself]  # In order to sort functions you can't call the function in this list.
 
-        parkdecision = input("After thinking about it, you decide to go... ").lower()
+        parkdecision = input("After thinking about it, you decide to go... (east, west, or home) ").lower()
         if parkdecision in ['home', 'away', 'forget this' ]:
             print("You decide to head home.")
             entranceway()
@@ -1068,11 +1110,11 @@ class SycamorePark:
         print(
             "You ended up starting a study group with him since you weren’t exactly having a great time in that class. Mainly because it was taught by a not so great professor.")
         input()
-        print("It started off as a pretty standard study group, consisting of you, Jacob, and a couple other students. About half way into the semester you started to get to know Jacob a bit better, and you started to hang out with a bit outside of the study group.")
+        print("It started off as a pretty standard study group, consisting of you, Jacob, and a couple other students. About half way into the semester you started to get to know Jacob a bit better, and you started to hang out with him a bit more outside of the study group.")
         print("You had a fair bit in common with him. You liked the same sports teams, played on the same gaming platform, and as it turned out the both of you minored in the same thing.")
         input()
         print(
-            "After the study group the rest is history, you’ve been good friends with him ever since. To the point that you decided to roommate up with him starting your 4th year at college.")
+            "After that the rest is history, you’ve been good friends with him ever since. To the point that you decided to roommate up with him starting your 4th year at college.")
         input()
         print(
             "You ended up meeting Sasha in a similar way. You ran into her at one of the dining halls your very first year at college. You were sitting by yourself, and she came up and asked to sit with you.")
@@ -1090,23 +1132,23 @@ class SycamorePark:
         print(
             "Caught up in your thoughts you find yourself at the end of your walk before you know it. You are now back at the park entrance way.")
         clear()
-        TravelSystem.travel_points.tp.remove('Sycamore Lakeview Park')
-        CharInfo.player_info.player_location = sycamore_park.lakepark
+        if TravelSystem.travel_points.tp in ['Sycamore Lakeview Park']:
+            TravelSystem.travel_points.tp.remove('Sycamore Lakeview Park')
         CharInfo.park_checks.park_roommate_path = True
         SaveSystem.save_sys.saving()
         input()
         self.lakepark()
 
     def parkpathself(self):  # No more sob story. This is just going to be about the PC's struggle with finding purpose.
-        print("15 minutes into the walk you come across a familiar sight, the great Sycamore Lake. Hence the park’s name.")
+        print("15 minutes into the walk you come across a familiar sight, the Great Sycamore Lake. Hence the park’s name.")
         print("It's evening so the Sun is starting to set over the lake, you see the sky starting to turn an orange color with the Sun being reflected off the water. ")
         print(
             "You decide to sit down at a bench overlooking the lake and take a moment to reflect on some things.")
         input()
         print("Recently you’ve been having some trouble finding purpose in your life. It’s why you went off to the Teuton Resorts, you were hoping to go there and ‘find yourself’.")
-        print("That didn’t happen of course because you just spent your time there doing the same thing you do everyday. Watching videos on YouTube and streaming movies and TV.")
+        print("That didn’t happen of course because you just spent your time there doing the same shit you do everyday. Watching videos on YouTube and streaming movies and TV.")
         input()
-        print("You’re in a pretty good situation. Your fortunes early on in your career lets you just work on the occasional contract work in order to get by. You supplement that income with a bunch of money you saved up when you were making close to 6 figures at Spherion.")
+        print("You’re in a pretty good situation, at least economically. Your fortunes early on in your career lets you just do the occasional contract work in order to get by. You supplement that contract income with a bunch of money you saved up when you were making close to 6 figures at Spherion.")
         print("It’s an easy life but not a particularly fulfilling one. It was fun at first but 1 year into living this kind of life and you’re finding yourself uncertain and a bit depressed.")
         input()
         print("You feel like you lack purpose and direction. You’re just wasting away your life watching mindless media day after day. You don’t have anything to dedicate yourself to.")
@@ -1121,7 +1163,8 @@ class SycamorePark:
         print("You decide to get up and continue your walk, you feel pretty good after reflecting on your recent issues.")
         input()
         clear()
-        TravelSystem.travel_points.tp.remove('Sycamore Lakeview Park')
+        if TravelSystem.travel_points.tp in ['Sycamore Lakeview Park']:
+            TravelSystem.travel_points.tp.remove('Sycamore Lakeview Park')
         CharInfo.player_info.player_location = sycamore_park.lakepark
         CharInfo.park_checks.park_lake_path = True
         self.lakepark()
@@ -1129,7 +1172,8 @@ class SycamorePark:
 # Version Checking
 
 
-version_check = requests.get("http://iforgotmybrain.github.io/version.json")
+version_check = requests.get("https://iforgotmybrain.github.io/version.json")
+version_latest = requests.get("https://iforgotmybrain.github.io/version.txt")
 
 
 # Global Classes
@@ -1152,7 +1196,7 @@ sasha_encounter = SashaEncounter()
 # Starts the game
 
 
-TravelSystem.travel_function.travel_point_cafe = tories_cafe.thecafe  # Sets travel points
+TravelSystem.travel_function.travel_point_cafe = tories_cafe.thecafe  # Sets travel points. Make sure you don't call them.
 
 TravelSystem.travel_function.travel_point_park = sycamore_park.lakepark
 
@@ -1172,19 +1216,24 @@ TravelSystem.travel_function.travel_point_valery_house = ValeryTransition.valery
 
 TravelSystem.travel_function.travel_point_mid_entranceway = MidChapBase.entrancewaymid
 
-print("Checking Game Version...")  # Chapter 1's writing is kind of trash. Might have to rewrite it instead of doing Holly's scene.
-print("Latest: {}".format(version_check.json()))
+TravelSystem.travel_function.travel_point_home_two = MidChapBase.entrancewaymid
+
+print("Checking Game Version...")  # Why not just use two files? A text file to have a pretty print, and than JSON for the computer to read.
+print("Latest Version: {}".format(version_latest.text))
 print("Current Version: {}".format(version.__version__))
 if version_check.json() not in [{'version': '0.1.5'}]:
     print("An update for Tales from the Road seems to be available. Check the GitHub page or Itch.io page for more details.")
 elif version_check.json() in [{'version': '0.1.5'}]:
     print("The game is running on the latest version, yay!")
 
-loadingoption = input("Do you wish to load a game? ").lower()  # Make it so this is the first question asked.
-if loadingoption in ['yes', 'y', 'load', 'l']:
-    SaveSystem.save_sys.loading()
-elif loadingoption in ['no', 'n']:
-    pass
+while True:
+    loadingoption = input("Do you wish to load a game? ").lower()  # Make it so this is the first question asked.
+    if loadingoption in ['yes', 'y', 'load', 'l']:
+        SaveSystem.save_sys.loading()
+    elif loadingoption in ['no', 'n']:
+        break
+    else:
+        print("Invalid input. Try again.")
 
 print("Hello", CharInfo.player_info.name)
 time.sleep(3)
@@ -1202,15 +1251,23 @@ time.sleep(5)
 print("Please note that If you input invalid options at sex, or input a race that wasn't a lion, wolf, fox, or dragon, events in the story will not work as intended. So keep that in mind.")
 time.sleep(4)
 input("If you understand this and are happy with your name, race, and sex, hit enter to continue")
-print("Excellent. This game follows typical interactive fiction rules, e.g you type north or n to go north. If you want to interact with an object you can type in it's name and interact with it.")
+print("Excellent. This game follows typical interactive fiction rules, e.g you type north or n to go north. If you want to interact with an object you can type in its name and interact with it.")
 print(
-    "In order to advance most dialogue in the game, you will have to press a key first. The console will print out a statement and then to get to the the next piece of dialogue you'll have to hit, say, enter.")
-input("Like this. expect you won't have any text telling you too press a key to continue. Press a key to continue.")
-print("Sometimes you'll able to choose the next dialogue option. The options will be numbered which allows you to type in the corresponding number and select that dialogue option.")
+    "In order to advance most dialogue in the game, you will have to press a key first. So you'll have line printed out and than to get to the next piece of dialogue you'll have to hit, say, enter.")
+input("Like this. except you won't have any text telling you to press a key to continue. Press a key to continue.")
+print("Sometimes you'll able to pick your dialogue response from a list. The options will be numbered which allows you to type in the corresponding number and select that dialogue option.")
 input()
-print("It will look like this:")
-input('(1): You now understand how dialogue prompts work. (2): Choose any number listed to continue. ')
-print("With that out of the way, let's get started")
-time.sleep(3)
+while True:
+    print("It will look like this:")
+    print("(1): This is how most player dialogue response choices will look.")
+    print("(2): It's pretty simple. Just the type in the number to select your response.")
+    tutorial_test = input("Choose a response ")
+    if tutorial_test in ['1', '2']:
+        break
+    else:
+        print("Not like that. Try again.")
+        input()
+print("With that out of the way, let's get started. Press any key when you're ready.")
+input()
 clear()
 intro()

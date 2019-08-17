@@ -29,18 +29,18 @@ class HollyTextDialogue:
 
     def holly_text_decision(self):
         print("You think a bit about what to write up next, eventually deciding too:")
-        holly_relationship_option = input("(1): Ask Holly if she’d like to go on another date sometime. \
-        (2): Tell Holly that while you enjoyed last night you aren’t really interested in a relationship at the moment.\
-        (3): Tell Holly that you just aren’t really interested in taking the relationship any further, as you didn’t really feel a strong connection with her. \
-        (4): Just forget about texting her and go on with your life.").lower()
-
+        print("(1): Ask Holly if she’d like to go on another date sometime.")
+        print("(2): Tell Holly that while you enjoyed last night you aren’t really interested in a relationship at the moment.")
+        print("(3): Tell Holly that you just aren’t really interested in taking the relationship any further, as you didn’t really feel a strong connection with her.")
+        print("(4): Just forget about texting her and go on with your life.")
+        holly_relationship_option = input("Choose a response ")
 
         if holly_relationship_option in ['1']:
             print("You write up a message to Holly telling her that you really enjoyed your time spent together last night, and that you’d be interested in going on another date if she would be up for it.")
             input()
             print("You hesitate for a moment before sending the message, if she says yes who knows how far this relationship might end up going. It could end up limiting your options in the future.")
             input()
-            print("But at the same time if you spent to much time waiting around she’ll probably think you aren’t interested in her. It's like thar Airplane Harness song went, 'You’ve only got so long to capture the feeling before it’s gone.'")
+            print("But at the same time if you spent to much time waiting around she’ll probably think you aren’t interested in her. It's like that Airplane Harness song went, 'You’ve only got so long to capture the feeling before it’s gone.'")
             input()
             print("You contemplate for a moment, eventually deciding to…")
             holly_one_option = input("(1): Sent the text (2): Erase the message and go back to the drawing board ").lower()

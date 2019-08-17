@@ -94,7 +94,7 @@ class ValeryNeighborhoodWalk:
         input()
 
         if CharInfo.holly_checks.holly_relationship_status in ['dating']:
-            print("You've also got that date with Holly to look forward too.")
+            print("You've also got that date with Holly to look forward to.")
             print("You're quite excited for it given how well the last one went.")
             input()
 
@@ -178,20 +178,37 @@ class ValeryNeighborhoodWalk:
 class ValeryLunch:
     def valery_house(self):  # Is this enough content? If not how would I expand it?
         print("You decide to go and see how your new neighbor, Valery, is doing.")
-        print("He seemed nice enough when you met him on your walk. Might as well go and get to know him a bit better.")
-        input()
+        if CharInfo.valery_checks.valery_first_walk in ['met']:
+            print("He seemed pretty nice when you met him on the walk.")
+            input()
+        else:
+            print("Sasha already met him, which is how you found out he just moved in.")
+            input()
         print("You walk the down the street to the house he’s renting. You have to knock on his door as he doesn’t seem to have a doorbell.")
         input()
         print("Valery answers the door; he seems to be a bit surprised by you visiting.")
         input()
-        print("“Hey, {}. I was wondering if you were really going to come down or not.".format(CharInfo.player_info.name))
-        input()
-        print("“Unfortunately, you’ve come down at a pretty bad time, as I’ve got work in about half an hour.”")
-        print("“Maybe we can meet up for lunch or something in a couple of days? I’ve got the weekend off and no commitments so I’m pretty much free.”")
-        input()
+        if CharInfo.valery_checks.valery_first_walk in ['met']:
+            print("“Hey, {}. I was wondering if you were really going to come down or not.".format(
+                CharInfo.player_info.name))
+            input()
+            print("“Unfortunately, you’ve come down at a pretty bad time, as I’ve got work in about half an hour.”")
+            print(
+                "“Maybe we can meet up for lunch or something in a couple of days? I’ve got the weekend off and no commitments so I’m pretty much free.”")
+            input()
+
+        else:
+            print("“Uh, hello there. You are?”")
+            input()
+            print("You introduce yourself as {}, you tell him that you live in the house down the road, and that you’re Sasha’s roommate.".format(CharInfo.player_info.name))
+            input()
+            print("“Ah, well hello {}. I’m Valery but you probably already knew that from Sasha.”".format(CharInfo.player_info.name))
+            print("“Unfortunately, you’ve caught me at a bit of a bad time as I’ve gotta go to work in about half an hour.”")
+            print("“I’d love to get to know you though, maybe we can get lunch sometime this weekend?”")
+            input()
 
         if CharInfo.player_info.ending_points >= -4:
-            print("Going out for lunch doesn’t sound too bad. It would probably be a better way to get to know him anyway.")
+            print("Going out for lunch doesn’t sound too bad. It would probably be a better way to learn more about him anyway.")
             input()
 
         elif CharInfo.player_info.ending_points <= -4:
@@ -218,19 +235,19 @@ class ValeryLunch:
         if valery_lunch_decision in ['1']:
             print("You tell Valery that getting lunch this weekend sounds good.")
             input()
-            print("“Great! How about The Rat’s Pub on Saturday?”")
+            print("“Great! How about The Rat’s Place on Saturday?”")
 
             if CharInfo.holly_checks.holly_relationship_status in ['dating']:
-                print("You don’t’ really have anything going on except for that date with Holly on Sunday. So that time should work well.")
+                print("You don’t really have anything going on except for that date with Holly on Sunday. So that time should work well.")
                 input()
 
             elif CharInfo.holly_checks.holly_relationship_status not in ['dating']:
                 print("You don't have anything going on this weekend so that date should work well.")
                 input()
 
-            print("You tell Valery that The Rat's Pub on Saturday will work great. You'll see him there around 12 PM.")
+            print("You tell Valery that The Rat's Place on Saturday will work great. You'll see him there around 12 PM.")
             input()
-            print("“Awesome, see you Sunday!”")
+            print("“Awesome, see you Saturday!”")
             input()
 
             if CharInfo.holly_checks.holly_relationship_status not in ['dating']:
@@ -245,15 +262,15 @@ class ValeryLunch:
             CharInfo.player_info.ending_points += 2
             clear()
             TravelSystem.travel_points.tp.remove('Valery\'s House')
-            SaveSystem.save_sys.saving()
 
-            if CharInfo.misc_checks.money_scene in ['no investment', 'investment']:
+            if CharInfo.misc_checks.money_scene in ['no investment', 'investments']:
                 CharInfo.player_info.player_location = MidChapBase.last_of_chapter_3_transfer
                 SaveSystem.save_sys.saving()
                 MidChapBase.last_of_chapter_3_transfer()
 
             else:
                 CharInfo.player_info.player_location = TravelSystem.travel_function.travel_point_mid_entranceway
+                SaveSystem.save_sys.saving()
                 TravelSystem.travel_function.travel_point_mid_entranceway()
 
         elif valery_lunch_decision in ['2']:
@@ -281,14 +298,18 @@ class ValeryLunch:
             CharInfo.player_info.ending_points -= 2
             clear()
             TravelSystem.travel_points.tp.remove('Valery\'s House')
-            SaveSystem.save_sys.saving()  # Add player location tags here and else where later
+
             if CharInfo.misc_checks.money_scene in ['no investment', 'investment']:
                 CharInfo.player_info.player_location = MidChapBase.last_of_chapter_3_transfer
+                SaveSystem.save_sys.saving()
                 MidChapBase.last_of_chapter_3_transfer()
             else:
                 CharInfo.player_info.player_location = TravelSystem.travel_function.travel_point_mid_entranceway
+                SaveSystem.save_sys.saving()
                 TravelSystem.travel_function.travel_point_mid_entranceway()
-
+        else:
+            print("Invalid input")
+            self.valery_house()
 
 
 

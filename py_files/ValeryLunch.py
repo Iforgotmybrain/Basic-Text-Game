@@ -524,7 +524,8 @@ class ValeryLunchStart:
                         pass
 
                 elif val_city_question in ['3']:
-                    print("")
+                    print("Alright, ask away.")
+                    self.val_questions_rats()
 
         elif val_get_to_know in ["4"]:  # Maybe change some dialogue here
             print("You ask Val what some of his hobbies are.")
@@ -635,7 +636,6 @@ class ValeryLunchEnding:
         pass
 
     def valery_lunch_serving(self):
-        CharInfo.valery_checks.valery_date_points += 6
         print('"Looks like our food is on the way, quick service, as always!"')
         input()
         print("The waitress brings your food out, everything seems to be in order so it's time to dig in!")
@@ -801,7 +801,7 @@ class ValeryLunchEnding:
                         ValeryPark.val_park.park_start()
 
                     elif CharInfo.valery_checks.valery_date_points in range(6, 11):
-                        print("Y'know what? Sure. I enjoyed our little lunch together, definitely wouldn't mind getting to know you a bit more.")
+                        print('"Y\'know what? Sure. I enjoyed our little lunch together, definitely wouldn\'t mind getting to know you a bit more."')
                         input()
                         CharInfo.player_info.player_location = ValeryPark.val_park.park_start
                         SaveSystem.save_sys.saving()
@@ -851,6 +851,24 @@ class ValeryLunchEnding:
                 print("You say goodbye to Valery and head home.")
                 CharInfo.valery_checks.valery_ending_path = 'restaurant'
                 ValeryPark.val_trans.ending_transition()
+
+        elif val_leaving_response in ['2']:
+
+            if CharInfo.valery_checks.valery_date_points >= 8:
+                print('"Indeed it has. Might even have to see about getting together for lunch some other time."')
+                print('"Until then, take care friend."')
+                input()
+                print("You say goodbye to Valery and head back to your car.")
+                CharInfo.valery_checks.valery_ending_path = 'restaurant'
+                ValeryPark.val_trans.ending_transition()
+
+            elif CharInfo.valery_checks.valery_date_points < 8:
+                print('"Mm hmm, see ya round {}."'.format(CharInfo.player_info.name))
+                input()
+                print("After saying bye to Valery you head back to your car.")
+                CharInfo.valery_checks.valery_ending_path = 'restaurant'
+                ValeryPark.val_trans.ending_transition()
+
         else:
             print("Invalid")
             self.valery_lunch_serving()
