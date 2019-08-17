@@ -583,7 +583,7 @@ class ValeryEndings:
             print('"Yeah I guess that\'s just how life can be sometimes. Keeps you on your toes, I guess."')
             input()
             print('"Well it\'s 5 PM now and we\'ve been talking since we got at the restaurant at 12. It\'s been a great day but I suppose it\'s about time for us to head home."')
-            print('"Can\'t remember the last I was actually disappointed about having to go home. Now come here and give me a hug before we leave.)
+            print('"Can\'t remember the last I was actually disappointed about having to go home. Now come here and give me a hug before we leave."')
             input()
             print("You and Valery both stand up before hugging each other good bye.")
             print('"See ya round, {}. I\'m sure I\'ll see you around the neighborhood. Plus we\'ve still gotta talk about our next date."'.format(CharInfo.player_info.name))

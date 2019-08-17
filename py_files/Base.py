@@ -1,6 +1,5 @@
 # Tales from the Road
 # -*- coding: utf-8 -*-
-
 import time
 import secrets
 import sys
@@ -55,9 +54,9 @@ def pcbedroom():
         input()
         print("You think that now would be a good time to plan out the road trip, maybe try and figure out who you’d want to bring along, where you’d want to go, stuff like that.")
         input()
-        print("You can think of a couple of things you could do; you might try asking your roommates for suggestions on where to go, and ask them rather they’d want to go on the road trip with you.")
+        print("You can think of a couple other things you could do; you might try asking your roommates for suggestions on where to go, and ask them if they’d want to go on the road trip with you.")
         input()
-        print("You could also check out Chris the Tiger’s Pawbook account and see what he suggests checking out. You could do that on your computer in the bedroom.")
+        print("You could also check out Chris the Tiger’s Pawbook account and see what he suggests checking out. You could do that on your computer in your bedroom.")
         input()
 
         if CharInfo.festival_checks.holly_stay is True:  # Only brings up this dialogue if the player stuck around with Holly.
@@ -103,7 +102,8 @@ def pcbedroom():
         input()
         pcsleep = input("Do you still want to go to sleep? (Yes or no) ").lower()
         if pcsleep in ['yes', 'y']:
-            TravelSystem.travel_points.tp.append('A quick walk')
+            if TravelSystem.travel_points.tp in ['A quick walk']:
+                TravelSystem.travel_points.tp.remove('A quick walk')
             CharInfo.valery_checks.valery_first_walk = 'no walk'
             ValeryTransition.quick_walk.chapter_3_halfway_transistion()
         elif pcsleep in ['no', 'n']:
@@ -119,7 +119,7 @@ def pcbedroom():
 
 def pccomputer():
     if CharInfo.chris_checks.chris_computer_list is not True:
-        print("You turn on the computer and log in, opening Firefox and hitting up Pawbook.")
+        print("You turn on the computer and log in, opening Firefox and hitting up Pawbook.")  # Thank you FireFox. I don't even need to come up with a name.
         print("You look up the full name Chris gave you; Chris Feldman.")
         input()
         print("You find him on the first page, his profile picture is a selfie of him at the Grand Canyon.")
@@ -132,7 +132,7 @@ def pccomputer():
         print(
             '"I’m assuming you’re going to head west? It wouldn’t quite be a coast to coast road trip but it’ll be close enough. You’ll probably end up skipping out on a half days worth of driving, miss out on a couple of, in my opinion, cool stops, but there’s still plenty of other stuff ahead."')
         input()
-        print('"I\'m guessing you’ll be starting off where you are now, in Idenberg."')
+        print('"I\'m guessing you’ll be starting off where you are now, in Iridium City.."')
         print(
             '"I’ll have to look up some routes you might go and get back to you on points of interest. Shouldn’t take me to long, I’ll probably have you a nice list by the end of the day."')
         input()
@@ -211,21 +211,17 @@ def pccomputer():
     else:
         print("You check your Pawbook messages and don’t see anything from Chris. He’s probably still working on it")
         input()
-        clear()
         pcbedroom()
-
-
-
 
 
 class PCBathroom:
     def bathroompc(self):
         while True:
             if CharInfo.misc_checks.bathroom_bd is True:
-                print("You see the opened trunk on the floor and the doorway you entered to your west")
+                print("You see the opened trunk on the floor and the doorway to the bedroom to your west.")
 
             elif CharInfo.misc_checks.bathroom_bd is not True:
-                print("You enter a bathroom, you see a trunk on the floor and the doorway you entered to your west")
+                print("You enter the bathroom, you see a trunk on the floor and the doorway to your bedroom to the west")
 
             bathroomoption = input("What do you do? ").lower()
 
@@ -239,7 +235,7 @@ class PCBathroom:
                 print("There's nothing more in the trunk.")
                 input()
 
-            elif bathroomoption in ["west", "w", "West"]:
+            elif bathroomoption in ["west", "w",]:
                 print("You return to your bedroom.")
                 return pcbedroom()
 
@@ -303,7 +299,7 @@ class SashaEncounter:
     def bedroom(self):
         while True:
             print(
-                "You knock on Sasha's door and she welcomes you in. Her bedroom is fairly typical with nothing out of the ordinary except for Sasha the German Shepard sitting at the desk")
+                "You knock on Sasha's door and she welcomes you in. Her bedroom is fairly typical with nothing out of the ordinary, except of course for Sasha the German Shepard sitting at the desk")
             print(
                 "To your left you see Sasha sitting at a desk, to the south you see the doorway to the hallway")
             bedroomoption = input("What do you do? ").lower()
@@ -326,9 +322,9 @@ class SashaEncounter:
             input()
             print('"Oh hey, {}. I see you\'re back from vacation, most have gotten home last night when I was at work."'.format(
                     CharInfo.player_info.name))
-            print('"You were gone for like 2 weeks, right? Guess that\'s one of the perks of being a contract worker, you can take long vacations like that. Gotta admit I\'m a bit jealous, I\'d be lucky if I got a weeks vacation..."')
+            print('"You were gone for like 2 weeks, right? Guess that\'s one of the perks of your lifestyle, you can take long vacations like that. Gotta admit I\'m a bit jealous, I\'d be lucky if I got a weeks vacation..."')
             input()
-            print('"So how was Teuton Resorts? I heard it\'s a pretty nice place, lots of trails to walk, and they have those beautiful waterfalls."')
+            print('"So, how was Teuton Resorts? I heard it\'s a pretty nice place, lots of trails to walk, and they have those beautiful waterfalls."')
             input()
             print("(1): Tell Sasha that the vacation was alright, but that you didn't really get to experience all the resort had to offer.")
             print("(2): Explain to Sasha that you pretty much just sat in your room the whole time and watched movies and binged TV shows.")

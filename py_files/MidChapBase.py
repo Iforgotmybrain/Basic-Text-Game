@@ -311,7 +311,7 @@ def last_of_chapter_3_transfer():
         print("Your schedule is essentially completely free leading up to the road trip.")
         print("guess it's time to just relax and wait it out.")
         input()
-        print("The next scene for this path is currently being worked on, the game will now quit")
+        print("This scene is currently not developed. Your game has not been saved. The game quit on input.")
         input()
         sys.exit()
 
