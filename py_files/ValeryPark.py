@@ -704,7 +704,7 @@ class ValeryEndings:
                         input()
                         print("You embrace with Valery and share a passionate kiss. You take in the moment as chills run down your back and a feeling of warmth overtakes your body.")
                         input()
-                        if CharInfo.player_info.sex in ['male', 'Male']:
+                        if CharInfo.player_info.sex in ['male', 'Male']:  # I feel like I'm better at (and more comfortable with) writing the gay stuff than I am the straight stuff. I don't know what that says about.
                             print('"Would you believe that was my first time kissing a guy?"')
                             print('"I\'ve considered myself bisexual for a while but never really got romantically involved with a guy. Just couldn\'t find one that was my type; guess that changed tonight."')
                             input()
@@ -714,7 +714,7 @@ class ValeryEndings:
                             input()
                             print("That went about as well as it could have all things considered, you were expecting to just get flat out rejected so you\'ll take it.")
                             print("You have to say, you feel pretty special about being the first guy Val's kissed, especially considering how picky he seems to be.")
-                            input()
+                            input()  # Okay maybe I kind of know.
 
                         elif CharInfo.player_info.sex in ['female', 'Female']:
                             print('"You\'re quite the kisser, have to say it took me by surprise."')
