@@ -484,12 +484,14 @@ class ValeryPark:
                     CharInfo.valery_checks.valery_true_ending = True
                     break
 
-                elif val_lonely_question in ['3']:  # More detail
+                elif val_lonely_question in ['3']:
                     print(
                         "“Really? You couldn't take 10 minutes out of your life to just listen to what I have to say?”")
                     input()
                     CharInfo.valery_checks.valery_date_points -= 8
-                    print('""')
+                    print('"Have to say out of all the people I\'ve dated you have to be the most inconsiderate."')
+                    print('"Unfortunately for me you\'re also the one I liked the most. The key word there being "liked"."')
+                    input()
                     print(
                         '"No point in continuing this pseudo-date when you can\'t even spare the time to listen to my story."')
                     input()
@@ -508,6 +510,7 @@ class ValeryPark:
         print("“Alright, I don't like to talk my sad shit for too long, makes me too emotional. Let's talk about something a bit more upbeat.”")  # Need to word this better I think
         print('"Namely, our relationship. Which is the reason you brought me. You didn\'t say it outright, but I know you\'re interested in me, why else would you have brought me here?"')
         input()
+        CharInfo.valery_checks.valery_date_points += 8
         self.valeryendingtransistion()
 
     def valeryendingtransistion(self):
@@ -691,14 +694,55 @@ class ValeryEndings:
             print('Valery stands up before continuing to talk "Come here and give me a hug before we head back home."')
             input()
             while True:
-                print("(1): I was thinking of more than just a hug")
+                print("(1): I was thinking of more than just a hug.")
                 print("(2): *Hug Valery* ")
                 val_ending_two_prompt_two = input("Choose a response ")
 
                 if val_ending_two_prompt_two in ['1']:  # Main thing that needs fixed before release
-                    print("Placeholder")
-                    CharInfo.player_info.ending_points += 6
-                    break
+                    if CharInfo.valery_checks.valery_date_points >= 20:
+                        print('"Uh huh, well I\'m not quite that easy. I could however upgrade you to a kiss."')
+                        input()
+                        print("You embrace with Valery and share a passionate kiss. You take in the moment as chills run down your back and a feeling of warmth overtakes your body.")
+                        input()
+                        if CharInfo.player_info.sex in ['male', 'Male']:
+                            print('"Would you believe that was my first time kissing a guy?"')
+                            print('"I\'ve considered myself bisexual for a while but never really got romantically involved with a guy. Just couldn\'t find one that was my type; guess that changed tonight."')
+                            input()
+                            print('"We\'ll just leave it at that for now. Like I said, I don\'t go all in on the first date. You\'ll just have to use your imagination for now."')
+                            input()
+                            print('"See you around the neighborhood, {}. We\'ll have to talk about setting up a second date sometime." Valery says as he winks and walks back to his car.')
+                            input()
+                            print("That went about as well as it could have all things considered, you were expecting to just get flat out rejected so you\'ll take it.")
+                            print("You have to say, you feel pretty special about being the first guy Val's kissed, especially considering how picky he seems to be.")
+                            input()
+
+                        elif CharInfo.player_info.sex in ['female', 'Female']:
+                            print('"You\'re quite the kisser, have to say it took me by surprise."')
+                            print('"Have to imagine you\'ll only get better, since you\'ll have plenty of time to practice with me."')
+                            input()
+                            print('"That\'ll be it for now though. It\'s like I said, I don\'t go all in on the first date. You\'ll just have to use your imagination for now."')
+                            input()
+                            print('"Well, see you around the neighborhood, {}. We\'ll have to sit down and talk about setting up our second date sometime." Valery says as with a wink, before walking back to his car.')
+                            input()
+                            print("That went about as well as it could have all things considered, you were expecting to just get flat out rejected so you\'ll take it.")
+                            input()
+
+                    else:
+                        print('"You might be thinking it but it won\'t be happening yet, I\'m not that easy."')
+                        print('"So you\'ll wanna keep that thought in your head for a little while longer."')
+                        input()
+                        print('"Now come here and give me a hug."')
+                        input()
+                        print("You and Valery share a fairly long hug before saying your goodbyes.")
+                        print('"I\'m sure I\'ll be seeing you around the neighborhood quite a bit now. Might even have to stop down at your house sometime." Valery says with a somewhat suggestive look."')
+                        input()
+                        print("You say goodbye to Valery and watch as he heads back towards his car. Today was a good day.")
+                        CharInfo.player_info.ending_points += 6
+                        CharInfo.valery_checks.valery_ending_path = 'ending two normal'
+                        CharInfo.player_info.player_location = val_trans.ending_transition
+                        SaveSystem.save_sys.saving()
+                        val_trans.ending_transition()
+                        break
 
                 elif val_ending_two_prompt_two in ['2']:
                     print("You and Valery share a fairly long hug before saying your goodbyes.")
@@ -906,11 +950,11 @@ class ValeryDateEndingTransition:
                 input()
 
         elif CharInfo.valery_checks.valery_ending_path in ['ending one kiss']:
-            print("You had a pretty nice day today. Perhaps it could have went a little bit better but it's hard to beat what you experienced with Valery today.")
+            print("You had a pretty nice day today. Perhaps it could have went a little bit better, but it's hard to beat what you experienced with Valery today.")
             input()
 
         elif CharInfo.valery_checks.valery_ending_path in ['ending one normal'] or CharInfo.valery_checks.valery_ending_path in ['ending three normal']:
-            print("You have a nice little thing going on with Valery right now. It should be interesting to see how it devlops as you get to know him even more.")
+            print("You have a nice little thing going on with Valery right now. It should be interesting to see how it develops as you get to know him even more.")
             input()
 
         elif CharInfo.valery_checks.valery_ending_path in ['ending four denied']:
@@ -933,6 +977,7 @@ class ValeryDateEndingTransition:
 
         elif CharInfo.valery_checks.valery_ending_path in ['disaster']:
             print("Today wasn\'t going too bad until you up and insulted Valery. It\'s not hard to see why he got so upset, considering you basically dismissed him and his feelings.")
+            print("Perhaps you should've been more considerate of how he feels, no one likes being pushed away or insulted.")
             input()
 
         self.ending_remarks()
