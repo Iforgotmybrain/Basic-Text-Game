@@ -170,7 +170,7 @@ class ValeryLunchStart:
             input()
             if CharInfo.valery_checks.valery_date_points == -8:
                 print("“Honestly feels like you’re just being a prick for no reason.”")
-                print("“Come on dude if you didn’t want to come you could have just said no. If you keep going after me, I’m out.”")
+                print("“Come on, if you didn’t want to come you could have just said no. If you keep going after me, I’m out.”")
                 CharInfo.valery_checks.valery_date_points -= 8
                 CharInfo.player_info.ending_points -= 6
                 input()
@@ -268,53 +268,61 @@ class ValeryLunchStart:
             print("“I believe my parents told me they named me after a scientist or something.”")
             print("“It’s been awhile since I asked them though so I could be misremembering.”")
             input()
-            print("(1): Well I think it’s a very fitting name for you!")
-            print("(2): So long as you’re happy with your name I guess that’s all that matters.")
-            print("(3): If I were you, I’d have probably already changed my name by now.")
-            val_name_choice = input("Pick your response ")
+            while True:
+                print("(1): Well I think it’s a very fitting name for you!")
+                print("(2): So long as you’re happy with your name I guess that’s all that matters.")
+                print("(3): If I were you, I’d have probably already changed my name by now.")
+                val_name_choice = input("Pick your response ")
 
-            if val_name_choice in ['1']:
-                print("“Aw, thanks. It’s not often I get a compliment on my name.”")
-                print("“Most people just think it’s weird. Sometimes they’ll come right out and say it, but usually you can just infer what they’re thinking.”")
-                input()
-                print("“Weird looks are pretty much all I have to deal with nowadays, thankfully. Back in high school and middle school I’d always get picked on because of my more feminine name…”")
-                input()
-                print("“But thankfully most people I meet now are decent enough to not hate me just based off of my name.”")
-                CharInfo.valery_checks.valery_date_points += 8
-                CharInfo.player_info.ending_points += 4
-                self.val_question_complete = True
-                input()
-                SaveSystem.save_sys.saving()
-                clear()
-                self.val_questions_rats()
+                if val_name_choice in ['1']:
+                    print("“Aw, thanks. It’s not often I get a compliment on my name.”")
+                    print(
+                        "“Most people just think it’s weird. Sometimes they’ll come right out and say it, but usually you can just infer what they’re thinking.”")
+                    input()
+                    print(
+                        "“Weird looks are pretty much all I have to deal with nowadays, thankfully. Back in high school and middle school I’d always get picked on because of my more feminine name…”")
+                    input()
+                    print(
+                        "“But thankfully most people I meet now are decent enough to not hate me just based off of my name.”")
+                    CharInfo.valery_checks.valery_date_points += 8
+                    CharInfo.player_info.ending_points += 4
+                    self.val_question_complete = True
+                    input()
+                    SaveSystem.save_sys.saving()
+                    clear()
+                    self.val_questions_rats()
+                    break
 
-            elif val_name_choice in ['2']:
-                print("“I suppose so. The weird looks I get from people when I tell them my name is Valery can be a bit harsh at times, but I can deal with it.”")
-                input()
-                print("“People just outright disliking me because of my more feminine name hurts though. Thankfully that hasn’t really been a problem since my high school and middle school years.”")
-                CharInfo.valery_checks.valery_date_points += 2
-                CharInfo.player_info.ending_points += 2
-                self.val_question_complete = True
-                input()
-                SaveSystem.save_sys.saving()
-                clear()
-                self.val_questions_rats()
+                elif val_name_choice in ['2']:
+                    print(
+                        "“I suppose so. The weird looks I get from people when I tell them my name is Valery can be a bit harsh at times, but I can deal with it.”")
+                    input()
+                    print(
+                        "“People just outright disliking me because of my more feminine name hurts though. Thankfully that hasn’t really been a problem since my high school and middle school years.”")
+                    CharInfo.valery_checks.valery_date_points += 2
+                    CharInfo.player_info.ending_points += 2
+                    self.val_question_complete = True
+                    input()
+                    SaveSystem.save_sys.saving()
+                    clear()
+                    self.val_questions_rats()
+                    break
 
-            elif val_name_choice in ['3']:
-                print("“Can’t change your name until your 18. And at that point my name was just part of who I was.”")
-                print("“Besides, at 18 my worst years were behind me. I was done with high school, and middle school was becoming a distant memory.”")
-                input()
-                print("“Just didn’t make sense to change my name because a few people I didn't even care about hated it.”")
-                CharInfo.valery_checks.valery_date_points -= 2
-                self.val_question_complete = True
-                input()
-                SaveSystem.save_sys.saving()
-                clear()
-                self.val_questions_rats()
-
-            else:
-                print("Invalid input")
-                self.val_questions_rats()
+                elif val_name_choice in ['3']:
+                    print(
+                        "“Can’t change your name until your 18. And at that point my name was just part of who I was.”")
+                    print(
+                        "“Besides, at 18 my worst years were behind me. I was done with high school, and middle school was becoming a distant memory.”")
+                    input()
+                    print(
+                        "“Just didn’t make sense to change my name because a few people I didn't even care about hated it.”")
+                    CharInfo.valery_checks.valery_date_points -= 2
+                    self.val_question_complete = True
+                    input()
+                    SaveSystem.save_sys.saving()
+                    clear()
+                    self.val_questions_rats()
+                    break
 
         elif val_get_to_know in ["2"]:
             print("You ask Val about why he decided to move to Iridium City.")
@@ -332,56 +340,56 @@ class ValeryLunchStart:
                 else:
                     print("(3): Cool story, let's change the subject.")
 
-                    val_work_question = input("Pick a response ")
+                val_work_question = input("Pick a response ")
 
-                    if val_work_question in ['1']:
+                if val_work_question in ['1']:
+                    print(
+                        "“I actually work for the city! Might not be the most prestigious work, but it’s good enough for me.”")
+                    print(
+                        "“Plus, it’s really cool having a job where you can make a big impact on the community. You don’t get that at a lot of places.”")
+                    input()
+                    print(
+                        "You can definitely appreciate Valery’s comments on having satisfying work. The mundane and unimpactful nature of your previous job at Syperion was a big reason why you left.")
+                    CharInfo.valery_checks.valery_date_points += 2
+                    self.val_question_complete = True
+                    input()
+
+                elif val_work_question in ["2"]:
+                    print(
+                        "“I love the whole atmosphere of this place, there's nothing else like it.”")
+                    self.val_question_complete = True
+                    input()
+
+                elif val_work_question in ['3']:
+                    if CharInfo.valery_checks.valery_date_points <= -16:
                         print(
-                            "“I actually work for the city! Might not be the most prestigious work, but it’s good enough for me.”")
+                            "“Okay, I’ve had it. You’ve been a total asshole this whole time for no damn reason.”")
                         print(
-                            "“Plus, it’s really cool having a job where you can make a big impact on the community. You don’t get that at a lot of places.”")
+                            "“If you didn’t want to come out for lunch you could have just said no, but instead you come out here and purposely fuck around.”")
                         input()
                         print(
-                            "You can definitely appreciate Valery’s comments on having satisfying work. The mundane and unimpactful nature of your previous job at Syperion was a big reason why you left.")
-                        CharInfo.valery_checks.valery_date_points += 2
-                        self.val_question_complete = True
+                            "“I’m finished here, I’m not letting you push me around. Have fun paying for the bill, dick.”")
                         input()
 
-                    elif val_work_question in ["2"]:
-                        print(
-                            "“I love the whole atmosphere of this place, there's nothing else like it.”")
-                        self.val_question_complete = True
+                        print("You put $30 on the table to pay for the bill before leaving.")
                         input()
+                        CharInfo.valery_checks.valery_ending_path = 'disaster'
+                        ValeryPark.val_trans.ending_transition()
 
-
-                    elif val_work_question in ['3']:
-                        if CharInfo.valery_checks.valery_date_points <= -16:
-                            print(
-                                "“Okay, I’ve had it. You’ve been a total asshole this whole time for no damn reason.”")
-                            print(
-                                "“If you didn’t want to come out for lunch you could have just said no, but instead you come out here and purposely fuck around.”")
-                            input()
-                            print(
-                                "“I’m finished here, I’m not letting you push me around. Have fun paying for the bill, fucking dick.”")
-                            input()
-                            print("This scene can't be finished until I get towards the end.")
-                            input()
-                            break  # Fix this later
-
-                        elif CharInfo.player_info.ending_points <= -4 or CharInfo.valery_checks.valery_date_points <= -4:
-                            print("“No need to be a dick about it. Could have just changed the subject…”")
-                            input()
-                            CharInfo.valery_checks.valery_date_points -= 4
-                            self.val_question_complete = True
-                            self.val_questions_rats()
-                            break
-
-                        else:
-                            pass
-
+                    elif CharInfo.player_info.ending_points <= -4 or CharInfo.valery_checks.valery_date_points <= -4:
+                        print("“No need to be a dick about it. Could have just changed the subject…”")
+                        input()
+                        CharInfo.valery_checks.valery_date_points -= 4
                         self.val_question_complete = True
                         self.val_questions_rats()
                         break
 
+                    else:
+                        pass
+
+                    self.val_question_complete = True
+                    self.val_questions_rats()
+                    break
 
         elif val_get_to_know in ["3"]:
             print("“I’ve been coming up here for around 7 years! Of course, I haven’t lived here until very recent.”")
@@ -498,7 +506,12 @@ class ValeryLunchStart:
                                     print("But instead you decide to come here and insult me over and over again. You're a real piece of work, {}.")
                                     print("I'm out of here. Enjoy paying for the whole meal, dick.")
                                     input()
+                                    print("Seems you finally broke Valery. Probably wasn't the best idea to do that.")
+                                    print("You put $30 on the table for the bill before heading out.")
+                                    input()
                                     self.val_question_complete = True
+                                    CharInfo.valery_checks.valery_ending_path = 'disaster'
+                                    ValeryPark.val_trans.ending_transition()
                                     break
 
                                 elif CharInfo.valery_checks.valery_date_points <= -8:
@@ -562,7 +575,6 @@ class ValeryLunchStart:
                     input()
                     self.val_question_complete = True
                     CharInfo.valery_checks.valery_date_points += 2
-                      # Should I clear before returning?
 
                 elif val_hobbies_response in ['3']:
                     print("“No, haven’t really thought about doing that. I think the nearest track is like 2 hours away so it’d be a bit out of the way.")
@@ -588,10 +600,12 @@ class ValeryLunchStart:
                             print(
                                 "“I’m finished here, I’m not letting you push me around. Have fun paying for the bill, fucking dick.”")
                             input()
-                            print("This scene can't be finished until I get towards the end.")
+                            print("Seems you finally broke Valery. Probably wasn't the best idea to do that.")
+                            print("You put $30 on the table for the bill before leaving.")
                             input()
                             self.val_question_complete = True
-                            break  # Fix this later
+                            CharInfo.valery_checks.valery_ending_path = 'disaster'
+                            ValeryPark.val_trans.ending_transition()
                         else:
                             self.val_question_complete = True
                             self.val_questions_rats()
@@ -641,7 +655,7 @@ class ValeryLunchEnding:
         print("The waitress brings your food out, everything seems to be in order so it's time to dig in!")
         print('"They have pretty decent portions here for the price. Only thing that\'s really lacking are the side options, but that\'s a pretty minor compliant all things considered."')
         input()
-        if CharInfo.misc_checks.pc_meal_choice in ['grilled salmon', 'ribs']:  # Need to start a new save in order to check this.
+        if CharInfo.misc_checks.pc_meal_choice in ['grilled salmon', 'ribs']:
             print("You have to agree with Valery, for $8 you get two sides and a fairly large portion of {}".format(CharInfo.misc_checks.pc_meal_choice))
 
         elif CharInfo.misc_checks.pc_meal_choice in ['pulled pork sandwich']:
@@ -758,7 +772,7 @@ class ValeryLunchEnding:
             print("(1): I was actually thinking that maybe we could go to the nearby park and just hangout some more.")
             print("(2): And so we shall. It's been great getting to know you.")
 
-        elif CharInfo.valery_checks.valery_date_points < 8:  # Have to rig this to work
+        elif CharInfo.valery_checks.valery_date_points < 8:
             print("(1): Guess so. It's, uh, been a decent time.")
             print("(2): Yup. See ya.")
 
@@ -807,7 +821,7 @@ class ValeryLunchEnding:
                         SaveSystem.save_sys.saving()
                         ValeryPark.val_park.park_start()
 
-                    elif CharInfo.valery_checks.valery_date_points < 6:  # Expand on this
+                    elif CharInfo.valery_checks.valery_date_points < 6:
                         print("I appreciate your kindness, but I just didn't feel that strong of connection with you.")
                         input()
                         print("I hope you're still alright with being friends, though. I just don't really feel like we would make a very good couple.")
@@ -872,11 +886,6 @@ class ValeryLunchEnding:
         else:
             print("Invalid")
             self.valery_lunch_serving()
-
-
-
-
-
 
 
 val_lunch = ValeryLunchStart()

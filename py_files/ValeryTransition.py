@@ -117,7 +117,7 @@ class ValeryNeighborhoodWalk:
 
         elif CharInfo.holly_checks.holly_relationship_status not in ['rejected', 'dating', 'hold'] and CharInfo.festival_checks.holly_stay is True:
             CharInfo.holly_checks.holly_relationship_status = 'ignored'
-            print("You didn't really clear things up with Holly as much as you just ignored.")
+            print("You didn't really clear things up with Holly as much as you just ignored her.")
             input()
             print("Being ignored will upset her a bit. If you weren't interested in pursuing a relationship you probably would have been better off just saying so upfront.")
             input()
@@ -203,8 +203,8 @@ class ValeryLunch:
             print("You introduce yourself as {}, you tell him that you live in the house down the road, and that you’re Sasha’s roommate.".format(CharInfo.player_info.name))
             input()
             print("“Ah, well hello {}. I’m Valery but you probably already knew that from Sasha.”".format(CharInfo.player_info.name))
-            print("“Unfortunately, you’ve caught me at a bit of a bad time as I’ve gotta go to work in about half an hour.”")
-            print("“I’d love to get to know you though, maybe we can get lunch sometime this weekend?”")
+            print("“Nice of you to come down and say hello, but unfortunately, you’ve caught me at a bit of a bad time. As I’ve gotta go to work in about half an hour.”")
+            print("“I’d love to get talk with you sometime though, maybe we can get lunch this weekend?”")
             input()
 
         if CharInfo.player_info.ending_points >= -4:

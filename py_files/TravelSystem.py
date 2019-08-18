@@ -1,4 +1,6 @@
 import CharInfo
+
+
 class TravelPoints:
     def __init__(self):
         self.tp = ['Tories Cafe', 'Sycamore Lakeview Park', 'Home']
@@ -49,6 +51,7 @@ class TravelPortal(Traveling): # Don't forget to set these points up when you ad
         elif travelarea in ['home', 'house']:
             if CharInfo.misc_checks.halfway_chap3 is not True:
                 travel_function.travel_point_home_one()
+
             elif CharInfo.misc_checks.halfway_chap3 is True:
                 travel_function.travel_point_home_two()
 

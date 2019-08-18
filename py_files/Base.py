@@ -4,7 +4,6 @@ import time
 import secrets
 import sys
 import os
-import json
 import requests
 import SaveSystem
 import CharInfo
@@ -577,8 +576,7 @@ class LivingRoom:
             print("Invalid input")
             return self.sashadialogue()
 
-
-    def sashaconversastion(self):  # This gonna be painful.
+    def sashaconversastion(self):
         print(
             "You walk up to Sasha and sit in the chair beside the couch. The TV is playing a superhero movie involving some sort of pink titan.")
         input()
@@ -1069,7 +1067,7 @@ class SycamorePark:
                       self.parkpathself]  # In order to sort functions you can't call the function in this list.
 
         parkdecision = input("After thinking about it, you decide to go... (east, west, or home) ").lower()
-        if parkdecision in ['home', 'away', 'forget this' ]:
+        if parkdecision in ['home', 'away', 'forget this']:
             print("You decide to head home.")
             entranceway()
 
@@ -1082,16 +1080,22 @@ class SycamorePark:
                 self.parkpathself()
             elif CharInfo.park_checks.park_roommate_path is not True and CharInfo.park_checks.park_lake_path is not True:  # If the player has not seen the roommate path has not been seen it will play that instead of the random selection or self path
                 self.parkpathrommates()
+            else:
+                print("You've already gone this way.")
+                self.lakepark()
 
         elif parkdecision in ['west', 'w']:
             print("You head down the path to your west.")
-            time.sleep(3)
             if CharInfo.park_checks.park_lake_path is not True and CharInfo.park_checks.park_roommate_path is not True:  # Randomly picks which path to go down first
                 print(secrets.choice(pathdialog)())
             elif CharInfo.park_checks.park_lake_path is True and CharInfo.park_checks.park_roommate_path is not True:  # If the player has seen the self reflection path the roommate path is played instead
                 self.parkpathrommates()
             elif CharInfo.park_checks.park_lake_path is not True and CharInfo.park_checks.park_roommate_path is True:  # If the player has seen the roommate path then the self reflection path is played
                 self.parkpathself()
+            else:
+                print("You've already gone this way.")
+                self.lakepark()
+
         elif parkdecision in ['save']:
             SaveSystem.save_sys.saving()
         else:
@@ -1132,8 +1136,6 @@ class SycamorePark:
         print(
             "Caught up in your thoughts you find yourself at the end of your walk before you know it. You are now back at the park entrance way.")
         clear()
-        if TravelSystem.travel_points.tp in ['Sycamore Lakeview Park']:
-            TravelSystem.travel_points.tp.remove('Sycamore Lakeview Park')
         CharInfo.park_checks.park_roommate_path = True
         SaveSystem.save_sys.saving()
         input()
@@ -1163,7 +1165,7 @@ class SycamorePark:
         print("You decide to get up and continue your walk, you feel pretty good after reflecting on your recent issues.")
         input()
         clear()
-        if TravelSystem.travel_points.tp in ['Sycamore Lakeview Park']:
+        if "Sycamore Lakeview Park" in TravelSystem.travel_points.tp:
             TravelSystem.travel_points.tp.remove('Sycamore Lakeview Park')
         CharInfo.player_info.player_location = sycamore_park.lakepark
         CharInfo.park_checks.park_lake_path = True
@@ -1206,7 +1208,7 @@ TravelSystem.travel_function.travel_point_early_bedroom = pcbedroom
 
 TravelSystem.travel_function.travel_point_hallway = hallway
 
-TravelSystem.travel_function.travel_point_home = entranceway
+TravelSystem.travel_function.travel_point_home_one = entranceway
 
 TravelSystem.travel_function.travel_quick_walk = ValeryTransition.quick_walk.valery_first_walk
 

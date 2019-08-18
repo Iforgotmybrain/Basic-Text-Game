@@ -334,7 +334,7 @@ class FestivalMid:
         input()
         print("After eating your meal you head towards one of the many events being held here.")
         print(
-            "The event you're going too is a concert, it features various local musicians and bands, with the main headliner being a band called Lioness Untamed.")
+            "The event you're going to is a concert, it features various local musicians and bands, with the main headliner being a band called Lioness Untamed.")
         input()
         print(
             "As you arrive at the concert stage you see one of the bands setting up, according to the schedule their name is Airplane Harness. They primarily play indie music, which helps explain their odd name choice.")

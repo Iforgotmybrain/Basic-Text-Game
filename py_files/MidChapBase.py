@@ -4,7 +4,6 @@ import SaveSystem
 import CharInfo
 import TravelSystem
 import Phone
-import Debug
 import ValeryLunch
 
 clear = lambda: os.system('cls' if os.name == 'nt' else 'clear')
@@ -140,7 +139,7 @@ class LaterChapComputer:
         print("It’s a difficult decision, you ponder it for a while, going back and forth between the two options. Eventually deciding too…")
         print('(1): Stick with you\'ve got and avoid taking money from investments.')
         print("(2): Dip into your investment accounts in order to ensure you have enough money for the road trip.")
-        money_choice = input("Which will you pick? (1 or 2)" ).lower()
+        money_choice = input("Which will you pick? (1 or 2) ").lower()
 
         if money_choice in ['1']:
             CharInfo.player_info.money += 2000
@@ -161,7 +160,7 @@ class LaterChapComputer:
                 last_of_chapter_3_transfer()
 
             elif CharInfo.valery_checks.valery_lunch is not True:
-                print("The only thing left to do for today is check and see how Valery is doing.")
+                print("The only thing left to do for today is to go down to Valery's house.")
                 print("And if you really don't want to go see him, you could always just call it a day and relax a bit on your bed.")
                 input()
                 clear()
@@ -240,9 +239,6 @@ def hallwaymid():
     elif hallway_direction in ['save', 'saving']:
         SaveSystem.save_sys.saving()
 
-    elif hallway_direction in ["debug"]:
-        Debug.ending_point_debug()
-
     else:
         print("Invalid input")
         return hallwaymid()
@@ -287,7 +283,6 @@ def entrancewaymid():
 def last_of_chapter_3_transfer():
     if CharInfo.valery_checks.valery_lunch is True and CharInfo.holly_checks.holly_relationship_status in ['dating']:
         print("You’ve got a couple of things still upcoming this week, as you’re getting lunch with Valery on Saturday and going on that date with Holly on Sunday.")
-        input()
         print("But for now you can just relax, and get ready for the very busy weekend.")
         input()
         clear()
@@ -295,7 +290,6 @@ def last_of_chapter_3_transfer():
 
     elif CharInfo.valery_checks.valery_lunch is True and CharInfo.holly_checks.holly_relationship_status not in ['dating'] or CharInfo.festival_checks.holly_stay is not True:
         print("Your schedule leading up to the road trip is pretty free, the only thing you really have going on is getting lunch with Valery on Saturday.")
-        input()
         print("So you're going to seize the opportunity and just relax until then.")
         input()
         clear()
@@ -303,7 +297,6 @@ def last_of_chapter_3_transfer():
 
     elif CharInfo.valery_checks.valery_lunch is not True and CharInfo.holly_checks.holly_relationship_status in ['dating']:
         print("Your schedule leading up to the road trip is pretty free, the only thing you really have going on is that date with Holly on Sunday.")
-        input()
         print("So you're going to seize the opportunity and just relax until then.")
         input()
         clear()
@@ -315,7 +308,7 @@ def last_of_chapter_3_transfer():
         print("Your schedule is essentially completely free leading up to the road trip.")
         print("guess it's time to just relax and wait it out.")
         input()
-        print("This scene is currently not developed. Your game has not been saved. The game quit on input.")
+        print("This scene is currently not developed. Your game has not been saved. The game will quit on input.")
         input()
         sys.exit()
 
