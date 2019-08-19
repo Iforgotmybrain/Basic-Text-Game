@@ -48,10 +48,10 @@ class ValeryLunchStart:
         print("It takes a couple more minutes for Valery to finally arrive, as he pulls into the parking lot you exit your car and head towards the entrance of the restaurant.")
         input()
         print("The Rat’s Place is situated just off the lake, the building itself is painted in a light blue color, with white accents. The side facing the lake is made almost entirely of glass, offering a spectacular view.")
-        print("And according to a plaque mounted near the seating area, the restaurant is named after a set of critically acclaimed movies, called “The Rat Movies”.")
+        print("And according to a plaque mounted near the seating area, the restaurant is named after a set of critically acclaimed movies, called “The Rat Movies”. It says they were directed by some guy with the nickname 'Jerma'.")
         input()
         print("You enter the restaurant and wait for Valery to make his way in, he ends up arriving very shortly after you.")
-        print("“Hello there, {}. I’ve been looking forward to this lunch all week!”".format(CharInfo.player_info.name))
+        print("“Hello there, {}. I've been looking forward to meeting you for lunch all week.”".format(CharInfo.player_info.name))
         input()
         print("You tell Valery you have as well, it’s always good to try and get to know new people.")
         input()
@@ -101,7 +101,7 @@ class ValeryLunchStart:
 
             if val_glass in ['1']:
                 print(
-                    "“Sure, but I have tendency to take it a bit too far. Guess that’s just how it is with most people’s passion”")
+                    "“Sure, but I have tendency to take it a bit too far.”")
                 input()
                 break
 
@@ -118,7 +118,7 @@ class ValeryLunchStart:
                 print(
                     "“Oh. Uh, sorry if it came off as bragging. Was just trying to explain why I was so interested in that particular wall…”")
                 input()
-                CharInfo.valery_checks.valery_date_points -= 6
+                CharInfo.valery_checks.valery_date_points -= 4
                 break
 
             else:
@@ -263,7 +263,7 @@ class ValeryLunchStart:
         if val_get_to_know in ['1']:
             print("You ask Valery about his name, stating that Valery is a fairly unusual name for a guy.")
             input()
-            print("“You're right, it is quite a different name. I actually hated it through my adolescence, but with time I started to like it a bit more.”")
+            print("“You're right, it's a very different name. When I was younger I hated it quite a bit, but with time I started to like it more.”")
             input()
             print("“I believe my parents told me they named me after a scientist or something.”")
             print("“It’s been awhile since I asked them though so I could be misremembering.”")
@@ -281,15 +281,14 @@ class ValeryLunchStart:
                     input()
                     print(
                         "“Weird looks are pretty much all I have to deal with nowadays, thankfully. Back in high school and middle school I’d always get picked on because of my more feminine name…”")
-                    input()
                     print(
-                        "“But thankfully most people I meet now are decent enough to not hate me just based off of my name.”")
+                        "“But most people I meet now are decent enough to not hate me just based off of my name.”")
+                    input()
                     CharInfo.valery_checks.valery_date_points += 8
                     CharInfo.player_info.ending_points += 4
                     self.val_question_complete = True
-                    input()
-                    SaveSystem.save_sys.saving()
                     clear()
+                    SaveSystem.save_sys.saving()
                     self.val_questions_rats()
                     break
 
@@ -327,11 +326,11 @@ class ValeryLunchStart:
         elif val_get_to_know in ["2"]:
             print("You ask Val about why he decided to move to Iridium City.")
             input()
-            print("“Well that’s pretty simple, I moved here for work”")
+            print("“Well that’s pretty simple, I moved here for work.”")
             print("“It was a pretty easy choice, I loved the area, and the pay and benefits for the job were good, so I jumped on it.”")
             input()
             while True:
-                print("(1): So where do you work?")
+                print("(1): So, where do you work?")
                 print("(2): What do you love so much about Iridium City? You seem to be quite attached to it.")
 
                 if CharInfo.player_info.ending_points <= -4 or CharInfo.valery_checks.valery_date_points <= -4:
@@ -349,14 +348,15 @@ class ValeryLunchStart:
                         "“Plus, it’s really cool having a job where you can make a big impact on the community. You don’t get that at a lot of places.”")
                     input()
                     print(
-                        "You can definitely appreciate Valery’s comments on having satisfying work. The mundane and unimpactful nature of your previous job at Syperion was a big reason why you left.")
+                        "You can definitely appreciate Valery’s comments on having satisfying work. The mundane and unimpactful nature of your previous job at Spherion was a big reason why you left.")
                     CharInfo.valery_checks.valery_date_points += 2
                     self.val_question_complete = True
                     input()
 
                 elif val_work_question in ["2"]:
                     print(
-                        "“I love the whole atmosphere of this place, there's nothing else like it.”")
+                        "“I just love the whole atmosphere of this place, there's nothing else like it.”")
+                    print("”It can be a bit depressing during the winter when all the tourists and summer people leave, but the liveliness during the other seasons more than makes up for it.”")
                     self.val_question_complete = True
                     input()
 
@@ -452,7 +452,7 @@ class ValeryLunchStart:
                                     "“I really do appreciate how welcoming you’ve been to me. As you've probably guessed not everyone has been so gun-ho about getting to know me.”")
                                 input()
                                 print(
-                                    "“And with how well I’ve gotten along with you, it’s really helped me feel at home. "
+                                    "“And with how well I’ve gotten along with you, it’s really helping me feel at home. "
                                     "So thank you, it's been a long time since I've felt this way when hanging out with someone.”")
                                 input()
                                 print(
@@ -559,10 +559,10 @@ class ValeryLunchStart:
                 if val_hobbies_response in ['1']:
                     print("“Well I mostly play on PC and asking what my favorite game is… that’s a bit of a difficult question.”")
                     input()
-                    print("“Let’s see… I loved New Vegas, but Fallout 3 was one of my first introductions to open world games, there’s a lot of nostalgia there.”")
-                    print("“And then you have games I loved as a kid, like Hot Pursuit 2 and Animal Crossing…”")
+                    print("“Let’s see… I loved Fallout New Vegas, but Fallout 3 was one of my first introductions to open world games, there’s a lot of nostalgia there.”")
+                    print("“And than you have games I loved as a kid, like Hot Pursuit 2 and Animal Crossing…”")
                     input()
-                    print("“Damn dude this is a loaded question. I guess I’ll go with animal Crossing. I’m gonna have to think on this a bit more though…”")
+                    print("“Damn dude this is a loaded question. I guess I’ll go with Animal Crossing. I’m gonna have to think on this a bit more though…”")
                     input()
                     self.val_question_complete = True
                     CharInfo.valery_checks.valery_date_points += 2
