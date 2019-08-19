@@ -659,7 +659,15 @@ class ValeryEndings:
                 input()
 
             elif val_park.val_deeper_move_question not in ['3']:
-                print("")
+                print('"Road trip, huh? Mind filling me in on the details?"')
+                print("You provide Valery witht he various details of the road trip. Telling him where you plan on visiting and how long you plan on it being.")
+                input()
+                print('"I won\'t lie, sounds pretty interesting. You\'ll have to keep me in mind when you\'re asking people to go."')
+                print('"Should be a good way to build our relationship, too. Might be a bit of a jump going from just dating to spending nearly a month together but I think it would work out fine."')
+                input()
+                print('"Guess we better start heading home, we keep talking any longer and we\'ll be getting bit by mosquitoes."')
+                print('Valery stands up before resuming the conversation "Come give me a hug before we head back home."')
+                input()
 
                 while True:
                     print("(1): I was thinking of more than just a hug")
@@ -702,7 +710,7 @@ class ValeryEndings:
                 print("(2): *Hug Valery* ")
                 val_ending_two_prompt_three = input("Choose a response ")
 
-                if val_ending_two_prompt_three in ['1']:  # Main thing that needs fixed before release
+                if val_ending_two_prompt_three in ['1']:
                     self.ending_two_common()
                     break
 
