@@ -1174,9 +1174,12 @@ class SycamorePark:
 # Version Checking
 
 
-version_check = requests.get("https://iforgotmybrain.github.io/version.json")
-version_latest = requests.get("https://iforgotmybrain.github.io/version.txt")
+try:
+    version_check = requests.get("https://iforgotmybrain.github.io/version.json")
+    version_latest = requests.get("https://iforgotmybrain.github.io/version.txt")
 
+except requests.exceptions.ConnectionError:
+    requests.status_code = "Connection failed. You're probably offline. This won't affect anything related to the game, you just won't be notified if there's an update."
 
 # Global Classes
 
@@ -1220,13 +1223,18 @@ TravelSystem.travel_function.travel_point_mid_entranceway = MidChapBase.entrance
 
 TravelSystem.travel_function.travel_point_home_two = MidChapBase.entrancewaymid
 
-print("Checking Game Version...")  # Why not just use two files? A text file to have a pretty print, and than JSON for the computer to read.
-print("Latest Version: {}".format(version_latest.text))
-print("Current Version: {}".format(version.__version__))
-if version_check.json() not in [{'version': '0.1.5'}]:
-    print("An update for Tales from the Road seems to be available. Check the GitHub page or Itch.io page for more details.")
-elif version_check.json() in [{'version': '0.1.5'}]:
-    print("The game is running on the latest version, yay!")
+try:
+    print(
+        "Checking Game Version...")  # Why not just use two files? A text file to have a pretty print, and than JSON for the computer to read.
+    print("Latest Version: {}".format(version_latest.text))
+    print("Current Version: {}".format(version.__version__))
+    if version_check.json() not in [{'version': '0.1.5'}]:
+        print(
+            "An update for Tales from the Road seems to be available. Check the GitHub page or Itch.io page for more details.")
+    elif version_check.json() in [{'version': '0.1.5'}]:
+        print("The game is running on the latest version, yay!")
+except NameError:
+    print("Connection failed. You\'re probably offline. This won\'t affect anything related to the game, you just won\'t be notified if there\'s an update.")
 
 while True:
     loadingoption = input("Do you wish to load a game? ").lower()  # Make it so this is the first question asked.
