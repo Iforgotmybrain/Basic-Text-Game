@@ -608,7 +608,7 @@ class LivingRoom:
             print("“I just worked my part time job and didn’t do jack shit else. Worked my 20 hours a week and then pissed off and went partying with my friends or sat at home all day.”")
             input()
             print("“It was fun for a few months, but your mind wants something to work towards, and this lifestyle was a dead end.”")
-            print("“I started to feel lost after those few months, I had no long-term goals, no real ambition, I wasn’t too far off from just being a deadbeat for the rest of my life truth be told. You surround yourself with negative people like that and you’ll find you're tangled in plaid quicker than you think.”")
+            print("“I started to feel lost after those few months, I had no long-term goals, no real ambition, I wasn’t too far off from just being a deadbeat for the rest of my life truth be told. You surround yourself with negative people like that and you\'ll find yourself tangled in plaid quicker than you think.”")
             input()
             print("“After talking with my parents and a couple of my friends who actually did something after high school, I decided that I’d give college a try. I wasn’t going straight to university though; I’d go to community college and then transfer if I ended up enjoying it.”")
             print("“Wasn’t my ideal path, but my way of doing things kind of turned out to be a disaster, so I said, “fuck it” and decided to give the more traditional post high school path a go.”")
