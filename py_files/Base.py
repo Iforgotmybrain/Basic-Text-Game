@@ -593,7 +593,7 @@ class LivingRoom:
             '"Oh boy, you are in for a treat if you ever decide to catch up on them. Definitely let me know before you do, I’d love to re-watch all of them with you."')
         print('"Anyway, you want something or just here to chat?"')
         input()
-        sasha_talk_or_confess = input("(1): Tell Sasha you wanted to talk about finding your purpose. (2:) Just keep chatting. ").lower()
+        sasha_talk_or_confess = input("(1): Tell Sasha you wanted to talk about finding your purpose. (2): Just keep chatting. ").lower()
 
         if sasha_talk_or_confess in ['1']:
             print("You tell Sasha you want to talk about finding a purpose in life.")
@@ -1137,7 +1137,7 @@ class SycamorePark:
             "Caught up in your thoughts you find yourself at the end of your walk before you know it. You are now back at the park entrance way.")
         clear()
         CharInfo.park_checks.park_roommate_path = True
-        SaveSystem.save_sys.saving()
+        CharInfo.player_info.player_location = sycamore_park.lakepark
         input()
         self.lakepark()
 
