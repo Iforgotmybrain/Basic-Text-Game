@@ -78,7 +78,7 @@ def pcbedroom():
     pcbedroomdirection = input('Which do you do? ').lower()
     CharInfo.player_info.player_location = pcbedroom  # Set players location
 
-    if pcbedroomdirection in ['east', 'e']:
+    if pcbedroomdirection in ['east', 'e']:  # How the player travels from place to place and interacts with things.
         player_bathroom.bathroompc()
 
     elif pcbedroomdirection in ['north', 'n']:
@@ -389,29 +389,6 @@ class SashaEncounter:
             input()
             hallway()
 
-        # elif CharInfo.sasha_checks.sasha_talk is True:  # Oh lawd. This is gonna be cut for now and replaced later.
-        #     print(""" "You know, I actually had a friend once that basically disappeared for 2 weeks." """)
-        #     input()
-        #     print(
-        #         """ "Turns out she was hiding out in her apartment. She didn't leave it for 2 weeks and only answered text messages to tell people she was ‘ok’" """)
-        #     input()
-        #     print(
-        #         """ "It was quite sad hearing about that for the first time, my friend was basically tearing herself apart, and by the time I knew something was up it was too late to intervene." """)
-        #     print(""" "She did end up getting help thankfully, and last time I heard from her she was doing pretty good." """)
-        #     input()
-        #     print(
-        #         """ "It makes me think of how I simply dismissed your disappearance as nothing to worry about. Who knows where you could have been or what you could have been up too!" """)
-        #     input()
-        #     print(
-        #         """ "Anyway, you're fine now and that's all that matters. You might want to check in with Jacob, he was gone for half the week so he wasn't entirely sure how long you were gone for." """)
-        #     input()
-        #     print("You exit Sasha's room and enter the hallway")
-        #     clear()
-        #     CharInfo.player_info.player_location = hallway
-        #     hallway()
-        # elif CharInfo.sasha_checks.sasha_talk is True and CharInfo.sasha_checks.sasha_living is True:
-        #     print('"Hey, {}. Can\'t think of anything new going on"'.format(CharInfo.player_info.name))
-
     def sashabedroom(self):
         while True:
             print("You see Sasha, your roommate, and the doorway to the hallway to your south")
@@ -642,7 +619,6 @@ class LivingRoom:
                         "You thank Sasha and head up for the night. You'll have to ask Jacob some questions tomorrow.")
                     input()
                     break
-
             clear()
             CharInfo.player_info.player_location = pcbedroom
             CharInfo.sasha_checks.sasha_living = True
