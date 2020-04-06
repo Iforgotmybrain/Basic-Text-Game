@@ -209,7 +209,7 @@ class HollyTextDialogue:
                     TravelSystem.travel_function.travel_point_bedroom()
 
                 elif CharInfo.chris_checks.chris_computer_list_completed is not True:
-                    print("You put your back in your pocket, you should probably check to see if you Chris has that list completed.")
+                    print("You put your phone back in your pocket, you should probably check to see if you Chris has that list completed.")
                     input()
                     SaveSystem.save_sys.saving()
                     TravelSystem.travel_function.travel_point_bedroom()

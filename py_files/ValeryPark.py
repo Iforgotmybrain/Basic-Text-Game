@@ -877,7 +877,7 @@ class ValeryEndings:
             print(
                 "(1): It was a bit of a surprise for me as well. I figured that, at most, we'd part our lunch today as friends.")
             print(
-                "(2): Sometimes the best things in life come unexpectedly. But usually it just ends up being shit, like an unexpected guest.")
+                "(2): ")
             val_ending_three_prompt = input("Choose a response ")
 
             if val_ending_three_prompt in ['1']:
@@ -935,8 +935,6 @@ class ValeryEndings:
             "“Maybe we can go on another date sometime, but for now though, no, I don’t feel the same way you seem too. I don’t really see us being any more than friends.”")
         input()
         while True:
-            print(
-                "(1): I have to say, I'm a bit disappointed. But I understand, if you're not comfortable with dating me, that's fine.")
             print(
                 "(2): Really? If you weren't interested in me you could have just declined my invitation to come here...")
             val_ending_four_prompt = input("Choose a response ")

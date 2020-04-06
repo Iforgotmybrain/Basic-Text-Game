@@ -103,7 +103,7 @@ class FestivalStart:
             print("Invalid input")
             return self.festival_entrance()
 
-    def festival_main(self):
+    def festival_main(self):  # Anything unrelated to Holly will be cut. I see it as just filler.
         CharInfo.player_info.player_location = festival_area.festival_main
         time.sleep(1)
         print("You can see stands for everything from spices to graphic tees. The quaint downtown streets filled with folks from every part of the state, and country for that matter.")
@@ -158,7 +158,7 @@ class FestivalStart:
             input()
             print("One depicts a lake surrounded by a forest, with a mountainous background.")
             print("The other is a portrait of a husky dressed in, if you were too guess, 18th century clothing. He’s holding a sword in one hand while leaning on a desk.")
-            print("The third is set in a fantasy setting, showing a group of 5 furless beings traveling through the woods while being chased by wraiths with swords. The one being seems to be holding some sort of ring.")
+            print("The third is set in a fantasy setting, showing a group of 5 beings traveling through the woods while being chased by wraiths with swords. The one being seems to be holding some sort of ring.")
             input()
             painting_purchased = input("After thinking about it you decide to purchase the painting with the… \
             (1): Husky \
@@ -329,7 +329,7 @@ class FestivalMid:
             "After checking out the vendors and merchants, you decide to grab something to eat from the many food trucks present.")
         input()
         print(
-            "You decided to get a beef gyro, a slushy, and a funnel cake. An unhealthy meal, yes, but it’s a special event, who cares?")
+            "An unhealthy meal, yes, but it’s a special event, who cares?")
         print("All together the meal cost you $15. Food trucks are damn expensive!")
         input()
         print("After eating your meal you head towards one of the many events being held here.")
@@ -377,7 +377,7 @@ class FestivalMid:
         input()
         print('"Awesome, festivals are always better when you have likeminded people to hang out with!"')
         input()
-        print("The band seems to be finished setting up and is starting their set with a song called ‘Tretter’.")
+        print("The band seems to be finished setting up, as they greet the crowd and announce")
         print("Their sound is very low-fi like Holly said, it’s not really your cup of tea but you’ll stick around for a couple more songs.")
         input()
         print("About halfway into the song Holly offers her opinion on the band.")
@@ -752,7 +752,7 @@ class FestivalEnd:
         input()
         print("You tell Holly about your hobbies, which you find to be pretty uninteresting. Because, well, truth is your hobbies are a bit basic and boring. You enjoy movies, music, watching TV, and maybe playing video games or watching sports here and there. Among other things.")
         input()
-        print('"I mean, sure, those are pretty basic things. I won’t lie about that. That’s not necessarily a bad thing though. In some cases, I’d say it can even be a positive. Since those interests are so common, it can make it easier for other people to relate to you. So long as you don’t let those hobbies become the only thing defining you, it’s fine. That’s when you become a basic bitch, or bastard. You definitely don’t have that problem, though."')
+        print('"Hmm, sure, those are pretty basic things. I won’t lie about that. That’s not necessarily a bad thing though. In some cases, I’d say it can even be a positive. Since those interests are so common, it can make it easier for other people to relate to you. So long as you don’t let those hobbies become the only thing defining you, it’s fine. That’s when you become a basic bitch, or bastard. You definitely don’t have that problem, though."')
         input()
         print('"Ya know, I like a lot of the same stuff. Music, movies, all that. You already know about my art, and I also enjoy fishing on occasion."')
         print('"Guess I’m pretty ‘basic’ as well."')
