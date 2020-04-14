@@ -1,13 +1,18 @@
 class PlayerStats:
     """This class takes and store info about the player character. This includes their user-defined name, their sex, and
     their race. As of recent it also keeps track of their location. This was needed to implement the save system"""
-    def __init__(self, race, sex, name, money, player_location, ending_points):  # Make it so user cannot enter garbage values for these.
+    def __init__(self, race, sex, name, money, player_location, ending_points, hp, str, agl, int, dex):  # Make it so user cannot enter garbage values for these.
         self.name = name
         self.sex = sex
         self.race = race
         self.player_location = player_location
         self.money = money
         self.ending_points = ending_points  # Ending points are now at a 30 to -30 scale.
+        self.hp = hp
+        self.str = str
+        self.agl = agl
+        self.int = int
+        self.dex = dex
 
 
 class PlayerCharacter(PlayerStats):
@@ -106,6 +111,7 @@ class GlobalCheckDestinationFiveSix:
 
 class GlobalCheckDestinationSevenEight:
     pass
+
 
 player_info = PlayerCharacter()
 

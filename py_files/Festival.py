@@ -37,7 +37,7 @@ class FestivalStart:
             print("You can’t say you were really burning your brain trying to figure that out, but you’ll humor him.")
 
             print(
-                "'Well, I’m actually road tripping across the country! I do it every year, in some shape or form. Last year I went by train but now I’m doing it by car.” He says with an enthusiastic tone. Clearly he’s quite interested in traveling the country.'")
+                "'Well, I’m actually on a road trip across the country! I do it every year, in some shape or form. Last year I went by train but now I’m doing it by car.” He says with an enthusiastic tone. Clearly he’s quite interested in traveling the country.'")
             input()
             print(
                 "You ask Chris for some more details, you’ve always been fascinated by the idea of traveling the country, but you’ve just never had the time or money to do so.")
@@ -59,7 +59,7 @@ class FestivalStart:
                 "'It’s a very rewarding experience. But it’s also a significant time commitment, and too be honest, it can be a bit tiring driving for hours on end. But the experiences and sights make it worth it. There really isn’t much else like it, expect maybe traveling the world. But that’s whole different ballgame.'")
             input()
             print(
-                "'If I could offer one tip, it's too plan ahead of time and check out what’s going to be going in the towns you’re passing by. Try to find the best possible time to leave so you can maximize the events you can go too'")
+                "'If I could offer one tip, it's to plan ahead of time and check out what’s going to be going in the towns you’re passing by. Try to find the best possible time to leave so you can maximize the events you can go too'")
 
             print(
                 "You thank Chris for advice, if you ever do decide to take on such an endeavor, you’ll definitely make sure too have a plan.")
@@ -511,18 +511,18 @@ class FestivalEnd:
         input()
         print('"I used to always bug the hell out of my parents about playing these games. They’d always say ‘no, you’re not playing those games, they’re a rip-off. I could go to the store and buy you whatever toy it is you want for less money than it would take to win one of those games."')
         input()
-        print('"Well guess what, it wasn’t about the toy, it was about the experience! I don’t think Krigers has you throwing a ball into a bowl in order to get a toy, do they Dad?"')
+        print('"Well guess what Dad, it wasn’t about the toy, it was about the experience! I don’t think Krigers has you throwing a ball into a bowl in order to get a toy, do they Dad?"')
         print('"They are terribly unfair though, of course I didn’t really understand that as a kid. I think I’ve won a grand total of once. And that was on the basketball one, it was just complete luck."')
         input()
         print("As a kid, you had a similar experience to Holly. Though your parents would occasionally give in and let you play a few.")
         input()
-        print("As you walk down the path you see all the games. There’s the basketball game, which is rigged by setting the hoop higher than an official one. The ‘throw this ping pong ball into the water’ game. Which is difficult because the little ball just bounces off everything. The shooty game, which has you shooting a fragile paper target with inaccurate BB pellets. You get the idea, this is a hive of scum and villainy, full of unfair games and shady business practices.")
+        print("As you walk down the path you see all the games. There’s the basketball game, which is rigged by setting the hoop higher than an official one. The ‘throw this ping pong ball into the water’ game. Which is difficult because the little ball just bounces off everything. The shooty game, which has you shooting a fragile paper target with inaccurate BB pellets. You get the idea, this place is full of unfair games and shady business practices.")
         input()
         print("Well, you came here for a reason, might as well play at least one of these games.")
         input()
         print('"I wouldn’t mind playing the one where you try to throw a baseball at a certain speed. It’s up to you though."')
         input()
-        print("You could try the baseball one, you also thought about doing the BB gun one. They're all rigged in some way though, your odds are probably the same no matter which one you have a go at. (Author note: The Baseball game is much better written than the BB gun game. Just something to consider.")
+        print("You could try the baseball one, you also thought about doing the BB gun one. They're all rigged in some way though, your odds are probably the same no matter which one you have a go at.")
         fairgamechoice = input('After thinking about it, you decide to... (1): Play the baseball game \
         (2): Play the BB gun game. ').lower()
 
@@ -557,7 +557,7 @@ class FestivalEnd:
         print("You start off doing a pretty decent job, you’ve shot out a decent chunk of the target, with about half it remaining.")
         print("It’s getting quite difficult at this point though since there’s less and less of the target to shoot. Instead of being able to essentially aim in the general area of the target and hit something, you have to be more careful with your shots. Which is difficult given the gun’s poor movement and sights.")
         input()
-        print(" You knock out some more of the target, there’s about 25% remaining, but you only have 100 pellets to get the rest of it done. At this point, your shots are missing more than they are hitting. The remaining pieces of the target aren't supported by much, which leads to the paper just giving way to pellets, dealing no damage.")
+        print("You knock out some more of the target, there’s about 25% remaining, but you only have 100 pellets to get the rest of it done. At this point, your shots are missing more than they are hitting. The remaining pieces of the target aren't supported by much, which leads to the paper just giving way to pellets, dealing no damage.")
         input()
         print("You’re just about to knock out the target, you aim the gun perfectly, your finger on the trigger ready to finally win one of these silly games.")
         pc_win = random.randint(30, 100)
@@ -675,7 +675,6 @@ class FestivalEnd:
             print("Among them are a stuffed German Shepard, a stuffed Tiger, and a stuffed {}.".format(CharInfo.player_info.race))
             input()
             print("Holly chooses the stuffed {}".format(CharInfo.player_info.race))
-            print("A funny coincidence considering you’re a {} yourself. Eh, correlation doesn’t equal causation and all that.".format(CharInfo.player_info.race))
             input()
 
         elif holly_speed <= 60:
@@ -685,7 +684,7 @@ class FestivalEnd:
         print("Well, you’ve gotta at least make an effort. You think about the proper form to throw the ball, trying to mimic the cardboard cut-out they have standing by their booth and the way Holly threw the ball.")
         print("Eventually, you feel like you’ve got the perfect form, you bring your arm back, ready to get back some of the money you wasted on this thing.")
         input()
-        print("You throw the ball, you can tell your grip wasn’t quite right, as the ball didn’t seem to have as much oomph as you anticipated.")
+        print("You throw the ball, but you can tell your grip wasn’t quite right, as the ball didn’t seem to have as much oomph as you anticipated.")
         input()
         print("The ball moves at a decent speed, hitting the soft target and letting out an unsatisfying ‘plump’ sound.")
         pc_speed = random.randint(40, 70)
@@ -706,7 +705,7 @@ class FestivalEnd:
             pc_animal_choice = input("After thinking about it, you decide too pick the... (fox, german shepard, dragon").lower()
 
             if pc_animal_choice in ['fox']:
-                print("You decide too pick the fox. Foreshadowing? Probably not. You just thought the fox looked the cutest.")
+                print("You decide to pick the fox. Foreshadowing? Probably not. You just thought the fox looked the cutest.")
 
             elif pc_animal_choice in ['german shepard', 'g shep', 'german shep', 'shepard']:
                 print("You pick the stuffed german shepard, it's coat is very similar to Sasha's, it's coat is primarily black with some tan.")
@@ -820,7 +819,7 @@ class FestivalEnd:
         input()
         print("You both lean on Holly’s car in the parking lot, watching the fireworks as the last bit of sun falls below the horizon, giving way to the stars and planets to light the night sky.")
         input()
-        print("You feel serene, this day truly feels like one from your childhood. Hanging out with a friend at the end of the day doing some simple shit, it’s nice, calming, and familiar. You wouldn’t trade it for anything.")
+        print("You feel serene, this day couldn't went any better. Hanging out with a friend at the end of the day doing some simple shit, it’s nice and relaxing. You wouldn’t trade it for anything.")
         input()
         print("The lightshow ends eventually, as all things do. And now it’s time to head back home.")
         input()
@@ -833,7 +832,7 @@ class FestivalEnd:
         input()
         print("You see goodbye to Holly and head back to the bus stop. What a great day.")
         input()
-        print("You head home on the bus and head to bed. Even a day as nice as this one ends the same as the rest.")
+        print("You hop on the bus home and head up to bed.")
         input()
         clear()
         TravelSystem.travel_points.tp.remove('Lake Fest')
@@ -843,10 +842,10 @@ class FestivalEnd:
     def festival_ending_self(self):
         print("After checking out everything the festival has to offer, you head back towards the entrance to watch the ending fireworks show.")
         input()
-        print("It’s been a long and interesting day. You came expecting to stay for an hour or two and then go home. But after talking to Holly you decided to stay.")
+        print("It’s been a long and interesting day. You came expecting to stay for an hour or two and then go home. But after talking to Holly you decided to stay a bit longer.")
         print("You had some nice discussions with her but it didn’t really go much beyond that. There just wasn’t enough interest from either party.")
         input()
-        print("Still, you can’t help but feel that maybe you missed out on something. It’s not everyday you get to try and rekindle a fading friendship. ")
+        print("Still, you can’t help but feel that maybe you missed out on something. It’s not everyday you get to try and rekindle a fading friendship.")
         print("Oh well, you can’t dwell on the past too much.")
         input()
         print("Speaking of Holly, you never did see her again. Shame you never got to say goodbye.")

@@ -733,10 +733,10 @@ class JacobDialogue:
                 print("Invalid input")
                 return self.startingkitchen()
 
-    def bedroomdialogue(self):
+    def bedroomdialogue(self):  # Useless dialogue
         print("You knock on Jacob’s door, he opens the door and welcomes you in.")
         input()
-        print("As you enter Jacob's room you notice how nicely decorated it is. You see the various landscape paintings he has hung on the walls, and the house plants he has. It all meshes together great and creates a soothing atmosphere.")
+        print("As you enter Jacob's room you notice how nicely decorated it is. You see the various landscape paintings he has hung on the walls, and the well-taken care of house plants he has. It all meshes together great and creates a soothing atmosphere.")
         input()
         print('"What’s up?  Come to talk ‘bout something?"')
         print("You tell Jacob that you were thinking of planning something but that you wanted to pick his brain for a bit first.")
@@ -780,7 +780,7 @@ class JacobDialogue:
             print(
                 '"Hey, how was Lake Fest yesterday? Every year I tell myself I’m gonna go but something comes up or I procrastinate and end up missing it."')
             input()
-            print("You tell Jacob about your day at the festival, including your purchase at the vendor.")
+            print("You tell Jacob about your day at the festival, including your purchase at the vendor.")  # Why though?
             input()
 
             if CharInfo.festival_checks.painting_purchase in ['husky', 'wraith', 'lake']:
@@ -905,11 +905,11 @@ class ToriesCafe:
     def thecafe(self):
         print("You catch a ride on the bus and end up at Tories Place, your all-time favorite place to grab lunch.")
         print(
-            "It’s a popular place amongst the younger crowd. The place has a modern aesthetic with colorful furniture and ample natural lighting giving the place a cheery vibe.")
+            "It’s a popular place amongst people your age. The place has a modern aesthetic with colorful furniture and ample natural lighting giving the place an overall cheery vibe.")
         input()
         print("They’re known for their fantastic wraps, and also have some pretty good soups.")
         print(
-            "Looking around you see the line to order, it’s a bit after lunch so there isn’t much of a wait. You can also see a familiar face sitting down at one of the tables.")
+            "Looking around you see the line to order, it’s a bit after lunch so there isn’t much of a wait. ")
         input()
         cafedecision = input("(1): Order food and then go over say hi to Holly. (2): Go over and say hi to Holly right away. (3): Just order some food and go home. ").lower()
 
@@ -1078,7 +1078,7 @@ class SycamorePark:
             print("Invalid input")
             return self.lakepark()
 
-    def parkpathrommates(self):
+    def parkpathrommates(self):  # Needed?
         print("This path is slightly shorter than the other one, as it doesn't go past the lake.")
         input()
         print("As you walk across the park you see someone with a Redding University shirt on. It reminds you of your days in college, and how you met your roommates.")
@@ -1091,20 +1091,19 @@ class SycamorePark:
             "You ended up starting a study group with him since you weren’t exactly having a great time in that class. Mainly because it was taught by a not so great professor.")
         input()
         print("It started off as a pretty standard study group, consisting of you, Jacob, and a couple other students. About half way into the semester you started to get to know Jacob a bit better, and you started to hang out with him a bit more outside of the study group.")
-        print("You had a fair bit in common with him. You liked the same sports teams, played on the same gaming platform, and as it turned out the both of you minored in the same thing.")
         input()
         print(
-            "After that the rest is history, you’ve been good friends with him ever since. To the point that you decided to roommate up with him starting your 4th year at college.")
+            "After that the rest is history, you’ve been good friends with him ever since. To the point that you decided to roommate up with him starting your 3rd year at college.")
         input()
         print(
-            "You ended up meeting Sasha in a similar way. You ran into her at one of the dining halls your very first year at college. You were sitting by yourself, and she came up and asked to sit with you.")
+            "You ended up meeting Sasha in a similar way. You ran into her at one of the one of the recitation sessions for your Sociology classes.")
         print(
             "You started off with the usual college small talk, ‘Hey, what’s your major?’ ‘What dorm do you live in?’ She ended up living in one of the nearby dorm complexes, which shared a dining hall with your building. This led to you and her getting lunch together on a fairly regular basis.")
         input()
         print(
             "You talked quite a bit during lunch, and you eventually ended up hanging out with her outside of lunch quite a bit. You didn’t have as much in common with her as Jacob, but you still appreciated her company.")
         print(
-            "You always kept in touch with her throughout the year, often attending various on-campus events together, and helping each other with classes.")
+            "You always kept in touch with her throughout the year, often attending various on-campus events together, and helping each other out with classes.")
         input()
         print(
             "She’s been a really great friend to you, though she can be a bit forgetful and snarky at times. You’re really glad you met her and Jacob during your time at college, who knows how different your current life would be if you didn’t!")
@@ -1123,8 +1122,7 @@ class SycamorePark:
         print(
             "You decide to sit down at a bench overlooking the lake and take a moment to reflect on some things.")
         input()
-        print("Recently you’ve been having some trouble finding purpose in your life. It’s why you went off to the Teuton Resorts, you were hoping to go there and ‘find yourself’.")
-        print("That didn’t happen of course because you just spent your time there doing the same shit you do everyday. Watching videos on YouTube and streaming movies and TV.")
+        print("Recently you’ve been having some trouble finding purpose in your life. Your current career brings in money, but you just don't find it very fulfilling.")
         input()
         print("You’re in a pretty good situation, at least economically. Your fortunes early on in your career lets you just do the occasional contract work in order to get by. You supplement that contract income with a bunch of money you saved up when you were making close to 6 figures at Spherion.")
         print("It’s an easy life but not a particularly fulfilling one. It was fun at first but 1 year into living this kind of life and you’re finding yourself uncertain and a bit depressed.")

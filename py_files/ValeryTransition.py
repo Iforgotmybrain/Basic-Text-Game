@@ -184,7 +184,7 @@ class ValeryLunch:
         else:
             print("Sasha already met him, which is how you found out he just moved in.")
             input()
-        print("You walk the down the street to the house he’s renting. You have to knock on his door as he doesn’t seem to have a doorbell.")
+        print("You walk down the street to his house. You have to knock on his door as he doesn’t seem to have a doorbell.")
         input()
         print("Valery answers the door; he seems to be a bit surprised by you visiting.")
         input()

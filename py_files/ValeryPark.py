@@ -221,7 +221,7 @@ class ValeryPark:
                     "(1): Seems like you did pretty well in the last new place you moved too. So I’m sure it’ll end up working out here, too.")
                 print("(2): Well hopefully you don’t run off too soon from here, I’d probably end up missing ya.")
                 print(
-                    "(3): It’s good to get outside of your comfort zone and explore a bit. I’m actually planning on going on a cross-country road trip here pretty soon.")
+                    "(3): It’s good to get outside of your comfort zone and explore a bit. You know, I’m actually planning on going on a cross-country road trip here pretty soon.")
                 self.val_deeper_move_question = input("Choose a response ")
                 if self.val_deeper_move_question in ['1', '2', '3']:
                     break
@@ -268,7 +268,7 @@ class ValeryPark:
                 input()
                 while True:
                     print("(1): Lack of people to talk too? Wanna talk a bit more about that?")
-                    print("(2): That sounds pretty tough, I'm sure you'll get through it..")
+                    print("(2): That sounds pretty tough, I'm sure you'll get through it.")
                     val_talking_issue = input("Choose a response ")
 
                     if val_talking_issue in ['1']:
@@ -452,7 +452,7 @@ class ValeryPark:
             input()
             print("“Now, I know you might be thinking “How could you be lonely? You said you had a pretty solid group of friends, right?” I had friends, yes. But most of those friends weren’t really the kind you’d spill your heart out too. We never talked about anything too serious, mostly just kept it centered around work or our hobbies.”")
             input()
-            print("“That meant I didn’t really have anybody to talk to about more serious stuff. Things like how I was feeling emotional, my future, job burn out, and numerous other things.”")
+            print("“That meant I didn’t really have anybody to talk to about more serious stuff. Things like how I was feeling emotionally, my future, job burn out, and numerous other things.”")
             print("“Back in Fulton I’d have a couple of friends that’d be down for listening to whatever bullshit I wanted to talk about, but that wasn’t the case in Nagysburg.”")
             input()
             print("“And of course, I couldn’t afford to see a therapist to help with that issue since my health insurance, which I paid $300 a month for by the way, wouldn’t cover any of the cost for therapy. I would have been paying close to $200 per session to just talk to somebody about my problems. Even with my decent paying job I couldn’t afford that.”")  # Realest talk here. I've dealt with this exact situation before.
@@ -520,7 +520,7 @@ class ValeryPark:
                     val_trans.ending_transition()
                     break
 
-        print("“And of course those failures make it even better when I do actually connect with someone. Like with you.” He says while jabbing your shoulder and giving you a slight grin.”")
+        print("“And then I’ve also been telling myself I have to really make an effort to try and meet new people, like you. That’s helped quite bit too. Even if I don’t end up connecting, I can at least feel good about the fact that I’m trying.”")
         input()
         print("“Alright, I don't like to talk my sad shit for too long, makes me too emotional. Let's talk about something a bit more upbeat.”")  # Need to word this better I think
         print('"Namely, our relationship. Which is the reason you brought me. You didn\'t say it outright, but I know you\'re interested in me, why else would you have brought me here?"')
@@ -546,7 +546,7 @@ class ValeryPark:
 class ValeryEndings:
     def ending_one(self):
         print(
-            "“Honestly, I’d say I’m pretty into you. When we were talking in the restaurant I couldn’t help but feel like I was back in Fulton hanging out with an old friend. It was great”")
+            "“Honestly, I’d say I’m pretty into you. When we were talking in the restaurant I couldn’t help but feel like I was back in Fulton hanging out with an old friend. It was great.”")
         input()
         print(
             "“Hell, I'm practically already thinking about what’s next for us. Better be another date, at least.”")
@@ -558,7 +558,7 @@ class ValeryEndings:
 
             elif val_park.val_deeper_move_question not in ['3']:
                 print(
-                    "(1): I was thinking about that as well. I've a got a couple of ideas already in mind, including a road trip.")
+                    "(1): I was thinking about that as well. I've a got a couple of ideas already in mind.")
 
             print(
                 "(2): There’s still plenty of time to figure that out. Since we live in the same neighborhood, I’m sure we’ll be seeing each other quite often.")
@@ -610,7 +610,7 @@ class ValeryEndings:
 
             if CharInfo.player_info.race in ['wolf', 'Wolf'] and CharInfo.player_info.sex in ['Female', 'female']:
                 print(
-                    "(1): *Give Valery a kiss on the cheek* Life is unpredictable, Valery. Sometimes you have days where life's a bitch. Fortunately for you, today was one where you got kissed by a bitch instead.")
+                    "(1): *Give Valery a kiss on the cheek* Life is unpredictable, Valery. Sometimes you have days where life's a bitch. Fortunately for you, today was one where you got kissed by one instead.")
             else:
                 print(
                     "(1): *Give Valery a kiss on the cheek* We don't expect a lot of things, Valery. Most of time it's unpleasantness we don't expect, not today, though.")
@@ -660,7 +660,7 @@ class ValeryEndings:
             CharInfo.player_info.name))
         input()
         while True:
-            print("(1): Our time here isn't done yet, Val. *Lean in towards Valery*")
+            print("(1): Don't get ahead of yourself, we still have some time left here... *lean in towards Valery*")
             if val_park.val_deeper_move_question in ['3']:
                 print(
                     "(2): I feel the same, Valery. Don't know when our next date will be, but I do have that road trip coming up...")
@@ -677,7 +677,7 @@ class ValeryEndings:
             print("You lean in towards Valery, moving your head towards his and wrapping your arms around his shoulders.")
             print("Valery also wraps his arms around you, pulling you closer to him.")
             print(
-                "You embrace with Valery and share a passionate kiss. You take in the moment as chills run down your back and a feeling of warmth overtakes your body.")
+                "You embrace with Valery and share a passionate kiss. You take in the moment as chills run down your back.")
             input()
             print("The kiss ends after what seems like 5 minutes. While still holding you quite close, Valery speaks up.")
 
@@ -688,7 +688,7 @@ class ValeryEndings:
                     '"I\'ve considered myself bisexual for a while but never really got romantically involved with a guy. Just couldn\'t find one that was my type; guess that changed tonight."')
                 input()
                 print(
-                    '"We\'ll just leave it at that for now, I don\'t go all in on the first date. You\'ll just have to use your imagination for now."')
+                    '"We\'ll just leave it at that for now, I don\'t go all in on the first date."')
                 input()
                 print(
                     '"See you around the neighborhood, {}. We\'ll have to talk about setting up a second date sometime." Valery says as he winks and walks back to his car.')

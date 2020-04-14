@@ -87,7 +87,7 @@ class ValeryLunchStart:
 
         print("You and Valery sit down at your table and await the waiter to take your order.")
         input()
-        print("“Y'know, this restaurant is probably one of the more unique ones along the lake. Had to have cost a fair bit of money to make this monster of a glass wall.""")
+        print("“Y'know, this restaurant is probably one of the more unique ones along the lake. At least from what I've seen. Had to have cost a fair bit of money to make this monster of a glass wall.""")
         print(''"Just think of the engineering they had to do get it to work, you have to make sure the glass is tempered and fairly thick, or else it’ll be destroyed in one hailstorm."'')
         print('"And you\'ve gotta factor in the fact that its probably going to have to be cleaned pretty often..."')
         input()
@@ -107,7 +107,7 @@ class ValeryLunchStart:
 
             elif val_glass in ['2']:
                 print(
-                    "“4 years! That’s how long I’ve been out of college as well. Went to Redding State University and got my bachelor’s degree there.“")
+                    "“4 years! That’s how long I’ve been out of college as well. Went to UT and got my bachelor’s degree there.“")
                 input()
                 print(
                     "I was actually lucky enough to get a job right out the gate, so yeah, I've been working as an engineer for 4 years.")
@@ -617,7 +617,7 @@ class ValeryLunchStart:
 
         elif val_get_to_know in ['5']:
             print("For whatever reason, you decide to just sit in relative silence while you wait for your lunch to arrive.")
-            print("This likely won't lead to you becoming freinds or getting to know Valery very much, but it might lead to dinner ending a little faster.")
+            print("This likely won't lead to you becoming freinds or getting to know Valery very much, but it might lead to lunch ending a little faster.")
             input()
             CharInfo.player_info.player_location = val_ending_lunch.valery_lunch_serving
             CharInfo.valery_checks.valery_date_points -= 4
