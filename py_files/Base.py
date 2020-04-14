@@ -39,7 +39,7 @@ def intro():
 
 
 def pcbedroom():
-    if CharInfo.sasha_checks.sasha_living is not True:
+    if CharInfo.sasha_checks.sasha_living is not True: # Checks player progression
         print(
             "You wake up the next morning, your bedroom is dimly lit with the only source of light being the sun as it sneaks through the blinds.")
 
@@ -76,7 +76,7 @@ def pcbedroom():
 
     print("You could also check your bank balance.")
     pcbedroomdirection = input('Which do you do? ').lower()
-    CharInfo.player_info.player_location = pcbedroom
+    CharInfo.player_info.player_location = pcbedroom  # Set players location
 
     if pcbedroomdirection in ['east', 'e']:  # How the player travels from place to place and interacts with things.
         player_bathroom.bathroompc()
@@ -102,11 +102,15 @@ def pcbedroom():
         pcsleep = input("Do you still want to go to sleep? (Yes or no) ").lower()
         if pcsleep in ['yes', 'y']:
             if TravelSystem.travel_points.tp in ['A quick walk']:
+
                 TravelSystem.travel_points.tp.remove('A quick walk')
+
             CharInfo.valery_checks.valery_first_walk = 'no walk'
             ValeryTransition.quick_walk.chapter_3_halfway_transistion()
+
         elif pcsleep in ['no', 'n']:
             return pcbedroom()
+
         else:
             print("Invalid input")
             return pcbedroom()
@@ -564,7 +568,7 @@ class LivingRoom:
             '"Actually, do you even like superhero movies? I won’t say anymore about it just In-case you want to watch it at some point."')
         input()
         print(
-            "You state your preference for superhero movies, saying that you haven’t really kept up with the Revengers movies since the first one")
+            "You state your preference for superhero movies, saying that you haven’t really kept up with the LM movies since the first one")
         input()
         print(
             '"Oh boy, you are in for a treat if you ever decide to catch up on them. Definitely let me know before you do, I’d love to re-watch all of them with you."')
@@ -575,7 +579,7 @@ class LivingRoom:
         if sasha_talk_or_confess in ['1']:
             print("You tell Sasha you want to talk about finding a purpose in life.")
             input()
-            print("“Purpose, huh? Yeah that doesn’t surprise, figured you’d get bored of your contract worker lifestyle.”")
+            print("“Purpose, huh? Yeah that doesn’t surprise me. Figured it wouldn't be long before you got sick of your current work style.”")
             print("“Well I’m assuming your issue is that you’re tired of not having something to chase after. The way you live now, you basically work for 2 weeks a month and then the rest of your time is just spent pissing around.”")
             input()
             print("“I have a little bit of experience with this myself, which of course makes me an expert on the topic. Back when I graduated high school, I was a mess. I had zero idea what I wanted to do. My parents wanted me to go to college, but I didn’t feel like I would be cut out for it.”")
@@ -591,7 +595,7 @@ class LivingRoom:
             print("“Wasn’t my ideal path, but my way of doing things kind of turned out to be a disaster, so I said, “fuck it” and decided to give the more traditional post high school path a go.”")
             print("“Ended up liking college quite a bit as you might have guessed. I went in as undecided but found my passion pretty quick, which was Geology.”")
             input()
-            print("“Point is, sometimes you have to go outside your comfort zone and ideals to find what you want. Sometimes you don’t know exactly what you want and you’ve gotta just wing it and hope you figure it out.”")
+            print("“Point is, sometimes you have to go outside your comfort zone to find what you want. Sometimes you don’t know exactly what you want and you’ve gotta just say 'fuck it' and")
             print("“If I were you, I’d start trying out new stuff. Maybe pick up a new hobby, meet someone new, volunteer. Just find something and see if you like it.”")
             input()
             while True:
@@ -633,11 +637,11 @@ class LivingRoom:
             clear()
             print("“And that’s why I think the prequel movies are underrated. I’m telling you that they would have been seen in a more positive light during the initial release if the audience expectations weren’t set sky high.”")
             input()
-            print("As Holly finishes her rant on the prequel movies you start to plan your exit.")
+            print("As Sasha finishes her rant on the prequel movies you start to plan your exit.")
             input()
-            print("“Anyway, I really enjoyed talking about movies with you. We really need to watch the Revengers movies sometime, I know you’ll love them.”")
+            print("“Anyway, I really enjoyed talking about movies with you. We really need to watch the LM movies sometime, I know you’ll love them.”")
             input()
-            print("You tell Holly you’re looking forward to watching them with her sometime. Now is not that time though, as you also tell Holly you’ll be heading up to bed.")
+            print("You tell Sasha you’re looking forward to watching them with her sometime. Now is not that time though, as you also tell Holly you’ll be heading up to bed.")
             input()
             print(" “Alright, see you around then. We’ve really gotta talk more often!”")
             input()
